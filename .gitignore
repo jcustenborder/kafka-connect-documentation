@@ -103,3 +103,4 @@ ENV/
 /include/
 /bin/
 /.idea/
+/pip-selfcheck.json
