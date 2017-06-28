@@ -8,7 +8,7 @@ node {
     deleteDir()
     checkout scm
 
-    docker.image('liuyuqi/jenkins').inside {
+    docker.image('jcustenborder/packaging-documentation').inside {
         sh 'virtualenv .'
         sh 'pip install -r requirements.txt'
         sh 'make clean html'
