@@ -9,6 +9,7 @@ node {
     checkout scm
 
     docker.image('python').inside {
+        sh 'virtualenv .'
         sh 'pip install -r requirements.txt'
         sh 'make clean html'
         archiveArtifacts "_build/html/**/*"
