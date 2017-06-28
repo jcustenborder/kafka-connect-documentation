@@ -9,8 +9,6 @@ node {
     checkout scm
 
     docker.image('jcustenborder/packaging-documentation').inside {
-        sh 'virtualenv .'
-        sh 'pip install -r requirements.txt'
         sh 'make clean html'
         archiveArtifacts "_build/html/**/*"
     }
