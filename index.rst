@@ -6,16 +6,25 @@
 Welcome to Kafka Connect Connectors's documentation!
 ====================================================
 
+`Kafka Connect <https://kafka.apache.org/documentation/#introduction>`_ is a fault tolerant framework for running
+connectors and tasks to pull data into and out of a Kafka Cluster. It is essentially the
+`E <https://en.wikipedia.org/wiki/Extract,_transform,_load#Extract>`_ and `L <https://en.wikipedia.org/wiki/Extract,_transform,_load#Load>`_
+of `ETL <https://en.wikipedia.org/wiki/Extract,_transform,_load>`_. Kafka Connect allows connectors and tasks to be spread
+across a grouping of machines for increased throughput and resiliency.
+
+This project is a collection of connectors and transforms that can be leveraged to build a realtime ETL pipeline.
+
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
 
    installation
-
+   sources
+   sinks
+   transforms
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
