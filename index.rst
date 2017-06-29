@@ -19,12 +19,19 @@ This project is a collection of connectors and transforms that can be leveraged 
    :caption: Contents:
 
    installation
-   sources
-   sinks
-   transforms
+   connectors
+
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`search`
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 0
+
+   configdef.type
+   schema.type
