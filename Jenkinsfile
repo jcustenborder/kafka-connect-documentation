@@ -21,49 +21,6 @@ def copyArtifacts(String name, String projectName) {
 
     def introductionFile = "${connectorDirectory}/introduction.rst"
 
-    if(fileExists(introductionFile)) {
-        writeFile(
-            file: "${introductionFile}",
-            text: "==============
-${name}
-==============
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Source Connectors:
-   :glob:
-
-   sources/*
-
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Sink Connectors:
-   :glob:
-
-   sinks/*
-
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Transformations:
-   :glob:
-
-   transformations/*
-
-
-.. toctree::
-   :maxdepth: 0
-   :caption: Schemas:
-   :
-   :glob:
-   :hidden:
-
-   schemas/*
-"
-    }
-
-}
 
 node {
     deleteDir()
@@ -73,10 +30,15 @@ node {
         'jcustenborder/kafka-connect-syslog/rst'
     ]
 
-    copyArtifacts('kafka-connect-syslog', 'jcustenborder/kafka-connect-syslog/rst')
+    stage('copy') {
+        copyArtifacts('kafka-connect-syslog', 'jcustenborder/kafka-connect-syslog/rst')
+    }
 
     docker.image('jcustenborder/packaging-documentation').inside {
-        sh 'make clean html'
+        stage('build') {
+            sh 'make clean html'
+        }
+
         archiveArtifacts "_build/html/**/*"
     }
 }
