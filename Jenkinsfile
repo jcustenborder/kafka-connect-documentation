@@ -8,7 +8,7 @@ def copyArtifacts(String name, String projectName) {
     def connectorRoot = "${pwd()}/connectors"
     def artifactRoot = "${pwd()}/_temp"
 
-    def artifactDirectory = "${artifactRoot}/${name}/target/docs"
+    def artifactDirectory = "${artifactRoot}/${name}"
     def connectorDirectory = "${connectorRoot}/${name}"
 
     step ([$class: 'CopyArtifact',
@@ -17,7 +17,7 @@ def copyArtifacts(String name, String projectName) {
         target: "${artifactDirectory}"
     ]);
 
-    sh "cp -rv '${artifactDirectory}' '${connectorDirectory}'"
+    sh "cp -rv '${artifactDirectory}/target/docs' '${connectorDirectory}'"
 }
 
 node {
