@@ -9,7 +9,7 @@ node {
     checkout scm
 
     includeJobs = [
-        'jcustenborder/kafka-connect-syslog/master'
+        'jcustenborder/kafka-connect-syslog/rst'
     ]
 
     dir('connectors') {
