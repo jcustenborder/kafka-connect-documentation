@@ -6,7 +6,7 @@ properties([
 
 def copyArtifacts(String name, String projectName) {
     def connectorRoot = "${pwd()}/connectors"
-    def artifactRoot = '${pwd()}/_temp'
+    def artifactRoot = "${pwd()}/_temp"
 
     def artifactDirectory = "${artifactRoot}/${name}"
     def connectorDirectory = "${connectorRoot}/${name}"
@@ -14,7 +14,7 @@ def copyArtifacts(String name, String projectName) {
     step ([$class: 'CopyArtifact',
         projectName: projectName,
         filter: 'target/docs/**/*',
-        target: ${artifactDirectory}
+        target: $artifactDirectory
     ]);
 
     sh "cp -rv '${artifactDirectory}' '${connectorDirectory}'"
