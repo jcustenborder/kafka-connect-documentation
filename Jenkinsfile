@@ -14,7 +14,7 @@ node {
 
     dir('connectors') {
         step ([$class: 'CopyArtifact',
-            projectName: 'jcustenborder/kafka-connect-syslog/master',
+            projectName: 'jcustenborder/kafka-connect-syslog/rst',
             filter: 'target/docs/**/*']
         );
     }
