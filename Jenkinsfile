@@ -18,6 +18,51 @@ def copyArtifacts(String name, String projectName) {
     ]);
 
     sh "cp -rv '${artifactDirectory}/target/docs' '${connectorDirectory}'"
+
+    def introductionFile = "${connectorDirectory}/introduction.rst"
+
+    if(fileExists(introductionFile)) {
+        writeFile(
+            file: "${introductionFile}",
+            text: "==============
+${name}
+==============
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Source Connectors:
+   :glob:
+
+   sources/*
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Sink Connectors:
+   :glob:
+
+   sinks/*
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Transformations:
+   :glob:
+
+   transformations/*
+
+
+.. toctree::
+   :maxdepth: 0
+   :caption: Schemas:
+   :
+   :glob:
+   :hidden:
+
+   schemas/*
+"
+    }
+
 }
 
 node {
