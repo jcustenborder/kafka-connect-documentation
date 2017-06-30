@@ -19,26 +19,21 @@ def copyArtifacts(String name, String projectName) {
 
     sh "cp -rv '${artifactDirectory}/target/docs' '${connectorDirectory}'"
 
-    def introductionFile = "${connectorDirectory}/introduction.rst"
+}
 
 
 node {
     deleteDir()
     checkout scm
 
-    includeJobs = [
-        'jcustenborder/kafka-connect-syslog/rst'
-    ]
-
     stage('copy') {
         copyArtifacts('kafka-connect-syslog', 'jcustenborder/kafka-connect-syslog/rst')
     }
 
-    docker.image('jcustenborder/packaging-documentation').inside {
-        stage('build') {
+    stage('build') {
+        docker.image('jcustenborder/packaging-documentation').inside {
             sh 'make clean html'
+            archiveArtifacts "_build/html/**/*"
         }
-
-        archiveArtifacts "_build/html/**/*"
     }
 }
