@@ -35,3 +35,4 @@ Indices and tables
 
    configdef.type
    schema.type
+   glossary
