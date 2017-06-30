@@ -15,3 +15,15 @@ Glossary
 
     Standalone Mode
         This is a glossary term for a source connector
+
+    SSL
+        A method for securing data between two hosts.
+
+    Schema Registry
+        Place holder
+
+    Avro
+        Place holder
+
+    Transformation
+        Place holder
