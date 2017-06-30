@@ -14,7 +14,7 @@ def copyArtifacts(String name, String projectName) {
     step ([$class: 'CopyArtifact',
         projectName: projectName,
         filter: 'target/docs/**/*',
-        target: $artifactDirectory
+        target: "${artifactDirectory}"
     ]);
 
     sh "cp -rv '${artifactDirectory}' '${connectorDirectory}'"
