@@ -8,7 +8,7 @@ def copyArtifacts(String name, String projectName) {
     def connectorRoot = "${pwd()}/connectors"
     def artifactRoot = "${pwd()}/_temp"
 
-    def artifactDirectory = "${artifactRoot}/${name}"
+    def artifactDirectory = "${artifactRoot}/${name}/target/docs"
     def connectorDirectory = "${connectorRoot}/${name}"
 
     step ([$class: 'CopyArtifact',
