@@ -41,7 +41,7 @@ node {
         sh 'mkdir _build/gh-pages'
         dir('_build/gh-pages') {
             git branch: 'gh-pages', changelog: false, credentialsId: '50a4ec3a-9caf-43d1-bfab-6465b47292da', poll: false, url: 'git@github.com:jcustenborder/kafka-connect-documentation.git'
-            sh 'cp -rv ../html/ .'
+            sh 'cp -rv ../html/* .'
             sh 'git add .'
             sh 'git config user.email "jenkins@custenborder.com"'
             sh 'git config user.name "Jenkins"'
