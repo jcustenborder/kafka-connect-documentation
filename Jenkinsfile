@@ -43,6 +43,8 @@ node {
             git branch: 'gh-pages', changelog: false, credentialsId: '50a4ec3a-9caf-43d1-bfab-6465b47292da', poll: false, url: 'git@github.com:jcustenborder/kafka-connect-documentation.git'
             sh 'cp -rv ../html/ .'
             sh 'git add .'
+            sh 'git config user.email "jenkins@custenborder.com"'
+            sh 'git config user.name "Jenkins"'
             sh "git commit -m 'Build ${BUILD_NUMBER}'"
             sh "git push 'git@github.com:jcustenborder/kafka-connect-documentation.git' gh-pages"
         }
