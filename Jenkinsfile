@@ -28,6 +28,7 @@ node {
 
     stage('copy') {
         copyArtifacts('kafka-connect-syslog', 'jcustenborder/kafka-connect-syslog/rst')
+        copyArtifacts('kafka-connect-kinesis', 'jcustenborder/kafka-connect-kinesis/rst')
     }
 
     stage('build') {
