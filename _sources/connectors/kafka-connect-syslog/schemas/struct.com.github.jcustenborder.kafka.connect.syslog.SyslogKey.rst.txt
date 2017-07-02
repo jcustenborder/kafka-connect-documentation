@@ -1,0 +1,12 @@
+=======================================================
+com.github.jcustenborder.kafka.connect.syslog.SyslogKey
+=======================================================
+
+This schema represents the key that is written to Kafka for syslog data. This will ensure that all data for a host ends up in the same partition.
+
+
++----------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------+
+| Name           | Optional | Schema                                             | Default Value | Documentation                                            |
++================+==========+====================================================+===============+==========================================================+
+| remote_address | false    | :ref:`schema-string`                               |               | The ip address of the host that sent the syslog message. |
++----------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------+
