@@ -1,6 +1,6 @@
-==============
-Amazon Kinesis
-==============
+========================
+Amazon Kinesis Connector
+========================
 
 .. toctree::
     :maxdepth: 1
