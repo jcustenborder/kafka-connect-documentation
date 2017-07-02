@@ -1,0 +1,35 @@
+==============
+Amazon Kinesis
+==============
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Source Connectors:
+    :glob:
+
+    sources/*
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Sink Connectors:
+    :glob:
+
+    sinks/*
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Transformations:
+    :glob:
+
+    transformations/*
+
+
+.. toctree::
+    :maxdepth: 0
+    :caption: Schemas:
+    :hidden:
+
+    schemas
+
