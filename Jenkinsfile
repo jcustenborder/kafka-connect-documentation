@@ -40,7 +40,7 @@ node {
     stage('publish') {
         sh 'mkdir _build/gh-pages'
         dir('_build/gh-pages') {
-            git branch: 'gh-pages', changelog: false, poll: false, url: 'git@github.com:jcustenborder/kafka-connect-documentation.git'
+            git branch: 'gh-pages', changelog: false, credentialsId: '50a4ec3a-9caf-43d1-bfab-6465b47292da', poll: false, url: 'git@github.com:jcustenborder/kafka-connect-documentation.git'
             sh 'cp -rv ../html/ .'
             sh 'git add .'
             sh "git commit -m 'Build ${BUILD_NUMBER}'"
