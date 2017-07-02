@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>com.github.jcustenborder.kafka.connect.kinesis.KinesisValue &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="RabbitMQ Connector" href="../../kafka-connect-rabbitmq/introduction.html"/>
-        <link rel="prev" title="com.github.jcustenborder.kafka.connect.kinesis.KinesisKey" href="struct.com.github.jcustenborder.kafka.connect.kinesis.KinesisKey.html"/> 
+        <link rel="next" title="com.github.jcustenborder.kafka.connect.rabbitmq.Envelope" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html"/>
+        <link rel="prev" title="com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -95,16 +95,19 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Amazon Kinesis Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../sources/kinesissourceconnector.html">KinesisSourceConnector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">RabbitMQ Connector</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sources/rabbitmqsourceconnector.html">RabbitMQSourceConnector</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.kinesis.KinesisKey.html">com.github.jcustenborder.kafka.connect.kinesis.KinesisKey</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.kinesis.KinesisValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.html">com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html">com.github.jcustenborder.kafka.connect.rabbitmq.Envelope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Message.html">com.github.jcustenborder.kafka.connect.rabbitmq.Message</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey.html">com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/introduction.html">RabbitMQ Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
 </ul>
 </li>
@@ -159,17 +162,17 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../introduction.html">Amazon Kinesis Connector</a> &raquo;</li>
+          <li><a href="../introduction.html">RabbitMQ Connector</a> &raquo;</li>
         
           <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
-      <li>com.github.jcustenborder.kafka.connect.kinesis.KinesisValue</li>
+      <li>com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/connectors/kafka-connect-kinesis/schemas/struct.com.github.jcustenborder.kafka.connect.kinesis.KinesisValue.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/connectors/kafka-connect-rabbitmq/schemas/struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -182,16 +185,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="com-github-jcustenborder-kafka-connect-kinesis-kinesisvalue">
-<h1>com.github.jcustenborder.kafka.connect.kinesis.KinesisValue<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-kinesis-kinesisvalue" title="Permalink to this headline">¶</a></h1>
-<p>The unit of data of the Amazon Kinesis stream, which is composed of a sequence number, a partition key, and a data blob. See [Record](<a class="reference external" href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html">http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html</a>)</p>
+  <div class="section" id="com-github-jcustenborder-kafka-connect-rabbitmq-basicproperties-headervalue">
+<h1>com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-rabbitmq-basicproperties-headervalue" title="Permalink to this headline">¶</a></h1>
+<p>Used to store the value of a header value. The <cite>type</cite> field stores the type of the data and the corresponding field to read the data from.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="3%" />
-<col width="1%" />
-<col width="6%" />
-<col width="2%" />
-<col width="88%" />
+<col width="5%" />
+<col width="4%" />
+<col width="23%" />
+<col width="7%" />
+<col width="61%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
@@ -202,41 +205,71 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>sequenceNumber</td>
-<td>true</td>
+<tr class="row-even"><td>type</td>
+<td>false</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
 <td>&#160;</td>
-<td>The unique identifier of the record in the stream. See [Record.getSequenceNumber()](<a class="reference external" href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getSequenceNumber">http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getSequenceNumber</a>–)</td>
+<td>Used to define the type for the HeaderValue. This will define the corresponding field which will contain the value in it’s original type.</td>
 </tr>
-<tr class="row-odd"><td>approximateArrivalTimestamp</td>
+<tr class="row-odd"><td>timestamp</td>
 <td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
 <td>&#160;</td>
-<td>The approximate time that the record was inserted into the stream. See [Record.getApproximateArrivalTimestamp()](<a class="reference external" href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getApproximateArrivalTimestamp">http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getApproximateArrivalTimestamp</a>–)</td>
+<td>Storage for when the <cite>type</cite> field is set to <cite>timestamp</cite>. Null otherwise.</td>
 </tr>
-<tr class="row-even"><td>data</td>
+<tr class="row-even"><td>int8</td>
+<td>true</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int8"><span class="std std-ref">INT8</span></a></td>
+<td>&#160;</td>
+<td>Storage for when the <cite>type</cite> field is set to <cite>int8</cite>. Null otherwise.</td>
+</tr>
+<tr class="row-odd"><td>int16</td>
+<td>true</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int16"><span class="std std-ref">INT16</span></a></td>
+<td>&#160;</td>
+<td>Storage for when the <cite>type</cite> field is set to <cite>int16</cite>. Null otherwise.</td>
+</tr>
+<tr class="row-even"><td>int32</td>
+<td>true</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>&#160;</td>
+<td>Storage for when the <cite>type</cite> field is set to <cite>int32</cite>. Null otherwise.</td>
+</tr>
+<tr class="row-odd"><td>int64</td>
+<td>true</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
+<td>&#160;</td>
+<td>Storage for when the <cite>type</cite> field is set to <cite>int64</cite>. Null otherwise.</td>
+</tr>
+<tr class="row-even"><td>float32</td>
+<td>true</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-float32"><span class="std std-ref">FLOAT32</span></a></td>
+<td>&#160;</td>
+<td>Storage for when the <cite>type</cite> field is set to <cite>float32</cite>. Null otherwise.</td>
+</tr>
+<tr class="row-odd"><td>float64</td>
+<td>true</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-float64"><span class="std std-ref">FLOAT64</span></a></td>
+<td>&#160;</td>
+<td>Storage for when the <cite>type</cite> field is set to <cite>float64</cite>. Null otherwise.</td>
+</tr>
+<tr class="row-even"><td>boolean</td>
+<td>true</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
+<td>&#160;</td>
+<td>Storage for when the <cite>type</cite> field is set to <cite>boolean</cite>. Null otherwise.</td>
+</tr>
+<tr class="row-odd"><td>string</td>
+<td>true</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>&#160;</td>
+<td>Storage for when the <cite>type</cite> field is set to <cite>string</cite>. Null otherwise.</td>
+</tr>
+<tr class="row-even"><td>bytes</td>
 <td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-bytes"><span class="std std-ref">BYTES</span></a></td>
 <td>&#160;</td>
-<td>The data blob. See [Record.getData()](<a class="reference external" href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getData">http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getData</a>–)</td>
-</tr>
-<tr class="row-odd"><td>partitionKey</td>
-<td>true</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>&#160;</td>
-<td>A partition key is used to group data by shard within a stream. The Streams service segregates the data records belonging to a stream into multiple shards, using the partition key associated with each data record to determine which shard a given data record belongs to. Partition keys are Unicode strings with a maximum length limit of 256 bytes. An MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. A partition key is specified by the applications putting the data into a stream. Identifies which shard in the stream the data record is assigned to. See [Record.getPartitionKey()](<a class="reference external" href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getPartitionKey">http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getPartitionKey</a>–)</td>
-</tr>
-<tr class="row-even"><td>shardId</td>
-<td>true</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>&#160;</td>
-<td>A shard is a uniquely identified group of data records in a stream. A stream is composed of one or more shards, each of which provides a fixed unit of capacity. Each shard can support up to 5 transactions per second for reads, up to a maximum total data read rate of 2 MB per second and up to 1,000 records per second for writes, up to a maximum total data write rate of 1 MB per second (including partition keys). The data capacity of your stream is a function of the number of shards that you specify for the stream. The total capacity of the stream is the sum of the capacities of its shards.</td>
-</tr>
-<tr class="row-odd"><td>streamName</td>
-<td>true</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>&#160;</td>
-<td>The name of the Kinesis stream.</td>
+<td>Storage for when the <cite>type</cite> field is set to <cite>bytes</cite>. Null otherwise.</td>
 </tr>
 </tbody>
 </table>
@@ -252,10 +285,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../kafka-connect-rabbitmq/introduction.html" class="btn btn-neutral float-right" title="RabbitMQ Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html" class="btn btn-neutral float-right" title="com.github.jcustenborder.kafka.connect.rabbitmq.Envelope" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.kinesis.KinesisKey.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.kinesis.KinesisKey" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

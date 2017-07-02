@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>com.github.jcustenborder.kafka.connect.kinesis.KinesisKey &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="com.github.jcustenborder.kafka.connect.kinesis.KinesisValue" href="struct.com.github.jcustenborder.kafka.connect.kinesis.KinesisValue.html"/>
-        <link rel="prev" title="Schemas" href="../schemas.html"/> 
+        <link rel="next" title="Syslog Connector" href="../../kafka-connect-syslog/introduction.html"/>
+        <link rel="prev" title="com.github.jcustenborder.kafka.connect.rabbitmq.Message" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Message.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -95,16 +95,19 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Amazon Kinesis Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../sources/kinesissourceconnector.html">KinesisSourceConnector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">RabbitMQ Connector</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sources/rabbitmqsourceconnector.html">RabbitMQSourceConnector</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.kinesis.KinesisKey</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.kinesis.KinesisValue.html">com.github.jcustenborder.kafka.connect.kinesis.KinesisValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.html">com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue.html">com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html">com.github.jcustenborder.kafka.connect.rabbitmq.Envelope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Message.html">com.github.jcustenborder.kafka.connect.rabbitmq.Message</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/introduction.html">RabbitMQ Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
 </ul>
 </li>
@@ -159,17 +162,17 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../introduction.html">Amazon Kinesis Connector</a> &raquo;</li>
+          <li><a href="../introduction.html">RabbitMQ Connector</a> &raquo;</li>
         
           <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
-      <li>com.github.jcustenborder.kafka.connect.kinesis.KinesisKey</li>
+      <li>com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/connectors/kafka-connect-kinesis/schemas/struct.com.github.jcustenborder.kafka.connect.kinesis.KinesisKey.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/connectors/kafka-connect-rabbitmq/schemas/struct.com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -182,16 +185,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="com-github-jcustenborder-kafka-connect-kinesis-kinesiskey">
-<h1>com.github.jcustenborder.kafka.connect.kinesis.KinesisKey<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-kinesis-kinesiskey" title="Permalink to this headline">¶</a></h1>
-<p>A partition key is used to group data by shard within a stream.</p>
+  <div class="section" id="com-github-jcustenborder-kafka-connect-rabbitmq-messagekey">
+<h1>com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-rabbitmq-messagekey" title="Permalink to this headline">¶</a></h1>
+<p>Key used for partition assignment in Kafka.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="2%" />
-<col width="1%" />
-<col width="6%" />
-<col width="2%" />
-<col width="89%" />
+<col width="4%" />
+<col width="4%" />
+<col width="18%" />
+<col width="5%" />
+<col width="69%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
@@ -202,11 +205,11 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>partitionKey</td>
+<tr class="row-even"><td>messageId</td>
 <td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
 <td>&#160;</td>
-<td>A partition key is used to group data by shard within a stream. The Streams service segregates the data records belonging to a stream into multiple shards, using the partition key associated with each data record to determine which shard a given data record belongs to. Partition keys are Unicode strings with a maximum length limit of 256 bytes. An MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. A partition key is specified by the applications putting the data into a stream. Identifies which shard in the stream the data record is assigned to. See [Record.getPartitionKey()](<a class="reference external" href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getPartitionKey">http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getPartitionKey</a>–)</td>
+<td>The value in the messageId field. [BasicProperties.getMessageId()](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getMessageId">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getMessageId</a>–)</td>
 </tr>
 </tbody>
 </table>
@@ -222,10 +225,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.kinesis.KinesisValue.html" class="btn btn-neutral float-right" title="com.github.jcustenborder.kafka.connect.kinesis.KinesisValue" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../kafka-connect-syslog/introduction.html" class="btn btn-neutral float-right" title="Syslog Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../schemas.html" class="btn btn-neutral" title="Schemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Message.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.rabbitmq.Message" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
