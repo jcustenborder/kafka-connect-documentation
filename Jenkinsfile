@@ -46,7 +46,9 @@ node {
             sh 'git config user.email "jenkins@custenborder.com"'
             sh 'git config user.name "Jenkins"'
             sh "git commit -m 'Build ${BUILD_NUMBER}'"
-            sh "git push 'git@github.com:jcustenborder/kafka-connect-documentation.git' gh-pages"
+            sshagent (credentials: ['50a4ec3a-9caf-43d1-bfab-6465b47292da']) {
+                sh "git push 'git@github.com:jcustenborder/kafka-connect-documentation.git' gh-pages"
+            }
         }
     }
 }
