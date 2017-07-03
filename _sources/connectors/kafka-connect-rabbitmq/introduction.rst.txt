@@ -2,8 +2,8 @@
 RabbitMQ Connector
 ==================
 
-The Syslog Connector provides a Kafka Connect :term:`Source Connector` that can receive data from remote hosts using the
-syslog protocol. Syslog messages over UDP per :rfc:`5426`, TCP per :rfc:`6587`, and TCP with SSL per :rfc:`5425`.
+The RabbitMQ Connector provides a method to pull changes from `Rabbit <https://www.rabbitmq.com/tutorials/amqp-concepts.html>`
+and write them to a :term:`Kafka topic`.
 
 .. toctree::
     :maxdepth: 1

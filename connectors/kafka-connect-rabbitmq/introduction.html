@@ -95,13 +95,17 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../connectors.html">Connectors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-flume-avro/introduction.html">Flume Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">RabbitMQ Connector</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sources/rabbitmqsourceconnector.html">RabbitMQSourceConnector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="schemas.html">Schemas</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/introduction.html">Twitter Connector</a></li>
 </ul>
 </li>
 </ul>
@@ -176,8 +180,8 @@
             
   <div class="section" id="rabbitmq-connector">
 <h1>RabbitMQ Connector<a class="headerlink" href="#rabbitmq-connector" title="Permalink to this headline">¶</a></h1>
-<p>The Syslog Connector provides a Kafka Connect <a class="reference internal" href="../../glossary.html#term-source-connector"><span class="xref std std-term">Source Connector</span></a> that can receive data from remote hosts using the
-syslog protocol. Syslog messages over UDP per <span class="target" id="index-0"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc5426.html"><strong>RFC 5426</strong></a>, TCP per <span class="target" id="index-1"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc6587.html"><strong>RFC 6587</strong></a>, and TCP with SSL per <span class="target" id="index-2"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc5425.html"><strong>RFC 5425</strong></a>.</p>
+<p>The RabbitMQ Connector provides a method to pull changes from <cite>Rabbit &lt;https://www.rabbitmq.com/tutorials/amqp-concepts.html&gt;</cite>
+and write them to a <a class="reference internal" href="../../glossary.html#term-kafka-topic"><span class="xref std std-term">Kafka topic</span></a>.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">

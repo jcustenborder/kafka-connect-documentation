@@ -1,0 +1,86 @@
+========================
+FlumeAvroSourceConnector
+========================
+
+Connector is used to emulate a `Flume Avro Source <https://flume.apache.org/FlumeUserGuide.html#avro-source>` to allow Flume Agents to forward events to a Kafka Connect pipeline.
+
+
+
+-------------
+Configuration
+-------------
+
++-----------------------+-------------------------------+------------+---------------+----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| topic                 | :ref:`configuration-string`   | High       |               |                                                          | Topic to write the data to.                                                                                                                            |
++-----------------------+-------------------------------+------------+---------------+----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ssl.enabled           | :ref:`configuration-boolean`  | Medium     |               |                                                          | Flag to determine if ssl should be configured for the connection.                                                                                      |
++-----------------------+-------------------------------+------------+---------------+----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ssl.keystore.password | :ref:`configuration-password` | Medium     |               |                                                          | The password for the java keystore containing the certificate.                                                                                         |
++-----------------------+-------------------------------+------------+---------------+----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ssl.keystore.path     | :ref:`configuration-string`   | Medium     |               |                                                          | The path to the keystore on the local file system.                                                                                                     |
++-----------------------+-------------------------------+------------+---------------+----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| bind                  | :ref:`configuration-string`   | High       | 0.0.0.0       |                                                          | IP Address or hostname to bind to.                                                                                                                     |
++-----------------------+-------------------------------+------------+---------------+----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| port                  | :ref:`configuration-int`      | High       | 4545          | ValidPort{start=1025, end=65535}                         | Port to bind to.                                                                                                                                       |
++-----------------------+-------------------------------+------------+---------------+----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ssl.keystore.type     | :ref:`configuration-string`   | Medium     | PKCS12        | [PKCS12, JKS]                                            | The type of keystore.                                                                                                                                  |
++-----------------------+-------------------------------+------------+---------------+----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| compression           | :ref:`configuration-string`   | Low        | NONE          | ValidEnum{enum=CompressionType, allowed=[DEFLATE, NONE]} | The compression type. This must match on both flume agent and the connector.                                                                           |
++-----------------------+-------------------------------+------------+---------------+----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| key.type              | :ref:`configuration-string`   | Low        | NONE          | ValidEnum{enum=KeyType, allowed=[NONE, HEADERS, SENDER]} | The type of key to include. NONE will set the key field as null. HEADERS will include the headers. SENDER will include the host that sent the message. |
++-----------------------+-------------------------------+------------+---------------+----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| worker.threads        | :ref:`configuration-int`      | Low        | 10            | [1,...,1000]                                             | The number of worker threads to spawn.                                                                                                                 |
++-----------------------+-------------------------------+------------+---------------+----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+^^^^^^^^^^^^^^^^^^^^^^
+Property based example
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `standalone mode
+<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
+
+.. code-block:: properties
+
+    name=connector1
+    tasks.max=1
+    connector.class=com.github.jcustenborder.kafka.connect.flume.FlumeAvroSourceConnector
+    # The following values must be configured.
+    topic=
+    ssl.enabled=
+    ssl.keystore.password=
+    ssl.keystore.path=
+
+
+
+^^^^^^^^^^^^^^^^^^
+Rest based example
+^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `distributed mode
+<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
+Write the following json to `connector.json` and use the command below to post the configuration to the distributed connect workers.
+
+.. code-block:: json
+
+    {
+        "name": "connector1",
+        "config": {
+            "connector.class": "com.github.jcustenborder.kafka.connect.flume.FlumeAvroSourceConnector",
+            "topic":"",
+            "ssl.enabled":"",
+            "ssl.keystore.password":"",
+            "ssl.keystore.path":"",
+        }
+    }
+
+Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
+one of your Kafka Connect workers.
+
+.. code-block:: bash
+
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+

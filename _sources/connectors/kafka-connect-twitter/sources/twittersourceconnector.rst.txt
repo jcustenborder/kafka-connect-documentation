@@ -1,0 +1,92 @@
+======================
+TwitterSourceConnector
+======================
+
+This Twitter Source connector is used to pull data from Twitter in realtime.
+
+
+
+-------------
+Configuration
+-------------
+
++---------------------------------+-------------------------------+------------+---------------+-----------+---------------------------------------------------+
+| filter.keywords                 | :ref:`configuration-list`     | High       |               |           | Twitter keywords to filter for.                   |
++---------------------------------+-------------------------------+------------+---------------+-----------+---------------------------------------------------+
+| kafka.delete.topic              | :ref:`configuration-string`   | High       |               |           | Kafka topic to write delete events to.            |
++---------------------------------+-------------------------------+------------+---------------+-----------+---------------------------------------------------+
+| kafka.status.topic              | :ref:`configuration-string`   | High       |               |           | Kafka topic to write the statuses to.             |
++---------------------------------+-------------------------------+------------+---------------+-----------+---------------------------------------------------+
+| process.deletes                 | :ref:`configuration-boolean`  | High       |               |           | Should this connector process deletes.            |
++---------------------------------+-------------------------------+------------+---------------+-----------+---------------------------------------------------+
+| twitter.oauth.accessToken       | :ref:`configuration-password` | High       |               |           | OAuth access token                                |
++---------------------------------+-------------------------------+------------+---------------+-----------+---------------------------------------------------+
+| twitter.oauth.accessTokenSecret | :ref:`configuration-password` | High       |               |           | OAuth access token secret                         |
++---------------------------------+-------------------------------+------------+---------------+-----------+---------------------------------------------------+
+| twitter.oauth.consumerKey       | :ref:`configuration-password` | High       |               |           | OAuth consumer key                                |
++---------------------------------+-------------------------------+------------+---------------+-----------+---------------------------------------------------+
+| twitter.oauth.consumerSecret    | :ref:`configuration-password` | High       |               |           | OAuth consumer secret                             |
++---------------------------------+-------------------------------+------------+---------------+-----------+---------------------------------------------------+
+| twitter.debug                   | :ref:`configuration-boolean`  | Low        | false         |           | Flag to enable debug logging for the twitter api. |
++---------------------------------+-------------------------------+------------+---------------+-----------+---------------------------------------------------+
+
+^^^^^^^^^^^^^^^^^^^^^^
+Property based example
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `standalone mode
+<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
+
+.. code-block:: properties
+
+    name=connector1
+    tasks.max=1
+    connector.class=com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnector
+    # The following values must be configured.
+    filter.keywords=
+    kafka.delete.topic=
+    kafka.status.topic=
+    process.deletes=
+    twitter.oauth.accessToken=
+    twitter.oauth.accessTokenSecret=
+    twitter.oauth.consumerKey=
+    twitter.oauth.consumerSecret=
+
+
+
+^^^^^^^^^^^^^^^^^^
+Rest based example
+^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `distributed mode
+<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
+Write the following json to `connector.json` and use the command below to post the configuration to the distributed connect workers.
+
+.. code-block:: json
+
+    {
+        "name": "connector1",
+        "config": {
+            "connector.class": "com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnector",
+            "filter.keywords":"",
+            "kafka.delete.topic":"",
+            "kafka.status.topic":"",
+            "process.deletes":"",
+            "twitter.oauth.accessToken":"",
+            "twitter.oauth.accessTokenSecret":"",
+            "twitter.oauth.consumerKey":"",
+            "twitter.oauth.consumerSecret":"",
+        }
+    }
+
+Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
+one of your Kafka Connect workers.
+
+.. code-block:: bash
+
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+
