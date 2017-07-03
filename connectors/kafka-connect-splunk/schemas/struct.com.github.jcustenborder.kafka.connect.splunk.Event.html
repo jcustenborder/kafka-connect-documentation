@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>com.github.jcustenborder.kafka.connect.rabbitmq.Message &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>com.github.jcustenborder.kafka.connect.splunk.Event &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey.html"/>
-        <link rel="prev" title="com.github.jcustenborder.kafka.connect.rabbitmq.Envelope" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html"/> 
+        <link rel="next" title="com.github.jcustenborder.kafka.connect.splunk.EventKey" href="struct.com.github.jcustenborder.kafka.connect.splunk.EventKey.html"/>
+        <link rel="prev" title="Schemas" href="../schemas.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -97,19 +97,17 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/introduction.html">Flume Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">RabbitMQ Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../sources/rabbitmqsourceconnector.html">RabbitMQSourceConnector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/introduction.html">RabbitMQ Connector</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Splunk Connector</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sources/splunkhttpsourceconnector.html">SplunkHttpSourceConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sinks/splunkhttpsinkconnector.html">SplunkHttpSinkConnector</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.html">com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue.html">com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html">com.github.jcustenborder.kafka.connect.rabbitmq.Envelope</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.rabbitmq.Message</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey.html">com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.splunk.Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.splunk.EventKey.html">com.github.jcustenborder.kafka.connect.splunk.EventKey</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/introduction.html">Splunk Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
@@ -167,17 +165,17 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../introduction.html">RabbitMQ Connector</a> &raquo;</li>
+          <li><a href="../introduction.html">Splunk Connector</a> &raquo;</li>
         
           <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
-      <li>com.github.jcustenborder.kafka.connect.rabbitmq.Message</li>
+      <li>com.github.jcustenborder.kafka.connect.splunk.Event</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/connectors/kafka-connect-rabbitmq/schemas/struct.com.github.jcustenborder.kafka.connect.rabbitmq.Message.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/connectors/kafka-connect-splunk/schemas/struct.com.github.jcustenborder.kafka.connect.splunk.Event.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -190,16 +188,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="com-github-jcustenborder-kafka-connect-rabbitmq-message">
-<h1>com.github.jcustenborder.kafka.connect.rabbitmq.Message<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-rabbitmq-message" title="Permalink to this headline">¶</a></h1>
-<p>Message as it is delivered to the [RabbitMQ Consumer](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Consumer.html#handleDelivery-java.lang.String-com.rabbitmq.client.Envelope-com.rabbitmq.client.AMQP.BasicProperties-byte:A">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Consumer.html#handleDelivery-java.lang.String-com.rabbitmq.client.Envelope-com.rabbitmq.client.AMQP.BasicProperties-byte:A</a>-)</p>
+  <div class="section" id="com-github-jcustenborder-kafka-connect-splunk-event">
+<h1>com.github.jcustenborder.kafka.connect.splunk.Event<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-splunk-event" title="Permalink to this headline">¶</a></h1>
+<p>This schema represents the data received from the Splunk listener.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="6%" />
-<col width="4%" />
-<col width="18%" />
 <col width="5%" />
-<col width="67%" />
+<col width="4%" />
+<col width="20%" />
+<col width="6%" />
+<col width="66%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
@@ -210,29 +208,41 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>consumerTag</td>
-<td>false</td>
+<tr class="row-even"><td>time</td>
+<td>true</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
+<td>&#160;</td>
+<td>The event time.</td>
+</tr>
+<tr class="row-odd"><td>host</td>
+<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
 <td>&#160;</td>
-<td>The consumer tag associated with the consumer</td>
+<td>The host value to assign to the event data. This is typically the hostname of the client from which you’re sending data.</td>
 </tr>
-<tr class="row-odd"><td>envelope</td>
-<td>false</td>
-<td>STRUCT</td>
-<td>&#160;</td>
-<td>Encapsulates a group of parameters used for AMQP’s Basic methods. See [Envelope](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Envelope.html">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Envelope.html</a>)</td>
-</tr>
-<tr class="row-even"><td>basicProperties</td>
+<tr class="row-even"><td>source</td>
 <td>true</td>
-<td>STRUCT</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
 <td>&#160;</td>
-<td>Corresponds to the [BasicProperties](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html</a>)</td>
+<td>The source value to assign to the event data. For example, if you’re sending data from an app you’re developing, you could set this key to the name of the app.</td>
 </tr>
-<tr class="row-odd"><td>body</td>
-<td>false</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-bytes"><span class="std std-ref">BYTES</span></a></td>
+<tr class="row-odd"><td>sourcetype</td>
+<td>true</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
 <td>&#160;</td>
-<td>The value body (opaque, client-specific byte array)</td>
+<td>The sourcetype value to assign to the event data.</td>
+</tr>
+<tr class="row-even"><td>index</td>
+<td>true</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>&#160;</td>
+<td>The name of the index by which the event data is to be indexed. The index you specify here must within the list of allowed indexes if the token has the indexes parameter set.</td>
+</tr>
+<tr class="row-odd"><td>event</td>
+<td>true</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>&#160;</td>
+<td>This is the event it’s self. This is the serialized json form. It could be an object or a string.</td>
 </tr>
 </tbody>
 </table>
@@ -248,10 +258,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey.html" class="btn btn-neutral float-right" title="com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.splunk.EventKey.html" class="btn btn-neutral float-right" title="com.github.jcustenborder.kafka.connect.splunk.EventKey" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.rabbitmq.Envelope" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../schemas.html" class="btn btn-neutral" title="Schemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

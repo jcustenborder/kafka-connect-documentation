@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>UDPSyslogSourceConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>SplunkHttpSourceConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Syslog Connector" href="../introduction.html"/>
-        <link rel="next" title="Schemas" href="../schemas.html"/>
-        <link rel="prev" title="TCPSyslogSourceConnector" href="tcpsyslogsourceconnector.html"/> 
+        <link rel="up" title="Splunk Connector" href="../introduction.html"/>
+        <link rel="next" title="SplunkHttpSinkConnector" href="../sinks/splunkhttpsinkconnector.html"/>
+        <link rel="prev" title="Splunk Connector" href="../introduction.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -98,19 +98,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/introduction.html">Flume Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/introduction.html">RabbitMQ Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/introduction.html">Splunk Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Syslog Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="ssltcpsyslogsourceconnector.html">SSLTCPSyslogSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tcpsyslogsourceconnector.html">TCPSyslogSourceConnector</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">UDPSyslogSourceConnector</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Splunk Connector</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SplunkHttpSourceConnector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../sinks/splunkhttpsinkconnector.html">SplunkHttpSinkConnector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/introduction.html">Twitter Connector</a></li>
 </ul>
 </li>
@@ -165,15 +164,15 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../introduction.html">Syslog Connector</a> &raquo;</li>
+          <li><a href="../introduction.html">Splunk Connector</a> &raquo;</li>
         
-      <li>UDPSyslogSourceConnector</li>
+      <li>SplunkHttpSourceConnector</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/connectors/kafka-connect-syslog/sources/udpsyslogsourceconnector.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/connectors/kafka-connect-splunk/sources/splunkhttpsourceconnector.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -186,9 +185,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="udpsyslogsourceconnector">
-<h1>UDPSyslogSourceConnector<a class="headerlink" href="#udpsyslogsourceconnector" title="Permalink to this headline">¶</a></h1>
-<p>Connector is used to receive syslog messages over UDP.</p>
+  <div class="section" id="splunkhttpsourceconnector">
+<h1>SplunkHttpSourceConnector<a class="headerlink" href="#splunkhttpsourceconnector" title="Permalink to this headline">¶</a></h1>
+<p>The Splunk Source connector allows emulates a <cite>Splunk Http Event Collector</cite> &lt;<a class="reference external" href="http://dev.splunk.com/view/event-collector/SP-CAAAE6M">http://dev.splunk.com/view/event-collector/SP-CAAAE6M</a>&gt; to allow application that normally log to Splunk to instead write to Kafka. The goal of this plugin is to make the change nearly transparent to the user. This plugin currently has support for <cite>X-Forwarded-For &lt;https://en.wikipedia.org/wiki/X-Forwarded-For&gt;</cite> so it will sit behind a load balancer nicely.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">This connector listens on a network port. Running more than one task or running in distributed mode can cause some undesired effects if another task already has the port open. It is recommended that you run this connector in <a class="reference internal" href="../../../glossary.html#term-standalone-mode"><span class="xref std std-term">Standalone Mode</span></a>.</p>
@@ -197,12 +196,12 @@
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="12%" />
-<col width="12%" />
-<col width="5%" />
+<col width="8%" />
+<col width="7%" />
+<col width="3%" />
 <col width="6%" />
-<col width="14%" />
-<col width="51%" />
+<col width="3%" />
+<col width="72%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>kafka.topic</td>
@@ -210,70 +209,77 @@
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td>Kafka topic to write syslog data to.</td>
+<td>This value contains the topic that the messages will be written to. If topic per index is enabled this will be the prefix for the topic. If not this will be the exact topic.</td>
 </tr>
-<tr class="row-even"><td>syslog.host</td>
+<tr class="row-even"><td>splunk.collector.index.default</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-string"><span class="std std-ref">String</span></a></td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td>Hostname to listen on.</td>
+<td>The index that will be used if no index is specified in the event message.</td>
 </tr>
-<tr class="row-odd"><td>syslog.port</td>
+<tr class="row-odd"><td>splunk.ssl.key.store.password</td>
+<td><a class="reference internal" href="../../../configdef.type.html#configuration-password"><span class="std std-ref">Password</span></a></td>
+<td>High</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>The password for opening the keystore.</td>
+</tr>
+<tr class="row-even"><td>splunk.ssl.key.store.path</td>
+<td><a class="reference internal" href="../../../configdef.type.html#configuration-string"><span class="std std-ref">String</span></a></td>
+<td>High</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>The path to the keystore on the local filesystem.</td>
+</tr>
+<tr class="row-odd"><td>splunk.port</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-int"><span class="std std-ref">Int</span></a></td>
 <td>High</td>
-<td>5514</td>
-<td>ValidPort{start=1000, end=65535}</td>
-<td>Port to listen on.</td>
+<td>8088</td>
+<td>&#160;</td>
+<td>The port to configure the http listener on.</td>
 </tr>
-<tr class="row-even"><td>backoff.ms</td>
+<tr class="row-even"><td>topic.per.index</td>
+<td><a class="reference internal" href="../../../configdef.type.html#configuration-boolean"><span class="std std-ref">Boolean</span></a></td>
+<td>Medium</td>
+<td>false</td>
+<td>&#160;</td>
+<td>Flag determines if the all generated messages should be written toa single topic or should the messages be placed in a topic prefixed by the supplied index. If true the <cite>kafka.topic</cite> setting will be concatenated along with the index name. If false the <cite>kafka.topic</cite> value will be used for the topic.</td>
+</tr>
+<tr class="row-odd"><td>backoff.ms</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-int"><span class="std std-ref">Int</span></a></td>
 <td>Low</td>
 <td>100</td>
-<td>[50,…]</td>
-<td>Number of milliseconds to sleep when no data is returned.</td>
+<td>&#160;</td>
+<td>The number of milliseconds to back off when there are no records in thequeue.</td>
 </tr>
-<tr class="row-odd"><td>batch.size</td>
+<tr class="row-even"><td>batch.size</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-int"><span class="std std-ref">Int</span></a></td>
 <td>Low</td>
-<td>5000</td>
+<td>10000</td>
 <td>&#160;</td>
-<td>The number of records to pull off of the queue at once.</td>
+<td>Maximum number of records to write per poll call.</td>
 </tr>
-<tr class="row-even"><td>syslog.charset</td>
+<tr class="row-odd"><td>splunk.collector.index.allowed</td>
+<td><a class="reference internal" href="../../../configdef.type.html#configuration-list"><span class="std std-ref">List</span></a></td>
+<td>Low</td>
+<td>[]</td>
+<td>&#160;</td>
+<td>The indexes this connector allows data to be written for. Specifying an index outside of this list will result in an exception being raised.</td>
+</tr>
+<tr class="row-even"><td>splunk.collector.url</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-string"><span class="std std-ref">String</span></a></td>
 <td>Low</td>
-<td>UTF-8</td>
+<td>/services/collector/event</td>
 <td>&#160;</td>
-<td>Character set for syslog messages.</td>
+<td>Path fragement the servlet should respond on</td>
 </tr>
-<tr class="row-odd"><td>syslog.reverse.dns.cache.ms</td>
-<td><a class="reference internal" href="../../../configdef.type.html#configuration-long"><span class="std std-ref">Long</span></a></td>
-<td>Low</td>
-<td>60000</td>
-<td>&#160;</td>
-<td>The amount of time to cache the reverse lookup values from DNS.</td>
-</tr>
-<tr class="row-even"><td>syslog.reverse.dns.remote.ip</td>
+<tr class="row-odd"><td>splunk.ssl.renegotiation.allowed</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-boolean"><span class="std std-ref">Boolean</span></a></td>
 <td>Low</td>
-<td>false</td>
+<td>true</td>
 <td>&#160;</td>
-<td>Flag to determine if the ip address of the remote sender should be resolved. If set to false the hostname value will be null.</td>
-</tr>
-<tr class="row-odd"><td>syslog.shutdown.wait</td>
-<td><a class="reference internal" href="../../../configdef.type.html#configuration-long"><span class="std std-ref">Long</span></a></td>
-<td>Low</td>
-<td>500</td>
-<td>&#160;</td>
-<td>The amount of time in milliseconds to wait for messages when shutting down the server.</td>
-</tr>
-<tr class="row-even"><td>syslog.structured.data</td>
-<td><a class="reference internal" href="../../../configdef.type.html#configuration-boolean"><span class="std std-ref">Boolean</span></a></td>
-<td>Low</td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine if structured data should be used.</td>
+<td>Flag to determine if ssl renegotiation is allowed.</td>
 </tr>
 </tbody>
 </table>
@@ -282,9 +288,12 @@
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
 <div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">connector1</span>
 <span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
-<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.syslog.UDPSyslogSourceConnector</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.splunk.SplunkHttpSourceConnector</span>
 <span class="c"># The following values must be configured.</span>
 <span class="na">kafka.topic</span><span class="o">=</span>
+<span class="na">splunk.collector.index.default</span><span class="o">=</span>
+<span class="na">splunk.ssl.key.store.password</span><span class="o">=</span>
+<span class="na">splunk.ssl.key.store.path</span><span class="o">=</span>
 </pre></div>
 </div>
 </div>
@@ -295,8 +304,11 @@ Write the following json to <cite>connector.json</cite> and use the command belo
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
     <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.syslog.UDPSyslogSourceConnector&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.splunk.SplunkHttpSourceConnector&quot;</span><span class="p">,</span>
         <span class="nt">&quot;kafka.topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;splunk.collector.index.default&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;splunk.ssl.key.store.password&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;splunk.ssl.key.store.path&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -320,10 +332,10 @@ one of your Kafka Connect workers.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../sinks/splunkhttpsinkconnector.html" class="btn btn-neutral float-right" title="SplunkHttpSinkConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tcpsyslogsourceconnector.html" class="btn btn-neutral" title="TCPSyslogSourceConnector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../introduction.html" class="btn btn-neutral" title="Splunk Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

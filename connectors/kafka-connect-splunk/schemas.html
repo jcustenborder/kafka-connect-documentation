@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>StatsD Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Schemas &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="Connectors" href="../../connectors.html"/>
-        <link rel="next" title="StatsDSourceConnector" href="sources/statsdsourceconnector.html"/>
-        <link rel="prev" title="SpoolDirJsonSourceConnector" href="../kafka-connect-spooldir/sources/spooldirjsonsourceconnector.html"/> 
+        <link rel="up" title="Splunk Connector" href="introduction.html"/>
+        <link rel="next" title="com.github.jcustenborder.kafka.connect.splunk.Event" href="schemas/struct.com.github.jcustenborder.kafka.connect.splunk.Event.html"/>
+        <link rel="prev" title="SplunkHttpSinkConnector" href="sinks/splunkhttpsinkconnector.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -98,13 +98,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-flume-avro/introduction.html">Flume Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-rabbitmq/introduction.html">RabbitMQ Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-splunk/introduction.html">Splunk Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">StatsD Connector</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sources/statsdsourceconnector.html">StatsDSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="introduction.html">Splunk Connector</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sources/splunkhttpsourceconnector.html">SplunkHttpSourceConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sinks/splunkhttpsinkconnector.html">SplunkHttpSinkConnector</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Schemas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.splunk.Event.html">com.github.jcustenborder.kafka.connect.splunk.Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.splunk.EventKey.html">com.github.jcustenborder.kafka.connect.splunk.EventKey</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/introduction.html">Twitter Connector</a></li>
 </ul>
@@ -160,13 +165,15 @@
         
           <li><a href="../../connectors.html">Connectors</a> &raquo;</li>
         
-      <li>StatsD Connector</li>
+          <li><a href="introduction.html">Splunk Connector</a> &raquo;</li>
+        
+      <li>Schemas</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/connectors/kafka-connect-statsd/introduction.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/connectors/kafka-connect-splunk/schemas.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -179,17 +186,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="statsd-connector">
-<h1>StatsD Connector<a class="headerlink" href="#statsd-connector" title="Permalink to this headline">¶</a></h1>
-<p>The StatsD Connector provides a Kafka Connect <a class="reference internal" href="../../glossary.html#term-source-connector"><span class="xref std std-term">Source Connector</span></a> that can receive data from remote hosts using the
-statsd protocol.</p>
+  <div class="section" id="schemas">
+<h1>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Schemas:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.splunk.Event.html">com.github.jcustenborder.kafka.connect.splunk.Event</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.splunk.EventKey.html">com.github.jcustenborder.kafka.connect.splunk.EventKey</a></li>
+</ul>
 </div>
 </div>
 
@@ -203,10 +207,10 @@ statsd protocol.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sources/statsdsourceconnector.html" class="btn btn-neutral float-right" title="StatsDSourceConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="schemas/struct.com.github.jcustenborder.kafka.connect.splunk.Event.html" class="btn btn-neutral float-right" title="com.github.jcustenborder.kafka.connect.splunk.Event" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../kafka-connect-spooldir/sources/spooldirjsonsourceconnector.html" class="btn btn-neutral" title="SpoolDirJsonSourceConnector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sinks/splunkhttpsinkconnector.html" class="btn btn-neutral" title="SplunkHttpSinkConnector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
