@@ -7,37 +7,39 @@ The Flume connector provides a method to recieve data from `Apache Flume <https:
 from Flume to a Kafka Connect Worker.
 
 .. toctree::
-:maxdepth: 1
-        :caption: Source Connectors:
-        :hidden:
-        :glob:
+    :maxdepth: 1
+    :caption: Source Connectors:
+    :hidden:
+    :glob:
 
-        sources/*
-
-
-.. toctree::
-:maxdepth: 1
-        :caption: Sink Connectors:
-        :hidden:
-        :glob:
-
-        sinks/*
+    sources/*
 
 
 .. toctree::
-:maxdepth: 1
-        :caption: Transformations:
-        :hidden:
-        :glob:
+    :maxdepth: 1
+    :caption: Sink Connectors:
+    :hidden:
+    :glob:
 
-        transformations/*
+    sinks/*
 
 
 .. toctree::
-:maxdepth: 0
-        :caption: Schemas:
-        :hidden:
+    :maxdepth: 1
+    :caption: Transformations:
+    :hidden:
+    :glob:
 
-        schemas
+    transformations/*
+
+
+.. toctree::
+    :maxdepth: 0
+    :caption: Schemas:
+    :hidden:
+
+    schemas
+
+
 
 
