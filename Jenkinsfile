@@ -35,6 +35,7 @@ node {
         copyArtifacts('kafka-connect-twitter', 'jcustenborder/kafka-connect-twitter/rst')
         copyArtifacts('kafka-connect-statsd', 'jcustenborder/kafka-connect-statsd/rst')
         copyArtifacts('kafka-connect-splunk', 'jcustenborder/kafka-connect-splunk/master')
+        copyArtifacts('kafka-connect-solr', 'jcustenborder/kafka-connect-solr/rst')
     }
 
     stage('build') {
