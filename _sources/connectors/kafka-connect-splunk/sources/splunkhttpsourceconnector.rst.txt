@@ -2,7 +2,7 @@
 SplunkHttpSourceConnector
 =========================
 
-The Splunk Source connector allows emulates a `Splunk Http Event Collector` <http://dev.splunk.com/view/event-collector/SP-CAAAE6M> to allow application that normally log to Splunk to instead write to Kafka. The goal of this plugin is to make the change nearly transparent to the user. This plugin currently has support for `X-Forwarded-For <https://en.wikipedia.org/wiki/X-Forwarded-For>` so it will sit behind a load balancer nicely.
+The Splunk Source connector allows emulates a `Splunk Http Event Collector <http://dev.splunk.com/view/event-collector/SP-CAAAE6M>`_ to allow application that normally log to Splunk to instead write to Kafka. The goal of this plugin is to make the change nearly transparent to the user. This plugin currently has support for `X-Forwarded-For <https://en.wikipedia.org/wiki/X-Forwarded-For>`_ so it will sit behind a load balancer nicely.
 
 
 .. IMPORTANT::

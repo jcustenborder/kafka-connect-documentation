@@ -187,7 +187,7 @@
             
   <div class="section" id="splunkhttpsourceconnector">
 <h1>SplunkHttpSourceConnector<a class="headerlink" href="#splunkhttpsourceconnector" title="Permalink to this headline">¶</a></h1>
-<p>The Splunk Source connector allows emulates a <cite>Splunk Http Event Collector</cite> &lt;<a class="reference external" href="http://dev.splunk.com/view/event-collector/SP-CAAAE6M">http://dev.splunk.com/view/event-collector/SP-CAAAE6M</a>&gt; to allow application that normally log to Splunk to instead write to Kafka. The goal of this plugin is to make the change nearly transparent to the user. This plugin currently has support for <cite>X-Forwarded-For &lt;https://en.wikipedia.org/wiki/X-Forwarded-For&gt;</cite> so it will sit behind a load balancer nicely.</p>
+<p>The Splunk Source connector allows emulates a <a class="reference external" href="http://dev.splunk.com/view/event-collector/SP-CAAAE6M">Splunk Http Event Collector</a> to allow application that normally log to Splunk to instead write to Kafka. The goal of this plugin is to make the change nearly transparent to the user. This plugin currently has support for <a class="reference external" href="https://en.wikipedia.org/wiki/X-Forwarded-For">X-Forwarded-For</a> so it will sit behind a load balancer nicely.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">This connector listens on a network port. Running more than one task or running in distributed mode can cause some undesired effects if another task already has the port open. It is recommended that you run this connector in <a class="reference internal" href="../../../glossary.html#term-standalone-mode"><span class="xref std std-term">Standalone Mode</span></a>.</p>
