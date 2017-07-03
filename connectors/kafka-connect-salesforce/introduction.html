@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Syslog Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Salesforce Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
         <link rel="up" title="Connectors" href="../../connectors.html"/>
-        <link rel="next" title="SSLTCPSyslogSourceConnector" href="sources/ssltcpsyslogsourceconnector.html"/>
-        <link rel="prev" title="com.github.jcustenborder.kafka.connect.statsd.StatsDValue" href="../kafka-connect-statsd/schemas/struct.com.github.jcustenborder.kafka.connect.statsd.StatsDValue.html"/> 
+        <link rel="next" title="SalesforceSourceConnector" href="sources/salesforcesourceconnector.html"/>
+        <link rel="prev" title="com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey" href="../kafka-connect-rabbitmq/schemas/struct.com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -98,20 +98,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-flume-avro/introduction.html">Flume Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-rabbitmq/introduction.html">RabbitMQ Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-salesforce/introduction.html">Salesforce Connector</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Salesforce Connector</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sources/salesforcesourceconnector.html">SalesforceSourceConnector</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-simulator/introduction.html">Simulator Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-snmp/introduction.html">SNMP Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-solr/introduction.html">Solr Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-splunk/introduction.html">Splunk Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Syslog Connector</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sources/ssltcpsyslogsourceconnector.html">SSLTCPSyslogSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sources/tcpsyslogsourceconnector.html">TCPSyslogSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sources/udpsyslogsourceconnector.html">UDPSyslogSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schemas.html">Schemas</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/introduction.html">Twitter Connector</a></li>
 </ul>
 </li>
@@ -166,13 +163,13 @@
         
           <li><a href="../../connectors.html">Connectors</a> &raquo;</li>
         
-      <li>Syslog Connector</li>
+      <li>Salesforce Connector</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/connectors/kafka-connect-syslog/introduction.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/connectors/kafka-connect-salesforce/introduction.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -185,10 +182,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="syslog-connector">
-<h1>Syslog Connector<a class="headerlink" href="#syslog-connector" title="Permalink to this headline">¶</a></h1>
-<p>The Syslog Connector provides a Kafka Connect <a class="reference internal" href="../../glossary.html#term-source-connector"><span class="xref std std-term">Source Connector</span></a> that can receive data from remote hosts using the
-syslog protocol. Syslog messages over UDP per <span class="target" id="index-0"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc5426.html"><strong>RFC 5426</strong></a>, TCP per <span class="target" id="index-1"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc6587.html"><strong>RFC 6587</strong></a>, and TCP with SSL per <span class="target" id="index-2"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc5425.html"><strong>RFC 5425</strong></a>.</p>
+  <div class="section" id="salesforce-connector">
+<h1>Salesforce Connector<a class="headerlink" href="#salesforce-connector" title="Permalink to this headline">¶</a></h1>
+<p>The Salesforce Connector provides a Kafka Connect <a class="reference internal" href="../../glossary.html#term-source-connector"><span class="xref std std-term">Source Connector</span></a> that can receive data Salesforce as changes are
+made to objects.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -209,10 +206,10 @@ syslog protocol. Syslog messages over UDP per <span class="target" id="index-0">
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sources/ssltcpsyslogsourceconnector.html" class="btn btn-neutral float-right" title="SSLTCPSyslogSourceConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sources/salesforcesourceconnector.html" class="btn btn-neutral float-right" title="SalesforceSourceConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../kafka-connect-statsd/schemas/struct.com.github.jcustenborder.kafka.connect.statsd.StatsDValue.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.statsd.StatsDValue" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../kafka-connect-rabbitmq/schemas/struct.com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
