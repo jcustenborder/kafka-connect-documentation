@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Twitter Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Solr Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
         <link rel="up" title="Connectors" href="../../connectors.html"/>
-        <link rel="next" title="TwitterSourceConnector" href="sources/twittersourceconnector.html"/>
-        <link rel="prev" title="com.github.jcustenborder.kafka.connect.syslog.SyslogValue" href="../kafka-connect-syslog/schemas/struct.com.github.jcustenborder.kafka.connect.syslog.SyslogValue.html"/> 
+        <link rel="next" title="CloudSolrSinkConnector" href="sinks/cloudsolrsinkconnector.html"/>
+        <link rel="prev" title="com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey" href="../kafka-connect-rabbitmq/schemas/struct.com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -98,16 +98,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-flume-avro/introduction.html">Flume Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-rabbitmq/introduction.html">RabbitMQ Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-solr/introduction.html">Solr Connector</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Solr Connector</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sinks/cloudsolrsinkconnector.html">CloudSolrSinkConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sinks/httpsolrsinkconnector.html">HttpSolrSinkConnector</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-splunk/introduction.html">Splunk Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Twitter Connector</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sources/twittersourceconnector.html">TwitterSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schemas.html">Schemas</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/introduction.html">Twitter Connector</a></li>
 </ul>
 </li>
 </ul>
@@ -161,13 +161,13 @@
         
           <li><a href="../../connectors.html">Connectors</a> &raquo;</li>
         
-      <li>Twitter Connector</li>
+      <li>Solr Connector</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/connectors/kafka-connect-twitter/introduction.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/connectors/kafka-connect-solr/introduction.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -180,9 +180,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="twitter-connector">
-<h1>Twitter Connector<a class="headerlink" href="#twitter-connector" title="Permalink to this headline">¶</a></h1>
-<p>The Twitter Connector provides a Kafka Connect <a class="reference internal" href="../../glossary.html#term-source-connector"><span class="xref std std-term">Source Connector</span></a> that can receive data from Twitter.</p>
+  <div class="section" id="solr-connector">
+<h1>Solr Connector<a class="headerlink" href="#solr-connector" title="Permalink to this headline">¶</a></h1>
+<p>The Solr connector provides a high speed mechanism for sending updates to a Solr Index using Kafka Connect.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -203,10 +203,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sources/twittersourceconnector.html" class="btn btn-neutral float-right" title="TwitterSourceConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sinks/cloudsolrsinkconnector.html" class="btn btn-neutral float-right" title="CloudSolrSinkConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../kafka-connect-syslog/schemas/struct.com.github.jcustenborder.kafka.connect.syslog.SyslogValue.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.syslog.SyslogValue" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../kafka-connect-rabbitmq/schemas/struct.com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

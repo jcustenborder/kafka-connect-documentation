@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TwitterSourceConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>CloudSolrSinkConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Twitter Connector" href="../introduction.html"/>
-        <link rel="next" title="Schemas" href="../schemas.html"/>
-        <link rel="prev" title="Twitter Connector" href="../introduction.html"/> 
+        <link rel="up" title="Solr Connector" href="../introduction.html"/>
+        <link rel="next" title="HttpSolrSinkConnector" href="httpsolrsinkconnector.html"/>
+        <link rel="prev" title="Solr Connector" href="../introduction.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -98,19 +98,19 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/introduction.html">Flume Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/introduction.html">RabbitMQ Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/introduction.html">Solr Connector</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Solr Connector</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CloudSolrSinkConnector</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="httpsolrsinkconnector.html">HttpSolrSinkConnector</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/introduction.html">Splunk Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Twitter Connector</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">TwitterSourceConnector</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/introduction.html">Twitter Connector</a></li>
 </ul>
 </li>
 </ul>
@@ -164,15 +164,15 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../introduction.html">Twitter Connector</a> &raquo;</li>
+          <li><a href="../introduction.html">Solr Connector</a> &raquo;</li>
         
-      <li>TwitterSourceConnector</li>
+      <li>CloudSolrSinkConnector</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/connectors/kafka-connect-twitter/sources/twittersourceconnector.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/connectors/kafka-connect-solr/sinks/cloudsolrsinkconnector.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -185,83 +185,69 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="twittersourceconnector">
-<h1>TwitterSourceConnector<a class="headerlink" href="#twittersourceconnector" title="Permalink to this headline">¶</a></h1>
-<p>This Twitter Source connector is used to pull data from Twitter in realtime.</p>
+  <div class="section" id="cloudsolrsinkconnector">
+<h1>CloudSolrSinkConnector<a class="headerlink" href="#cloudsolrsinkconnector" title="Permalink to this headline">¶</a></h1>
+<p>This connector is used to connect to <a class="reference external" href="https://cwiki.apache.org/confluence/display/solr/SolrCloud">SolrCloud</a> using the Zookeeper based configuration.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="22%" />
-<col width="20%" />
-<col width="8%" />
-<col width="10%" />
+<col width="13%" />
+<col width="14%" />
+<col width="6%" />
 <col width="7%" />
-<col width="33%" />
+<col width="5%" />
+<col width="55%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>filter.keywords</td>
+<tr class="row-odd"><td>solr.collection.name</td>
+<td><a class="reference internal" href="../../../configdef.type.html#configuration-string"><span class="std std-ref">String</span></a></td>
+<td>High</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>Name of the solr collection to write to.</td>
+</tr>
+<tr class="row-even"><td>solr.zookeeper.hosts</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-list"><span class="std std-ref">List</span></a></td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td>Twitter keywords to filter for.</td>
+<td>Zookeeper hosts that are used to store solr configuration.</td>
 </tr>
-<tr class="row-even"><td>kafka.delete.topic</td>
+<tr class="row-odd"><td>solr.password</td>
+<td><a class="reference internal" href="../../../configdef.type.html#configuration-password"><span class="std std-ref">Password</span></a></td>
+<td>High</td>
+<td>[hidden]</td>
+<td>&#160;</td>
+<td>The password to use for basic authentication.</td>
+</tr>
+<tr class="row-even"><td>solr.username</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-string"><span class="std std-ref">String</span></a></td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td>Kafka topic to write delete events to.</td>
+<td>The username to use for basic authentication.</td>
 </tr>
-<tr class="row-odd"><td>kafka.status.topic</td>
+<tr class="row-odd"><td>solr.zookeeper.chroot</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-string"><span class="std std-ref">String</span></a></td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td>Kafka topic to write the statuses to.</td>
+<td>Chroot within solr for the zookeeper configuration.</td>
 </tr>
-<tr class="row-even"><td>process.deletes</td>
-<td><a class="reference internal" href="../../../configdef.type.html#configuration-boolean"><span class="std std-ref">Boolean</span></a></td>
-<td>High</td>
+<tr class="row-even"><td>solr.commit.within</td>
+<td><a class="reference internal" href="../../../configdef.type.html#configuration-int"><span class="std std-ref">Int</span></a></td>
+<td>Low</td>
+<td>-1</td>
 <td>&#160;</td>
-<td>&#160;</td>
-<td>Should this connector process deletes.</td>
+<td>Configures Solr UpdaterRequest for a commit within the requested number of milliseconds .</td>
 </tr>
-<tr class="row-odd"><td>twitter.oauth.accessToken</td>
-<td><a class="reference internal" href="../../../configdef.type.html#configuration-password"><span class="std std-ref">Password</span></a></td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>OAuth access token</td>
-</tr>
-<tr class="row-even"><td>twitter.oauth.accessTokenSecret</td>
-<td><a class="reference internal" href="../../../configdef.type.html#configuration-password"><span class="std std-ref">Password</span></a></td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>OAuth access token secret</td>
-</tr>
-<tr class="row-odd"><td>twitter.oauth.consumerKey</td>
-<td><a class="reference internal" href="../../../configdef.type.html#configuration-password"><span class="std std-ref">Password</span></a></td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>OAuth consumer key</td>
-</tr>
-<tr class="row-even"><td>twitter.oauth.consumerSecret</td>
-<td><a class="reference internal" href="../../../configdef.type.html#configuration-password"><span class="std std-ref">Password</span></a></td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>OAuth consumer secret</td>
-</tr>
-<tr class="row-odd"><td>twitter.debug</td>
+<tr class="row-odd"><td>solr.ignore.unknown.fields</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-boolean"><span class="std std-ref">Boolean</span></a></td>
 <td>Low</td>
 <td>false</td>
 <td>&#160;</td>
-<td>Flag to enable debug logging for the twitter api.</td>
+<td>Flag to determine if the connector should raise an exception when it encountered a field it doesn’t have configured.</td>
 </tr>
 </tbody>
 </table>
@@ -270,16 +256,10 @@
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
 <div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">connector1</span>
 <span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
-<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnector</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector</span>
 <span class="c"># The following values must be configured.</span>
-<span class="na">filter.keywords</span><span class="o">=</span>
-<span class="na">kafka.delete.topic</span><span class="o">=</span>
-<span class="na">kafka.status.topic</span><span class="o">=</span>
-<span class="na">process.deletes</span><span class="o">=</span>
-<span class="na">twitter.oauth.accessToken</span><span class="o">=</span>
-<span class="na">twitter.oauth.accessTokenSecret</span><span class="o">=</span>
-<span class="na">twitter.oauth.consumerKey</span><span class="o">=</span>
-<span class="na">twitter.oauth.consumerSecret</span><span class="o">=</span>
+<span class="na">solr.collection.name</span><span class="o">=</span>
+<span class="na">solr.zookeeper.hosts</span><span class="o">=</span>
 </pre></div>
 </div>
 </div>
@@ -290,15 +270,9 @@ Write the following json to <cite>connector.json</cite> and use the command belo
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
     <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnector&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;filter.keywords&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;kafka.delete.topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;kafka.status.topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;process.deletes&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;twitter.oauth.accessToken&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;twitter.oauth.accessTokenSecret&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;twitter.oauth.consumerKey&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;twitter.oauth.consumerSecret&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;solr.collection.name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;solr.zookeeper.hosts&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -322,10 +296,10 @@ one of your Kafka Connect workers.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="httpsolrsinkconnector.html" class="btn btn-neutral float-right" title="HttpSolrSinkConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../introduction.html" class="btn btn-neutral" title="Twitter Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../introduction.html" class="btn btn-neutral" title="Solr Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
