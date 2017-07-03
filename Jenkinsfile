@@ -32,7 +32,7 @@ node {
         copyArtifacts('kafka-connect-rabbitmq', 'jcustenborder/kafka-connect-rabbitmq/rst')
         copyArtifacts('kafka-connect-flume-avro', 'jcustenborder/kafka-connect-flume-avro/rst')
         copyArtifacts('kafka-connect-spooldir', 'jcustenborder/kafka-connect-spooldir/rst')
-        copyArtifacts('kafka-connect-vertica', 'jcustenborder/kafka-connect-vertica/rst')
+        copyArtifacts('kafka-connect-twitter', 'jcustenborder/kafka-connect-twitter/rst')
         copyArtifacts('kafka-connect-statsd', 'jcustenborder/kafka-connect-statsd/rst')
     }
 
