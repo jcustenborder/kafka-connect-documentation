@@ -30,3 +30,9 @@ Glossary
 
     Transformation
         Place holder
+
+    Key
+        Place holder
+
+    Value
+        Place holder.
