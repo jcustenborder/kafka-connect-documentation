@@ -39,6 +39,7 @@ node {
         copyArtifacts('kafka-connect-snmp', 'jcustenborder/kafka-connect-snmp/rst')
         copyArtifacts('kafka-connect-simulator', 'jcustenborder/kafka-connect-simulator/rst')
         copyArtifacts('kafka-connect-salesforce', 'jcustenborder/kafka-connect-salesforce/rst')
+        copyArtifacts('kafka-connect-influxdb', 'jcustenborder/kafka-connect-influxdb/rst')
     }
 
     stage('build') {
