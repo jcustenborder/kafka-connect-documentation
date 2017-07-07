@@ -34,13 +34,13 @@ Glossary
         load balancer in front of multiple standalone nodes.
 
     Kafka Topic
-        A Kafka Topic is the logical layer of a Kafka Cluster. A topic is made of one or more :term:`partition`s which
-        can be spread across several :term:`kafka broker`s.
+        A Kafka Topic is the logical layer of a Kafka Cluster. A topic is made of one or more :term:`partition(s)` which
+        can be spread across several :term:`kafka broker(s)`
 
-    Kafka Broker
+    Kafka Broker(s)
         A Kafka broker is a server in a Kafka Cluster which is used to store data.
 
-    Partition
+    Partition(s)
         A partition is a logical breakdown of a Topic which allows the data to be hosted across several machines. Kafka
         does not have a global guaranteed order but it does guarantee order within a partition. Partitions are selected
         based on a hash of the key.
