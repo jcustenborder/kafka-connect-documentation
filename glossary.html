@@ -164,28 +164,57 @@
   <div class="section" id="glossary">
 <h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
 <dl class="glossary docutils">
+<dt id="term-etl">ETL</dt>
+<dd>Extract Transform Load</dd>
 <dt id="term-source-connector">Source Connector</dt>
-<dd>This is a glossary term for a source connector.</dd>
+<dd>A Source connector is a connector that extends <a class="reference external" href="https://kafka.apache.org/0102/javadoc/index.html?org/apache/kafka/connect/source/SourceConnector.html">SourceConnector</a>
+and is used by Kafka Connect to pull data into a Kafka Cluster. In the typical <a class="reference internal" href="#term-etl"><span class="xref std std-term">ETL</span></a> pattern a SourceConnector
+would be used to extract data from a source system. Source systems can be anything from a relational database, to
+a remote web service.</dd>
 <dt id="term-sink-connector">Sink Connector</dt>
-<dd>This is a glossary term for a source connector.</dd>
+<dd>A Sink connector is a connector that extends <a class="reference external" href="https://kafka.apache.org/0102/javadoc/index.html?org/apache/kafka/connect/sink/SinkConnector.html">SinkConnector</a>
+and is used by Kafka Connect to pull data into a Kafka Cluster. In the typical <a class="reference internal" href="#term-etl"><span class="xref std std-term">ETL</span></a> pattern a SinkConnector
+would be used to load data into a target system.</dd>
+<dt id="term-transformation">Transformation</dt>
+<dd>A Transformation is used to make changes to data on the fly before it is written to Kafka or written to the target
+system. This could be masking a field, or setting the value of a field.</dd>
 <dt id="term-distributed-mode">Distributed Mode</dt>
-<dd>This is a glossary term for a source connector.</dd>
+<dd>Distributed mode is a configuration of Kafka Connect that allows a user to configure multiple worker nodes to
+share the workload of multiple connectors. In the event of a failure of one of the worker nodes, the running connectors
+will be distributed among the remaining worker nodes. This allows a high degree of fault tolerance.</dd>
 <dt id="term-standalone-mode">Standalone Mode</dt>
-<dd>This is a glossary term for a source connector.</dd>
+<dd>Standalone mode is a configuration of Kafka Connect that runs as a single node. This mode is typically used with
+listening style connectors like the syslog and splunk connectors. This is not a fault tolerant mode. If fault tolerance
+is required it must be handled externally to Kafka Connect. For example with the syslog connector you can place a
+load balancer in front of multiple standalone nodes.</dd>
 <dt id="term-kafka-topic">Kafka Topic</dt>
-<dd>This is where data is stored in Kafka.</dd>
+<dd>A Kafka Topic is the logical layer of a Kafka Cluster. A topic is made of one or more :term:<a href="#id1"><span class="problematic" id="id2">`</span></a>partition`s which
+can be spread across several :term:<a href="#id3"><span class="problematic" id="id4">`</span></a>kafka broker`s.</dd>
+<dt id="term-kafka-broker">Kafka Broker</dt>
+<dd>A Kafka broker is a server in a Kafka Cluster which is used to store data.</dd>
+<dt id="term-partition">Partition</dt>
+<dd>A partition is a logical breakdown of a Topic which allows the data to be hosted across several machines. Kafka
+does not have a global guaranteed order but it does guarantee order within a partition. Partitions are selected
+based on a hash of the key.</dd>
 <dt id="term-ssl">SSL</dt>
 <dd>A method for securing data between two hosts.</dd>
 <dt id="term-schema-registry">Schema Registry</dt>
-<dd>Place holder</dd>
+<dd>The <a class="reference external" href="https://github.com/confluentinc/schema-registry">schema registry</a> is a serializer and deserializer that integrates
+with <a class="reference external" href="https://avro.apache.org/">Apache Avro</a> to track the schemas associated with data in a topic. It also is
+used to ensure the proper schema is used when writing to a topic.</dd>
 <dt id="term-avro">Avro</dt>
-<dd>Place holder</dd>
-<dt id="term-transformation">Transformation</dt>
-<dd>Place holder</dd>
+<dd><a class="reference external" href="https://avro.apache.org/">Apache Avro</a> is a binary serialization system. It drastically reduces the overall size
+of the data written to disk, which directly correlates to less IO and storage requirements.</dd>
 <dt id="term-key">Key</dt>
-<dd>Place holder</dd>
+<dd>The key is the the part of the message that is used to determine the partition that data will be written to. If the
+topic is configured as a <a class="reference internal" href="#term-compacted-topic"><span class="xref std std-term">compacted topic</span></a> then only the last version of a key will be stored.</dd>
 <dt id="term-value">Value</dt>
-<dd>Place holder.</dd>
+<dd>The value is the part of the message that usually contains the bulk of the message. The value will typically contain
+fields with a representation of the data.</dd>
+<dt id="term-cdc">CDC</dt>
+<dd>Change Data Capture</dd>
+<dt id="term-compacted-topic">Compacted Topic</dt>
+<dd>A compacted topic is used to store the last value of data for a key. This is used heavily in <a class="reference internal" href="#term-cdc"><span class="xref std std-term">CDC</span></a> use cases.</dd>
 </dl>
 </div>
 

@@ -197,12 +197,12 @@
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
+<col width="11%" />
 <col width="12%" />
-<col width="13%" />
 <col width="5%" />
-<col width="7%" />
-<col width="47%" />
-<col width="16%" />
+<col width="6%" />
+<col width="42%" />
+<col width="24%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>influxdb.database</td>
@@ -217,56 +217,42 @@
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td>influxdb.url</td>
+<td>The url of the InfluxDB instance to write to.</td>
 </tr>
 <tr class="row-odd"><td>influxdb.password</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-password"><span class="std std-ref">Password</span></a></td>
 <td>High</td>
 <td>[hidden]</td>
 <td>&#160;</td>
-<td>influxdb.password</td>
+<td>The password to connect to InfluxDB with.</td>
 </tr>
 <tr class="row-even"><td>influxdb.username</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-string"><span class="std std-ref">String</span></a></td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td>influxdb.username</td>
+<td>The username to connect to InfluxDB with.</td>
 </tr>
 <tr class="row-odd"><td>influxdb.consistency.level</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-string"><span class="std std-ref">String</span></a></td>
 <td>Medium</td>
 <td>ONE</td>
 <td>ValidEnum{enum=ConsistencyLevel, allowed=[ALL, ANY, ONE, QUORUM]}</td>
-<td>influxdb.consistency.level</td>
+<td>The default consistency level for writing data to InfluxDB.</td>
 </tr>
 <tr class="row-even"><td>influxdb.timeunit</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-string"><span class="std std-ref">String</span></a></td>
 <td>Medium</td>
 <td>MILLISECONDS</td>
 <td>ValidEnum{enum=TimeUnit, allowed=[NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS]}</td>
-<td>influxdb.timeunit</td>
-</tr>
-<tr class="row-odd"><td>influxdb.expected.keys</td>
-<td><a class="reference internal" href="../../../configdef.type.html#configuration-int"><span class="std std-ref">Int</span></a></td>
-<td>Low</td>
-<td>100</td>
-<td>[1,…]</td>
-<td>influxdb.expected.keys</td>
-</tr>
-<tr class="row-even"><td>influxdb.expected.values</td>
-<td><a class="reference internal" href="../../../configdef.type.html#configuration-int"><span class="std std-ref">Int</span></a></td>
-<td>Low</td>
-<td>1000</td>
-<td>[1,…]</td>
-<td>influxdb.expected.values</td>
+<td>The default timeunit for writing data to InfluxDB.</td>
 </tr>
 <tr class="row-odd"><td>influxdb.gzip.enable</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-boolean"><span class="std std-ref">Boolean</span></a></td>
 <td>Low</td>
 <td>true</td>
 <td>&#160;</td>
-<td>influxdb.gzip.enable</td>
+<td>Flag to determine if gzip should be enabled.</td>
 </tr>
 <tr class="row-even"><td>influxdb.log.level</td>
 <td><a class="reference internal" href="../../../configdef.type.html#configuration-string"><span class="std std-ref">String</span></a></td>
