@@ -188,11 +188,11 @@ listening style connectors like the syslog and splunk connectors. This is not a 
 is required it must be handled externally to Kafka Connect. For example with the syslog connector you can place a
 load balancer in front of multiple standalone nodes.</dd>
 <dt id="term-kafka-topic">Kafka Topic</dt>
-<dd>A Kafka Topic is the logical layer of a Kafka Cluster. A topic is made of one or more :term:<a href="#id1"><span class="problematic" id="id2">`</span></a>partition`s which
-can be spread across several :term:<a href="#id3"><span class="problematic" id="id4">`</span></a>kafka broker`s.</dd>
-<dt id="term-kafka-broker">Kafka Broker</dt>
+<dd>A Kafka Topic is the logical layer of a Kafka Cluster. A topic is made of one or more <a class="reference internal" href="#term-partition-s"><span class="xref std std-term">partition(s)</span></a> which
+can be spread across several <a class="reference internal" href="#term-kafka-broker-s"><span class="xref std std-term">kafka broker(s)</span></a></dd>
+<dt id="term-kafka-broker-s">Kafka Broker(s)</dt>
 <dd>A Kafka broker is a server in a Kafka Cluster which is used to store data.</dd>
-<dt id="term-partition">Partition</dt>
+<dt id="term-partition-s">Partition(s)</dt>
 <dd>A partition is a logical breakdown of a Topic which allows the data to be hosted across several machines. Kafka
 does not have a global guaranteed order but it does guarantee order within a partition. Partitions are selected
 based on a hash of the key.</dd>
