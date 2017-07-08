@@ -191,7 +191,11 @@
             
   <div class="section" id="flumeavrosourceconnector">
 <h1>FlumeAvroSourceConnector<a class="headerlink" href="#flumeavrosourceconnector" title="Permalink to this headline">¶</a></h1>
-<p>Connector is used to emulate a <cite>Flume Avro Source &lt;https://flume.apache.org/FlumeUserGuide.html#avro-source&gt;</cite> to allow Flume Agents to forward events to a Kafka Connect pipeline.</p>
+<p>Connector is used to emulate a <a class="reference external" href="https://flume.apache.org/FlumeUserGuide.html#avro-source">Flume Avro Source</a> to allow Flume Agents to forward events to a Kafka Connect pipeline.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">This connector listens on a network port. Running more than one task or running in distributed mode can cause some undesired effects if another task already has the port open. It is recommended that you run this connector in <a class="reference internal" href="../../../glossary.html#term-standalone-mode"><span class="xref std std-term">Standalone Mode</span></a>.</p>
+</div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">

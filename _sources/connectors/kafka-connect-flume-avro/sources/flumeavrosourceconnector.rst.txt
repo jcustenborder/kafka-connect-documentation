@@ -2,7 +2,11 @@
 FlumeAvroSourceConnector
 ========================
 
-Connector is used to emulate a `Flume Avro Source <https://flume.apache.org/FlumeUserGuide.html#avro-source>` to allow Flume Agents to forward events to a Kafka Connect pipeline.
+Connector is used to emulate a `Flume Avro Source <https://flume.apache.org/FlumeUserGuide.html#avro-source>`_ to allow Flume Agents to forward events to a Kafka Connect pipeline.
+
+
+.. IMPORTANT::
+    This connector listens on a network port. Running more than one task or running in distributed mode can cause some undesired effects if another task already has the port open. It is recommended that you run this connector in :term:`Standalone Mode`.
 
 
 
