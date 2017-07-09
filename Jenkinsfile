@@ -40,6 +40,7 @@ node {
         copyArtifacts('kafka-connect-simulator', 'jcustenborder/kafka-connect-simulator/rst')
         copyArtifacts('kafka-connect-salesforce', 'jcustenborder/kafka-connect-salesforce/rst')
         copyArtifacts('kafka-connect-influxdb', 'jcustenborder/kafka-connect-influxdb/rst')
+        copyArtifacts('kafka-connect-vertica', 'jcustenborder/kafka-connect-vertica/rst')
     }
 
     stage('build') {
