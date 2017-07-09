@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Schemas &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Vertica Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="Flume Connector" href="introduction.html"/>
-        <link rel="next" title="com.github.jcustenborder.kafka.connect.flume.AvroFlumeEventKey" href="schemas/struct.com.github.jcustenborder.kafka.connect.flume.AvroFlumeEventKey.html"/>
-        <link rel="prev" title="FlumeAvroSourceConnector" href="sources/flumeavrosourceconnector.html"/> 
+        <link rel="up" title="Connectors" href="../../connectors.html"/>
+        <link rel="next" title="VerticaSinkConnector" href="sinks/verticasinkconnector.html"/>
+        <link rel="prev" title="com.github.jcustenborder.kafka.connect.twitter.User" href="../kafka-connect-twitter/schemas/struct.com.github.jcustenborder.kafka.connect.twitter.User.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -95,15 +95,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="introduction.html">Flume Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="sources/flumeavrosourceconnector.html">FlumeAvroSourceConnector</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Schemas</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.flume.AvroFlumeEventKey.html">com.github.jcustenborder.kafka.connect.flume.AvroFlumeEventKey</a></li>
-<li class="toctree-l4"><a class="reference internal" href="schemas/struct.org.apache.flume.source.avro.AvroFlumeEvent.html">org.apache.flume.source.avro.AvroFlumeEvent</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-flume-avro/introduction.html">Flume Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-influxdb/introduction.html">InfluxDB Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-rabbitmq/introduction.html">RabbitMQ Connector</a></li>
@@ -116,7 +108,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/introduction.html">Twitter Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-vertica/introduction.html">Vertica Connector</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Vertica Connector</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sinks/verticasinkconnector.html">VerticaSinkConnector</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -170,15 +165,13 @@
         
           <li><a href="../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="introduction.html">Flume Connector</a> &raquo;</li>
-        
-      <li>Schemas</li>
+      <li>Vertica Connector</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/connectors/kafka-connect-flume-avro/schemas.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/connectors/kafka-connect-vertica/introduction.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -191,14 +184,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="schemas">
-<h1>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="vertica-connector">
+<h1>Vertica Connector<a class="headerlink" href="#vertica-connector" title="Permalink to this headline">¶</a></h1>
+<p>The Vertica Connector provides a high speed option to write data to Vertica using the <cite>Vertica CopyStream &lt;https://my.vertica.com/docs/7.1.x/HTML/Content/Authoring/ConnectingToHPVertica/ClientJDBC/UsingVerticaCopyStream.htm&gt;</cite>
+to write data to Vertica.</p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Schemas:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.flume.AvroFlumeEventKey.html">com.github.jcustenborder.kafka.connect.flume.AvroFlumeEventKey</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schemas/struct.org.apache.flume.source.avro.AvroFlumeEvent.html">org.apache.flume.source.avro.AvroFlumeEvent</a></li>
-</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -212,10 +208,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="schemas/struct.com.github.jcustenborder.kafka.connect.flume.AvroFlumeEventKey.html" class="btn btn-neutral float-right" title="com.github.jcustenborder.kafka.connect.flume.AvroFlumeEventKey" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sinks/verticasinkconnector.html" class="btn btn-neutral float-right" title="VerticaSinkConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sources/flumeavrosourceconnector.html" class="btn btn-neutral" title="FlumeAvroSourceConnector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../kafka-connect-twitter/schemas/struct.com.github.jcustenborder.kafka.connect.twitter.User.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.twitter.User" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

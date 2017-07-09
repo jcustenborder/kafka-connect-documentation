@@ -1,10 +1,9 @@
-===============
-Flume Connector
-===============
+=================
+Vertica Connector
+=================
 
-The Flume connector provides a method to receive data from `Apache Flume <https://flume.apache.org/>`_ using the
-`Flume Avro Source <https://flume.apache.org/FlumeUserGuide.html#avro-source>`_ to receive the events as they are transmitted
-from Flume to a Kafka Connect Worker.
+The Vertica Connector provides a high speed option to write data to Vertica using the `Vertica CopyStream <https://my.vertica.com/docs/7.1.x/HTML/Content/Authoring/ConnectingToHPVertica/ClientJDBC/UsingVerticaCopyStream.htm>`
+to write data to Vertica.
 
 .. toctree::
     :maxdepth: 1
@@ -39,6 +38,9 @@ from Flume to a Kafka Connect Worker.
     :hidden:
 
     schemas
+
+
+
 
 
 

@@ -1,0 +1,90 @@
+====================
+VerticaSinkConnector
+====================
+
+The VerticaSinkConnector utilizes the VerticaCopyStream of the JDBC SDK to write data to Vertica.
+
+
+
+-------------
+Configuration
+-------------
+
++---------------------------+-------------------------------+------------+---------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| vertica.database          | :ref:`configuration-string`   | High       |               |                                                                                 | The database on the Vertica system. This is used to build the JDBC url.                                             |
++---------------------------+-------------------------------+------------+---------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| vertica.host              | :ref:`configuration-string`   | High       |               |                                                                                 | The Vertica host to connect to. This is used to build the JDBC url.                                                 |
++---------------------------+-------------------------------+------------+---------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| vertica.password          | :ref:`configuration-password` | High       |               |                                                                                 | The password to authenticate to Vertica with.                                                                       |
++---------------------------+-------------------------------+------------+---------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| vertica.username          | :ref:`configuration-string`   | High       |               |                                                                                 | The username to authenticate to Vertica with.                                                                       |
++---------------------------+-------------------------------+------------+---------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| stream.builder.cache.ms   | :ref:`configuration-int`      | High       | 300000        | [1000,...,2147483647]                                                           | The amount of time in milliseconds to cache the stream builder objects that are used to define the table structure. |
++---------------------------+-------------------------------+------------+---------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| vertica.buffer.size.bytes | :ref:`configuration-int`      | High       | 1048576       |                                                                                 | The buffer for the input stream that is used by the Vertica Copy Stream.                                            |
++---------------------------+-------------------------------+------------+---------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| vertica.timeout.ms        | :ref:`configuration-int`      | High       | 60000         | [10000,...,2147483647]                                                          | The timeout for completing the write to Vertica.                                                                    |
++---------------------------+-------------------------------+------------+---------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| vertica.compression       | :ref:`configuration-string`   | Medium     | UNCOMPRESSED  | ValidEnum{enum=VerticaCompressionType, allowed=[UNCOMPRESSED, BZIP, GZIP, LZO]} | The type of compression for the data load.                                                                          |
++---------------------------+-------------------------------+------------+---------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| vertica.load.method       | :ref:`configuration-string`   | Medium     | AUTO          | ValidEnum{enum=VerticaLoadMethod, allowed=[AUTO, DIRECT, TRICKLE]}              | The method for loading data.                                                                                        |
++---------------------------+-------------------------------+------------+---------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| vertica.port              | :ref:`configuration-int`      | Medium     | 5433          | ValidPort{start=1025, end=65535}                                                | The Vertica port to connect to. This is used to build the JDBC url.                                                 |
++---------------------------+-------------------------------+------------+---------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| expected.records          | :ref:`configuration-int`      | Low        | 10000         |                                                                                 | The expected number of records the connector will process each time.                                                |
++---------------------------+-------------------------------+------------+---------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| expected.topics           | :ref:`configuration-int`      | Low        | 500           |                                                                                 | The expected number of topics the connector will process in a poll.                                                 |
++---------------------------+-------------------------------+------------+---------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+
+^^^^^^^^^^^^^^^^^^^^^^
+Property based example
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `standalone mode
+<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
+
+.. code-block:: properties
+
+    name=connector1
+    tasks.max=1
+    connector.class=com.github.jcustenborder.kafka.connect.vertica.VerticaSinkConnector
+    # The following values must be configured.
+    vertica.database=
+    vertica.host=
+    vertica.password=
+    vertica.username=
+
+
+
+^^^^^^^^^^^^^^^^^^
+Rest based example
+^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `distributed mode
+<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
+Write the following json to `connector.json` and use the command below to post the configuration to the distributed connect workers.
+
+.. code-block:: json
+
+    {
+        "name": "connector1",
+        "config": {
+            "connector.class": "com.github.jcustenborder.kafka.connect.vertica.VerticaSinkConnector",
+            "vertica.database":"",
+            "vertica.host":"",
+            "vertica.password":"",
+            "vertica.username":"",
+        }
+    }
+
+Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
+one of your Kafka Connect workers.
+
+.. code-block:: bash
+
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+
