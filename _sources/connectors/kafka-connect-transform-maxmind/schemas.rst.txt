@@ -1,0 +1,10 @@
+=======
+Schemas
+=======
+
+.. toctree::
+    :maxdepth: 0
+    :caption: Schemas:
+    :glob:
+
+    schemas/*

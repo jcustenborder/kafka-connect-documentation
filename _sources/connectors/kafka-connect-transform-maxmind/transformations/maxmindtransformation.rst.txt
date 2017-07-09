@@ -1,0 +1,88 @@
+=====================
+MaxMindTransformation
+=====================
+
+This transformation is used to lookup data from a `MaxMind database <http://dev.maxmind.com/geoip/geoip2/geolite2/#Downloads>`_ and append the data to an existing struct.
+
+
+
+-------------
+Configuration
+-------------
+
++-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| field.input                   | :ref:`configuration-string`  | High       |               |                                                           | The field in the value() of the connect record to read the ip address from.                 |
++-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| field.output                  | :ref:`configuration-string`  | High       |               |                                                           | The field in the value() to write the GeoIp Data to. The schema will be appended.           |
++-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| maxmind.database.path         | :ref:`configuration-string`  | High       |               |                                                           | The path of the database on the local file system.                                          |
++-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| maxmind.enable.anonymousip    | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if it's used for anonymous internet access.   |
++-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| maxmind.enable.asn            | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if ASN information should be included.        |
++-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| maxmind.enable.city           | :ref:`configuration-boolean` | Medium     | true          |                                                           | Flag to determine if the ip should be checked if city information should be included.       |
++-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| maxmind.enable.connectiontype | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if connection information should be included. |
++-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| maxmind.enable.country        | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if country information should be included.    |
++-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| maxmind.enable.domain         | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if domain information should be included.     |
++-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| maxmind.enable.enterprise     | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if enterprise information should be included. |
++-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| maxmind.enable.isp            | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if ISP information should be included.        |
++-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+| maxmind.database.file.mode    | :ref:`configuration-string`  | Low        | MEMORY_MAPPED | ValidEnum{enum=FileMode, allowed=[MEMORY_MAPPED, MEMORY]} | The mode in which to open the database.                                                     |
++-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+
+^^^^^^^^^^^^^^^^^^^^^^
+Property based example
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `standalone mode
+<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
+
+.. code-block:: properties
+
+    name=connector1
+    tasks.max=1
+    connector.class=com.github.jcustenborder.kafka.connect.transform.maxmind.MaxMindTransformation
+    # The following values must be configured.
+    field.input=
+    field.output=
+    maxmind.database.path=
+
+
+
+^^^^^^^^^^^^^^^^^^
+Rest based example
+^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `distributed mode
+<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
+Write the following json to `connector.json` and use the command below to post the configuration to the distributed connect workers.
+
+.. code-block:: json
+
+    {
+        "name": "connector1",
+        "config": {
+            "connector.class": "com.github.jcustenborder.kafka.connect.transform.maxmind.MaxMindTransformation",
+            "field.input":"",
+            "field.output":"",
+            "maxmind.database.path":"",
+        }
+    }
+
+Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
+one of your Kafka Connect workers.
+
+.. code-block:: bash
+
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+
