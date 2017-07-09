@@ -41,6 +41,8 @@ node {
         copyArtifacts('kafka-connect-salesforce', 'jcustenborder/kafka-connect-salesforce/rst')
         copyArtifacts('kafka-connect-influxdb', 'jcustenborder/kafka-connect-influxdb/rst')
         copyArtifacts('kafka-connect-vertica', 'jcustenborder/kafka-connect-vertica/rst')
+        copyArtifacts('kafka-connect-transform-maxmind', 'jcustenborder/kafka-connect-transform-maxmind/rst')
+        copyArtifacts('kafka-connect-transform-cef', 'jcustenborder/kafka-connect-transform-cef/rst')
     }
 
     stage('build') {
