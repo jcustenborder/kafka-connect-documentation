@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Vertica Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>CEF Transform &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
         <link rel="up" title="Connectors" href="../../connectors.html"/>
-        <link rel="next" title="VerticaSinkConnector" href="sinks/verticasinkconnector.html"/>
-        <link rel="prev" title="com.github.jcustenborder.kafka.connect.twitter.User" href="../kafka-connect-twitter/schemas/struct.com.github.jcustenborder.kafka.connect.twitter.User.html"/> 
+        <link rel="next" title="CEFTransformation" href="transformations/ceftransformation.html"/>
+        <link rel="prev" title="com.github.jcustenborder.kafka.connect.syslog.SyslogValue" href="../kafka-connect-syslog/schemas/struct.com.github.jcustenborder.kafka.connect.syslog.SyslogValue.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -107,13 +107,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-cef/introduction.html">CEF Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-maxmind/introduction.html">Maxmind Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/introduction.html">Twitter Connector</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Vertica Connector</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sinks/verticasinkconnector.html">VerticaSinkConnector</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CEF Transform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations/ceftransformation.html">CEFTransformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html">Schemas</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-maxmind/introduction.html">Maxmind Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/introduction.html">Twitter Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-vertica/introduction.html">Vertica Connector</a></li>
 </ul>
 </li>
 </ul>
@@ -167,13 +168,13 @@
         
           <li><a href="../../connectors.html">Connectors</a> &raquo;</li>
         
-      <li>Vertica Connector</li>
+      <li>CEF Transform</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/connectors/kafka-connect-vertica/introduction.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/connectors/kafka-connect-transform-cef/introduction.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -186,14 +187,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="vertica-connector">
-<h1>Vertica Connector<a class="headerlink" href="#vertica-connector" title="Permalink to this headline">¶</a></h1>
-<p>The Vertica Connector provides a high speed option to write data to Vertica using the <a class="reference external" href="https://my.vertica.com/docs/7.1.x/HTML/Content/Authoring/ConnectingToHPVertica/ClientJDBC/UsingVerticaCopyStream.htm">Vertica CopyStream</a>
-to write data to Vertica.</p>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+  <div class="section" id="cef-transform">
+<h1>CEF Transform<a class="headerlink" href="#cef-transform" title="Permalink to this headline">¶</a></h1>
+<p>The CEF transformation is used to convert syslog messages to CEF message structures.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -210,10 +206,10 @@ to write data to Vertica.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sinks/verticasinkconnector.html" class="btn btn-neutral float-right" title="VerticaSinkConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="transformations/ceftransformation.html" class="btn btn-neutral float-right" title="CEFTransformation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../kafka-connect-twitter/schemas/struct.com.github.jcustenborder.kafka.connect.twitter.User.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.twitter.User" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../kafka-connect-syslog/schemas/struct.com.github.jcustenborder.kafka.connect.syslog.SyslogValue.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.syslog.SyslogValue" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
