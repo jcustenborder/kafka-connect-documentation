@@ -27,22 +27,22 @@ node {
     checkout scm
 
     stage('copy') {
-        copyArtifacts('kafka-connect-syslog', 'jcustenborder/kafka-connect-syslog/rst')
-        copyArtifacts('kafka-connect-kinesis', 'jcustenborder/kafka-connect-kinesis/rst')
-        copyArtifacts('kafka-connect-rabbitmq', 'jcustenborder/kafka-connect-rabbitmq/rst')
-        copyArtifacts('kafka-connect-flume-avro', 'jcustenborder/kafka-connect-flume-avro/rst')
-        copyArtifacts('kafka-connect-spooldir', 'jcustenborder/kafka-connect-spooldir/rst')
-        copyArtifacts('kafka-connect-twitter', 'jcustenborder/kafka-connect-twitter/rst')
-        copyArtifacts('kafka-connect-statsd', 'jcustenborder/kafka-connect-statsd/rst')
+        copyArtifacts('kafka-connect-syslog', 'jcustenborder/kafka-connect-syslog/master')
+        copyArtifacts('kafka-connect-kinesis', 'jcustenborder/kafka-connect-kinesis/master')
+        copyArtifacts('kafka-connect-rabbitmq', 'jcustenborder/kafka-connect-rabbitmq/master')
+        copyArtifacts('kafka-connect-flume-avro', 'jcustenborder/kafka-connect-flume-avro/master')
+        copyArtifacts('kafka-connect-spooldir', 'jcustenborder/kafka-connect-spooldir/master')
+        copyArtifacts('kafka-connect-twitter', 'jcustenborder/kafka-connect-twitter/master')
+        copyArtifacts('kafka-connect-statsd', 'jcustenborder/kafka-connect-statsd/master')
         copyArtifacts('kafka-connect-splunk', 'jcustenborder/kafka-connect-splunk/master')
-        copyArtifacts('kafka-connect-solr', 'jcustenborder/kafka-connect-solr/rst')
-        copyArtifacts('kafka-connect-snmp', 'jcustenborder/kafka-connect-snmp/rst')
-        copyArtifacts('kafka-connect-simulator', 'jcustenborder/kafka-connect-simulator/rst')
-        copyArtifacts('kafka-connect-salesforce', 'jcustenborder/kafka-connect-salesforce/rst')
-        copyArtifacts('kafka-connect-influxdb', 'jcustenborder/kafka-connect-influxdb/rst')
-        copyArtifacts('kafka-connect-vertica', 'jcustenborder/kafka-connect-vertica/rst')
-        copyArtifacts('kafka-connect-transform-maxmind', 'jcustenborder/kafka-connect-transform-maxmind/rst')
-        copyArtifacts('kafka-connect-transform-cef', 'jcustenborder/kafka-connect-transform-cef/rst')
+        copyArtifacts('kafka-connect-solr', 'jcustenborder/kafka-connect-solr/master')
+        copyArtifacts('kafka-connect-snmp', 'jcustenborder/kafka-connect-snmp/master')
+        copyArtifacts('kafka-connect-simulator', 'jcustenborder/kafka-connect-simulator/master')
+        copyArtifacts('kafka-connect-salesforce', 'jcustenborder/kafka-connect-salesforce/master')
+        copyArtifacts('kafka-connect-influxdb', 'jcustenborder/kafka-connect-influxdb/master')
+        copyArtifacts('kafka-connect-vertica', 'jcustenborder/kafka-connect-vertica/master')
+        copyArtifacts('kafka-connect-transform-maxmind', 'jcustenborder/kafka-connect-transform-maxmind/master')
+        copyArtifacts('kafka-connect-transform-cef', 'jcustenborder/kafka-connect-transform-cef/master')
     }
 
     stage('build') {
