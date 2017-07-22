@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>HeaderValue &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="com.github.jcustenborder.kafka.connect.rabbitmq.Envelope" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html"/>
-        <link rel="prev" title="com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.html"/> 
+        <link rel="next" title="Envelope" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html"/>
+        <link rel="prev" title="BasicProperties" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -99,13 +99,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-influxdb/introduction.html">InfluxDB Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">RabbitMQ Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../sources/rabbitmqsourceconnector.html">RabbitMQSourceConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sources/RabbitMQSourceConnector.html">RabbitMQSourceConnector</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.html">com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html">com.github.jcustenborder.kafka.connect.rabbitmq.Envelope</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Message.html">com.github.jcustenborder.kafka.connect.rabbitmq.Message</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey.html">com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.html">BasicProperties</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">HeaderValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html">Envelope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Message.html">Message</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey.html">MessageKey</a></li>
 </ul>
 </li>
 </ul>
@@ -179,7 +179,7 @@
         
           <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
-      <li>com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue</li>
+      <li>HeaderValue</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -198,89 +198,90 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="com-github-jcustenborder-kafka-connect-rabbitmq-basicproperties-headervalue">
-<h1>com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-rabbitmq-basicproperties-headervalue" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="headervalue">
+<h1>HeaderValue<a class="headerlink" href="#headervalue" title="Permalink to this headline">¶</a></h1>
 <p>Used to store the value of a header value. The <cite>type</cite> field stores the type of the data and the corresponding field to read the data from.</p>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-auto docutils" id="id1">
+<caption><span class="caption-text">HeaderValue</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="5%" />
-<col width="4%" />
-<col width="23%" />
-<col width="7%" />
-<col width="61%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
 <th class="head">Optional</th>
-<th class="head">Schema</th>
 <th class="head">Default Value</th>
 <th class="head">Documentation</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>type</td>
-<td>false</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>false</td>
 <td>&#160;</td>
 <td>Used to define the type for the HeaderValue. This will define the corresponding field which will contain the value in it’s original type.</td>
 </tr>
 <tr class="row-odd"><td>timestamp</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Storage for when the <cite>type</cite> field is set to <cite>timestamp</cite>. Null otherwise.</td>
 </tr>
 <tr class="row-even"><td>int8</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int8"><span class="std std-ref">INT8</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Storage for when the <cite>type</cite> field is set to <cite>int8</cite>. Null otherwise.</td>
 </tr>
 <tr class="row-odd"><td>int16</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int16"><span class="std std-ref">INT16</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Storage for when the <cite>type</cite> field is set to <cite>int16</cite>. Null otherwise.</td>
 </tr>
 <tr class="row-even"><td>int32</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Storage for when the <cite>type</cite> field is set to <cite>int32</cite>. Null otherwise.</td>
 </tr>
 <tr class="row-odd"><td>int64</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Storage for when the <cite>type</cite> field is set to <cite>int64</cite>. Null otherwise.</td>
 </tr>
 <tr class="row-even"><td>float32</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-float32"><span class="std std-ref">FLOAT32</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Storage for when the <cite>type</cite> field is set to <cite>float32</cite>. Null otherwise.</td>
 </tr>
 <tr class="row-odd"><td>float64</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-float64"><span class="std std-ref">FLOAT64</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Storage for when the <cite>type</cite> field is set to <cite>float64</cite>. Null otherwise.</td>
 </tr>
 <tr class="row-even"><td>boolean</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Storage for when the <cite>type</cite> field is set to <cite>boolean</cite>. Null otherwise.</td>
 </tr>
 <tr class="row-odd"><td>string</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Storage for when the <cite>type</cite> field is set to <cite>string</cite>. Null otherwise.</td>
 </tr>
 <tr class="row-even"><td>bytes</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-bytes"><span class="std std-ref">BYTES</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Storage for when the <cite>type</cite> field is set to <cite>bytes</cite>. Null otherwise.</td>
 </tr>
@@ -298,10 +299,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html" class="btn btn-neutral float-right" title="com.github.jcustenborder.kafka.connect.rabbitmq.Envelope" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html" class="btn btn-neutral float-right" title="Envelope" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.html" class="btn btn-neutral" title="BasicProperties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

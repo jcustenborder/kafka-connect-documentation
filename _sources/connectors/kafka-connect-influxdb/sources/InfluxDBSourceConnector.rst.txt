@@ -1,0 +1,121 @@
+=======================
+InfluxDBSourceConnector
+=======================
+
+.. image:: InfluxDBSourceConnector.svg
+
+
+The InfluxDBSourceConnector is used to emulate an InfluxDB host and receive messages written by an InfluxDB client.
+
+
+.. IMPORTANT::
+    This connector listens on a network port. Running more than one task or running in distributed mode can cause some undesired effects if another task already has the port open. It is recommended that you run this connector in :term:`Standalone Mode`.
+
+
+
+-------------
+Configuration
+-------------
+
+.. csv-table:: Configuration
+    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
+    :widths: auto
+
+    "http.enable","Boolean","High","true","","Flag to determine if http should be enabled."
+    "http.port","Int","High","8080","ValidPort{start=1000, end=65535}","Port the http listener should be started on."
+    "https.enable","Boolean","High","false","","Flag to determine if https should be enabled."
+    "https.port","Int","High","8443","ValidPort{start=1000, end=65535}","Port the https listener should be started on."
+    "topic.prefix","String","High","influxdb.","",""
+    "allowed.databases","List","Medium","[]","",""
+    "health.check.enable","Boolean","Medium","true","","Flag to determine if a health check url for a load balancer should be configured."
+    "health.check.path","String","Medium","/healthcheck","","Path that will respond with a health check."
+    "https.key.manager.password","Password","Medium","[hidden]","","The key manager password."
+    "https.key.store.password","Password","Medium","[hidden]","","The password for the ssl keystore."
+    "https.key.store.path","String","Medium","","","Path on the local filesystem that contains the ssl keystore."
+    "https.trust.store.password","Password","Medium","[hidden]","","The password for the ssl trust store."
+    "https.trust.store.path","String","Medium","","","The key manager password."
+    "thread.pool.max.size","Int","Medium","100","[10,...,1000]","The maximum number of threads for the thread pool to allocate."
+    "thread.pool.min.size","Int","Medium","10","[10,...,1000]","The minimum number of threads for the thread pool to allocate."
+    "http.idle.timeout.ms","Int","Low","30000","[5000,...,300000]","The number of milliseconds idle before a connection has timed out."
+    "https.idle.timeout.ms","Int","Low","30000","[5000,...,300000]","The number of milliseconds idle before a connection has timed out."
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+Property based example
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `standalone mode
+<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
+
+.. code-block:: properties
+
+    name=connector1
+    tasks.max=1
+    connector.class=com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSourceConnector
+    # The following values must be configured.
+    http.enable=
+    http.port=
+    https.enable=
+    https.port=
+    topic.prefix=
+    allowed.databases=
+    health.check.enable=
+    health.check.path=
+    https.key.manager.password=
+    https.key.store.password=
+    https.key.store.path=
+    https.trust.store.password=
+    https.trust.store.path=
+    thread.pool.max.size=
+    thread.pool.min.size=
+    http.idle.timeout.ms=
+    https.idle.timeout.ms=
+
+
+
+^^^^^^^^^^^^^^^^^^
+Rest based example
+^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `distributed mode
+<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
+Write the following json to `connector.json`, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s).
+
+.. code-block:: json
+
+    {
+        "name": "connector1",
+        "config": {
+            "connector.class": "com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSourceConnector",
+            "http.enable":"",
+            "http.port":"",
+            "https.enable":"",
+            "https.port":"",
+            "topic.prefix":"",
+            "allowed.databases":"",
+            "health.check.enable":"",
+            "health.check.path":"",
+            "https.key.manager.password":"",
+            "https.key.store.password":"",
+            "https.key.store.path":"",
+            "https.trust.store.password":"",
+            "https.trust.store.path":"",
+            "thread.pool.max.size":"",
+            "thread.pool.min.size":"",
+            "http.idle.timeout.ms":"",
+            "https.idle.timeout.ms":"",
+        }
+    }
+
+Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
+one of your Kafka Connect worker(s).
+
+.. code-block:: bash
+
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+

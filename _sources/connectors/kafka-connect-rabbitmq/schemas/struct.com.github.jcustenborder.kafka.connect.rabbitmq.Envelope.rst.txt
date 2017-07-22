@@ -1,18 +1,15 @@
-========================================================
-com.github.jcustenborder.kafka.connect.rabbitmq.Envelope
-========================================================
+========
+Envelope
+========
 
 Encapsulates a group of parameters used for AMQP's Basic methods. See [Envelope](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Envelope.html)
 
+.. csv-table:: Envelope
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+-------------+----------+----------------------------------------------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Name        | Optional | Schema                                             | Default Value | Documentation                                                                                                                                                                                                      |
-+=============+==========+====================================================+===============+====================================================================================================================================================================================================================+
-| deliveryTag | false    | :ref:`schema-int64`                                |               | The delivery tag included in this parameter envelope. See [Envelope.getDeliveryTag()](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Envelope.html#getDeliveryTag--)   |
-+-------------+----------+----------------------------------------------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| isRedeliver | false    | :ref:`schema-boolean`                              |               | The redelivery flag included in this parameter envelope. See [Envelope.isRedeliver()](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Envelope.html#isRedeliver--)      |
-+-------------+----------+----------------------------------------------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| exchange    | true     | :ref:`schema-string`                               |               | The name of the exchange included in this parameter envelope. See [Envelope.getExchange()](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Envelope.html#getExchange--) |
-+-------------+----------+----------------------------------------------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| routingKey  | true     | :ref:`schema-string`                               |               | The routing key included in this parameter envelope. See [Envelope.getRoutingKey()](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Envelope.html#getRoutingKey--)      |
-+-------------+----------+----------------------------------------------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    "deliveryTag",":ref:`schema-Int64`","false","","The delivery tag included in this parameter envelope. See [Envelope.getDeliveryTag()](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Envelope.html#getDeliveryTag--)"
+    "isRedeliver",":ref:`schema-Boolean`","false","","The redelivery flag included in this parameter envelope. See [Envelope.isRedeliver()](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Envelope.html#isRedeliver--)"
+    "exchange",":ref:`schema-String`","true","","The name of the exchange included in this parameter envelope. See [Envelope.getExchange()](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Envelope.html#getExchange--)"
+    "routingKey",":ref:`schema-String`","true","","The routing key included in this parameter envelope. See [Envelope.getRoutingKey()](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Envelope.html#getRoutingKey--)"
+

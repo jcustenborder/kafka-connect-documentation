@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>com.github.jcustenborder.kafka.connect.syslog.SyslogValue &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>SyslogValue &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Schemas" href="../schemas.html"/>
         <link rel="next" title="CEF Transform" href="../../kafka-connect-transform-cef/introduction.html"/>
-        <link rel="prev" title="com.github.jcustenborder.kafka.connect.syslog.SyslogKey" href="struct.com.github.jcustenborder.kafka.connect.syslog.SyslogKey.html"/> 
+        <link rel="prev" title="SyslogKey" href="struct.com.github.jcustenborder.kafka.connect.syslog.SyslogKey.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -107,12 +107,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Syslog Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../sources/ssltcpsyslogsourceconnector.html">SSLTCPSyslogSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sources/tcpsyslogsourceconnector.html">TCPSyslogSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sources/udpsyslogsourceconnector.html">UDPSyslogSourceConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sources/SSLTCPSyslogSourceConnector.html">SSLTCPSyslogSourceConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sources/TCPSyslogSourceConnector.html">TCPSyslogSourceConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sources/UDPSyslogSourceConnector.html">UDPSyslogSourceConnector</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.syslog.SyslogKey.html">com.github.jcustenborder.kafka.connect.syslog.SyslogKey</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.syslog.SyslogValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.syslog.SyslogKey.html">SyslogKey</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SyslogValue</a></li>
 </ul>
 </li>
 </ul>
@@ -178,7 +178,7 @@
         
           <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
-      <li>com.github.jcustenborder.kafka.connect.syslog.SyslogValue</li>
+      <li>SyslogValue</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -197,71 +197,72 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="com-github-jcustenborder-kafka-connect-syslog-syslogvalue">
-<h1>com.github.jcustenborder.kafka.connect.syslog.SyslogValue<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-syslog-syslogvalue" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="syslogvalue">
+<h1>SyslogValue<a class="headerlink" href="#syslogvalue" title="Permalink to this headline">¶</a></h1>
 <p>This schema represents a syslog message that is written to Kafka.</p>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-auto docutils" id="id1">
+<caption><span class="caption-text">SyslogValue</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="9%" />
-<col width="5%" />
-<col width="28%" />
-<col width="8%" />
-<col width="50%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
 <th class="head">Optional</th>
-<th class="head">Schema</th>
 <th class="head">Default Value</th>
 <th class="head">Documentation</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>date</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The timestamp of the message.</td>
 </tr>
 <tr class="row-odd"><td>facility</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The facility of the message.</td>
 </tr>
 <tr class="row-even"><td>host</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The host of the message.</td>
 </tr>
 <tr class="row-odd"><td>level</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The level of the syslog message as defined by [rfc5424](<a class="reference external" href="https://tools.ietf.org/html/rfc5424">https://tools.ietf.org/html/rfc5424</a>)</td>
 </tr>
 <tr class="row-even"><td>message</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The text for the message.</td>
 </tr>
 <tr class="row-odd"><td>charset</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The character set of the message.</td>
 </tr>
 <tr class="row-even"><td>remote_address</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The ip address of the host that sent the syslog message.</td>
 </tr>
 <tr class="row-odd"><td>hostname</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The reverse DNS of the <cite>remote_address</cite> field.</td>
 </tr>
@@ -282,7 +283,7 @@
         <a href="../../kafka-connect-transform-cef/introduction.html" class="btn btn-neutral float-right" title="CEF Transform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.syslog.SyslogKey.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.syslog.SyslogKey" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.syslog.SyslogKey.html" class="btn btn-neutral" title="SyslogKey" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

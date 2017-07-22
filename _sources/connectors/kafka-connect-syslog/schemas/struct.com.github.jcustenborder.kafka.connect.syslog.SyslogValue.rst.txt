@@ -1,26 +1,19 @@
-=========================================================
-com.github.jcustenborder.kafka.connect.syslog.SyslogValue
-=========================================================
+===========
+SyslogValue
+===========
 
 This schema represents a syslog message that is written to Kafka.
 
+.. csv-table:: SyslogValue
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+----------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------+
-| Name           | Optional | Schema                                             | Default Value | Documentation                                                                                |
-+================+==========+====================================================+===============+==============================================================================================+
-| date           | true     | :ref:`schema-int64`                                |               | The timestamp of the message.                                                                |
-+----------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------+
-| facility       | true     | :ref:`schema-int32`                                |               | The facility of the message.                                                                 |
-+----------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------+
-| host           | true     | :ref:`schema-string`                               |               | The host of the message.                                                                     |
-+----------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------+
-| level          | true     | :ref:`schema-int32`                                |               | The level of the syslog message as defined by [rfc5424](https://tools.ietf.org/html/rfc5424) |
-+----------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------+
-| message        | true     | :ref:`schema-string`                               |               | The text for the message.                                                                    |
-+----------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------+
-| charset        | true     | :ref:`schema-string`                               |               | The character set of the message.                                                            |
-+----------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------+
-| remote_address | true     | :ref:`schema-string`                               |               | The ip address of the host that sent the syslog message.                                     |
-+----------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------+
-| hostname       | true     | :ref:`schema-string`                               |               | The reverse DNS of the `remote_address` field.                                               |
-+----------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------+
+    "date",":ref:`schema-Int64`","true","","The timestamp of the message."
+    "facility",":ref:`schema-Int32`","true","","The facility of the message."
+    "host",":ref:`schema-String`","true","","The host of the message."
+    "level",":ref:`schema-Int32`","true","","The level of the syslog message as defined by [rfc5424](https://tools.ietf.org/html/rfc5424)"
+    "message",":ref:`schema-String`","true","","The text for the message."
+    "charset",":ref:`schema-String`","true","","The character set of the message."
+    "remote_address",":ref:`schema-String`","true","","The ip address of the host that sent the syslog message."
+    "hostname",":ref:`schema-String`","true","","The reverse DNS of the `remote_address` field."
+

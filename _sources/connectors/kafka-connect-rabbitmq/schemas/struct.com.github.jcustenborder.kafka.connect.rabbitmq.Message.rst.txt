@@ -1,18 +1,15 @@
-=======================================================
-com.github.jcustenborder.kafka.connect.rabbitmq.Message
-=======================================================
+=======
+Message
+=======
 
 Message as it is delivered to the [RabbitMQ Consumer](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Consumer.html#handleDelivery-java.lang.String-com.rabbitmq.client.Envelope-com.rabbitmq.client.AMQP.BasicProperties-byte:A-) 
 
+.. csv-table:: Message
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+-----------------+----------+----------------------------------------------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Name            | Optional | Schema                                             | Default Value | Documentation                                                                                                                                                                              |
-+=================+==========+====================================================+===============+============================================================================================================================================================================================+
-| consumerTag     | false    | :ref:`schema-string`                               |               | The consumer tag associated with the consumer                                                                                                                                              |
-+-----------------+----------+----------------------------------------------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| envelope        | false    | STRUCT                                             |               | Encapsulates a group of parameters used for AMQP's Basic methods. See [Envelope](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Envelope.html) |
-+-----------------+----------+----------------------------------------------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| basicProperties | true     | STRUCT                                             |               | Corresponds to the [BasicProperties](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html)                                      |
-+-----------------+----------+----------------------------------------------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| body            | false    | :ref:`schema-bytes`                                |               | The value body (opaque, client-specific byte array)                                                                                                                                        |
-+-----------------+----------+----------------------------------------------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    "consumerTag",":ref:`schema-String`","false","","The consumer tag associated with the consumer"
+    "envelope",":ref:`schema-Struct`","false","","Encapsulates a group of parameters used for AMQP's Basic methods. See [Envelope](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Envelope.html)"
+    "basicProperties",":ref:`schema-Struct`","true","","Corresponds to the [BasicProperties](https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html)"
+    "body",":ref:`schema-Bytes`","false","","The value body (opaque, client-specific byte array)"
+

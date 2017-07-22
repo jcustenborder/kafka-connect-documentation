@@ -1,24 +1,18 @@
-==========================================================
-com.github.jcustenborder.kafka.connect.influxdb.PointValue
-==========================================================
+==========
+PointValue
+==========
 
 This schema represents a value written to InfluxDB.
 
+.. csv-table:: PointValue
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+-----------+----------+----------------------------------------------------+---------------+---------------------------------------------------------------------------+
-| Name      | Optional | Schema                                             | Default Value | Documentation                                                             |
-+===========+==========+====================================================+===============+===========================================================================+
-| name      | false    | :ref:`schema-string`                               |               | The name of the value                                                     |
-+-----------+----------+----------------------------------------------------+---------------+---------------------------------------------------------------------------+
-| type      | false    | :ref:`schema-string`                               |               | The type of data. This value corresponds to one of fields of this struct. |
-+-----------+----------+----------------------------------------------------+---------------+---------------------------------------------------------------------------+
-| float64   | true     | :ref:`schema-float64`                              |               | The float64 value for this field.                                         |
-+-----------+----------+----------------------------------------------------+---------------+---------------------------------------------------------------------------+
-| int64     | true     | :ref:`schema-int64`                                |               | The int64 value for this field.                                           |
-+-----------+----------+----------------------------------------------------+---------------+---------------------------------------------------------------------------+
-| boolean   | true     | :ref:`schema-boolean`                              |               | The boolean value for this field.                                         |
-+-----------+----------+----------------------------------------------------+---------------+---------------------------------------------------------------------------+
-| timestamp | true     | :ref:`schema-int64`                                |               | Timestamp value.                                                          |
-+-----------+----------+----------------------------------------------------+---------------+---------------------------------------------------------------------------+
-| string    | true     | :ref:`schema-string`                               |               | String value.                                                             |
-+-----------+----------+----------------------------------------------------+---------------+---------------------------------------------------------------------------+
+    "name",":ref:`schema-String`","false","","The name of the value"
+    "type",":ref:`schema-String`","false","","The type of data. This value corresponds to one of fields of this struct."
+    "float64",":ref:`schema-Float64`","true","","The float64 value for this field."
+    "int64",":ref:`schema-Int64`","true","","The int64 value for this field."
+    "boolean",":ref:`schema-Boolean`","true","","The boolean value for this field."
+    "timestamp",":ref:`schema-Int64`","true","","Timestamp value."
+    "string",":ref:`schema-String`","true","","String value."
+

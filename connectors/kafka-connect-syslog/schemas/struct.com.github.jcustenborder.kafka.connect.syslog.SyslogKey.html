@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>com.github.jcustenborder.kafka.connect.syslog.SyslogKey &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>SyslogKey &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="com.github.jcustenborder.kafka.connect.syslog.SyslogValue" href="struct.com.github.jcustenborder.kafka.connect.syslog.SyslogValue.html"/>
+        <link rel="next" title="SyslogValue" href="struct.com.github.jcustenborder.kafka.connect.syslog.SyslogValue.html"/>
         <link rel="prev" title="Schemas" href="../schemas.html"/> 
 
   
@@ -107,12 +107,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Syslog Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../sources/ssltcpsyslogsourceconnector.html">SSLTCPSyslogSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sources/tcpsyslogsourceconnector.html">TCPSyslogSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sources/udpsyslogsourceconnector.html">UDPSyslogSourceConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sources/SSLTCPSyslogSourceConnector.html">SSLTCPSyslogSourceConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sources/TCPSyslogSourceConnector.html">TCPSyslogSourceConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sources/UDPSyslogSourceConnector.html">UDPSyslogSourceConnector</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.syslog.SyslogKey</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.syslog.SyslogValue.html">com.github.jcustenborder.kafka.connect.syslog.SyslogValue</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SyslogKey</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.syslog.SyslogValue.html">SyslogValue</a></li>
 </ul>
 </li>
 </ul>
@@ -178,7 +178,7 @@
         
           <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
-      <li>com.github.jcustenborder.kafka.connect.syslog.SyslogKey</li>
+      <li>SyslogKey</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -197,29 +197,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="com-github-jcustenborder-kafka-connect-syslog-syslogkey">
-<h1>com.github.jcustenborder.kafka.connect.syslog.SyslogKey<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-syslog-syslogkey" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="syslogkey">
+<h1>SyslogKey<a class="headerlink" href="#syslogkey" title="Permalink to this headline">¶</a></h1>
 <p>This schema represents the key that is written to Kafka for syslog data. This will ensure that all data for a host ends up in the same partition.</p>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-auto docutils" id="id1">
+<caption><span class="caption-text">SyslogKey</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="11%" />
-<col width="7%" />
-<col width="34%" />
-<col width="10%" />
-<col width="38%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
 <th class="head">Optional</th>
-<th class="head">Schema</th>
 <th class="head">Default Value</th>
 <th class="head">Documentation</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>remote_address</td>
-<td>false</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>false</td>
 <td>&#160;</td>
 <td>The ip address of the host that sent the syslog message.</td>
 </tr>
@@ -237,7 +238,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.syslog.SyslogValue.html" class="btn btn-neutral float-right" title="com.github.jcustenborder.kafka.connect.syslog.SyslogValue" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.syslog.SyslogValue.html" class="btn btn-neutral float-right" title="SyslogValue" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../schemas.html" class="btn btn-neutral" title="Schemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

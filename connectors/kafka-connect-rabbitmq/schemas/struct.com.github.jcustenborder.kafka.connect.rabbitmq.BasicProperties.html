@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>BasicProperties &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue.html"/>
+        <link rel="next" title="HeaderValue" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue.html"/>
         <link rel="prev" title="Schemas" href="../schemas.html"/> 
 
   
@@ -99,13 +99,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-influxdb/introduction.html">InfluxDB Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">RabbitMQ Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../sources/rabbitmqsourceconnector.html">RabbitMQSourceConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sources/RabbitMQSourceConnector.html">RabbitMQSourceConnector</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue.html">com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html">com.github.jcustenborder.kafka.connect.rabbitmq.Envelope</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Message.html">com.github.jcustenborder.kafka.connect.rabbitmq.Message</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey.html">com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">BasicProperties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue.html">HeaderValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Envelope.html">Envelope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.Message.html">Message</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.MessageKey.html">MessageKey</a></li>
 </ul>
 </li>
 </ul>
@@ -179,7 +179,7 @@
         
           <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
-      <li>com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties</li>
+      <li>BasicProperties</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -198,101 +198,102 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="com-github-jcustenborder-kafka-connect-rabbitmq-basicproperties">
-<h1>com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-rabbitmq-basicproperties" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="basicproperties">
+<h1>BasicProperties<a class="headerlink" href="#basicproperties" title="Permalink to this headline">¶</a></h1>
 <p>Corresponds to the [BasicProperties](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html</a>)</p>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-auto docutils" id="id1">
+<caption><span class="caption-text">BasicProperties</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="5%" />
-<col width="3%" />
-<col width="17%" />
-<col width="5%" />
-<col width="70%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
 <th class="head">Optional</th>
-<th class="head">Schema</th>
 <th class="head">Default Value</th>
 <th class="head">Documentation</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>contentType</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The value in the contentType field. See [BasicProperties.getContentType()](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getContentType">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getContentType</a>–)</td>
 </tr>
 <tr class="row-odd"><td>contentEncoding</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The value in the contentEncoding field. See [BasicProperties.getContentEncoding()](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getContentEncoding">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getContentEncoding</a>–)</td>
 </tr>
 <tr class="row-even"><td>headers</td>
+<td>Map of <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a>, <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
 <td>false</td>
-<td>Map of <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a>, STRUCT</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>deliveryMode</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The value in the deliveryMode field. [BasicProperties.html.getDeliveryMode()](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getDeliveryMode">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getDeliveryMode</a>–)</td>
 </tr>
 <tr class="row-even"><td>priority</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The value in the priority field. [BasicProperties.getPriority()](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getPriority">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getPriority</a>–)</td>
 </tr>
 <tr class="row-odd"><td>correlationId</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The value in the correlationId field. See [BasicProperties.getCorrelationId()](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getCorrelationId">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getCorrelationId</a>–)</td>
 </tr>
 <tr class="row-even"><td>replyTo</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The value in the replyTo field. [BasicProperties.getReplyTo()](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getReplyTo">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getReplyTo</a>–)</td>
 </tr>
 <tr class="row-odd"><td>expiration</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The value in the expiration field. See [BasicProperties.getExpiration()](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getExpiration">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getExpiration</a>–)</td>
 </tr>
 <tr class="row-even"><td>messageId</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The value in the messageId field. [BasicProperties.getMessageId()](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getMessageId">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getMessageId</a>–)</td>
 </tr>
 <tr class="row-odd"><td>timestamp</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The value in the timestamp field. [BasicProperties.getTimestamp()](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getTimestamp">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getTimestamp</a>–)</td>
 </tr>
 <tr class="row-even"><td>type</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The value in the type field. [BasicProperties.getType()](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getType">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getType</a>–)</td>
 </tr>
 <tr class="row-odd"><td>userId</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The value in the userId field. [BasicProperties.getUserId()](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getUserId">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getUserId</a>–)</td>
 </tr>
 <tr class="row-even"><td>appId</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The value in the appId field. [BasicProperties.getAppId()](<a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getAppId">https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getAppId</a>–)</td>
 </tr>
@@ -310,7 +311,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue.html" class="btn btn-neutral float-right" title="com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.rabbitmq.BasicProperties.HeaderValue.html" class="btn btn-neutral float-right" title="HeaderValue" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../schemas.html" class="btn btn-neutral" title="Schemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

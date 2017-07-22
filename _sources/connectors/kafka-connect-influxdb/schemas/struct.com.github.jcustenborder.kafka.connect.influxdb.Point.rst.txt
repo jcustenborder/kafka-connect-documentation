@@ -1,20 +1,16 @@
-=====================================================
-com.github.jcustenborder.kafka.connect.influxdb.Point
-=====================================================
+=====
+Point
+=====
 
 This schema represents the :term:`value` that is written to Kafka.
 
+.. csv-table:: Point
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+---------------+----------+----------------------------------------------------+---------------+-------------------------------------------+
-| Name          | Optional | Schema                                             | Default Value | Documentation                             |
-+===============+==========+====================================================+===============+===========================================+
-| measurement   | false    | :ref:`schema-string`                               |               | The name of the measurement.              |
-+---------------+----------+----------------------------------------------------+---------------+-------------------------------------------+
-| tags          | false    | Map of :ref:`schema-string`, :ref:`schema-string`  |               | Tags associated with the measurement.     |
-+---------------+----------+----------------------------------------------------+---------------+-------------------------------------------+
-| timestampNano | false    | :ref:`schema-int64`                                |               | Timestamp in nanosecond precision.        |
-+---------------+----------+----------------------------------------------------+---------------+-------------------------------------------+
-| timestamp     | false    | :ref:`schema-int64`                                |               | Timestamp of the message.                 |
-+---------------+----------+----------------------------------------------------+---------------+-------------------------------------------+
-| values        | false    | Array of STRUCT                                    |               | The values that were written to InfluxDB. |
-+---------------+----------+----------------------------------------------------+---------------+-------------------------------------------+
+    "measurement",":ref:`schema-String`","false","","The name of the measurement."
+    "tags","Map of :ref:`schema-String`, :ref:`schema-String`","false","","Tags associated with the measurement."
+    "timestampNano",":ref:`schema-Int64`","false","","Timestamp in nanosecond precision."
+    "timestamp",":ref:`schema-Int64`","false","","Timestamp of the message."
+    "values","Array of :ref:`schema-Struct`","false","","The values that were written to InfluxDB."
+
