@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TCPSyslogSourceConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>SalesforceSourceConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Syslog Connector" href="../introduction.html"/>
-        <link rel="next" title="UDPSyslogSourceConnector" href="UDPSyslogSourceConnector.html"/>
-        <link rel="prev" title="SSLTCPSyslogSourceConnector" href="SSLTCPSyslogSourceConnector.html"/> 
+        <link rel="up" title="Salesforce Connector" href="../introduction.html"/>
+        <link rel="next" title="Simulator Connector" href="../../kafka-connect-simulator/introduction.html"/>
+        <link rel="prev" title="Salesforce Connector" href="../introduction.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -99,26 +99,20 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-influxdb/introduction.html">InfluxDB Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/introduction.html">RabbitMQ Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-salesforce/introduction.html">Salesforce Connector</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Salesforce Connector</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SalesforceSourceConnector</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/introduction.html">Simulator Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-snmp/introduction.html">SNMP Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/introduction.html">Solr Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/introduction.html">Splunk Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Syslog Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="SSLTCPSyslogSourceConnector.html">SSLTCPSyslogSourceConnector</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">TCPSyslogSourceConnector</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="UDPSyslogSourceConnector.html">UDPSyslogSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ssltcpsyslogsourceconnector.html">SSLTCPSyslogSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tcpsyslogsourceconnector.html">TCPSyslogSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="udpsyslogsourceconnector.html">UDPSyslogSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-cef/introduction.html">CEF Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/introduction.html">Maxmind Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/introduction.html">Twitter Connector</a></li>
@@ -176,15 +170,15 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../introduction.html">Syslog Connector</a> &raquo;</li>
+          <li><a href="../introduction.html">Salesforce Connector</a> &raquo;</li>
         
-      <li>TCPSyslogSourceConnector</li>
+      <li>SalesforceSourceConnector</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/connectors/kafka-connect-syslog/sources/TCPSyslogSourceConnector.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/connectors/kafka-connect-salesforce/sources/SalesforceSourceConnector.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -197,13 +191,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tcpsyslogsourceconnector">
-<h1>TCPSyslogSourceConnector<a class="headerlink" href="#tcpsyslogsourceconnector" title="Permalink to this headline">¶</a></h1>
-<img alt="../../../_images/TCPSyslogSourceConnector.svg" src="../../../_images/TCPSyslogSourceConnector.svg" /><p>Connector is used to receive syslog messages over TCP.</p>
-<div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">This connector listens on a network port. Running more than one task or running in distributed mode can cause some undesired effects if another task already has the port open. It is recommended that you run this connector in <a class="reference internal" href="../../../glossary.html#term-standalone-mode"><span class="xref std std-term">Standalone Mode</span></a>.</p>
-</div>
+  <div class="section" id="salesforcesourceconnector">
+<h1>SalesforceSourceConnector<a class="headerlink" href="#salesforcesourceconnector" title="Permalink to this headline">¶</a></h1>
+<img alt="../../../_images/SalesforceSourceConnector.svg" src="../../../_images/SalesforceSourceConnector.svg" /><p>The SalesforceSourceConnector is used to read changes from Salesforce in realtime.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="colwidths-auto docutils" id="id1">
@@ -231,98 +221,126 @@
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td>Kafka topic to write syslog data to.</td>
+<td>The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guarenteed to be there. <cite>_EventType</cite> and <cite>_ObjectType</cite> are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using <cite>salesforce.${_ObjectType}.${_EventType}</cite></td>
 </tr>
-<tr class="row-odd"><td>syslog.host</td>
+<tr class="row-odd"><td>salesforce.consumer.key</td>
 <td>String</td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td>Hostname to listen on.</td>
+<td>The consumer key for the OAuth application.</td>
 </tr>
-<tr class="row-even"><td>syslog.port</td>
-<td>Int</td>
+<tr class="row-even"><td>salesforce.consumer.secret</td>
+<td>Password</td>
 <td>High</td>
-<td>5514</td>
-<td>ValidPort{start=1000, end=65535}</td>
-<td>Port to listen on.</td>
-</tr>
-<tr class="row-odd"><td>backoff.ms</td>
-<td>Int</td>
-<td>Low</td>
-<td>100</td>
-<td>[50,…]</td>
-<td>Number of milliseconds to sleep when no data is returned.</td>
-</tr>
-<tr class="row-even"><td>batch.size</td>
-<td>Int</td>
-<td>Low</td>
-<td>5000</td>
 <td>&#160;</td>
-<td>The number of records to pull off of the queue at once.</td>
+<td>&#160;</td>
+<td>The consumer secret for the OAuth application.</td>
 </tr>
-<tr class="row-odd"><td>syslog.backlog</td>
-<td>Int</td>
+<tr class="row-odd"><td>salesforce.object</td>
+<td>String</td>
+<td>High</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>The Salesforce object to create a topic for.</td>
+</tr>
+<tr class="row-even"><td>salesforce.password</td>
+<td>Password</td>
+<td>High</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>Salesforce password to connect with.</td>
+</tr>
+<tr class="row-odd"><td>salesforce.password.token</td>
+<td>Password</td>
+<td>High</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>The Salesforce security token associated with the username.</td>
+</tr>
+<tr class="row-even"><td>salesforce.push.topic.name</td>
+<td>String</td>
+<td>High</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>The Salesforce topic to subscribe to. If salesforce.push.topic.create is set to true, a PushTopic with this name will be created.</td>
+</tr>
+<tr class="row-odd"><td>salesforce.username</td>
+<td>String</td>
+<td>High</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>Salesforce username to connect with.</td>
+</tr>
+<tr class="row-even"><td>kafka.topic.lowercase</td>
+<td>Boolean</td>
+<td>High</td>
+<td>true</td>
+<td>&#160;</td>
+<td>Flag to determine if the kafka topic should be lowercased.</td>
+</tr>
+<tr class="row-odd"><td>salesforce.instance</td>
+<td>String</td>
+<td>High</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>The Salesforce instance to connect to.</td>
+</tr>
+<tr class="row-even"><td>connection.timeout</td>
+<td>Long</td>
 <td>Low</td>
-<td>50</td>
-<td>[1,…]</td>
-<td>Number of connections to allow in backlog.</td>
+<td>30000</td>
+<td>[5000,…,600000]</td>
+<td>The amount of time to wait while connecting to the Salesforce streaming endpoint.</td>
 </tr>
-<tr class="row-even"><td>syslog.charset</td>
+<tr class="row-odd"><td>curl.logging</td>
+<td>Boolean</td>
+<td>Low</td>
+<td>false</td>
+<td>&#160;</td>
+<td>If enabled the logs will output the equivalent curl commands. This is a security risk because your authorization header will end up in the log file. Use at your own risk.</td>
+</tr>
+<tr class="row-even"><td>salesforce.push.topic.create</td>
+<td>Boolean</td>
+<td>Low</td>
+<td>true</td>
+<td>&#160;</td>
+<td>Flag to determine if the PushTopic should be created if it does not exist.</td>
+</tr>
+<tr class="row-odd"><td>salesforce.push.topic.notify.create</td>
+<td>Boolean</td>
+<td>Low</td>
+<td>true</td>
+<td>&#160;</td>
+<td>Flag to determine if the PushTopic should respond to creates.</td>
+</tr>
+<tr class="row-even"><td>salesforce.push.topic.notify.delete</td>
+<td>Boolean</td>
+<td>Low</td>
+<td>true</td>
+<td>&#160;</td>
+<td>Flag to determine if the PushTopic should respond to deletes.</td>
+</tr>
+<tr class="row-odd"><td>salesforce.push.topic.notify.undelete</td>
+<td>Boolean</td>
+<td>Low</td>
+<td>true</td>
+<td>&#160;</td>
+<td>Flag to determine if the PushTopic should respond to undeletes.</td>
+</tr>
+<tr class="row-even"><td>salesforce.push.topic.notify.update</td>
+<td>Boolean</td>
+<td>Low</td>
+<td>true</td>
+<td>&#160;</td>
+<td>Flag to determine if the PushTopic should respond to updates.</td>
+</tr>
+<tr class="row-odd"><td>salesforce.version</td>
 <td>String</td>
 <td>Low</td>
-<td>UTF-8</td>
-<td>&#160;</td>
-<td>Character set for syslog messages.</td>
-</tr>
-<tr class="row-odd"><td>syslog.max.active.sockets</td>
-<td>Int</td>
-<td>Low</td>
-<td>0</td>
-<td>&#160;</td>
-<td>Maximum active sockets</td>
-</tr>
-<tr class="row-even"><td>syslog.max.active.sockets.behavior</td>
-<td>Int</td>
-<td>Low</td>
-<td>0</td>
-<td>&#160;</td>
-<td>Maximum active sockets</td>
-</tr>
-<tr class="row-odd"><td>syslog.reverse.dns.cache.ms</td>
-<td>Long</td>
-<td>Low</td>
-<td>60000</td>
-<td>&#160;</td>
-<td>The amount of time to cache the reverse lookup values from DNS.</td>
-</tr>
-<tr class="row-even"><td>syslog.reverse.dns.remote.ip</td>
-<td>Boolean</td>
-<td>Low</td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine if the ip address of the remote sender should be resolved. If set to false the hostname value will be null.</td>
-</tr>
-<tr class="row-odd"><td>syslog.shutdown.wait</td>
-<td>Long</td>
-<td>Low</td>
-<td>500</td>
-<td>&#160;</td>
-<td>The amount of time in milliseconds to wait for messages when shutting down the server.</td>
-</tr>
-<tr class="row-even"><td>syslog.structured.data</td>
-<td>Boolean</td>
-<td>Low</td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine if structured data should be used.</td>
-</tr>
-<tr class="row-odd"><td>syslog.timeout</td>
-<td>Int</td>
-<td>Low</td>
-<td>0</td>
-<td>&#160;</td>
-<td>Number of milliseconds before a timing out the connection.</td>
+<td>latest</td>
+<td>ValidPattern{pattern=^(latest|[d.]+)$}</td>
+<td>The version of the salesforce API to use.</td>
 </tr>
 </tbody>
 </table>
@@ -331,21 +349,26 @@
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
 <div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">connector1</span>
 <span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
-<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.syslog.TCPSyslogSourceConnector</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.salesforce.SalesforceSourceConnector</span>
 <span class="c"># The following values must be configured.</span>
 <span class="na">kafka.topic</span><span class="o">=</span>
-<span class="na">syslog.port</span><span class="o">=</span>
-<span class="na">backoff.ms</span><span class="o">=</span>
-<span class="na">batch.size</span><span class="o">=</span>
-<span class="na">syslog.backlog</span><span class="o">=</span>
-<span class="na">syslog.charset</span><span class="o">=</span>
-<span class="na">syslog.max.active.sockets</span><span class="o">=</span>
-<span class="na">syslog.max.active.sockets.behavior</span><span class="o">=</span>
-<span class="na">syslog.reverse.dns.cache.ms</span><span class="o">=</span>
-<span class="na">syslog.reverse.dns.remote.ip</span><span class="o">=</span>
-<span class="na">syslog.shutdown.wait</span><span class="o">=</span>
-<span class="na">syslog.structured.data</span><span class="o">=</span>
-<span class="na">syslog.timeout</span><span class="o">=</span>
+<span class="na">salesforce.consumer.key</span><span class="o">=</span>
+<span class="na">salesforce.consumer.secret</span><span class="o">=</span>
+<span class="na">salesforce.object</span><span class="o">=</span>
+<span class="na">salesforce.password</span><span class="o">=</span>
+<span class="na">salesforce.password.token</span><span class="o">=</span>
+<span class="na">salesforce.push.topic.name</span><span class="o">=</span>
+<span class="na">salesforce.username</span><span class="o">=</span>
+<span class="na">kafka.topic.lowercase</span><span class="o">=</span>
+<span class="na">salesforce.instance</span><span class="o">=</span>
+<span class="na">connection.timeout</span><span class="o">=</span>
+<span class="na">curl.logging</span><span class="o">=</span>
+<span class="na">salesforce.push.topic.create</span><span class="o">=</span>
+<span class="na">salesforce.push.topic.notify.create</span><span class="o">=</span>
+<span class="na">salesforce.push.topic.notify.delete</span><span class="o">=</span>
+<span class="na">salesforce.push.topic.notify.undelete</span><span class="o">=</span>
+<span class="na">salesforce.push.topic.notify.update</span><span class="o">=</span>
+<span class="na">salesforce.version</span><span class="o">=</span>
 </pre></div>
 </div>
 </div>
@@ -357,20 +380,25 @@ post the configuration to one the distributed connect worker(s).</p>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
     <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.syslog.TCPSyslogSourceConnector&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.salesforce.SalesforceSourceConnector&quot;</span><span class="p">,</span>
         <span class="nt">&quot;kafka.topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;syslog.port&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;backoff.ms&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;batch.size&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;syslog.backlog&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;syslog.charset&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;syslog.max.active.sockets&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;syslog.max.active.sockets.behavior&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;syslog.reverse.dns.cache.ms&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;syslog.reverse.dns.remote.ip&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;syslog.shutdown.wait&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;syslog.structured.data&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;syslog.timeout&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.consumer.key&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.consumer.secret&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.object&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.password&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.password.token&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.push.topic.name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.username&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;kafka.topic.lowercase&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.instance&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;connection.timeout&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;curl.logging&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.push.topic.create&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.push.topic.notify.create&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.push.topic.notify.delete&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.push.topic.notify.undelete&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.push.topic.notify.update&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;salesforce.version&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -394,10 +422,10 @@ one of your Kafka Connect worker(s).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="UDPSyslogSourceConnector.html" class="btn btn-neutral float-right" title="UDPSyslogSourceConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../kafka-connect-simulator/introduction.html" class="btn btn-neutral float-right" title="Simulator Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="SSLTCPSyslogSourceConnector.html" class="btn btn-neutral" title="SSLTCPSyslogSourceConnector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../introduction.html" class="btn btn-neutral" title="Salesforce Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

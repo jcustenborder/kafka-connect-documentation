@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>com.github.jcustenborder.kafka.connect.snmp.VariableBinding &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>VariableBinding &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Schemas" href="../schemas.html"/>
         <link rel="next" title="Solr Connector" href="../../kafka-connect-solr/introduction.html"/>
-        <link rel="prev" title="com.github.jcustenborder.kafka.connect.snmp.TrapKey" href="struct.com.github.jcustenborder.kafka.connect.snmp.TrapKey.html"/> 
+        <link rel="prev" title="TrapKey" href="struct.com.github.jcustenborder.kafka.connect.snmp.TrapKey.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -102,11 +102,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-salesforce/introduction.html">Salesforce Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/introduction.html">Simulator Connector</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">SNMP Connector</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sources/SnmpTrapSourceConnector.html">SnmpTrapSourceConnector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sources/snmptrapsourceconnector.html">SnmpTrapSourceConnector</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.snmp.Trap.html">com.github.jcustenborder.kafka.connect.snmp.Trap</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.snmp.TrapKey.html">com.github.jcustenborder.kafka.connect.snmp.TrapKey</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.snmp.VariableBinding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.snmp.Trap.html">Trap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.snmp.TrapKey.html">TrapKey</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">VariableBinding</a></li>
 </ul>
 </li>
 </ul>
@@ -177,7 +178,7 @@
         
           <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
-      <li>com.github.jcustenborder.kafka.connect.snmp.VariableBinding</li>
+      <li>VariableBinding</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -196,94 +197,95 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="com-github-jcustenborder-kafka-connect-snmp-variablebinding">
-<h1>com.github.jcustenborder.kafka.connect.snmp.VariableBinding<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-snmp-variablebinding" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="docutils">
+  <div class="section" id="variablebinding">
+<h1>VariableBinding<a class="headerlink" href="#variablebinding" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="colwidths-auto docutils" id="id1">
+<caption><span class="caption-text">VariableBinding</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="14%" />
-<col width="8%" />
-<col width="40%" />
-<col width="12%" />
-<col width="27%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
 <th class="head">Optional</th>
-<th class="head">Schema</th>
 <th class="head">Default Value</th>
 <th class="head">Documentation</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>oid</td>
-<td>false</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>false</td>
 <td>&#160;</td>
 <td>OID.</td>
 </tr>
 <tr class="row-odd"><td>type</td>
-<td>false</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>false</td>
 <td>&#160;</td>
 <td>Syntax type for variable binding.</td>
 </tr>
 <tr class="row-even"><td>counter32</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Counter32 value.</td>
 </tr>
 <tr class="row-odd"><td>counter64</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Counter64 value.</td>
 </tr>
 <tr class="row-even"><td>gauge32</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Gauge32 value.</td>
 </tr>
 <tr class="row-odd"><td>integer</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Integer value.</td>
 </tr>
 <tr class="row-even"><td>ipaddress</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>IpAddress value.</td>
 </tr>
 <tr class="row-odd"><td>null</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>null value.</td>
 </tr>
 <tr class="row-even"><td>objectIdentifier</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>OID value.</td>
 </tr>
 <tr class="row-odd"><td>octetString</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Octet string value.</td>
 </tr>
 <tr class="row-even"><td>opaque</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>opaque value.</td>
 </tr>
 <tr class="row-odd"><td>timeticks</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>timeticks value.</td>
 </tr>
@@ -304,7 +306,7 @@
         <a href="../../kafka-connect-solr/introduction.html" class="btn btn-neutral float-right" title="Solr Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.snmp.TrapKey.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.snmp.TrapKey" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.snmp.TrapKey.html" class="btn btn-neutral" title="TrapKey" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

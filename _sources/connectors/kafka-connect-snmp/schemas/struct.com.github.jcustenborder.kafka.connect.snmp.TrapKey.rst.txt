@@ -1,11 +1,11 @@
-===================================================
-com.github.jcustenborder.kafka.connect.snmp.TrapKey
-===================================================
+=======
+TrapKey
+=======
 
 
+.. csv-table:: TrapKey
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+-------------+----------+----------------------------------------------------+---------------+----------------------------------------------+
-| Name        | Optional | Schema                                             | Default Value | Documentation                                |
-+=============+==========+====================================================+===============+==============================================+
-| peerAddress | false    | :ref:`schema-string`                               |               | Remote address of the host sending the trap. |
-+-------------+----------+----------------------------------------------------+---------------+----------------------------------------------+
+    "peerAddress",":ref:`schema-String`","false","","Remote address of the host sending the trap."
+

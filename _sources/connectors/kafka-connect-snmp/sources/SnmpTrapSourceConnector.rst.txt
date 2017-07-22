@@ -1,0 +1,91 @@
+=======================
+SnmpTrapSourceConnector
+=======================
+
+.. image:: SnmpTrapSourceConnector.svg
+
+
+Connector is used to receive syslog messages over UDP.
+
+
+.. IMPORTANT::
+    This connector listens on a network port. Running more than one task or running in distributed mode can cause some undesired effects if another task already has the port open. It is recommended that you run this connector in :term:`Standalone Mode`.
+
+
+
+-------------
+Configuration
+-------------
+
+.. csv-table:: Configuration
+    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
+    :widths: auto
+
+    "topic","String","High","","","topic"
+    "batch.size","Int","Medium","1024","[10,...,2147483647]","Number of records to return in a single batch."
+    "poll.backoff.ms","Long","Medium","250","[10,...,2147483647]","The amount of time in ms to wait if no records are returned."
+    "dispatcher.thread.pool.size","Int","Low","10","[1,...,100]","Number of threads to allocate for the thread pool."
+    "listen.address","String","Low","0.0.0.0","","IP address to listen for messages on."
+    "listen.port","Int","Low","10161","ValidPort{start=1025, end=65535}","Port to listen on."
+    "listen.protocol","String","Low","UDP","[UDP, TCP]","Protocol to listen with.."
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+Property based example
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `standalone mode
+<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
+
+.. code-block:: properties
+
+    name=connector1
+    tasks.max=1
+    connector.class=com.github.jcustenborder.kafka.connect.snmp.SnmpTrapSourceConnector
+    # The following values must be configured.
+    topic=
+    batch.size=
+    poll.backoff.ms=
+    dispatcher.thread.pool.size=
+    listen.address=
+    listen.port=
+    listen.protocol=
+
+
+
+^^^^^^^^^^^^^^^^^^
+Rest based example
+^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `distributed mode
+<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
+Write the following json to `connector.json`, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s).
+
+.. code-block:: json
+
+    {
+        "name": "connector1",
+        "config": {
+            "connector.class": "com.github.jcustenborder.kafka.connect.snmp.SnmpTrapSourceConnector",
+            "topic":"",
+            "batch.size":"",
+            "poll.backoff.ms":"",
+            "dispatcher.thread.pool.size":"",
+            "listen.address":"",
+            "listen.port":"",
+            "listen.protocol":"",
+        }
+    }
+
+Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
+one of your Kafka Connect worker(s).
+
+.. code-block:: bash
+
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+

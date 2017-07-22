@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>com.github.jcustenborder.kafka.connect.splunk.Event &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Event &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="com.github.jcustenborder.kafka.connect.splunk.EventKey" href="struct.com.github.jcustenborder.kafka.connect.splunk.EventKey.html"/>
+        <link rel="next" title="EventKey" href="struct.com.github.jcustenborder.kafka.connect.splunk.EventKey.html"/>
         <link rel="prev" title="Schemas" href="../schemas.html"/> 
 
   
@@ -104,11 +104,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-snmp/introduction.html">SNMP Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/introduction.html">Solr Connector</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Splunk Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../sources/splunkhttpsourceconnector.html">SplunkHttpSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sinks/splunkhttpsinkconnector.html">SplunkHttpSinkConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sources/SplunkHttpSourceConnector.html">SplunkHttpSourceConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sinks/SplunkHttpSinkConnector.html">SplunkHttpSinkConnector</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.splunk.Event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.splunk.EventKey.html">com.github.jcustenborder.kafka.connect.splunk.EventKey</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.splunk.EventKey.html">EventKey</a></li>
 </ul>
 </li>
 </ul>
@@ -177,7 +177,7 @@
         
           <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
-      <li>com.github.jcustenborder.kafka.connect.splunk.Event</li>
+      <li>Event</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -196,59 +196,60 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="com-github-jcustenborder-kafka-connect-splunk-event">
-<h1>com.github.jcustenborder.kafka.connect.splunk.Event<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-splunk-event" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="event">
+<h1>Event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h1>
 <p>This schema represents the data received from the Splunk listener.</p>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-auto docutils" id="id1">
+<caption><span class="caption-text">Event</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="5%" />
-<col width="4%" />
 <col width="20%" />
-<col width="6%" />
-<col width="66%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
 <th class="head">Optional</th>
-<th class="head">Schema</th>
 <th class="head">Default Value</th>
 <th class="head">Documentation</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>time</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The event time.</td>
 </tr>
 <tr class="row-odd"><td>host</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The host value to assign to the event data. This is typically the hostname of the client from which you’re sending data.</td>
 </tr>
 <tr class="row-even"><td>source</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The source value to assign to the event data. For example, if you’re sending data from an app you’re developing, you could set this key to the name of the app.</td>
 </tr>
 <tr class="row-odd"><td>sourcetype</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The sourcetype value to assign to the event data.</td>
 </tr>
 <tr class="row-even"><td>index</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The name of the index by which the event data is to be indexed. The index you specify here must within the list of allowed indexes if the token has the indexes parameter set.</td>
 </tr>
 <tr class="row-odd"><td>event</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>This is the event it’s self. This is the serialized json form. It could be an object or a string.</td>
 </tr>
@@ -266,7 +267,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.splunk.EventKey.html" class="btn btn-neutral float-right" title="com.github.jcustenborder.kafka.connect.splunk.EventKey" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.splunk.EventKey.html" class="btn btn-neutral float-right" title="EventKey" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../schemas.html" class="btn btn-neutral" title="Schemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

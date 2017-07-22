@@ -1,15 +1,13 @@
-================================================
-com.github.jcustenborder.kafka.connect.snmp.Trap
-================================================
+====
+Trap
+====
 
 
+.. csv-table:: Trap
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+--------------+----------+----------------------------------------------------+---------------+----------------------------------------------+
-| Name         | Optional | Schema                                             | Default Value | Documentation                                |
-+==============+==========+====================================================+===============+==============================================+
-| peerAddress  | false    | :ref:`schema-string`                               |               | Remote address of the host sending the trap. |
-+--------------+----------+----------------------------------------------------+---------------+----------------------------------------------+
-| securityName | false    | :ref:`schema-string`                               |               | Community name the event was sent to.        |
-+--------------+----------+----------------------------------------------------+---------------+----------------------------------------------+
-| variables    | false    | Array of STRUCT                                    |               | Variables for this trap.                     |
-+--------------+----------+----------------------------------------------------+---------------+----------------------------------------------+
+    "peerAddress",":ref:`schema-String`","false","","Remote address of the host sending the trap."
+    "securityName",":ref:`schema-String`","false","","Community name the event was sent to."
+    "variables","Array of :ref:`schema-Struct`","false","","Variables for this trap."
+

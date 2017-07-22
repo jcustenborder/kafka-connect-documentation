@@ -1,0 +1,97 @@
+=======================
+SplunkHttpSinkConnector
+=======================
+
+.. image:: SplunkHttpSinkConnector.svg
+
+
+
+The Sink Connector will transform data from a Kafka topic into a batch of json messages that will be written via HTTP to a configured `Splunk Http Event Collector <http://dev.splunk.com/view/event-collector/SP-CAAAE6M>`_.
+
+
+
+-------------
+Configuration
+-------------
+
+.. csv-table:: Configuration
+    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
+    :widths: auto
+
+    "splunk.auth.token","Password","High","","","The authorization token to use when writing data to splunk."
+    "splunk.remote.host","String","High","","","The hostname of the remote splunk host to write data do."
+    "splunk.ssl.enabled","Boolean","High","true","","Flag to determine if the connection to splunk should be over ssl."
+    "splunk.ssl.trust.store.password","Password","High","[hidden]","","Password for the trust store."
+    "splunk.ssl.trust.store.path","String","High","","","Path on the local disk to the certificate trust store."
+    "splunk.remote.port","Int","Medium","8088","","Port on the remote splunk server to write to."
+    "splunk.ssl.validate.certs","Boolean","Medium","true","","Flag to determine if ssl connections should validate the certificateof the remote host."
+    "splunk.connect.timeout.ms","Int","Low","20000","","The maximum amount of time for a connection to be established."
+    "splunk.curl.logging.enabled","Boolean","Low","false","","Flag to determine if requests to Splunk should be logged in curl form. This will output a curl command to replicate the call to Splunk."
+    "splunk.read.timeout.ms","Int","Low","30000","","Sets the timeout in milliseconds to read data from an established connection or 0 for an infinite timeout."
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+Property based example
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `standalone mode
+<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
+
+.. code-block:: properties
+
+    name=connector1
+    tasks.max=1
+    connector.class=com.github.jcustenborder.kafka.connect.splunk.SplunkHttpSinkConnector
+    # The following values must be configured.
+    splunk.auth.token=
+    splunk.remote.host=
+    splunk.ssl.enabled=
+    splunk.ssl.trust.store.password=
+    splunk.ssl.trust.store.path=
+    splunk.remote.port=
+    splunk.ssl.validate.certs=
+    splunk.connect.timeout.ms=
+    splunk.curl.logging.enabled=
+    splunk.read.timeout.ms=
+
+
+
+^^^^^^^^^^^^^^^^^^
+Rest based example
+^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `distributed mode
+<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
+Write the following json to `connector.json`, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s).
+
+.. code-block:: json
+
+    {
+        "name": "connector1",
+        "config": {
+            "connector.class": "com.github.jcustenborder.kafka.connect.splunk.SplunkHttpSinkConnector",
+            "splunk.auth.token":"",
+            "splunk.remote.host":"",
+            "splunk.ssl.enabled":"",
+            "splunk.ssl.trust.store.password":"",
+            "splunk.ssl.trust.store.path":"",
+            "splunk.remote.port":"",
+            "splunk.ssl.validate.certs":"",
+            "splunk.connect.timeout.ms":"",
+            "splunk.curl.logging.enabled":"",
+            "splunk.read.timeout.ms":"",
+        }
+    }
+
+Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
+one of your Kafka Connect worker(s).
+
+.. code-block:: bash
+
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+

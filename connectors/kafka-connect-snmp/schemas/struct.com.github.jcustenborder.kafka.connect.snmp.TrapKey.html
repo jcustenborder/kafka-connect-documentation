@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>com.github.jcustenborder.kafka.connect.snmp.TrapKey &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>TrapKey &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="com.github.jcustenborder.kafka.connect.snmp.VariableBinding" href="struct.com.github.jcustenborder.kafka.connect.snmp.VariableBinding.html"/>
-        <link rel="prev" title="com.github.jcustenborder.kafka.connect.snmp.Trap" href="struct.com.github.jcustenborder.kafka.connect.snmp.Trap.html"/> 
+        <link rel="next" title="VariableBinding" href="struct.com.github.jcustenborder.kafka.connect.snmp.VariableBinding.html"/>
+        <link rel="prev" title="Trap" href="struct.com.github.jcustenborder.kafka.connect.snmp.Trap.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -102,11 +102,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-salesforce/introduction.html">Salesforce Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/introduction.html">Simulator Connector</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">SNMP Connector</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sources/SnmpTrapSourceConnector.html">SnmpTrapSourceConnector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sources/snmptrapsourceconnector.html">SnmpTrapSourceConnector</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.snmp.Trap.html">com.github.jcustenborder.kafka.connect.snmp.Trap</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.snmp.TrapKey</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.snmp.VariableBinding.html">com.github.jcustenborder.kafka.connect.snmp.VariableBinding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.snmp.Trap.html">Trap</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">TrapKey</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.snmp.VariableBinding.html">VariableBinding</a></li>
 </ul>
 </li>
 </ul>
@@ -177,7 +178,7 @@
         
           <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
-      <li>com.github.jcustenborder.kafka.connect.snmp.TrapKey</li>
+      <li>TrapKey</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -196,28 +197,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="com-github-jcustenborder-kafka-connect-snmp-trapkey">
-<h1>com.github.jcustenborder.kafka.connect.snmp.TrapKey<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-snmp-trapkey" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="docutils">
+  <div class="section" id="trapkey">
+<h1>TrapKey<a class="headerlink" href="#trapkey" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="colwidths-auto docutils" id="id1">
+<caption><span class="caption-text">TrapKey</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="10%" />
-<col width="7%" />
-<col width="38%" />
-<col width="11%" />
-<col width="34%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
 <th class="head">Optional</th>
-<th class="head">Schema</th>
 <th class="head">Default Value</th>
 <th class="head">Documentation</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>peerAddress</td>
-<td>false</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>false</td>
 <td>&#160;</td>
 <td>Remote address of the host sending the trap.</td>
 </tr>
@@ -235,10 +237,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.snmp.VariableBinding.html" class="btn btn-neutral float-right" title="com.github.jcustenborder.kafka.connect.snmp.VariableBinding" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.snmp.VariableBinding.html" class="btn btn-neutral float-right" title="VariableBinding" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.snmp.Trap.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.snmp.Trap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.snmp.Trap.html" class="btn btn-neutral" title="Trap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
