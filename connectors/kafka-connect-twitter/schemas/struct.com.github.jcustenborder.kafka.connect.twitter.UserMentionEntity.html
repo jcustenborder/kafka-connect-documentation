@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Place &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>UserMentionEntity &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="Status" href="struct.com.github.jcustenborder.kafka.connect.twitter.Status.html"/>
-        <link rel="prev" title="Size" href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.Size.html"/> 
+        <link rel="next" title="Vertica Connector" href="../../kafka-connect-vertica/introduction.html"/>
+        <link rel="prev" title="User" href="struct.com.github.jcustenborder.kafka.connect.twitter.User.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -118,7 +118,7 @@
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.HashtagEntity.html">HashtagEntity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.html">MediaEntity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.Size.html">Size</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Place</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.Place.html">Place</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.Status.html">Status</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNotice.html">StatusDeletionNotice</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNoticeKey.html">StatusDeletionNoticeKey</a></li>
@@ -126,7 +126,7 @@
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.SymbolEntity.html">SymbolEntity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.URLEntity.html">URLEntity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.User.html">User</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.UserMentionEntity.html">UserMentionEntity</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">UserMentionEntity</a></li>
 </ul>
 </li>
 </ul>
@@ -189,13 +189,13 @@
         
           <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
-      <li>Place</li>
+      <li>UserMentionEntity</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/connectors/kafka-connect-twitter/schemas/struct.com.github.jcustenborder.kafka.connect.twitter.Place.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/connectors/kafka-connect-twitter/schemas/struct.com.github.jcustenborder.kafka.connect.twitter.UserMentionEntity.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -208,11 +208,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="place">
-<h1>Place<a class="headerlink" href="#place" title="Permalink to this headline">¶</a></h1>
-<p>Returns the place attached to this status</p>
+  <div class="section" id="usermentionentity">
+<h1>UserMentionEntity<a class="headerlink" href="#usermentionentity" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">Place</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-text">UserMentionEntity</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="20%" />
 <col width="20%" />
@@ -233,49 +232,37 @@
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
 <td>true</td>
 <td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>StreetAddress</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>CountryCode</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
+<td>Returns the name mentioned in the status.</td>
 </tr>
 <tr class="row-odd"><td>Id</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
 <td>true</td>
 <td>&#160;</td>
-<td>&#160;</td>
+<td>Returns the user id mentioned in the status.</td>
 </tr>
-<tr class="row-even"><td>Country</td>
+<tr class="row-even"><td>Text</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
 <td>true</td>
 <td>&#160;</td>
-<td>&#160;</td>
+<td>Returns the screen name mentioned in the status.</td>
 </tr>
-<tr class="row-odd"><td>PlaceType</td>
+<tr class="row-odd"><td>ScreenName</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
 <td>true</td>
 <td>&#160;</td>
-<td>&#160;</td>
+<td>Returns the screen name mentioned in the status.</td>
 </tr>
-<tr class="row-even"><td>URL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<tr class="row-even"><td>Start</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
 <td>true</td>
 <td>&#160;</td>
-<td>&#160;</td>
+<td>Returns the index of the start character of the user mention.</td>
 </tr>
-<tr class="row-odd"><td>FullName</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<tr class="row-odd"><td>End</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
 <td>true</td>
 <td>&#160;</td>
-<td>&#160;</td>
+<td>Returns the index of the end character of the user mention.</td>
 </tr>
 </tbody>
 </table>
@@ -291,10 +278,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.twitter.Status.html" class="btn btn-neutral float-right" title="Status" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../kafka-connect-vertica/introduction.html" class="btn btn-neutral float-right" title="Vertica Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.Size.html" class="btn btn-neutral" title="Size" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.twitter.User.html" class="btn btn-neutral" title="User" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

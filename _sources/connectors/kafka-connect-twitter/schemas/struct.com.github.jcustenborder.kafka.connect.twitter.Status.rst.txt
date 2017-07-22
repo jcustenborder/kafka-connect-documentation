@@ -1,55 +1,38 @@
-=====================================================
-com.github.jcustenborder.kafka.connect.twitter.Status
-=====================================================
+======
+Status
+======
 
 Twitter status message.
 
+.. csv-table:: Status
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| Name                 | Optional | Schema                                             | Default Value | Documentation                                                                                                                    |
-+======================+==========+====================================================+===============+==================================================================================================================================+
-| CreatedAt            | true     | :ref:`schema-int64`                                |               | Return the created_at                                                                                                            |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| Id                   | true     | :ref:`schema-int64`                                |               | Returns the id of the status                                                                                                     |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| Text                 | true     | :ref:`schema-string`                               |               | Returns the text of the status                                                                                                   |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| Source               | true     | :ref:`schema-string`                               |               | Returns the source                                                                                                               |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| Truncated            | true     | :ref:`schema-boolean`                              |               | Test if the status is truncated                                                                                                  |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| InReplyToStatusId    | true     | :ref:`schema-int64`                                |               | Returns the in_reply_tostatus_id                                                                                                 |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| InReplyToUserId      | true     | :ref:`schema-int64`                                |               | Returns the in_reply_user_id                                                                                                     |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| InReplyToScreenName  | true     | :ref:`schema-string`                               |               | Returns the in_reply_to_screen_name                                                                                              |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| GeoLocation          | true     | STRUCT                                             |               | Returns The location that this tweet refers to if available.                                                                     |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| Place                | true     | STRUCT                                             |               | Returns the place attached to this status                                                                                        |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| Favorited            | true     | :ref:`schema-boolean`                              |               | Test if the status is favorited                                                                                                  |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| Retweeted            | true     | :ref:`schema-boolean`                              |               | Test if the status is retweeted                                                                                                  |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| FavoriteCount        | true     | :ref:`schema-int32`                                |               | Indicates approximately how many times this Tweet has been "favorited" by Twitter users.                                         |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| User                 | false    | STRUCT                                             |               | Return the user associated with the status.
-This can be null if the instance is from User.getStatus().                           |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| Retweet              | true     | :ref:`schema-boolean`                              |               |                                                                                                                                  |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| Contributors         | false    | Array of :ref:`schema-int64`                       |               | Returns an array of contributors, or null if no contributor is associated with this status.                                      |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| RetweetCount         | true     | :ref:`schema-int32`                                |               | Returns the number of times this tweet has been retweeted, or -1 when the tweet was created before this feature was enabled.     |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| RetweetedByMe        | true     | :ref:`schema-boolean`                              |               |                                                                                                                                  |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| CurrentUserRetweetId | true     | :ref:`schema-int64`                                |               | Returns the authenticating user's retweet's id of this tweet, or -1L when the tweet was created before this feature was enabled. |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| PossiblySensitive    | true     | :ref:`schema-boolean`                              |               |                                                                                                                                  |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| Lang                 | true     | :ref:`schema-string`                               |               | Returns the lang of the status text if available.                                                                                |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
-| WithheldInCountries  | false    | Array of :ref:`schema-string`                      |               | Returns the list of country codes where the tweet is withheld                                                                    |
-+----------------------+----------+----------------------------------------------------+---------------+----------------------------------------------------------------------------------------------------------------------------------+
+    "CreatedAt",":ref:`schema-Int64`","true","","Return the created_at"
+    "Id",":ref:`schema-Int64`","true","","Returns the id of the status"
+    "Text",":ref:`schema-String`","true","","Returns the text of the status"
+    "Source",":ref:`schema-String`","true","","Returns the source"
+    "Truncated",":ref:`schema-Boolean`","true","","Test if the status is truncated"
+    "InReplyToStatusId",":ref:`schema-Int64`","true","","Returns the in_reply_tostatus_id"
+    "InReplyToUserId",":ref:`schema-Int64`","true","","Returns the in_reply_user_id"
+    "InReplyToScreenName",":ref:`schema-String`","true","","Returns the in_reply_to_screen_name"
+    "GeoLocation",":ref:`schema-Struct`","true","","Returns The location that this tweet refers to if available."
+    "Place",":ref:`schema-Struct`","true","","Returns the place attached to this status"
+    "Favorited",":ref:`schema-Boolean`","true","","Test if the status is favorited"
+    "Retweeted",":ref:`schema-Boolean`","true","","Test if the status is retweeted"
+    "FavoriteCount",":ref:`schema-Int32`","true","","Indicates approximately how many times this Tweet has been ""favorited"" by Twitter users."
+    "User",":ref:`schema-Struct`","false","","Return the user associated with the status. This can be null if the instance is from User.getStatus()."
+    "Retweet",":ref:`schema-Boolean`","true","",
+    "Contributors","Array of :ref:`schema-Int64`","false","","Returns an array of contributors, or null if no contributor is associated with this status."
+    "RetweetCount",":ref:`schema-Int32`","true","","Returns the number of times this tweet has been retweeted, or -1 when the tweet was created before this feature was enabled."
+    "RetweetedByMe",":ref:`schema-Boolean`","true","",
+    "CurrentUserRetweetId",":ref:`schema-Int64`","true","","Returns the authenticating user's retweet's id of this tweet, or -1L when the tweet was created before this feature was enabled."
+    "PossiblySensitive",":ref:`schema-Boolean`","true","",
+    "Lang",":ref:`schema-String`","true","","Returns the lang of the status text if available."
+    "WithheldInCountries","Array of :ref:`schema-String`","false","","Returns the list of country codes where the tweet is withheld"
+    "HashtagEntities","Array of :ref:`schema-Struct`","true","","Returns an array if hashtag mentioned in the tweet."
+    "UserMentionEntities","Array of :ref:`schema-Struct`","true","","Returns an array of user mentions in the tweet."
+    "MediaEntities","Array of :ref:`schema-Struct`","true","","Returns an array of MediaEntities if medias are available in the tweet."
+    "SymbolEntities","Array of :ref:`schema-Struct`","true","","Returns an array of SymbolEntities if medias are available in the tweet."
+    "URLEntities","Array of :ref:`schema-Struct`","true","","Returns an array if URLEntity mentioned in the tweet."
+

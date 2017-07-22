@@ -1,0 +1,16 @@
+=================
+UserMentionEntity
+=================
+
+
+.. csv-table:: UserMentionEntity
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
+
+    "Name",":ref:`schema-String`","true","","Returns the name mentioned in the status."
+    "Id",":ref:`schema-Int64`","true","","Returns the user id mentioned in the status."
+    "Text",":ref:`schema-String`","true","","Returns the screen name mentioned in the status."
+    "ScreenName",":ref:`schema-String`","true","","Returns the screen name mentioned in the status."
+    "Start",":ref:`schema-Int32`","true","","Returns the index of the start character of the user mention."
+    "End",":ref:`schema-Int32`","true","","Returns the index of the end character of the user mention."
+

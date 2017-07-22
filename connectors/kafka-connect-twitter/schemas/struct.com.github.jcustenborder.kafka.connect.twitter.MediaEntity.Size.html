@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Place &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Size &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="Status" href="struct.com.github.jcustenborder.kafka.connect.twitter.Status.html"/>
-        <link rel="prev" title="Size" href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.Size.html"/> 
+        <link rel="next" title="Place" href="struct.com.github.jcustenborder.kafka.connect.twitter.Place.html"/>
+        <link rel="prev" title="MediaEntity" href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -117,8 +117,8 @@
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.GeoLocation.html">GeoLocation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.HashtagEntity.html">HashtagEntity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.html">MediaEntity</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.Size.html">Size</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Place</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.Place.html">Place</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.Status.html">Status</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNotice.html">StatusDeletionNotice</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNoticeKey.html">StatusDeletionNoticeKey</a></li>
@@ -189,13 +189,13 @@
         
           <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
-      <li>Place</li>
+      <li>Size</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/connectors/kafka-connect-twitter/schemas/struct.com.github.jcustenborder.kafka.connect.twitter.Place.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/connectors/kafka-connect-twitter/schemas/struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.Size.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -208,11 +208,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="place">
-<h1>Place<a class="headerlink" href="#place" title="Permalink to this headline">¶</a></h1>
-<p>Returns the place attached to this status</p>
+  <div class="section" id="size">
+<h1>Size<a class="headerlink" href="#size" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">Place</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-text">Size</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="20%" />
 <col width="20%" />
@@ -229,50 +228,20 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Name</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<tr class="row-even"><td>Resize</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
 <td>true</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>StreetAddress</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<tr class="row-odd"><td>Width</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
 <td>true</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>CountryCode</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>Id</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>Country</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>PlaceType</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>URL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>FullName</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<tr class="row-even"><td>Height</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
 <td>true</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -291,10 +260,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.twitter.Status.html" class="btn btn-neutral float-right" title="Status" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.twitter.Place.html" class="btn btn-neutral float-right" title="Place" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.Size.html" class="btn btn-neutral" title="Size" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.html" class="btn btn-neutral" title="MediaEntity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

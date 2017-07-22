@@ -1,12 +1,12 @@
-======================================================================
-com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNoticeKey
-======================================================================
+=======================
+StatusDeletionNoticeKey
+=======================
 
 Key for a message that is received when a status is deleted from Twitter.
 
+.. csv-table:: StatusDeletionNoticeKey
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+----------+----------+----------------------------------------------------+---------------+---------------+
-| Name     | Optional | Schema                                             | Default Value | Documentation |
-+==========+==========+====================================================+===============+===============+
-| StatusId | false    | :ref:`schema-int64`                                |               |               |
-+----------+----------+----------------------------------------------------+---------------+---------------+
+    "StatusId",":ref:`schema-Int64`","false","",
+

@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
         <link rel="up" title="Twitter Connector" href="introduction.html"/>
-        <link rel="next" title="com.github.jcustenborder.kafka.connect.twitter.GeoLocation" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.GeoLocation.html"/>
-        <link rel="prev" title="TwitterSourceConnector" href="sources/twittersourceconnector.html"/> 
+        <link rel="next" title="ExtendedMediaEntity" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.html"/>
+        <link rel="prev" title="TwitterSourceConnector" href="sources/TwitterSourceConnector.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -110,15 +110,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-cef/introduction.html">CEF Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-maxmind/introduction.html">Maxmind Transform</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="introduction.html">Twitter Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="sources/twittersourceconnector.html">TwitterSourceConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sources/TwitterSourceConnector.html">TwitterSourceConnector</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Schemas</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.GeoLocation.html">com.github.jcustenborder.kafka.connect.twitter.GeoLocation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.Place.html">com.github.jcustenborder.kafka.connect.twitter.Place</a></li>
-<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.Status.html">com.github.jcustenborder.kafka.connect.twitter.Status</a></li>
-<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNotice.html">com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNotice</a></li>
-<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNoticeKey.html">com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNoticeKey</a></li>
-<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusKey.html">com.github.jcustenborder.kafka.connect.twitter.StatusKey</a></li>
-<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.User.html">com.github.jcustenborder.kafka.connect.twitter.User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.html">ExtendedMediaEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.Variant.html">Variant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.GeoLocation.html">GeoLocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.HashtagEntity.html">HashtagEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.html">MediaEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.Size.html">Size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.Place.html">Place</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.Status.html">Status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNotice.html">StatusDeletionNotice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNoticeKey.html">StatusDeletionNoticeKey</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusKey.html">StatusKey</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.SymbolEntity.html">SymbolEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.URLEntity.html">URLEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.User.html">User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.UserMentionEntity.html">UserMentionEntity</a></li>
 </ul>
 </li>
 </ul>
@@ -203,13 +211,21 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Schemas:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.GeoLocation.html">com.github.jcustenborder.kafka.connect.twitter.GeoLocation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.Place.html">com.github.jcustenborder.kafka.connect.twitter.Place</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.Status.html">com.github.jcustenborder.kafka.connect.twitter.Status</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNotice.html">com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNotice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNoticeKey.html">com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNoticeKey</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusKey.html">com.github.jcustenborder.kafka.connect.twitter.StatusKey</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.User.html">com.github.jcustenborder.kafka.connect.twitter.User</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.html">ExtendedMediaEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.Variant.html">Variant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.GeoLocation.html">GeoLocation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.HashtagEntity.html">HashtagEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.html">MediaEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.Size.html">Size</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.Place.html">Place</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.Status.html">Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNotice.html">StatusDeletionNotice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNoticeKey.html">StatusDeletionNoticeKey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusKey.html">StatusKey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.SymbolEntity.html">SymbolEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.URLEntity.html">URLEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.User.html">User</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.UserMentionEntity.html">UserMentionEntity</a></li>
 </ul>
 </div>
 </div>
@@ -224,10 +240,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.GeoLocation.html" class="btn btn-neutral float-right" title="com.github.jcustenborder.kafka.connect.twitter.GeoLocation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.html" class="btn btn-neutral float-right" title="ExtendedMediaEntity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sources/twittersourceconnector.html" class="btn btn-neutral" title="TwitterSourceConnector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sources/TwitterSourceConnector.html" class="btn btn-neutral" title="TwitterSourceConnector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

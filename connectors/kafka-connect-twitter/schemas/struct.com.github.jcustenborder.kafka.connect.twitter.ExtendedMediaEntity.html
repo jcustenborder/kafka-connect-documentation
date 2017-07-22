@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>User &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>ExtendedMediaEntity &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="UserMentionEntity" href="struct.com.github.jcustenborder.kafka.connect.twitter.UserMentionEntity.html"/>
-        <link rel="prev" title="URLEntity" href="struct.com.github.jcustenborder.kafka.connect.twitter.URLEntity.html"/> 
+        <link rel="next" title="Variant" href="struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.Variant.html"/>
+        <link rel="prev" title="Schemas" href="../schemas.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -112,7 +112,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Twitter Connector</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../sources/TwitterSourceConnector.html">TwitterSourceConnector</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.html">ExtendedMediaEntity</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ExtendedMediaEntity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.Variant.html">Variant</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.GeoLocation.html">GeoLocation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.HashtagEntity.html">HashtagEntity</a></li>
@@ -125,7 +125,7 @@
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusKey.html">StatusKey</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.SymbolEntity.html">SymbolEntity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.URLEntity.html">URLEntity</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.User.html">User</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.UserMentionEntity.html">UserMentionEntity</a></li>
 </ul>
 </li>
@@ -189,13 +189,13 @@
         
           <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
-      <li>User</li>
+      <li>ExtendedMediaEntity</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/connectors/kafka-connect-twitter/schemas/struct.com.github.jcustenborder.kafka.connect.twitter.User.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/connectors/kafka-connect-twitter/schemas/struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -208,11 +208,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="user">
-<h1>User<a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h1>
-<p>Return the user associated with the status. This can be null if the instance is from User.getStatus().</p>
+  <div class="section" id="extendedmediaentity">
+<h1>ExtendedMediaEntity<a class="headerlink" href="#extendedmediaentity" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">User</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-text">ExtendedMediaEntity</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="20%" />
 <col width="20%" />
@@ -229,293 +228,101 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Id</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the id of the user</td>
-</tr>
-<tr class="row-odd"><td>Name</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the name of the user</td>
-</tr>
-<tr class="row-even"><td>ScreenName</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the screen name of the user</td>
-</tr>
-<tr class="row-odd"><td>Location</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the location of the user</td>
-</tr>
-<tr class="row-even"><td>Description</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the description of the user</td>
-</tr>
-<tr class="row-odd"><td>ContributorsEnabled</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Tests if the user is enabling contributors</td>
-</tr>
-<tr class="row-even"><td>ProfileImageURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the profile image url of the user</td>
-</tr>
-<tr class="row-odd"><td>BiggerProfileImageURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>MiniProfileImageURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>OriginalProfileImageURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ProfileImageURLHttps</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>BiggerProfileImageURLHttps</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>MiniProfileImageURLHttps</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>OriginalProfileImageURLHttps</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>DefaultProfileImage</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Tests if the user has not uploaded their own avatar</td>
-</tr>
-<tr class="row-odd"><td>URL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the url of the user</td>
-</tr>
-<tr class="row-even"><td>Protected</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Test if the user status is protected</td>
-</tr>
-<tr class="row-odd"><td>FollowersCount</td>
+<tr class="row-even"><td>VideoAspectRatioWidth</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
 <td>true</td>
 <td>&#160;</td>
-<td>Returns the number of followers</td>
-</tr>
-<tr class="row-even"><td>ProfileBackgroundColor</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>ProfileTextColor</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ProfileLinkColor</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ProfileSidebarFillColor</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ProfileSidebarBorderColor</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ProfileUseBackgroundImage</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>DefaultProfile</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Tests if the user has not altered the theme or background</td>
-</tr>
-<tr class="row-odd"><td>ShowAllInlineMedia</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>FriendsCount</td>
+<tr class="row-odd"><td>VideoAspectRatioHeight</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
 <td>true</td>
 <td>&#160;</td>
-<td>Returns the number of users the user follows (AKA “followings”)</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>CreatedAt</td>
+<tr class="row-even"><td>VideoDurationMillis</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
 <td>true</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>FavouritesCount</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<tr class="row-odd"><td>VideoVariants</td>
+<td>Array of <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
 <td>true</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>UtcOffset</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>TimeZone</td>
+<tr class="row-even"><td>ExtAltText</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
 <td>true</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>ProfileBackgroundImageURL</td>
+<tr class="row-odd"><td>Id</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
+<td>true</td>
+<td>&#160;</td>
+<td>Returns the id of the media.</td>
+</tr>
+<tr class="row-even"><td>Type</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
 <td>true</td>
 <td>&#160;</td>
-<td>&#160;</td>
+<td>Returns the media type photo, video, animated_gif.</td>
 </tr>
-<tr class="row-even"><td>ProfileBackgroundImageUrlHttps</td>
+<tr class="row-odd"><td>MediaURL</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
 <td>true</td>
 <td>&#160;</td>
-<td>&#160;</td>
+<td>Returns the media URL.</td>
 </tr>
-<tr class="row-odd"><td>ProfileBannerURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ProfileBannerRetinaURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ProfileBannerIPadURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ProfileBannerIPadRetinaURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ProfileBannerMobileURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ProfileBannerMobileRetinaURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ProfileBackgroundTiled</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>Lang</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the preferred language of the user</td>
-</tr>
-<tr class="row-odd"><td>StatusesCount</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>GeoEnabled</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>Verified</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>Translator</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ListedCount</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the number of public lists the user is listed on, or -1 if the count is unavailable.</td>
-</tr>
-<tr class="row-even"><td>FollowRequestSent</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns true if the authenticating user has requested to follow this user, otherwise false.</td>
-</tr>
-<tr class="row-odd"><td>WithheldInCountries</td>
-<td>Array of <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<tr class="row-even"><td>Sizes</td>
+<td>Map of <a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a>, <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
 <td>false</td>
 <td>&#160;</td>
-<td>Returns the list of country codes where the user is withheld</td>
+<td>Returns size variations of the media.</td>
+</tr>
+<tr class="row-odd"><td>MediaURLHttps</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
+<td>&#160;</td>
+<td>Returns the media secure URL.</td>
+</tr>
+<tr class="row-even"><td>URL</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
+<td>&#160;</td>
+<td>Returns the URL mentioned in the tweet.</td>
+</tr>
+<tr class="row-odd"><td>Text</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
+<td>&#160;</td>
+<td>Returns the URL mentioned in the tweet.</td>
+</tr>
+<tr class="row-even"><td>ExpandedURL</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
+<td>&#160;</td>
+<td>Returns the expanded URL if mentioned URL is shorten.</td>
+</tr>
+<tr class="row-odd"><td>Start</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>true</td>
+<td>&#160;</td>
+<td>Returns the index of the start character of the URL mentioned in the tweet.</td>
+</tr>
+<tr class="row-even"><td>End</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>true</td>
+<td>&#160;</td>
+<td>Returns the index of the end character of the URL mentioned in the tweet.</td>
+</tr>
+<tr class="row-odd"><td>DisplayURL</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
+<td>&#160;</td>
+<td>Returns the display URL if mentioned URL is shorten.</td>
 </tr>
 </tbody>
 </table>
@@ -531,10 +338,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.twitter.UserMentionEntity.html" class="btn btn-neutral float-right" title="UserMentionEntity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.Variant.html" class="btn btn-neutral float-right" title="Variant" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="struct.com.github.jcustenborder.kafka.connect.twitter.URLEntity.html" class="btn btn-neutral" title="URLEntity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../schemas.html" class="btn btn-neutral" title="Schemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
