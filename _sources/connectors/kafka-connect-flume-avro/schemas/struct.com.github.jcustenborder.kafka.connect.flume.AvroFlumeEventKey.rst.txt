@@ -1,13 +1,12 @@
-==============================================================
-com.github.jcustenborder.kafka.connect.flume.AvroFlumeEventKey
-==============================================================
+=================
+AvroFlumeEventKey
+=================
 
 
+.. csv-table:: AvroFlumeEventKey
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+---------+----------+----------------------------------------------------+---------------+---------------------------------------------------+
-| Name    | Optional | Schema                                             | Default Value | Documentation                                     |
-+=========+==========+====================================================+===============+===================================================+
-| headers | true     | Map of :ref:`schema-string`, :ref:`schema-string`  |               |                                                   |
-+---------+----------+----------------------------------------------------+---------------+---------------------------------------------------+
-| sender  | true     | :ref:`schema-string`                               |               | The remote address for the sender of the message. |
-+---------+----------+----------------------------------------------------+---------------+---------------------------------------------------+
+    "headers","Map of :ref:`schema-String`, :ref:`schema-String`","true","",
+    "sender",":ref:`schema-String`","true","","The remote address for the sender of the message."
+

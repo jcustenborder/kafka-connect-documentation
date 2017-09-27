@@ -1,0 +1,88 @@
+========================
+FlumeAvroSourceConnector
+========================
+
+.. image:: FlumeAvroSourceConnector.svg
+
+
+Connector is used to emulate a `Flume Avro Source <https://flume.apache.org/FlumeUserGuide.html#avro-source>`_ to allow Flume Agents to forward events to a Kafka Connect pipeline.
+
+
+.. IMPORTANT::
+    This connector listens on a network port. Running more than one task or running in distributed mode can cause some undesired effects if another task already has the port open. It is recommended that you run this connector in :term:`Standalone Mode`.
+
+
+
+-------------
+Configuration
+-------------
+
+.. csv-table:: Configuration
+    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
+    :widths: auto
+
+    "topic","String","High","","","Topic to write the data to."
+    "ssl.enabled","Boolean","Medium","","","Flag to determine if ssl should be configured for the connection."
+    "ssl.keystore.password","Password","Medium","","","The password for the java keystore containing the certificate."
+    "ssl.keystore.path","String","Medium","","","The path to the keystore on the local file system."
+    "bind","String","High","0.0.0.0","","IP Address or hostname to bind to."
+    "port","Int","High","4545","ValidPort{start=1025, end=65535}","Port to bind to."
+    "ssl.keystore.type","String","Medium","PKCS12","[PKCS12, JKS]","The type of keystore."
+    "compression","String","Low","NONE","ValidEnum{enum=CompressionType, allowed=[DEFLATE, NONE]}","The compression type. This must match on both flume agent and the connector."
+    "key.type","String","Low","NONE","ValidEnum{enum=KeyType, allowed=[NONE, HEADERS, SENDER]}","The type of key to include. NONE will set the key field as null. HEADERS will include the headers. SENDER will include the host that sent the message."
+    "worker.threads","Int","Low","10","[1,...,1000]","The number of worker threads to spawn."
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+Property based example
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `standalone mode
+<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
+
+.. code-block:: properties
+
+    name=connector1
+    tasks.max=1
+    connector.class=com.github.jcustenborder.kafka.connect.flume.FlumeAvroSourceConnector
+    # The following values must be configured.
+    topic=
+    ssl.enabled=
+    ssl.keystore.password=
+    ssl.keystore.path=
+
+
+
+^^^^^^^^^^^^^^^^^^
+Rest based example
+^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `distributed mode
+<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
+Write the following json to `connector.json`, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s).
+
+.. code-block:: json
+
+    {
+        "name": "connector1",
+        "config": {
+            "connector.class": "com.github.jcustenborder.kafka.connect.flume.FlumeAvroSourceConnector",
+            "topic":"",
+            "ssl.enabled":"",
+            "ssl.keystore.password":"",
+            "ssl.keystore.path":"",
+        }
+    }
+
+Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
+one of your Kafka Connect worker(s).
+
+.. code-block:: bash
+
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+

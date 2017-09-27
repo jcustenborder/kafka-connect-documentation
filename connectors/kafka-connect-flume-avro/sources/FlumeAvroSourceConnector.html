@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>AvroFlumeEventKey &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>FlumeAvroSourceConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="AvroFlumeEvent" href="struct.org.apache.flume.source.avro.AvroFlumeEvent.html"/>
-        <link rel="prev" title="Schemas" href="../schemas.html"/> 
+        <link rel="up" title="Flume Connector" href="../introduction.html"/>
+        <link rel="next" title="Schemas" href="../schemas.html"/>
+        <link rel="prev" title="Flume Connector" href="../introduction.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -96,12 +96,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Flume Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../sources/FlumeAvroSourceConnector.html">FlumeAvroSourceConnector</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">AvroFlumeEventKey</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct.org.apache.flume.source.avro.AvroFlumeEvent.html">AvroFlumeEvent</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">FlumeAvroSourceConnector</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-influxdb/introduction.html">InfluxDB Connector</a></li>
@@ -176,15 +175,13 @@
         
           <li><a href="../introduction.html">Flume Connector</a> &raquo;</li>
         
-          <li><a href="../schemas.html">Schemas</a> &raquo;</li>
-        
-      <li>AvroFlumeEventKey</li>
+      <li>FlumeAvroSourceConnector</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/connectors/kafka-connect-flume-avro/schemas/struct.com.github.jcustenborder.kafka.connect.flume.AvroFlumeEventKey.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/connectors/kafka-connect-flume-avro/sources/FlumeAvroSourceConnector.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -197,33 +194,137 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="avroflumeeventkey">
-<h1>AvroFlumeEventKey<a class="headerlink" href="#avroflumeeventkey" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="flumeavrosourceconnector">
+<h1>FlumeAvroSourceConnector<a class="headerlink" href="#flumeavrosourceconnector" title="Permalink to this headline">¶</a></h1>
+<img alt="../../../_images/FlumeAvroSourceConnector.svg" src="../../../_images/FlumeAvroSourceConnector.svg" /><p>Connector is used to emulate a <a class="reference external" href="https://flume.apache.org/FlumeUserGuide.html#avro-source">Flume Avro Source</a> to allow Flume Agents to forward events to a Kafka Connect pipeline.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">This connector listens on a network port. Running more than one task or running in distributed mode can cause some undesired effects if another task already has the port open. It is recommended that you run this connector in <a class="reference internal" href="../../../glossary.html#term-standalone-mode"><span class="xref std std-term">Standalone Mode</span></a>.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">AvroFlumeEventKey</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
 <th class="head">Type</th>
-<th class="head">Optional</th>
+<th class="head">Importance</th>
 <th class="head">Default Value</th>
+<th class="head">Validator</th>
 <th class="head">Documentation</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>headers</td>
-<td>Map of <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a>, <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
+<tr class="row-even"><td>topic</td>
+<td>String</td>
+<td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
+<td>Topic to write the data to.</td>
 </tr>
-<tr class="row-odd"><td>sender</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
+<tr class="row-odd"><td>ssl.enabled</td>
+<td>Boolean</td>
+<td>Medium</td>
 <td>&#160;</td>
-<td>The remote address for the sender of the message.</td>
+<td>&#160;</td>
+<td>Flag to determine if ssl should be configured for the connection.</td>
+</tr>
+<tr class="row-even"><td>ssl.keystore.password</td>
+<td>Password</td>
+<td>Medium</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>The password for the java keystore containing the certificate.</td>
+</tr>
+<tr class="row-odd"><td>ssl.keystore.path</td>
+<td>String</td>
+<td>Medium</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>The path to the keystore on the local file system.</td>
+</tr>
+<tr class="row-even"><td>bind</td>
+<td>String</td>
+<td>High</td>
+<td>0.0.0.0</td>
+<td>&#160;</td>
+<td>IP Address or hostname to bind to.</td>
+</tr>
+<tr class="row-odd"><td>port</td>
+<td>Int</td>
+<td>High</td>
+<td>4545</td>
+<td>ValidPort{start=1025, end=65535}</td>
+<td>Port to bind to.</td>
+</tr>
+<tr class="row-even"><td>ssl.keystore.type</td>
+<td>String</td>
+<td>Medium</td>
+<td>PKCS12</td>
+<td>[PKCS12, JKS]</td>
+<td>The type of keystore.</td>
+</tr>
+<tr class="row-odd"><td>compression</td>
+<td>String</td>
+<td>Low</td>
+<td>NONE</td>
+<td>ValidEnum{enum=CompressionType, allowed=[DEFLATE, NONE]}</td>
+<td>The compression type. This must match on both flume agent and the connector.</td>
+</tr>
+<tr class="row-even"><td>key.type</td>
+<td>String</td>
+<td>Low</td>
+<td>NONE</td>
+<td>ValidEnum{enum=KeyType, allowed=[NONE, HEADERS, SENDER]}</td>
+<td>The type of key to include. NONE will set the key field as null. HEADERS will include the headers. SENDER will include the host that sent the message.</td>
+</tr>
+<tr class="row-odd"><td>worker.threads</td>
+<td>Int</td>
+<td>Low</td>
+<td>10</td>
+<td>[1,…,1000]</td>
+<td>The number of worker threads to spawn.</td>
 </tr>
 </tbody>
 </table>
+<div class="section" id="property-based-example">
+<h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
+<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">connector1</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.flume.FlumeAvroSourceConnector</span>
+<span class="c"># The following values must be configured.</span>
+<span class="na">topic</span><span class="o">=</span>
+<span class="na">ssl.enabled</span><span class="o">=</span>
+<span class="na">ssl.keystore.password</span><span class="o">=</span>
+<span class="na">ssl.keystore.path</span><span class="o">=</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rest-based-example">
+<h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
+Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s).</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.flume.FlumeAvroSourceConnector&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ssl.enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ssl.keystore.password&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ssl.keystore.path&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
+one of your Kafka Connect worker(s).</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -236,10 +337,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="struct.org.apache.flume.source.avro.AvroFlumeEvent.html" class="btn btn-neutral float-right" title="AvroFlumeEvent" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../schemas.html" class="btn btn-neutral" title="Schemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../introduction.html" class="btn btn-neutral" title="Flume Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

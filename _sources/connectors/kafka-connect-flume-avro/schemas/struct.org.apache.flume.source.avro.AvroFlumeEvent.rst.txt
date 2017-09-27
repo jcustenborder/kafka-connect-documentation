@@ -1,13 +1,12 @@
-===========================================
-org.apache.flume.source.avro.AvroFlumeEvent
-===========================================
+==============
+AvroFlumeEvent
+==============
 
 
+.. csv-table:: AvroFlumeEvent
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+---------+----------+----------------------------------------------------+---------------+---------------+
-| Name    | Optional | Schema                                             | Default Value | Documentation |
-+=========+==========+====================================================+===============+===============+
-| headers | false    | Map of :ref:`schema-string`, :ref:`schema-string`  |               |               |
-+---------+----------+----------------------------------------------------+---------------+---------------+
-| body    | false    | :ref:`schema-bytes`                                |               |               |
-+---------+----------+----------------------------------------------------+---------------+---------------+
+    "headers","Map of :ref:`schema-String`, :ref:`schema-String`","false","",
+    "body",":ref:`schema-Bytes`","false","",
+
