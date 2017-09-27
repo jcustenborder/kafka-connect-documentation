@@ -21,13 +21,17 @@ def upstream = [
         'kafka-connect-vertica':'jcustenborder/kafka-connect-vertica/master'
 ]
 
-def upstreamProjects = upstream.values().join(',')
+def upstreamProjects = []
+
+upstream.each { key, value ->
+    upstreamProjects << key
+}
 
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '30')),
     disableConcurrentBuilds(),
     pipelineTriggers([
-        upstream(threshold: 'SUCCESS', upstreamProjects:  upstreamProjects)
+        upstream(threshold: 'SUCCESS', upstreamProjects:  upstreamProjects.join(',')
     ])
 ])
 
