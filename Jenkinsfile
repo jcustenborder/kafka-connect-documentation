@@ -1,23 +1,23 @@
 #!groovy
 
 def upstream = [
-        'kafka-connect-flume-avro':'jcustenborder/kafka-connect-flume-avro/master'
-        'kafka-connect-influxdb':'jcustenborder/kafka-connect-influxdb/master'
-        'kafka-connect-jms':'jcustenborder/kafka-connect-jms/master'
-        'kafka-connect-kinesis':'jcustenborder/kafka-connect-kinesis/master'
-        'kafka-connect-memcached':'jcustenborder/kafka-connect-memcached/master'
-        'kafka-connect-rabbitmq':'jcustenborder/kafka-connect-rabbitmq/master'
-        'kafka-connect-salesforce':'jcustenborder/kafka-connect-salesforce/master'
-        'kafka-connect-simulator':'jcustenborder/kafka-connect-simulator/master'
-        'kafka-connect-snmp':'jcustenborder/kafka-connect-snmp/master'
-        'kafka-connect-solr':'jcustenborder/kafka-connect-solr/master'
-        'kafka-connect-splunk':'jcustenborder/kafka-connect-splunk/master'
-        'kafka-connect-spooldir':'jcustenborder/kafka-connect-spooldir/master'
-        'kafka-connect-statsd':'jcustenborder/kafka-connect-statsd/master'
-        'kafka-connect-syslog':'jcustenborder/kafka-connect-syslog/master'
-        'kafka-connect-transform-cef':'jcustenborder/kafka-connect-transform-cef/master'
-        'kafka-connect-transform-maxmind':'jcustenborder/kafka-connect-transform-maxmind/master'
-        'kafka-connect-twitter':'jcustenborder/kafka-connect-twitter/master'
+        'kafka-connect-flume-avro':'jcustenborder/kafka-connect-flume-avro/master',
+        'kafka-connect-influxdb':'jcustenborder/kafka-connect-influxdb/master',
+        'kafka-connect-jms':'jcustenborder/kafka-connect-jms/master',
+        'kafka-connect-kinesis':'jcustenborder/kafka-connect-kinesis/master',
+        'kafka-connect-memcached':'jcustenborder/kafka-connect-memcached/master',
+        'kafka-connect-rabbitmq':'jcustenborder/kafka-connect-rabbitmq/master',
+        'kafka-connect-salesforce':'jcustenborder/kafka-connect-salesforce/master',
+        'kafka-connect-simulator':'jcustenborder/kafka-connect-simulator/master',
+        'kafka-connect-snmp':'jcustenborder/kafka-connect-snmp/master',
+        'kafka-connect-solr':'jcustenborder/kafka-connect-solr/master',
+        'kafka-connect-splunk':'jcustenborder/kafka-connect-splunk/master',
+        'kafka-connect-spooldir':'jcustenborder/kafka-connect-spooldir/master',
+        'kafka-connect-statsd':'jcustenborder/kafka-connect-statsd/master',
+        'kafka-connect-syslog':'jcustenborder/kafka-connect-syslog/master',
+        'kafka-connect-transform-cef':'jcustenborder/kafka-connect-transform-cef/master',
+        'kafka-connect-transform-maxmind':'jcustenborder/kafka-connect-transform-maxmind/master',
+        'kafka-connect-twitter':'jcustenborder/kafka-connect-twitter/master',
         'kafka-connect-vertica':'jcustenborder/kafka-connect-vertica/master'
 ]
 
