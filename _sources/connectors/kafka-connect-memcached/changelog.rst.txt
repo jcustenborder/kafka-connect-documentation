@@ -1,0 +1,8 @@
+
+**Unreleased**
+
+.. csv-table::
+    :header: "Date","Commit","Author","Message"
+
+    "2017-09-27 19:19:05","`596034fd3503b22 <https://github.com/jcustenborder/kafka-connect-memcached/commit/596034fd3503b22>`_","Jeremy Custenborder","Initial commit. (#1)"
+
