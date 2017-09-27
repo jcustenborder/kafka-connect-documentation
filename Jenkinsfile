@@ -24,16 +24,16 @@ def upstream = [
 def watchProjects = []
 
 upstream.each { key, value ->
-    watchProjects << key
+    watchProjects << value
 }
 
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '30')),
-    disableConcurrentBuilds(),
+    disableConcurrentBuilds(),/*
     pipelineTriggers([
-        upstream(threshold: 'SUCCESS', upstreamProjects:  watchProjects.join(',').trim())
+        upstream(threshold: 'SUCCESS', upstreamProjects:  'kafka-connect-flume-avro,kafka-connect-influxdb,kafka-connect-jms,kafka-connect-kinesis,kafka-connect-memcached,kafka-connect-rabbitmq,kafka-connect-salesforce,kafka-connect-simulator,kafka-connect-snmp,kafka-connect-solr,kafka-connect-splunk,kafka-connect-spooldir,kafka-connect-statsd,kafka-connect-syslog,kafka-connect-transform-cef,kafka-connect-transform-maxmind,kafka-connect-twitter,kafka-connect-vertica')
     ])
-
+*/
 ])
 
 def copyArtifacts(String name, String projectName) {
