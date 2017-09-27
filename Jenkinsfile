@@ -1,10 +1,11 @@
 #!groovy
 
 properties([
-        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')),
-        pipelineTriggers(
-            reverseBuild(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-flume-avro/master'),
-        )
+    buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '30')),
+    disableConcurrentBuilds(),
+    pipelineTriggers([
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-jms/master')]
+    )
 ])
 
 def copyArtifacts(String name, String projectName) {
