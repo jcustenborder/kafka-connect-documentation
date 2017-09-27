@@ -58,6 +58,8 @@ node {
     deleteDir()
     checkout scm
 
+    sh "echo ${watchProjects.join(',')}"
+
     stage('copy') {
 /*#        upstream.each { key, value ->
 #            copyArtifacts(key, value)
