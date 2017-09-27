@@ -1,7 +1,9 @@
 #!groovy
 
 properties([
-        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')),
+        buildDiscarder(
+            logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')
+        )/*,
         pipelineTriggers([
             upstream(upstreamProjects: 'jcustenborder/kafka-connect-syslog/master', threshold: hudson.model.Result.SUCCESS)
             upstream(upstreamProjects: 'jcustenborder/kafka-connect-kinesis/master', threshold: hudson.model.Result.SUCCESS)
@@ -21,7 +23,7 @@ properties([
             upstream(upstreamProjects: 'jcustenborder/kafka-connect-jms/master', threshold: hudson.model.Result.SUCCESS)
             upstream(upstreamProjects: 'jcustenborder/kafka-connect-transform-maxmind/master', threshold: hudson.model.Result.SUCCESS)
             upstream(upstreamProjects: 'jcustenborder/kafka-connect-transform-cef/master', threshold: hudson.model.Result.SUCCESS)
-        ])
+        ])*/
 ])
 
 def copyArtifacts(String name, String projectName) {
