@@ -1,6 +1,6 @@
 #!groovy
 
-def upstream = [
+def projects = [
         'kafka-connect-flume-avro':'jcustenborder/kafka-connect-flume-avro/master',
         'kafka-connect-influxdb':'jcustenborder/kafka-connect-influxdb/master',
         'kafka-connect-jms':'jcustenborder/kafka-connect-jms/master',
@@ -21,20 +21,11 @@ def upstream = [
         'kafka-connect-vertica':'jcustenborder/kafka-connect-vertica/master'
 ]
 
-
-
-def watchProjects = []
-
-upstream.each { key, value ->
-    watchProjects << value
-}
-
-
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '30')),
     disableConcurrentBuilds(),
     pipelineTriggers([
-        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-flume-avro/master,jcustenborder/kafka-connect-influxdb/master')
+        upstream(threshold: 'SUCCESS', upstreamProjects: projects.values().join(','))
     ])
 ])
 
@@ -59,8 +50,6 @@ def copyArtifacts(String name, String projectName) {
 node {
     deleteDir()
     checkout scm
-
-    sh "echo ${watchProjects.join(',')}"
 
     stage('copy') {
 /*#        upstream.each { key, value ->
