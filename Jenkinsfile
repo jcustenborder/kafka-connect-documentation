@@ -1,10 +1,33 @@
 #!groovy
 
+def upstream = [
+        'kafka-connect-flume-avro':'jcustenborder/kafka-connect-flume-avro/master'
+        'kafka-connect-influxdb':'jcustenborder/kafka-connect-influxdb/master'
+        'kafka-connect-jms':'jcustenborder/kafka-connect-jms/master'
+        'kafka-connect-kinesis':'jcustenborder/kafka-connect-kinesis/master'
+        'kafka-connect-memcached':'jcustenborder/kafka-connect-memcached/master'
+        'kafka-connect-rabbitmq':'jcustenborder/kafka-connect-rabbitmq/master'
+        'kafka-connect-salesforce':'jcustenborder/kafka-connect-salesforce/master'
+        'kafka-connect-simulator':'jcustenborder/kafka-connect-simulator/master'
+        'kafka-connect-snmp':'jcustenborder/kafka-connect-snmp/master'
+        'kafka-connect-solr':'jcustenborder/kafka-connect-solr/master'
+        'kafka-connect-splunk':'jcustenborder/kafka-connect-splunk/master'
+        'kafka-connect-spooldir':'jcustenborder/kafka-connect-spooldir/master'
+        'kafka-connect-statsd':'jcustenborder/kafka-connect-statsd/master'
+        'kafka-connect-syslog':'jcustenborder/kafka-connect-syslog/master'
+        'kafka-connect-transform-cef':'jcustenborder/kafka-connect-transform-cef/master'
+        'kafka-connect-transform-maxmind':'jcustenborder/kafka-connect-transform-maxmind/master'
+        'kafka-connect-twitter':'jcustenborder/kafka-connect-twitter/master'
+        'kafka-connect-vertica':'jcustenborder/kafka-connect-vertica/master'
+]
+
+def upstreamProjects = upstream.keySet().join(',')
+
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '30')),
     disableConcurrentBuilds(),
     pipelineTriggers([
-        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-jms/master')
+        upstream(threshold: 'SUCCESS', upstreamProjects:  upstreamProjects)
     ])
 ])
 
@@ -31,24 +54,9 @@ node {
     checkout scm
 
     stage('copy') {
-        copyArtifacts('kafka-connect-flume-avro', 'jcustenborder/kafka-connect-flume-avro/master')
-        copyArtifacts('kafka-connect-influxdb', 'jcustenborder/kafka-connect-influxdb/master')
-        copyArtifacts('kafka-connect-jms', 'jcustenborder/kafka-connect-jms/master')
-        copyArtifacts('kafka-connect-kinesis', 'jcustenborder/kafka-connect-kinesis/master')
-        copyArtifacts('kafka-connect-memcached', 'jcustenborder/kafka-connect-memcached/master')
-        copyArtifacts('kafka-connect-rabbitmq', 'jcustenborder/kafka-connect-rabbitmq/master')
-        copyArtifacts('kafka-connect-salesforce', 'jcustenborder/kafka-connect-salesforce/master')
-        copyArtifacts('kafka-connect-simulator', 'jcustenborder/kafka-connect-simulator/master')
-        copyArtifacts('kafka-connect-snmp', 'jcustenborder/kafka-connect-snmp/master')
-        copyArtifacts('kafka-connect-solr', 'jcustenborder/kafka-connect-solr/master')
-        copyArtifacts('kafka-connect-splunk', 'jcustenborder/kafka-connect-splunk/master')
-        copyArtifacts('kafka-connect-spooldir', 'jcustenborder/kafka-connect-spooldir/master')
-        copyArtifacts('kafka-connect-statsd', 'jcustenborder/kafka-connect-statsd/master')
-        copyArtifacts('kafka-connect-syslog', 'jcustenborder/kafka-connect-syslog/master')
-        copyArtifacts('kafka-connect-transform-cef', 'jcustenborder/kafka-connect-transform-cef/master')
-        copyArtifacts('kafka-connect-transform-maxmind', 'jcustenborder/kafka-connect-transform-maxmind/master')
-        copyArtifacts('kafka-connect-twitter', 'jcustenborder/kafka-connect-twitter/master')
-        copyArtifacts('kafka-connect-vertica', 'jcustenborder/kafka-connect-vertica/master')
+        upstream.each { key, value ->
+            copyArtifacts(key, value)
+        }
     }
 
     stage('build') {
