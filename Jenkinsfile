@@ -4,8 +4,25 @@ properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '30')),
     disableConcurrentBuilds(),
     pipelineTriggers([
-        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-jms/master')]
-    )
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-jms/master')
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-syslog/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-kinesis/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-rabbitmq/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-flume-avro/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-spooldir/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-twitter/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-statsd/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-splunk/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-solr/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-snmp/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-simulator/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-salesforce/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-influxdb/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-maprdb/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-vertica/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-transform-maxmind/master'),
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-transform-cef/master'),
+    ])
 ])
 
 def copyArtifacts(String name, String projectName) {
