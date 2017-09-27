@@ -21,7 +21,7 @@ def upstream = [
         'kafka-connect-vertica':'jcustenborder/kafka-connect-vertica/master'
 ]
 
-def upstreamProjects = upstream.keySet().join(',')
+def upstreamProjects = upstream.valueSet().join(',')
 
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '30')),
