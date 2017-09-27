@@ -29,10 +29,11 @@ upstream.each { key, value ->
 
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '30')),
-    disableConcurrentBuilds(),
+    disableConcurrentBuilds()/*,
     pipelineTriggers([
         upstream(threshold: 'SUCCESS', upstreamProjects:  watchProjects.join(','))
     ])
+    */
 ])
 
 def copyArtifacts(String name, String projectName) {
