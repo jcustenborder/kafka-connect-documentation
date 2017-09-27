@@ -21,10 +21,10 @@ Configuration
     :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
     :widths: auto
 
-    "topic","String","High","","","Topic to write the data to."
-    "ssl.enabled","Boolean","Medium","","","Flag to determine if ssl should be configured for the connection."
-    "ssl.keystore.password","Password","Medium","","","The password for the java keystore containing the certificate."
-    "ssl.keystore.path","String","Medium","","","The path to the keystore on the local file system."
+    "topic","String","High","java.lang.Object@c9dcfcd","","Topic to write the data to."
+    "ssl.enabled","Boolean","Medium","java.lang.Object@c9dcfcd","","Flag to determine if ssl should be configured for the connection."
+    "ssl.keystore.password","Password","Medium","java.lang.Object@c9dcfcd","","The password for the java keystore containing the certificate."
+    "ssl.keystore.path","String","Medium","java.lang.Object@c9dcfcd","","The path to the keystore on the local file system."
     "bind","String","High","0.0.0.0","","IP Address or hostname to bind to."
     "port","Int","High","4545","ValidPort{start=1025, end=65535}","Port to bind to."
     "ssl.keystore.type","String","Medium","PKCS12","[PKCS12, JKS]","The type of keystore."
