@@ -34,7 +34,7 @@ properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '30')),
     disableConcurrentBuilds(),
     pipelineTriggers([
-        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-flume-avro/master,jcustenborder/kafka-connect-influxdb/master,jcustenborder/kafka-connect-jms/master,jcustenborder/kafka-connect-kinesis/master,jcustenborder/kafka-connect-memcached/master,jcustenborder/kafka-connect-rabbitmq/master,jcustenborder/kafka-connect-salesforce/master,jcustenborder/kafka-connect-simulator/master,jcustenborder/kafka-connect-snmp/master,jcustenborder/kafka-connect-solr/master,jcustenborder/kafka-connect-splunk/master,jcustenborder/kafka-connect-spooldir/master,jcustenborder/kafka-connect-statsd/master,jcustenborder/kafka-connect-syslog/master,jcustenborder/kafka-connect-transform-cef/master,jcustenborder/kafka-connect-transform-maxmind/master,jcustenborder/kafka-connect-twitter/master,jcustenborder/kafka-connect-vertica/master')
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-flume-avro/master,jcustenborder/kafka-connect-influxdb/master')
     ])
 ])
 
