@@ -105,6 +105,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jms/introduction.html">JMS Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/introduction.html">RabbitMQ Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-salesforce/introduction.html">Salesforce Connector</a></li>
@@ -204,14 +205,6 @@
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="colwidths-auto docutils" id="id1">
 <caption><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-</colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
 <th class="head">Type</th>
@@ -350,23 +343,6 @@
 <span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
 <span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSourceConnector</span>
 <span class="c"># The following values must be configured.</span>
-<span class="na">http.enable</span><span class="o">=</span>
-<span class="na">http.port</span><span class="o">=</span>
-<span class="na">https.enable</span><span class="o">=</span>
-<span class="na">https.port</span><span class="o">=</span>
-<span class="na">topic.prefix</span><span class="o">=</span>
-<span class="na">allowed.databases</span><span class="o">=</span>
-<span class="na">health.check.enable</span><span class="o">=</span>
-<span class="na">health.check.path</span><span class="o">=</span>
-<span class="na">https.key.manager.password</span><span class="o">=</span>
-<span class="na">https.key.store.password</span><span class="o">=</span>
-<span class="na">https.key.store.path</span><span class="o">=</span>
-<span class="na">https.trust.store.password</span><span class="o">=</span>
-<span class="na">https.trust.store.path</span><span class="o">=</span>
-<span class="na">thread.pool.max.size</span><span class="o">=</span>
-<span class="na">thread.pool.min.size</span><span class="o">=</span>
-<span class="na">http.idle.timeout.ms</span><span class="o">=</span>
-<span class="na">https.idle.timeout.ms</span><span class="o">=</span>
 </pre></div>
 </div>
 </div>
@@ -379,23 +355,6 @@ post the configuration to one the distributed connect worker(s).</p>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
     <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSourceConnector&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;http.enable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;http.port&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;https.enable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;https.port&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;topic.prefix&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;allowed.databases&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;health.check.enable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;health.check.path&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;https.key.manager.password&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;https.key.store.password&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;https.key.store.path&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;https.trust.store.password&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;https.trust.store.path&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;thread.pool.max.size&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;thread.pool.min.size&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;http.idle.timeout.ms&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;https.idle.timeout.ms&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

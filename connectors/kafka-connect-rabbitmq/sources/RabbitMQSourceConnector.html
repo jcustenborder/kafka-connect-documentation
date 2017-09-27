@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="RabbitMQ Connector" href="../introduction.html"/>
-        <link rel="next" title="Schemas" href="../schemas.html"/>
+        <link rel="next" title="RabbitMQSinkConnector" href="../sinks/RabbitMQSinkConnector.html"/>
         <link rel="prev" title="RabbitMQ Connector" href="../introduction.html"/> 
 
   
@@ -97,12 +97,14 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/introduction.html">Flume Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-influxdb/introduction.html">InfluxDB Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jms/introduction.html">JMS Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/introduction.html">Amazon Kinesis Connector</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">RabbitMQ Connector</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">RabbitMQSourceConnector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../sinks/RabbitMQSinkConnector.html">RabbitMQSinkConnector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
 </ul>
 </li>
@@ -199,14 +201,6 @@
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="colwidths-auto docutils" id="id1">
 <caption><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-</colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
 <th class="head">Type</th>
@@ -354,22 +348,6 @@
 <span class="c"># The following values must be configured.</span>
 <span class="na">kafka.topic</span><span class="o">=</span>
 <span class="na">rabbitmq.queue</span><span class="o">=</span>
-<span class="na">rabbitmq.host</span><span class="o">=</span>
-<span class="na">rabbitmq.password</span><span class="o">=</span>
-<span class="na">rabbitmq.username</span><span class="o">=</span>
-<span class="na">rabbitmq.virtual.host</span><span class="o">=</span>
-<span class="na">rabbitmq.port</span><span class="o">=</span>
-<span class="na">rabbitmq.prefetch.count</span><span class="o">=</span>
-<span class="na">rabbitmq.prefetch.global</span><span class="o">=</span>
-<span class="na">rabbitmq.automatic.recovery.enabled</span><span class="o">=</span>
-<span class="na">rabbitmq.connection.timeout.ms</span><span class="o">=</span>
-<span class="na">rabbitmq.handshake.timeout.ms</span><span class="o">=</span>
-<span class="na">rabbitmq.network.recovery.interval.ms</span><span class="o">=</span>
-<span class="na">rabbitmq.requested.channel.max</span><span class="o">=</span>
-<span class="na">rabbitmq.requested.frame.max</span><span class="o">=</span>
-<span class="na">rabbitmq.requested.heartbeat.seconds</span><span class="o">=</span>
-<span class="na">rabbitmq.shutdown.timeout.ms</span><span class="o">=</span>
-<span class="na">rabbitmq.topology.recovery.enabled</span><span class="o">=</span>
 </pre></div>
 </div>
 </div>
@@ -384,22 +362,6 @@ post the configuration to one the distributed connect worker(s).</p>
         <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.rabbitmq.RabbitMQSourceConnector&quot;</span><span class="p">,</span>
         <span class="nt">&quot;kafka.topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;rabbitmq.queue&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.host&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.password&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.username&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.virtual.host&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.port&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.prefetch.count&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.prefetch.global&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.automatic.recovery.enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.connection.timeout.ms&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.handshake.timeout.ms&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.network.recovery.interval.ms&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.requested.channel.max&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.requested.frame.max&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.requested.heartbeat.seconds&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.shutdown.timeout.ms&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.topology.recovery.enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -423,7 +385,7 @@ one of your Kafka Connect worker(s).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../sinks/RabbitMQSinkConnector.html" class="btn btn-neutral float-right" title="RabbitMQSinkConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../introduction.html" class="btn btn-neutral" title="RabbitMQ Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

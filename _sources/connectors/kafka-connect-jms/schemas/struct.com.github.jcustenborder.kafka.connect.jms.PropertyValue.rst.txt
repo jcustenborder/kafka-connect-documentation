@@ -1,0 +1,20 @@
+=============
+PropertyValue
+=============
+
+This schema is used to store the data that is found in the properties of the message. To ensure that the proper type mappings are preserved field `propertyType` stores the value type for the field. The corresponding field in the schema will contain the data for the property. This ensures that the data is retrievable as the type returned by `Message.getObjectProperty() <http://docs.oracle.com/javaee/6/api/javax/jms/Message.html#getObjectProperty(java.lang.String)>`_
+
+.. csv-table:: PropertyValue
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
+
+    "propertyType",":ref:`schema-String`","false","","The java type of the property on the Message."
+    "boolean",":ref:`schema-Boolean`","true","","The value stored as a boolean. Null unless `propertyType` is set to `boolean`."
+    "byte",":ref:`schema-Int8`","true","","The value stored as a byte. Null unless `propertyType` is set to `byte`."
+    "short",":ref:`schema-Int16`","true","","The value stored as a short. Null unless `propertyType` is set to `short`."
+    "integer",":ref:`schema-Int32`","true","","The value stored as a integer. Null unless `propertyType` is set to `integer`."
+    "long",":ref:`schema-Int64`","true","","The value stored as a long. Null unless `propertyType` is set to `long`."
+    "float",":ref:`schema-Float32`","true","","The value stored as a float. Null unless `propertyType` is set to `float`."
+    "double",":ref:`schema-Float64`","true","","The value stored as a double. Null unless `propertyType` is set to `double`."
+    "string",":ref:`schema-String`","true","","The value stored as a string. Null unless `propertyType` is set to `string`."
+

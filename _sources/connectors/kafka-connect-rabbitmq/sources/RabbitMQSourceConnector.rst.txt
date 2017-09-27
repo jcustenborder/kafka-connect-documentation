@@ -53,22 +53,6 @@ This configuration is used typically along with `standalone mode
     # The following values must be configured.
     kafka.topic=
     rabbitmq.queue=
-    rabbitmq.host=
-    rabbitmq.password=
-    rabbitmq.username=
-    rabbitmq.virtual.host=
-    rabbitmq.port=
-    rabbitmq.prefetch.count=
-    rabbitmq.prefetch.global=
-    rabbitmq.automatic.recovery.enabled=
-    rabbitmq.connection.timeout.ms=
-    rabbitmq.handshake.timeout.ms=
-    rabbitmq.network.recovery.interval.ms=
-    rabbitmq.requested.channel.max=
-    rabbitmq.requested.frame.max=
-    rabbitmq.requested.heartbeat.seconds=
-    rabbitmq.shutdown.timeout.ms=
-    rabbitmq.topology.recovery.enabled=
 
 
 
@@ -90,22 +74,6 @@ post the configuration to one the distributed connect worker(s).
             "connector.class": "com.github.jcustenborder.kafka.connect.rabbitmq.RabbitMQSourceConnector",
             "kafka.topic":"",
             "rabbitmq.queue":"",
-            "rabbitmq.host":"",
-            "rabbitmq.password":"",
-            "rabbitmq.username":"",
-            "rabbitmq.virtual.host":"",
-            "rabbitmq.port":"",
-            "rabbitmq.prefetch.count":"",
-            "rabbitmq.prefetch.global":"",
-            "rabbitmq.automatic.recovery.enabled":"",
-            "rabbitmq.connection.timeout.ms":"",
-            "rabbitmq.handshake.timeout.ms":"",
-            "rabbitmq.network.recovery.interval.ms":"",
-            "rabbitmq.requested.channel.max":"",
-            "rabbitmq.requested.frame.max":"",
-            "rabbitmq.requested.heartbeat.seconds":"",
-            "rabbitmq.shutdown.timeout.ms":"",
-            "rabbitmq.topology.recovery.enabled":"",
         }
     }
 

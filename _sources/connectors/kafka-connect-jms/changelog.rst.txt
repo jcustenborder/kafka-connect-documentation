@@ -1,0 +1,8 @@
+
+**Unreleased**
+
+.. csv-table::
+    :header: "Date","Commit","Author","Message"
+
+    "2017-09-27 16:20:03","`b7824bef3c62060 <https://github.com/jcustenborder/kafka-connect-parent/kafka-connect-jms/commit/b7824bef3c62060>`_","Jeremy Custenborder","Initial (#1)&#10;&#10;Source Connector"
+

@@ -54,23 +54,6 @@ This configuration is used typically along with `standalone mode
     tasks.max=1
     connector.class=com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSourceConnector
     # The following values must be configured.
-    http.enable=
-    http.port=
-    https.enable=
-    https.port=
-    topic.prefix=
-    allowed.databases=
-    health.check.enable=
-    health.check.path=
-    https.key.manager.password=
-    https.key.store.password=
-    https.key.store.path=
-    https.trust.store.password=
-    https.trust.store.path=
-    thread.pool.max.size=
-    thread.pool.min.size=
-    http.idle.timeout.ms=
-    https.idle.timeout.ms=
 
 
 
@@ -90,23 +73,6 @@ post the configuration to one the distributed connect worker(s).
         "name": "connector1",
         "config": {
             "connector.class": "com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSourceConnector",
-            "http.enable":"",
-            "http.port":"",
-            "https.enable":"",
-            "https.port":"",
-            "topic.prefix":"",
-            "allowed.databases":"",
-            "health.check.enable":"",
-            "health.check.path":"",
-            "https.key.manager.password":"",
-            "https.key.store.password":"",
-            "https.key.store.path":"",
-            "https.trust.store.password":"",
-            "https.trust.store.path":"",
-            "thread.pool.max.size":"",
-            "thread.pool.min.size":"",
-            "http.idle.timeout.ms":"",
-            "https.idle.timeout.ms":"",
         }
     }
 
