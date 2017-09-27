@@ -3,7 +3,7 @@
 properties([
         buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')),
         pipelineTriggers(
-            upstream(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-flume-avro/master'),
+            reverseBuild(threshold: 'SUCCESS', upstreamProjects: 'jcustenborder/kafka-connect-flume-avro/master'),
         )
 ])
 
