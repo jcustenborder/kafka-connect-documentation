@@ -59,9 +59,10 @@ node {
     checkout scm
 
     stage('copy') {
-#        upstream.each { key, value ->
+/*#        upstream.each { key, value ->
 #            copyArtifacts(key, value)
 #        }
+*/
     }
 
     stage('build') {
