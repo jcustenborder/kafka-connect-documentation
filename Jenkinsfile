@@ -1,6 +1,6 @@
 #!groovy
 
-def projects = [
+def up = [
         'kafka-connect-flume-avro':'jcustenborder/kafka-connect-flume-avro/master',
         'kafka-connect-influxdb':'jcustenborder/kafka-connect-influxdb/master',
         'kafka-connect-jms':'jcustenborder/kafka-connect-jms/master',
@@ -25,7 +25,7 @@ properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '30')),
     disableConcurrentBuilds(),
     pipelineTriggers([
-        upstream(threshold: 'SUCCESS', upstreamProjects: projects.values().join(','))
+        upstream(threshold: 'SUCCESS', upstreamProjects: up.values().join(','))
     ])
 ])
 
