@@ -41,6 +41,7 @@ node {
         copyArtifacts('kafka-connect-salesforce', 'jcustenborder/kafka-connect-salesforce/master')
         copyArtifacts('kafka-connect-influxdb', 'jcustenborder/kafka-connect-influxdb/master')
         copyArtifacts('kafka-connect-vertica', 'jcustenborder/kafka-connect-vertica/master')
+        copyArtifacts('kafka-connect-jms', 'jcustenborder/kafka-connect-jms/master')
         copyArtifacts('kafka-connect-transform-maxmind', 'jcustenborder/kafka-connect-transform-maxmind/master')
         copyArtifacts('kafka-connect-transform-cef', 'jcustenborder/kafka-connect-transform-cef/master')
     }
