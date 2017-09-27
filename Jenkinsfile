@@ -1,7 +1,7 @@
 #!groovy
 
 properties([
-        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10'))
+        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')),
         pipelineTriggers([
             upstream(upstreamProjects: 'jcustenborder/kafka-connect-syslog/master', threshold: hudson.model.Result.SUCCESS)
             upstream(upstreamProjects: 'jcustenborder/kafka-connect-kinesis/master', threshold: hudson.model.Result.SUCCESS)
