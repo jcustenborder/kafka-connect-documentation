@@ -2,30 +2,27 @@
 
 properties([
         buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10'))
+        pipelineTriggers([
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-syslog/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-kinesis/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-rabbitmq/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-flume-avro/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-spooldir/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-twitter/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-statsd/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-splunk/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-solr/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-snmp/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-simulator/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-salesforce/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-influxdb/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-maprdb/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-vertica/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-jms/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-transform-maxmind/master', threshold: hudson.model.Result.SUCCESS)
+            upstream(upstreamProjects: 'jcustenborder/kafka-connect-transform-cef/master', threshold: hudson.model.Result.SUCCESS)
+        ])
 ])
-
-triggers {
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-syslog/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-kinesis/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-rabbitmq/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-flume-avro/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-spooldir/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-twitter/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-statsd/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-splunk/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-solr/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-snmp/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-simulator/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-salesforce/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-influxdb/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-maprdb/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-vertica/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-jms/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-transform-maxmind/master', threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: 'jcustenborder/kafka-connect-transform-cef/master', threshold: hudson.model.Result.SUCCESS)
-}
-
-
 
 def copyArtifacts(String name, String projectName) {
     def connectorRoot = "${pwd()}/connectors"
