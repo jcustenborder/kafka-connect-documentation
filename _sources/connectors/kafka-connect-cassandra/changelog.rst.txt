@@ -1,0 +1,8 @@
+
+**Unreleased**
+
+.. csv-table::
+    :header: "Date","Commit","Author","Message"
+
+    "2017-10-31 16:26:05","`2750610665752ac <https://github.com/jcustenborder/kafka-connect-cassandra/commit/2750610665752ac>`_","Jeremy Custenborder","Initial (#1)&#10;&#10;* Initial commit.&#13;&#10;&#13;&#10;* Lower the tasks to 1 for now.&#13;&#10;&#13;&#10;* Added Jenkinsfile&#13;&#10;&#13;&#10;* Changed description.&#13;&#10;&#13;&#10;* Moved to mock the TableMetadata and ColumnMetadata because these objects are not creatable.&#13;&#10;&#13;&#10;* Added more documentation."
+
