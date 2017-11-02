@@ -10,8 +10,7 @@ The Cassandra Sink connector is used to write data to a Cassandra Cluster. This 
 
 
 .. IMPORTANT::
-    This connector can be configured to manage the schema on the Cassandra cluster. When altering an existing table the key is ignored. This is due to the potential issues changing a primary key on an existing table. The key schema is used to generate a primary key for the table when it is newly created. These fields must be in the value schema as well. Data written to the table is always read from the value from Kafka.
-This connector uses the topic to determine the name of the table to write to. This can be changed on the fly by using a transform to change the topic name.
+    This connector can be configured to manage the schema on the Cassandra cluster. When altering an existing table the key is ignored. This is due to the potential issues changing a primary key on an existing table. The key schema is used to generate a primary key for the table when it is newly created. These fields must be in the value schema as well. Data written to the table is always read from the value from Kafka. This connector uses the topic to determine the name of the table to write to. This can be changed on the fly by using a transform to change the topic name.
 
 
 .. TIP::
@@ -27,7 +26,7 @@ Configuration
     :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
     :widths: auto
 
-    "cassandra.keyspace","String","High","java.lang.Object@2189efce","","The keyspace to write to."
+    "cassandra.keyspace","String","High","java.lang.Object@715bfed","","The keyspace to write to."
     "cassandra.keyspace.create.enabled","Boolean","High","true","","Flag to determine if the keyspace should be created if it does not exist."
     "cassandra.compression","String","Medium","NONE","[NONE, SNAPPY, LZ4]","Compression algorithm to use when connecting to Cassandra."
     "cassandra.consistency.level","String","Medium","LOCAL_QUORUM","ValidEnum{enum=ConsistencyLevel, allowed=[ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE]}","The requested consistency level to use when writing to Cassandra."
