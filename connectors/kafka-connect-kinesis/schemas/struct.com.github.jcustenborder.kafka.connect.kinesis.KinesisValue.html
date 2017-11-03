@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>com.github.jcustenborder.kafka.connect.kinesis.KinesisValue &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>KinesisValue &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -35,10 +35,7 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="Memcached Connector" href="../../kafka-connect-memcached/introduction.html"/>
-        <link rel="prev" title="com.github.jcustenborder.kafka.connect.kinesis.KinesisKey" href="struct.com.github.jcustenborder.kafka.connect.kinesis.KinesisKey.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -92,37 +89,9 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/introduction.html">Flume Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-influxdb/introduction.html">InfluxDB Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jms/introduction.html">JMS Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Amazon Kinesis Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../sources/kinesissourceconnector.html">KinesisSourceConnector</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.kinesis.KinesisKey.html">com.github.jcustenborder.kafka.connect.kinesis.KinesisKey</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.kinesis.KinesisValue</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/introduction.html">Memcached Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/introduction.html">RabbitMQ Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-salesforce/introduction.html">Salesforce Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/introduction.html">Simulator Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-snmp/introduction.html">SNMP Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/introduction.html">Solr Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/introduction.html">Splunk Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-cef/introduction.html">CEF Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/introduction.html">Maxmind Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/introduction.html">Twitter Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-vertica/introduction.html">Vertica Connector</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../configdef.type.html">ConfigDef.Type</a></li>
@@ -172,13 +141,7 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
-        
-          <li><a href="../introduction.html">Amazon Kinesis Connector</a> &raquo;</li>
-        
-          <li><a href="../schemas.html">Schemas</a> &raquo;</li>
-        
-      <li>com.github.jcustenborder.kafka.connect.kinesis.KinesisValue</li>
+      <li>KinesisValue</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -197,59 +160,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="com-github-jcustenborder-kafka-connect-kinesis-kinesisvalue">
-<h1>com.github.jcustenborder.kafka.connect.kinesis.KinesisValue<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-kinesis-kinesisvalue" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="kinesisvalue">
+<h1>KinesisValue<a class="headerlink" href="#kinesisvalue" title="Permalink to this headline">¶</a></h1>
 <p>The unit of data of the Amazon Kinesis stream, which is composed of a sequence number, a partition key, and a data blob. See [Record](<a class="reference external" href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html">http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html</a>)</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="3%" />
-<col width="1%" />
-<col width="6%" />
-<col width="2%" />
-<col width="88%" />
-</colgroup>
+<table border="1" class="colwidths-auto docutils" id="id1">
+<caption><span class="caption-text">KinesisValue</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
 <th class="head">Optional</th>
-<th class="head">Schema</th>
 <th class="head">Default Value</th>
 <th class="head">Documentation</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>sequenceNumber</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The unique identifier of the record in the stream. See [Record.getSequenceNumber()](<a class="reference external" href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getSequenceNumber">http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getSequenceNumber</a>–)</td>
 </tr>
 <tr class="row-odd"><td>approximateArrivalTimestamp</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The approximate time that the record was inserted into the stream. See [Record.getApproximateArrivalTimestamp()](<a class="reference external" href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getApproximateArrivalTimestamp">http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getApproximateArrivalTimestamp</a>–)</td>
 </tr>
 <tr class="row-even"><td>data</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-bytes"><span class="std std-ref">BYTES</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The data blob. See [Record.getData()](<a class="reference external" href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getData">http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getData</a>–)</td>
 </tr>
 <tr class="row-odd"><td>partitionKey</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>A partition key is used to group data by shard within a stream. The Streams service segregates the data records belonging to a stream into multiple shards, using the partition key associated with each data record to determine which shard a given data record belongs to. Partition keys are Unicode strings with a maximum length limit of 256 bytes. An MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. A partition key is specified by the applications putting the data into a stream. Identifies which shard in the stream the data record is assigned to. See [Record.getPartitionKey()](<a class="reference external" href="http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getPartitionKey">http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/model/Record.html#getPartitionKey</a>–)</td>
 </tr>
 <tr class="row-even"><td>shardId</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>A shard is a uniquely identified group of data records in a stream. A stream is composed of one or more shards, each of which provides a fixed unit of capacity. Each shard can support up to 5 transactions per second for reads, up to a maximum total data read rate of 2 MB per second and up to 1,000 records per second for writes, up to a maximum total data write rate of 1 MB per second (including partition keys). The data capacity of your stream is a function of the number of shards that you specify for the stream. The total capacity of the stream is the sum of the capacities of its shards.</td>
 </tr>
 <tr class="row-odd"><td>streamName</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>The name of the Kinesis stream.</td>
 </tr>
@@ -264,15 +221,6 @@
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../kafka-connect-memcached/introduction.html" class="btn btn-neutral float-right" title="Memcached Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="struct.com.github.jcustenborder.kafka.connect.kinesis.KinesisKey.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.kinesis.KinesisKey" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
