@@ -2,8 +2,7 @@
 Cassandra Sink Connector
 ========================
 
-.. image:: Cassandra Sink Connector.svg
-
+.. image:: CassandraSinkConnector.svg
 
 
 The Cassandra Sink connector is used to write data to a Cassandra Cluster. This connector works by utilizing the `Batch <http://docs.datastax.com/en/drivers/java/3.0/com/datastax/driver/core/querybuilder/Batch.html>`_ functionality to write all of the records in each poll in a single batch.
@@ -17,6 +16,10 @@ The Cassandra Sink connector is used to write data to a Cassandra Cluster. This 
     If you encounter error messages like this `Batch for [test.twitter] is of size 127.661KiB, exceeding specified threshold of 50.000KiB by 77.661KiB.` or warning messages like `Batch for [test.twitter] is of size 25.885KiB, exceeding specified threshold of 5.000KiB by 20.885KiB.` Try adjusting the `consumer.max.poll.records` setting in the worker.properties for Kafka Connect.
 
 
+.. NOTE::
+    This connector uses the topic to determine the name of the table to write to. This can be changed on the fly by using a transform like `Regex Router <https://kafka.apache.org/documentation/#connect_transforms>`_ to change the topic name.
+
+
 
 -------------
 Configuration
@@ -26,7 +29,7 @@ Configuration
     :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
     :widths: auto
 
-    "cassandra.keyspace","String","High","java.lang.Object@715bfed","","The keyspace to write to."
+    "cassandra.keyspace","String","High","","","The keyspace to write to."
     "cassandra.keyspace.create.enabled","Boolean","High","true","","Flag to determine if the keyspace should be created if it does not exist."
     "cassandra.compression","String","Medium","NONE","[NONE, SNAPPY, LZ4]","Compression algorithm to use when connecting to Cassandra."
     "cassandra.consistency.level","String","Medium","LOCAL_QUORUM","ValidEnum{enum=ConsistencyLevel, allowed=[ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE]}","The requested consistency level to use when writing to Cassandra."
