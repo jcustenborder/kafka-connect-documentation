@@ -31,7 +31,7 @@ properties([
 ])
 
 def copyArtifacts(String name, String projectName) {
-    def connectorRoot = "${pwd()}/connectors"
+    def connectorRoot = "${pwd()}/projects"
     def artifactRoot = "${pwd()}/_temp"
 
     def artifactDirectory = "${artifactRoot}/${name}"
