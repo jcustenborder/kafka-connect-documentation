@@ -5,7 +5,6 @@ CloudSolrSinkConnector
 .. image:: CloudSolrSinkConnector.svg
 
 
-
 This connector is used to connect to `SolrCloud <https://cwiki.apache.org/confluence/display/solr/SolrCloud>`_ using the Zookeeper based configuration.
 
 
@@ -18,13 +17,13 @@ Configuration
     :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
     :widths: auto
 
-    "solr.collection.name","String","High","java.lang.Object@640898ce","","Name of the solr collection to write to."
-    "solr.zookeeper.hosts","List","High","java.lang.Object@640898ce","","Zookeeper hosts that are used to store solr configuration."
+    "solr.collection.name","String","High","","","Name of the solr collection to write to."
+    "solr.zookeeper.hosts","List","High","","","Zookeeper hosts that are used to store solr configuration."
     "solr.password","Password","High","[hidden]","","The password to use for basic authentication."
     "solr.username","String","High","","","The username to use for basic authentication."
     "solr.zookeeper.chroot","String","High","","","Chroot within solr for the zookeeper configuration."
+    "solr.delete.documents.enabled","Boolean","Medium","true","","Flag to determine if the connector should delete documents. General practice in Kafka is to treat a record that contains a key with a null value as a delete."
     "solr.commit.within","Int","Low","-1","","Configures Solr UpdaterRequest for a commit within the requested number of milliseconds ."
-    "solr.ignore.unknown.fields","Boolean","Low","false","","Flag to determine if the connector should raise an exception when it encountered a field it doesn't have configured."
 
 
 ^^^^^^^^^^^^^^^^^^^^^^

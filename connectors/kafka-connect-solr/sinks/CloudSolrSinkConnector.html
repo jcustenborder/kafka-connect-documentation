@@ -212,14 +212,14 @@
 <tr class="row-even"><td>solr.collection.name</td>
 <td>String</td>
 <td>High</td>
-<td><a class="reference external" href="mailto:java&#46;lang&#46;Object&#37;&#52;&#48;640898ce">java<span>&#46;</span>lang<span>&#46;</span>Object<span>&#64;</span>640898ce</a></td>
+<td>&#160;</td>
 <td>&#160;</td>
 <td>Name of the solr collection to write to.</td>
 </tr>
 <tr class="row-odd"><td>solr.zookeeper.hosts</td>
 <td>List</td>
 <td>High</td>
-<td><a class="reference external" href="mailto:java&#46;lang&#46;Object&#37;&#52;&#48;640898ce">java<span>&#46;</span>lang<span>&#46;</span>Object<span>&#64;</span>640898ce</a></td>
+<td>&#160;</td>
 <td>&#160;</td>
 <td>Zookeeper hosts that are used to store solr configuration.</td>
 </tr>
@@ -244,19 +244,19 @@
 <td>&#160;</td>
 <td>Chroot within solr for the zookeeper configuration.</td>
 </tr>
-<tr class="row-odd"><td>solr.commit.within</td>
+<tr class="row-odd"><td>solr.delete.documents.enabled</td>
+<td>Boolean</td>
+<td>Medium</td>
+<td>true</td>
+<td>&#160;</td>
+<td>Flag to determine if the connector should delete documents. General practice in Kafka is to treat a record that contains a key with a null value as a delete.</td>
+</tr>
+<tr class="row-even"><td>solr.commit.within</td>
 <td>Int</td>
 <td>Low</td>
 <td>-1</td>
 <td>&#160;</td>
 <td>Configures Solr UpdaterRequest for a commit within the requested number of milliseconds .</td>
-</tr>
-<tr class="row-even"><td>solr.ignore.unknown.fields</td>
-<td>Boolean</td>
-<td>Low</td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine if the connector should raise an exception when it encountered a field it doesn’t have configured.</td>
 </tr>
 </tbody>
 </table>

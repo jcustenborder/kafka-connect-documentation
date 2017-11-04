@@ -212,7 +212,7 @@
 <tr class="row-even"><td>solr.url</td>
 <td>String</td>
 <td>High</td>
-<td><a class="reference external" href="mailto:java&#46;lang&#46;Object&#37;&#52;&#48;640898ce">java<span>&#46;</span>lang<span>&#46;</span>Object<span>&#64;</span>640898ce</a></td>
+<td>&#160;</td>
 <td>&#160;</td>
 <td>Url to connect to solr with.</td>
 </tr>
@@ -230,33 +230,33 @@
 <td>&#160;</td>
 <td>The username to use for basic authentication.</td>
 </tr>
-<tr class="row-odd"><td>solr.queue.size</td>
+<tr class="row-odd"><td>solr.delete.documents.enabled</td>
+<td>Boolean</td>
+<td>Medium</td>
+<td>true</td>
+<td>&#160;</td>
+<td>Flag to determine if the connector should delete documents. General practice in Kafka is to treat a record that contains a key with a null value as a delete.</td>
+</tr>
+<tr class="row-even"><td>solr.queue.size</td>
 <td>Int</td>
 <td>Medium</td>
 <td>100</td>
 <td>[1,…,2147483647]</td>
 <td>The number of documents to batch together before sending to Solr. See <a class="reference external" href="https://lucene.apache.org/solr/6_3_0/solr-solrj/org/apache/solr/client/solrj/impl/ConcurrentUpdateSolrClient.Builder.html#withQueueSize-int-">ConcurrentUpdateSolrClient.Builder.withQueueSize(int)</a></td>
 </tr>
-<tr class="row-even"><td>solr.thread.count</td>
+<tr class="row-odd"><td>solr.thread.count</td>
 <td>Int</td>
 <td>Medium</td>
 <td>1</td>
 <td>[1,…,100]</td>
 <td>The number of threads used to empty ConcurrentUpdateSolrClients queue. See <a class="reference external" href="https://lucene.apache.org/solr/6_3_0/solr-solrj/org/apache/solr/client/solrj/impl/ConcurrentUpdateSolrClient.Builder.html#withThreadCount-int-">ConcurrentUpdateSolrClient.Builder.withThreadCount(int)</a></td>
 </tr>
-<tr class="row-odd"><td>solr.commit.within</td>
+<tr class="row-even"><td>solr.commit.within</td>
 <td>Int</td>
 <td>Low</td>
 <td>-1</td>
 <td>&#160;</td>
 <td>Configures Solr UpdaterRequest for a commit within the requested number of milliseconds .</td>
-</tr>
-<tr class="row-even"><td>solr.ignore.unknown.fields</td>
-<td>Boolean</td>
-<td>Low</td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine if the connector should raise an exception when it encountered a field it doesn’t have configured.</td>
 </tr>
 </tbody>
 </table>
