@@ -17,10 +17,10 @@ Configuration
     :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
     :widths: auto
 
-    "error.path","String","High","","com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@50588ef6","The directory to place files in which have error(s). This directory must exist and be writable by the user running Kafka Connect."
-    "finished.path","String","High","","com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@10744fff","The directory to place files that have been successfully processed. This directory must exist and be writable by the user running Kafka Connect."
+    "error.path","String","High","","com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@3b75fdd0","The directory to place files in which have error(s). This directory must exist and be writable by the user running Kafka Connect."
+    "finished.path","String","High","","com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@504f2bcd","The directory to place files that have been successfully processed. This directory must exist and be writable by the user running Kafka Connect."
     "input.file.pattern","String","High","","","Regular expression to check input file names against. This expression must match the entire filename. The equivalent of Matcher.matches()."
-    "input.path","String","High","","com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@2662997a","The directory to read files that will be processed. This directory must exist and be writable by the user running Kafka Connect."
+    "input.path","String","High","","com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@3c7e7ffd","The directory to read files that will be processed. This directory must exist and be writable by the user running Kafka Connect."
     "topic","String","High","","","The Kafka topic to write the data to."
     "halt.on.error","Boolean","High","true","","Should the task halt when it encounters an error or continue to the next file."
     "key.schema","String","High","","","The schema for the key written to Kafka."
@@ -58,21 +58,6 @@ This configuration is used typically along with `standalone mode
     input.file.pattern=
     input.path=
     topic=
-    halt.on.error=
-    key.schema=
-    value.schema=
-    schema.generation.enabled=
-    schema.generation.key.fields=
-    schema.generation.key.name=
-    schema.generation.value.name=
-    timestamp.field=
-    timestamp.mode=
-    batch.size=
-    empty.poll.wait.ms=
-    file.minimum.age.ms=
-    parser.timestamp.date.formats=
-    parser.timestamp.timezone=
-    processing.file.extension=
 
 
 
@@ -97,21 +82,6 @@ post the configuration to one the distributed connect worker(s).
             "input.file.pattern":"",
             "input.path":"",
             "topic":"",
-            "halt.on.error":"",
-            "key.schema":"",
-            "value.schema":"",
-            "schema.generation.enabled":"",
-            "schema.generation.key.fields":"",
-            "schema.generation.key.name":"",
-            "schema.generation.value.name":"",
-            "timestamp.field":"",
-            "timestamp.mode":"",
-            "batch.size":"",
-            "empty.poll.wait.ms":"",
-            "file.minimum.age.ms":"",
-            "parser.timestamp.date.formats":"",
-            "parser.timestamp.timezone":"",
-            "processing.file.extension":"",
         }
     }
 
