@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Schemas &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Changelog &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="CEF Transform" href="transformations.html"/>
-        <link rel="next" title="CEFMessage" href="schemas/struct.com.github.jcustenborder.kafka.connect.transform.cef.CEFMessage.html"/>
-        <link rel="prev" title="CEFTransformation" href="transformations/ceftransformation.html"/> 
+        <link rel="up" title="Additional Information" href="info.html"/>
+        <link rel="next" title="ConfigDef.Type" href="../../configdef.type.html"/>
+        <link rel="prev" title="Source" href="info/source.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -98,11 +98,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../transformations.html">Transformations</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="transformations.html">CEF Transform</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="transformations/ceftransformation.html">CEFTransformation</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Schemas</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.transform.cef.CEFMessage.html">CEFMessage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="info.html">Additional Information</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="info/install.html">Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="info/support.html">Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="info/contributors.html">Contributors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="info/license.html">License</a></li>
+<li class="toctree-l4"><a class="reference internal" href="info/source.html">Source</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Changelog</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="info.html">Additional Information</a></li>
 </ul>
 </li>
 </ul>
@@ -160,13 +165,15 @@
         
           <li><a href="transformations.html">CEF Transform</a> &raquo;</li>
         
-      <li>Schemas</li>
+          <li><a href="info.html">Additional Information</a> &raquo;</li>
+        
+      <li>Changelog</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/projects/kafka-connect-transform-cef/schemas.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/projects/kafka-connect-transform-cef/changelog.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -179,14 +186,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="schemas">
-<h1>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Schemas:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.transform.cef.CEFMessage.html">CEFMessage</a></li>
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<p><strong>Unreleased</strong></p>
+<ul class="simple">
+<li>Added documentation.</li>
+<li>Changed message to be rst.</li>
+<li>Corrected fallout from changing message.</li>
+<li>Changed the version to 0.10.2.1-cp2.</li>
+<li><dl class="first docutils">
+<dt>Removed properties that do not need to be set”</dt>
+<dd>“2017-07-18 22:17:01”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-cef/commit/e31b0acc8738f21">e31b0acc8738f21</a>”,”Jeremy Custenborder”,”Rst (#2)</dd>
+</dl>
+</li>
+<li>Added documentation.</li>
+<li>Changed message to be rst.</li>
+<li>Corrected fallout from changing message.</li>
+<li><dl class="first docutils">
+<dt>Changed the version to 0.10.2.1-cp2.”</dt>
+<dd>“2017-05-02 16:23:04”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-cef/commit/08fe8aeb87a6b16">08fe8aeb87a6b16</a>”,”Jeremy Custenborder”,”Initial (#1)</dd>
+</dl>
+</li>
+<li>Initial commit. Still WIP.</li>
+<li>Added more test cases.</li>
+<li>More test data. Start of some documentation.</li>
+<li>Added some error handling around parsing.</li>
+<li>Changed message to be required.</li>
+<li>Changed to copy any field that matches on name and type. Updated documentation.</li>
+<li>Added Jenkinsfile</li>
+<li>Updated documentation.</li>
+<li>Good catch by &#64;cjmatta. Since I’m switching the topics for the new data, there could be a different number of partitions. Retaining the original partition could cause issues. Setting to null so it’s recalculated.</li>
+<li>Changed the parsing logic to match changes from the cef parsing library. Cleanup of formatting.</li>
+<li>Added target to ignore</li>
+<li>Added example config.</li>
+<li>Changed the version to 0.10.2.0-cp1</li>
+<li>Changed the parent to 0.10.2.0-cp1.”</li>
 </ul>
-</div>
 </div>
 
 
@@ -199,10 +234,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="schemas/struct.com.github.jcustenborder.kafka.connect.transform.cef.CEFMessage.html" class="btn btn-neutral float-right" title="CEFMessage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../configdef.type.html" class="btn btn-neutral float-right" title="ConfigDef.Type" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="transformations/ceftransformation.html" class="btn btn-neutral" title="CEFTransformation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="info/source.html" class="btn btn-neutral" title="Source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

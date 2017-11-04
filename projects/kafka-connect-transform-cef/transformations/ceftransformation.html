@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="CEF Transform" href="../transformations.html"/>
+        <link rel="next" title="Schemas" href="../schemas.html"/>
+        <link rel="prev" title="CEF Transform" href="../transformations.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -89,10 +92,21 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../transformations.html">Transformations</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../transformations.html">CEF Transform</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CEFTransformation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../info.html">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../configdef.type.html">ConfigDef.Type</a></li>
@@ -142,6 +156,10 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
+          <li><a href="../../../transformations.html">Transformations</a> &raquo;</li>
+        
+          <li><a href="../transformations.html">CEF Transform</a> &raquo;</li>
+        
       <li>CEFTransformation</li>
     
     
@@ -166,25 +184,27 @@
 <p>Transformation to convert a standard <a class="reference external" href="https://en.wikipedia.org/wiki/Syslog">Syslog</a> message to a <a class="reference external" href="https://www.protect724.hpe.com/docs/DOC-1072">Common Event Format (CEF)</a> Syslog struct.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="12%" />
-<col width="20%" />
-<col width="8%" />
-<col width="10%" />
-<col width="7%" />
-<col width="42%" />
-</colgroup>
+<table border="1" class="colwidths-auto docutils" id="id1">
+<caption><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Importance</th>
+<th class="head">Default Value</th>
+<th class="head">Validator</th>
+<th class="head">Documentation</th>
+</tr>
+</thead>
 <tbody valign="top">
-<tr class="row-odd"><td>field.message</td>
-<td><a class="reference internal" href="../../../configdef.type.html#configuration-string"><span class="std std-ref">String</span></a></td>
+<tr class="row-even"><td>field.message</td>
+<td>String</td>
 <td>High</td>
 <td>message</td>
 <td>&#160;</td>
 <td>The field that stores the message.</td>
 </tr>
-<tr class="row-even"><td>topic.cef.suffix</td>
-<td><a class="reference internal" href="../../../configdef.type.html#configuration-string"><span class="std std-ref">String</span></a></td>
+<tr class="row-odd"><td>topic.cef.suffix</td>
+<td>String</td>
 <td>High</td>
 <td>.cef</td>
 <td>&#160;</td>
@@ -205,7 +225,8 @@
 <div class="section" id="rest-based-example">
 <h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
-Write the following json to <cite>connector.json</cite> and use the command below to post the configuration to the distributed connect workers.</p>
+Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s).</p>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
     <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -215,7 +236,7 @@ Write the following json to <cite>connector.json</cite> and use the command belo
 </pre></div>
 </div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
-one of your Kafka Connect workers.</p>
+one of your Kafka Connect worker(s).</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
 </pre></div>
 </div>
@@ -230,6 +251,15 @@ one of your Kafka Connect workers.</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../transformations.html" class="btn btn-neutral" title="CEF Transform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
