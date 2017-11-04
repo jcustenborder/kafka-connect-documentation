@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2017-11-04 04:12:12","`2c6f539ffbf9210 <https://github.com/jcustenborder/kafka-connect-transform-cef/commit/2c6f539ffbf9210>`_","Jeremy Custenborder","Cleanup of developers."
     "2017-11-04 03:56:46","`db60cd28c94afb5 <https://github.com/jcustenborder/kafka-connect-transform-cef/commit/db60cd28c94afb5>`_","Jeremy Custenborder","Bump to 1.0.0"
     "2017-07-19 02:19:52","`ce0c88d519f2a6f <https://github.com/jcustenborder/kafka-connect-transform-cef/commit/ce0c88d519f2a6f>`_","Jeremy Custenborder","Rst (#3)
 

@@ -20,6 +20,7 @@ This project is a collection of connectors and transforms that can be leveraged 
 
    installation
    connectors
+   transformations
 
 
 Indices and tables
