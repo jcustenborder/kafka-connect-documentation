@@ -1,0 +1,47 @@
+=======
+Install
+=======
+
+.. image:: https://img.shields.io/github/license/jcustenborder/kafka-connect-solr.svg
+
+.. image:: https://img.shields.io/github/release/jcustenborder/kafka-connect-solr.svg
+    :target: https://github.com/jcustenborder/kafka-connect-solr/releases
+
+.. image:: https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-solr.svg
+    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-solr%7C0.1.19%7Cjar
+
+^^^^^^^^^^^^^^^^
+RPM Installation
+^^^^^^^^^^^^^^^^
+
+Before starting the RPM installation you must configure the :ref:`yum_repository` first.
+
+.. code-block:: bash
+
+    sudo yum install kafka-connect-solr
+
+
+^^^^^^^^^^^^^^^^
+DEB Installation
+^^^^^^^^^^^^^^^^
+
+Before starting the RPM installation you must configure the :ref:`apt_repository` first.
+
+.. code-block:: bash
+
+    sudo apt-get install kafka-connect-solr
+
+
+^^^^^^^^^^^^^^^^^^
+Maven Installation
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: xml
+
+    <dependency>
+        <groupId>com.github.jcustenborder.kafka.connect</groupId>
+        <artifactId>kafka-connect-solr</artifactId>
+        <version>0.1.19</version>
+    </dependency>
+
+

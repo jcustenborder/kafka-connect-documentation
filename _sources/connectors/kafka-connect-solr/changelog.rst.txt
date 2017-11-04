@@ -1,13 +1,42 @@
+=========
+Changelog
+=========
+
 
 **Unreleased**
 
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
-    "2017-11-04 02:36:12","`f156f0e1cca5ff4 <https://github.com/jcustenborder/kafka-connect-solr/commit/f156f0e1cca5ff4>`_","Jeremy Custenborder","Delete support. (#10)&#10;&#10;* Exclude slf4j because it&#39;s included in the framework.&#13;&#10;&#13;&#10;* Added support to delete documents from Solr. Moved to batch requests based on the topic and the operation.&#13;&#10;&#13;&#10;* Changed tables to csv-table&#13;&#10;&#13;&#10;* Bump solrj version to 7.1.0.&#13;&#10;&#13;&#10;* Added commit within.&#13;&#10;&#13;&#10;* Added to ignore."
+    "2017-11-04 02:42:42","`a926df4dabf3760 <https://github.com/jcustenborder/kafka-connect-solr/commit/a926df4dabf3760>`_","Jeremy Custenborder","Bump to 1.0.0 (#11)"
+    "2017-11-04 02:36:12","`f156f0e1cca5ff4 <https://github.com/jcustenborder/kafka-connect-solr/commit/f156f0e1cca5ff4>`_","Jeremy Custenborder","Delete support. (#10)
+
+* Exclude slf4j because it's included in the framework.
+
+* Added support to delete documents from Solr. Moved to batch requests based on the topic and the operation.
+
+* Changed tables to csv-table
+
+* Bump solrj version to 7.1.0.
+
+* Added commit within.
+
+* Added to ignore."
     "2017-10-13 16:41:00","`594d1187cc24401 <https://github.com/jcustenborder/kafka-connect-solr/commit/594d1187cc24401>`_","Jeremy Custenborder","bump to 0.11.0.0-cp5 (#8)"
-    "2017-07-18 22:14:53","`da2c4ec4ff6cc9e <https://github.com/jcustenborder/kafka-connect-solr/commit/da2c4ec4ff6cc9e>`_","Jeremy Custenborder","Rst (#7)&#10;&#10;* Added documentation.&#13;&#10;&#13;&#10;* Changed the version to 0.10.2.1-cp2"
-    "2017-05-09 19:58:39","`c128d35d0929404 <https://github.com/jcustenborder/kafka-connect-solr/commit/c128d35d0929404>`_","Jeremy Custenborder","Config issue (#4)&#10;&#10;* Reduced visibility of configs. Corrected String to list.&#13;&#10;&#13;&#10;* Refactored to use specific document builders. Added more documentation. Cleanup. Added testing config for running against the output of the twitter source connector.&#13;&#10;&#13;&#10;* Cleanup of formatting.&#13;&#10;&#13;&#10;* License formatting. Added configuration for threads and queue size."
+    "2017-07-18 22:14:53","`da2c4ec4ff6cc9e <https://github.com/jcustenborder/kafka-connect-solr/commit/da2c4ec4ff6cc9e>`_","Jeremy Custenborder","Rst (#7)
+
+* Added documentation.
+
+* Changed the version to 0.10.2.1-cp2"
+    "2017-05-09 19:58:39","`c128d35d0929404 <https://github.com/jcustenborder/kafka-connect-solr/commit/c128d35d0929404>`_","Jeremy Custenborder","Config issue (#4)
+
+* Reduced visibility of configs. Corrected String to list.
+
+* Refactored to use specific document builders. Added more documentation. Cleanup. Added testing config for running against the output of the twitter source connector.
+
+* Cleanup of formatting.
+
+* License formatting. Added configuration for threads and queue size."
     "2017-04-12 02:30:11","`d403c0338edb536 <https://github.com/jcustenborder/kafka-connect-solr/commit/d403c0338edb536>`_","Jeremy Custenborder","Cleanup and move to 0.10.2.0-cp1"
     "2017-01-25 00:25:24","`2e7e88cb9e4af16 <https://github.com/jcustenborder/kafka-connect-solr/commit/2e7e88cb9e4af16>`_","Jeremy Custenborder","Fixed checkstyle. Added license."
     "2017-01-20 19:30:26","`1ede36cb1af1b9f <https://github.com/jcustenborder/kafka-connect-solr/commit/1ede36cb1af1b9f>`_","Jeremy Custenborder","Added initial jenkinsfile."
