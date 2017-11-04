@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>GeoIpData &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Install &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -142,13 +142,13 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-      <li>GeoIpData</li>
+      <li>Install</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-transform-maxmind/schemas/struct.com.maxmind.geoip2.model.GeoIpData.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-transform-maxmind/info/install.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,76 +161,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="geoipdata">
-<h1>GeoIpData<a class="headerlink" href="#geoipdata" title="Permalink to this headline">¶</a></h1>
-<p>This schema contains all of the data that can be retrieved from the MaxMind api.</p>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">GeoIpData</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Optional</th>
-<th class="head">Default Value</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>anonymousIpResponse</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>asnResponse</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>cityResponse</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>connectionTypeResponse</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>countryResponse</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>domainResponse</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>enterpriseResponse</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>insightsResponse</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ispResponse</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="install">
+<h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
+<img alt="https://img.shields.io/github/license/jcustenborder/kafka-connect-transform-maxmind.svg" src="https://img.shields.io/github/license/jcustenborder/kafka-connect-transform-maxmind.svg" /><a class="reference external image-reference" href="https://github.com/jcustenborder/kafka-connect-transform-maxmind/releases"><img alt="https://img.shields.io/github/release/jcustenborder/kafka-connect-transform-maxmind.svg" src="https://img.shields.io/github/release/jcustenborder/kafka-connect-transform-maxmind.svg" /></a>
+<a class="reference external image-reference" href="https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-transform-maxmind%7C0.1.0.4%7Cjar"><img alt="https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-transform-maxmind.svg" src="https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-transform-maxmind.svg" /></a>
+<div class="section" id="rpm-installation">
+<h2>RPM Installation<a class="headerlink" href="#rpm-installation" title="Permalink to this headline">¶</a></h2>
+<p>Before starting the RPM installation you must configure the <a class="reference internal" href="../../../installation.html#yum-repository"><span class="std std-ref">YUM Repository</span></a> first.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo yum install kafka-connect-transform-maxmind
+</pre></div>
+</div>
+</div>
+<div class="section" id="deb-installation">
+<h2>DEB Installation<a class="headerlink" href="#deb-installation" title="Permalink to this headline">¶</a></h2>
+<p>Before starting the RPM installation you must configure the <a class="reference internal" href="../../../installation.html#apt-repository"><span class="std std-ref">APT Repository</span></a> first.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install kafka-connect-transform-maxmind
+</pre></div>
+</div>
+</div>
+<div class="section" id="maven-installation">
+<h2>Maven Installation<a class="headerlink" href="#maven-installation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.github.jcustenborder.kafka.connect<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>kafka-connect-transform-maxmind<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.1.0.4<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 

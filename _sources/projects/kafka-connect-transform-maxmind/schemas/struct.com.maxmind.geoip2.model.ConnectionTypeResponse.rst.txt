@@ -1,11 +1,11 @@
-===============================================
-com.maxmind.geoip2.model.ConnectionTypeResponse
-===============================================
+======================
+ConnectionTypeResponse
+======================
 
 
+.. csv-table:: ConnectionTypeResponse
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+----------------+----------+----------------------------------------------------+---------------+---------------+
-| Name           | Optional | Schema                                             | Default Value | Documentation |
-+================+==========+====================================================+===============+===============+
-| connectionType | true     | :ref:`schema-string`                               |               |               |
-+----------------+----------+----------------------------------------------------+---------------+---------------+
+    "connectionType",":ref:`schema-String`","true","",""
+

@@ -10,31 +10,23 @@ This transformation is used to lookup data from a `MaxMind database <http://dev.
 Configuration
 -------------
 
-+-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
-| field.input                   | :ref:`configuration-string`  | High       |               |                                                           | The field in the value() of the connect record to read the ip address from.                 |
-+-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
-| field.output                  | :ref:`configuration-string`  | High       |               |                                                           | The field in the value() to write the GeoIp Data to. The schema will be appended.           |
-+-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
-| maxmind.database.path         | :ref:`configuration-string`  | High       |               |                                                           | The path of the database on the local file system.                                          |
-+-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
-| maxmind.enable.anonymousip    | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if it's used for anonymous internet access.   |
-+-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
-| maxmind.enable.asn            | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if ASN information should be included.        |
-+-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
-| maxmind.enable.city           | :ref:`configuration-boolean` | Medium     | true          |                                                           | Flag to determine if the ip should be checked if city information should be included.       |
-+-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
-| maxmind.enable.connectiontype | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if connection information should be included. |
-+-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
-| maxmind.enable.country        | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if country information should be included.    |
-+-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
-| maxmind.enable.domain         | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if domain information should be included.     |
-+-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
-| maxmind.enable.enterprise     | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if enterprise information should be included. |
-+-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
-| maxmind.enable.isp            | :ref:`configuration-boolean` | Medium     | false         |                                                           | Flag to determine if the ip should be checked if ISP information should be included.        |
-+-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
-| maxmind.database.file.mode    | :ref:`configuration-string`  | Low        | MEMORY_MAPPED | ValidEnum{enum=FileMode, allowed=[MEMORY_MAPPED, MEMORY]} | The mode in which to open the database.                                                     |
-+-------------------------------+------------------------------+------------+---------------+-----------------------------------------------------------+---------------------------------------------------------------------------------------------+
+.. csv-table:: Configuration
+    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
+    :widths: auto
+
+    "field.input","String","High","","","The field in the value() of the connect record to read the ip address from."
+    "field.output","String","High","","","The field in the value() to write the GeoIp Data to. The schema will be appended."
+    "maxmind.database.path","String","High","","","The path of the database on the local file system."
+    "maxmind.enable.anonymousip","Boolean","Medium","false","","Flag to determine if the ip should be checked if it's used for anonymous internet access."
+    "maxmind.enable.asn","Boolean","Medium","false","","Flag to determine if the ip should be checked if ASN information should be included."
+    "maxmind.enable.city","Boolean","Medium","true","","Flag to determine if the ip should be checked if city information should be included."
+    "maxmind.enable.connectiontype","Boolean","Medium","false","","Flag to determine if the ip should be checked if connection information should be included."
+    "maxmind.enable.country","Boolean","Medium","false","","Flag to determine if the ip should be checked if country information should be included."
+    "maxmind.enable.domain","Boolean","Medium","false","","Flag to determine if the ip should be checked if domain information should be included."
+    "maxmind.enable.enterprise","Boolean","Medium","false","","Flag to determine if the ip should be checked if enterprise information should be included."
+    "maxmind.enable.isp","Boolean","Medium","false","","Flag to determine if the ip should be checked if ISP information should be included."
+    "maxmind.database.file.mode","String","Low","MEMORY_MAPPED","ValidEnum{enum=FileMode, allowed=[MEMORY_MAPPED, MEMORY]}","The mode in which to open the database."
+
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Property based example
@@ -63,7 +55,8 @@ Rest based example
 
 This configuration is used typically along with `distributed mode
 <http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
-Write the following json to `connector.json` and use the command below to post the configuration to the distributed connect workers.
+Write the following json to `connector.json`, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s).
 
 .. code-block:: json
 
@@ -78,7 +71,7 @@ Write the following json to `connector.json` and use the command below to post t
     }
 
 Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
-one of your Kafka Connect workers.
+one of your Kafka Connect worker(s).
 
 .. code-block:: bash
 

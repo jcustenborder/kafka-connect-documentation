@@ -1,19 +1,15 @@
-============================================
-com.maxmind.geoip2.model.AnonymousIpResponse
-============================================
+===================
+AnonymousIpResponse
+===================
 
 
+.. csv-table:: AnonymousIpResponse
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+-------------------+----------+----------------------------------------------------+---------------+---------------+
-| Name              | Optional | Schema                                             | Default Value | Documentation |
-+===================+==========+====================================================+===============+===============+
-| isAnonymous       | true     | :ref:`schema-boolean`                              |               |               |
-+-------------------+----------+----------------------------------------------------+---------------+---------------+
-| isAnonymousVpn    | true     | :ref:`schema-boolean`                              |               |               |
-+-------------------+----------+----------------------------------------------------+---------------+---------------+
-| isHostingProvider | true     | :ref:`schema-boolean`                              |               |               |
-+-------------------+----------+----------------------------------------------------+---------------+---------------+
-| isPublicProxy     | true     | :ref:`schema-boolean`                              |               |               |
-+-------------------+----------+----------------------------------------------------+---------------+---------------+
-| isTorExitNode     | true     | :ref:`schema-boolean`                              |               |               |
-+-------------------+----------+----------------------------------------------------+---------------+---------------+
+    "isAnonymous",":ref:`schema-Boolean`","true","",""
+    "isAnonymousVpn",":ref:`schema-Boolean`","true","",""
+    "isHostingProvider",":ref:`schema-Boolean`","true","",""
+    "isPublicProxy",":ref:`schema-Boolean`","true","",""
+    "isTorExitNode",":ref:`schema-Boolean`","true","",""
+
