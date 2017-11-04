@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>com.github.jcustenborder.kafka.connect.statsd.StatsDValue &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>StatsDValue &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -35,10 +35,7 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="Syslog Connector" href="../../kafka-connect-syslog/introduction.html"/>
-        <link rel="prev" title="com.github.jcustenborder.kafka.connect.statsd.StatsDKey" href="struct.com.github.jcustenborder.kafka.connect.statsd.StatsDKey.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -92,33 +89,9 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/introduction.html">Flume Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-influxdb/introduction.html">InfluxDB Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jms/introduction.html">JMS Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/introduction.html">Memcached Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-salesforce/introduction.html">Salesforce Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/introduction.html">Simulator Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-snmp/introduction.html">SNMP Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/introduction.html">Splunk Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">StatsD Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../sources/statsdsourceconnector.html">StatsDSourceConnector</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.statsd.StatsDKey.html">com.github.jcustenborder.kafka.connect.statsd.StatsDKey</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">com.github.jcustenborder.kafka.connect.statsd.StatsDValue</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-cef/introduction.html">CEF Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/introduction.html">Maxmind Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/introduction.html">Twitter Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-vertica/introduction.html">Vertica Connector</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../configdef.type.html">ConfigDef.Type</a></li>
@@ -168,13 +141,7 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
-        
-          <li><a href="../introduction.html">StatsD Connector</a> &raquo;</li>
-        
-          <li><a href="../schemas.html">Schemas</a> &raquo;</li>
-        
-      <li>com.github.jcustenborder.kafka.connect.statsd.StatsDValue</li>
+      <li>StatsDValue</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,64 +160,58 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="com-github-jcustenborder-kafka-connect-statsd-statsdvalue">
-<h1>com.github.jcustenborder.kafka.connect.statsd.StatsDValue<a class="headerlink" href="#com-github-jcustenborder-kafka-connect-statsd-statsdvalue" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="docutils">
-<colgroup>
-<col width="8%" />
-<col width="7%" />
-<col width="36%" />
-<col width="10%" />
-<col width="38%" />
-</colgroup>
+  <div class="section" id="statsdvalue">
+<h1>StatsDValue<a class="headerlink" href="#statsdvalue" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="colwidths-auto docutils" id="id1">
+<caption><span class="caption-text">StatsDValue</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
 <th class="head">Optional</th>
-<th class="head">Schema</th>
 <th class="head">Default Value</th>
 <th class="head">Documentation</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>sender</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Remote address of the host sending data.</td>
 </tr>
 <tr class="row-odd"><td>recipient</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Address of the host that received the data.</td>
 </tr>
 <tr class="row-even"><td>name</td>
-<td>false</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>false</td>
 <td>&#160;</td>
 <td>Name of the metric.</td>
 </tr>
 <tr class="row-odd"><td>type</td>
-<td>false</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>false</td>
 <td>&#160;</td>
 <td>Type of metric.</td>
 </tr>
 <tr class="row-even"><td>value</td>
-<td>false</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-float64"><span class="std std-ref">FLOAT64</span></a></td>
+<td>false</td>
 <td>&#160;</td>
 <td>Value for the metric.</td>
 </tr>
 <tr class="row-odd"><td>sampleRate</td>
-<td>true</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-float64"><span class="std std-ref">FLOAT64</span></a></td>
+<td>true</td>
 <td>&#160;</td>
 <td>Sample rate for the metric. Only valid for counters.</td>
 </tr>
 <tr class="row-even"><td>timestamp</td>
-<td>false</td>
 <td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
+<td>false</td>
 <td>&#160;</td>
 <td>Timestamp for the metric.</td>
 </tr>
@@ -265,15 +226,6 @@
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../kafka-connect-syslog/introduction.html" class="btn btn-neutral float-right" title="Syslog Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="struct.com.github.jcustenborder.kafka.connect.statsd.StatsDKey.html" class="btn btn-neutral" title="com.github.jcustenborder.kafka.connect.statsd.StatsDKey" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

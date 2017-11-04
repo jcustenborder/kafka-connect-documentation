@@ -1,23 +1,17 @@
-=========================================================
-com.github.jcustenborder.kafka.connect.statsd.StatsDValue
-=========================================================
+===========
+StatsDValue
+===========
 
 
+.. csv-table:: StatsDValue
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
 
-+------------+----------+----------------------------------------------------+---------------+------------------------------------------------------+
-| Name       | Optional | Schema                                             | Default Value | Documentation                                        |
-+============+==========+====================================================+===============+======================================================+
-| sender     | true     | :ref:`schema-string`                               |               | Remote address of the host sending data.             |
-+------------+----------+----------------------------------------------------+---------------+------------------------------------------------------+
-| recipient  | true     | :ref:`schema-string`                               |               | Address of the host that received the data.          |
-+------------+----------+----------------------------------------------------+---------------+------------------------------------------------------+
-| name       | false    | :ref:`schema-string`                               |               | Name of the metric.                                  |
-+------------+----------+----------------------------------------------------+---------------+------------------------------------------------------+
-| type       | false    | :ref:`schema-string`                               |               | Type of metric.                                      |
-+------------+----------+----------------------------------------------------+---------------+------------------------------------------------------+
-| value      | false    | :ref:`schema-float64`                              |               | Value for the metric.                                |
-+------------+----------+----------------------------------------------------+---------------+------------------------------------------------------+
-| sampleRate | true     | :ref:`schema-float64`                              |               | Sample rate for the metric. Only valid for counters. |
-+------------+----------+----------------------------------------------------+---------------+------------------------------------------------------+
-| timestamp  | false    | :ref:`schema-int64`                                |               | Timestamp for the metric.                            |
-+------------+----------+----------------------------------------------------+---------------+------------------------------------------------------+
+    "sender",":ref:`schema-String`","true","","Remote address of the host sending data."
+    "recipient",":ref:`schema-String`","true","","Address of the host that received the data."
+    "name",":ref:`schema-String`","false","","Name of the metric."
+    "type",":ref:`schema-String`","false","","Type of metric."
+    "value",":ref:`schema-Float64`","false","","Value for the metric."
+    "sampleRate",":ref:`schema-Float64`","true","","Sample rate for the metric. Only valid for counters."
+    "timestamp",":ref:`schema-Int64`","false","","Timestamp for the metric."
+
