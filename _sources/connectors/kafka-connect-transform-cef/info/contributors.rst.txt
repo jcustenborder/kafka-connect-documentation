@@ -9,4 +9,4 @@ The following individual(s) have contributed to this project.
 .. csv-table::
     :header: "Name","Role"
 
-    "`Jeremy Custenborder <https://github.com/jcustenborder>`_","maintainer"
+    "`Jeremy Custenborder <https://github.com/jcustenborder>`_","Committer"
