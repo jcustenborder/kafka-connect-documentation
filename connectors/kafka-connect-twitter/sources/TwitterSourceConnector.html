@@ -35,10 +35,7 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Twitter Connector" href="../introduction.html"/>
-        <link rel="next" title="Schemas" href="../schemas.html"/>
-        <link rel="prev" title="Twitter Connector" href="../introduction.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -92,31 +89,9 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/introduction.html">Flume Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-influxdb/introduction.html">InfluxDB Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jms/introduction.html">JMS Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/introduction.html">Memcached Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-salesforce/introduction.html">Salesforce Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/introduction.html">Simulator Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-snmp/introduction.html">SNMP Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/introduction.html">Splunk Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-cef/introduction.html">CEF Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/introduction.html">Maxmind Transform</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html">Twitter Connector</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">TwitterSourceConnector</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-vertica/introduction.html">Vertica Connector</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../configdef.type.html">ConfigDef.Type</a></li>
@@ -166,10 +141,6 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
-        
-          <li><a href="../introduction.html">Twitter Connector</a> &raquo;</li>
-        
       <li>TwitterSourceConnector</li>
     
     
@@ -213,56 +184,49 @@
 <td>&#160;</td>
 <td>Twitter keywords to filter for.</td>
 </tr>
-<tr class="row-odd"><td>kafka.delete.topic</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>Kafka topic to write delete events to.</td>
-</tr>
-<tr class="row-even"><td>kafka.status.topic</td>
+<tr class="row-odd"><td>kafka.status.topic</td>
 <td>String</td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>Kafka topic to write the statuses to.</td>
 </tr>
-<tr class="row-odd"><td>process.deletes</td>
+<tr class="row-even"><td>process.deletes</td>
 <td>Boolean</td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>Should this connector process deletes.</td>
 </tr>
-<tr class="row-even"><td>twitter.oauth.accessToken</td>
+<tr class="row-odd"><td>twitter.oauth.accessToken</td>
 <td>Password</td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>OAuth access token</td>
 </tr>
-<tr class="row-odd"><td>twitter.oauth.accessTokenSecret</td>
+<tr class="row-even"><td>twitter.oauth.accessTokenSecret</td>
 <td>Password</td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>OAuth access token secret</td>
 </tr>
-<tr class="row-even"><td>twitter.oauth.consumerKey</td>
+<tr class="row-odd"><td>twitter.oauth.consumerKey</td>
 <td>Password</td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>OAuth consumer key</td>
 </tr>
-<tr class="row-odd"><td>twitter.oauth.consumerSecret</td>
+<tr class="row-even"><td>twitter.oauth.consumerSecret</td>
 <td>Password</td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>OAuth consumer secret</td>
 </tr>
-<tr class="row-even"><td>twitter.debug</td>
+<tr class="row-odd"><td>twitter.debug</td>
 <td>Boolean</td>
 <td>Low</td>
 <td>false</td>
@@ -279,14 +243,12 @@
 <span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnector</span>
 <span class="c"># The following values must be configured.</span>
 <span class="na">filter.keywords</span><span class="o">=</span>
-<span class="na">kafka.delete.topic</span><span class="o">=</span>
 <span class="na">kafka.status.topic</span><span class="o">=</span>
 <span class="na">process.deletes</span><span class="o">=</span>
 <span class="na">twitter.oauth.accessToken</span><span class="o">=</span>
 <span class="na">twitter.oauth.accessTokenSecret</span><span class="o">=</span>
 <span class="na">twitter.oauth.consumerKey</span><span class="o">=</span>
 <span class="na">twitter.oauth.consumerSecret</span><span class="o">=</span>
-<span class="na">twitter.debug</span><span class="o">=</span>
 </pre></div>
 </div>
 </div>
@@ -300,14 +262,12 @@ post the configuration to one the distributed connect worker(s).</p>
     <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnector&quot;</span><span class="p">,</span>
         <span class="nt">&quot;filter.keywords&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;kafka.delete.topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;kafka.status.topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;process.deletes&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;twitter.oauth.accessToken&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;twitter.oauth.accessTokenSecret&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;twitter.oauth.consumerKey&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;twitter.oauth.consumerSecret&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;twitter.debug&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -328,15 +288,6 @@ one of your Kafka Connect worker(s).</p>
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../introduction.html" class="btn btn-neutral" title="Twitter Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

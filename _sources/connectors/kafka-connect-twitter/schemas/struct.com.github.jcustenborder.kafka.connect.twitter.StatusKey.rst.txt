@@ -8,5 +8,5 @@ Key for a twitter status.
     :header: "Name", "Type", "Optional", "Default Value", "Documentation"
     :widths: auto
 
-    "Id",":ref:`schema-Int64`","true","",
+    "Id",":ref:`schema-Int64`","true","",""
 

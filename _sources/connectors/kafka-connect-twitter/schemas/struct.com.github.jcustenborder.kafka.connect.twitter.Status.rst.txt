@@ -22,12 +22,12 @@ Twitter status message.
     "Retweeted",":ref:`schema-Boolean`","true","","Test if the status is retweeted"
     "FavoriteCount",":ref:`schema-Int32`","true","","Indicates approximately how many times this Tweet has been ""favorited"" by Twitter users."
     "User",":ref:`schema-Struct`","false","","Return the user associated with the status. This can be null if the instance is from User.getStatus()."
-    "Retweet",":ref:`schema-Boolean`","true","",
+    "Retweet",":ref:`schema-Boolean`","true","",""
     "Contributors","Array of :ref:`schema-Int64`","false","","Returns an array of contributors, or null if no contributor is associated with this status."
     "RetweetCount",":ref:`schema-Int32`","true","","Returns the number of times this tweet has been retweeted, or -1 when the tweet was created before this feature was enabled."
-    "RetweetedByMe",":ref:`schema-Boolean`","true","",
+    "RetweetedByMe",":ref:`schema-Boolean`","true","",""
     "CurrentUserRetweetId",":ref:`schema-Int64`","true","","Returns the authenticating user's retweet's id of this tweet, or -1L when the tweet was created before this feature was enabled."
-    "PossiblySensitive",":ref:`schema-Boolean`","true","",
+    "PossiblySensitive",":ref:`schema-Boolean`","true","",""
     "Lang",":ref:`schema-String`","true","","Returns the lang of the status text if available."
     "WithheldInCountries","Array of :ref:`schema-String`","false","","Returns the list of country codes where the tweet is withheld"
     "HashtagEntities","Array of :ref:`schema-Struct`","true","","Returns an array if hashtag mentioned in the tweet."

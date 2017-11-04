@@ -18,7 +18,6 @@ Configuration
     :widths: auto
 
     "filter.keywords","List","High","","","Twitter keywords to filter for."
-    "kafka.delete.topic","String","High","","","Kafka topic to write delete events to."
     "kafka.status.topic","String","High","","","Kafka topic to write the statuses to."
     "process.deletes","Boolean","High","","","Should this connector process deletes."
     "twitter.oauth.accessToken","Password","High","","","OAuth access token"
@@ -43,14 +42,12 @@ This configuration is used typically along with `standalone mode
     connector.class=com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnector
     # The following values must be configured.
     filter.keywords=
-    kafka.delete.topic=
     kafka.status.topic=
     process.deletes=
     twitter.oauth.accessToken=
     twitter.oauth.accessTokenSecret=
     twitter.oauth.consumerKey=
     twitter.oauth.consumerSecret=
-    twitter.debug=
 
 
 
@@ -71,14 +68,12 @@ post the configuration to one the distributed connect worker(s).
         "config": {
             "connector.class": "com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnector",
             "filter.keywords":"",
-            "kafka.delete.topic":"",
             "kafka.status.topic":"",
             "process.deletes":"",
             "twitter.oauth.accessToken":"",
             "twitter.oauth.accessTokenSecret":"",
             "twitter.oauth.consumerKey":"",
             "twitter.oauth.consumerSecret":"",
-            "twitter.debug":"",
         }
     }
 
