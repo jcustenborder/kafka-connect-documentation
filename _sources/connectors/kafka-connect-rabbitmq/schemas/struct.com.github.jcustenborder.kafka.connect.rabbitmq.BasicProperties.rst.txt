@@ -10,7 +10,7 @@ Corresponds to the `BasicProperties <https://www.rabbitmq.com/releases/rabbitmq-
 
     "contentType",":ref:`schema-String`","true","","The value in the contentType field. See `BasicProperties.getContentType() <https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getContentType-->`_"
     "contentEncoding",":ref:`schema-String`","true","","The value in the contentEncoding field. See `BasicProperties.getContentEncoding() <https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getContentEncoding-->`_"
-    "headers","Map of :ref:`schema-String`, :ref:`schema-Struct`","false","",
+    "headers","Map of :ref:`schema-String`, :ref:`schema-Struct`","false","",""
     "deliveryMode",":ref:`schema-Int32`","true","","The value in the deliveryMode field. `BasicProperties.html.getDeliveryMode() <https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getDeliveryMode-->`_ "
     "priority",":ref:`schema-Int32`","true","","The value in the priority field. `BasicProperties.getPriority() <https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getPriority-->`_"
     "correlationId",":ref:`schema-String`","true","","The value in the correlationId field. See `BasicProperties.getCorrelationId() <https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/BasicProperties.html#getCorrelationId-->`_"
