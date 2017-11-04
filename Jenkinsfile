@@ -16,10 +16,13 @@ def connectors = [
         'kafka-connect-spooldir':'jcustenborder/kafka-connect-spooldir/master',
         'kafka-connect-statsd':'jcustenborder/kafka-connect-statsd/master',
         'kafka-connect-syslog':'jcustenborder/kafka-connect-syslog/master',
-        'kafka-connect-transform-cef':'jcustenborder/kafka-connect-transform-cef/master',
-        'kafka-connect-transform-maxmind':'jcustenborder/kafka-connect-transform-maxmind/master',
         'kafka-connect-twitter':'jcustenborder/kafka-connect-twitter/master',
-        'kafka-connect-vertica':'jcustenborder/kafka-connect-vertica/master'
+        'kafka-connect-vertica':'jcustenborder/kafka-connect-vertica/master',
+
+        'kafka-connect-transform-archive':'jcustenborder/kafka-connect-transform-archive/master',
+        'kafka-connect-transform-cef':'jcustenborder/kafka-connect-transform-cef/master',
+        'kafka-connect-transform-common':'jcustenborder/kafka-connect-transform-common/master',
+        'kafka-connect-transform-maxmind':'jcustenborder/kafka-connect-transform-maxmind/master'
 ]
 
 properties([
