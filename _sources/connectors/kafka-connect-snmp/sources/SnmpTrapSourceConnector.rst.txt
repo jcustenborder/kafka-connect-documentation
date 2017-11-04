@@ -45,12 +45,6 @@ This configuration is used typically along with `standalone mode
     connector.class=com.github.jcustenborder.kafka.connect.snmp.SnmpTrapSourceConnector
     # The following values must be configured.
     topic=
-    batch.size=
-    poll.backoff.ms=
-    dispatcher.thread.pool.size=
-    listen.address=
-    listen.port=
-    listen.protocol=
 
 
 
@@ -71,12 +65,6 @@ post the configuration to one the distributed connect worker(s).
         "config": {
             "connector.class": "com.github.jcustenborder.kafka.connect.snmp.SnmpTrapSourceConnector",
             "topic":"",
-            "batch.size":"",
-            "poll.backoff.ms":"",
-            "dispatcher.thread.pool.size":"",
-            "listen.address":"",
-            "listen.port":"",
-            "listen.protocol":"",
         }
     }
 

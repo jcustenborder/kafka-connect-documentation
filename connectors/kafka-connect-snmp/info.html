@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Schemas &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Additional Information &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -35,10 +35,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="SNMP Connector" href="introduction.html"/>
-        <link rel="next" title="Trap" href="schemas/struct.com.github.jcustenborder.kafka.connect.snmp.Trap.html"/>
-        <link rel="prev" title="SnmpTrapSourceConnector" href="sources/SnmpTrapSourceConnector.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -92,36 +89,9 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-flume-avro/introduction.html">Flume Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-influxdb/introduction.html">InfluxDB Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-jms/introduction.html">JMS Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-memcached/introduction.html">Memcached Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-salesforce/introduction.html">Salesforce Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-simulator/introduction.html">Simulator Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="introduction.html">SNMP Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="sources/SnmpTrapSourceConnector.html">SnmpTrapSourceConnector</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Schemas</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.snmp.Trap.html">Trap</a></li>
-<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.snmp.TrapKey.html">TrapKey</a></li>
-<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.snmp.VariableBinding.html">VariableBinding</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-solr/introduction.html">Solr Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-splunk/introduction.html">Splunk Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/introduction.html">Spooldir Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-statsd/introduction.html">StatsD Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-syslog/introduction.html">Syslog Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-cef/introduction.html">CEF Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-maxmind/introduction.html">Maxmind Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/introduction.html">Twitter Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-vertica/introduction.html">Vertica Connector</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../connectors.html">Connectors</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../configdef.type.html">ConfigDef.Type</a></li>
@@ -171,17 +141,13 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../connectors.html">Connectors</a> &raquo;</li>
-        
-          <li><a href="introduction.html">SNMP Connector</a> &raquo;</li>
-        
-      <li>Schemas</li>
+      <li>Additional Information</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/connectors/kafka-connect-snmp/schemas.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/connectors/kafka-connect-snmp/info.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -194,14 +160,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="schemas">
-<h1>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="additional-information">
+<h1>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Schemas:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.snmp.Trap.html">Trap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.snmp.TrapKey.html">TrapKey</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.snmp.VariableBinding.html">VariableBinding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info/install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info/support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info/contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info/source.html">Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 </div>
 </div>
@@ -213,15 +181,6 @@
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="schemas/struct.com.github.jcustenborder.kafka.connect.snmp.Trap.html" class="btn btn-neutral float-right" title="Trap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sources/SnmpTrapSourceConnector.html" class="btn btn-neutral" title="SnmpTrapSourceConnector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

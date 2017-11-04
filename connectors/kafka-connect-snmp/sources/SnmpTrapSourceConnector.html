@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="SNMP Connector" href="../introduction.html"/>
-        <link rel="next" title="SnmpTrapSourceConnector" href="snmptrapsourceconnector.html"/>
+        <link rel="next" title="Schemas" href="../schemas.html"/>
         <link rel="prev" title="SNMP Connector" href="../introduction.html"/> 
 
   
@@ -106,7 +106,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="snmptrapsourceconnector.html">SnmpTrapSourceConnector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
 </ul>
 </li>
@@ -273,12 +272,6 @@
 <span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.snmp.SnmpTrapSourceConnector</span>
 <span class="c"># The following values must be configured.</span>
 <span class="na">topic</span><span class="o">=</span>
-<span class="na">batch.size</span><span class="o">=</span>
-<span class="na">poll.backoff.ms</span><span class="o">=</span>
-<span class="na">dispatcher.thread.pool.size</span><span class="o">=</span>
-<span class="na">listen.address</span><span class="o">=</span>
-<span class="na">listen.port</span><span class="o">=</span>
-<span class="na">listen.protocol</span><span class="o">=</span>
 </pre></div>
 </div>
 </div>
@@ -292,12 +285,6 @@ post the configuration to one the distributed connect worker(s).</p>
     <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.snmp.SnmpTrapSourceConnector&quot;</span><span class="p">,</span>
         <span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;batch.size&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;poll.backoff.ms&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;dispatcher.thread.pool.size&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;listen.address&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;listen.port&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;listen.protocol&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -321,7 +308,7 @@ one of your Kafka Connect worker(s).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="snmptrapsourceconnector.html" class="btn btn-neutral float-right" title="SnmpTrapSourceConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../introduction.html" class="btn btn-neutral" title="SNMP Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
