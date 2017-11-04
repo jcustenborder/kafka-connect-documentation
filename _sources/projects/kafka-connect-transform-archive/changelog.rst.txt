@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2017-11-04 04:46:33","`ec26594a2a2ae5a <https://github.com/jcustenborder/kafka-connect-transform-archive/commit/ec26594a2a2ae5a>`_","Jeremy Custenborder","Documentation."
     "2017-11-04 04:43:09","`6354b9c3d53f76f <https://github.com/jcustenborder/kafka-connect-transform-archive/commit/6354b9c3d53f76f>`_","Jeremy Custenborder","Initial (#1)
 
 * Initial commit.
