@@ -1,0 +1,29 @@
+=================
+Vertica Connector
+=================
+
+The Vertica Connector provides a high speed option to write data to Vertica using the `Vertica CopyStream <https://my.vertica.com/docs/7.1.x/HTML/Content/Authoring/ConnectingToHPVertica/ClientJDBC/UsingVerticaCopyStream.htm>`_
+to write data to Vertica.
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Source Connectors:
+    :hidden:
+    :glob:
+
+    sources/*
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Sink Connectors:
+    :hidden:
+    :glob:
+
+    sinks/*
+
+
+
+
+
+

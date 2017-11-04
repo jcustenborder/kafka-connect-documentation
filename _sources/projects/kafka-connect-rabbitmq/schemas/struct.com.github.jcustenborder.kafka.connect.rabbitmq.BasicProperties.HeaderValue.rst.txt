@@ -1,0 +1,22 @@
+===========
+HeaderValue
+===========
+
+Used to store the value of a header value. The `type` field stores the type of the data and the corresponding field to read the data from.
+
+.. csv-table:: HeaderValue
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
+
+    "type",":ref:`schema-String`","false","","Used to define the type for the HeaderValue. This will define the corresponding field which will contain the value in it's original type."
+    "timestamp",":ref:`schema-Int64`","true","","Storage for when the `type` field is set to `timestamp`. Null otherwise."
+    "int8",":ref:`schema-Int8`","true","","Storage for when the `type` field is set to `int8`. Null otherwise."
+    "int16",":ref:`schema-Int16`","true","","Storage for when the `type` field is set to `int16`. Null otherwise."
+    "int32",":ref:`schema-Int32`","true","","Storage for when the `type` field is set to `int32`. Null otherwise."
+    "int64",":ref:`schema-Int64`","true","","Storage for when the `type` field is set to `int64`. Null otherwise."
+    "float32",":ref:`schema-Float32`","true","","Storage for when the `type` field is set to `float32`. Null otherwise."
+    "float64",":ref:`schema-Float64`","true","","Storage for when the `type` field is set to `float64`. Null otherwise."
+    "boolean",":ref:`schema-Boolean`","true","","Storage for when the `type` field is set to `boolean`. Null otherwise."
+    "string",":ref:`schema-String`","true","","Storage for when the `type` field is set to `string`. Null otherwise."
+    "bytes",":ref:`schema-Bytes`","true","","Storage for when the `type` field is set to `bytes`. Null otherwise."
+

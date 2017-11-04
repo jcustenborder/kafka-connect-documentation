@@ -1,0 +1,12 @@
+=========
+StatsDKey
+=========
+
+
+.. csv-table:: StatsDKey
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
+
+    "sender",":ref:`schema-String`","true","","Remote address of the host sending data."
+    "name",":ref:`schema-String`","false","","Name of the metric."
+

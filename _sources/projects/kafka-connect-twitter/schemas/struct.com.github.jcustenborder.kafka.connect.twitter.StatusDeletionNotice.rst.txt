@@ -1,0 +1,13 @@
+====================
+StatusDeletionNotice
+====================
+
+Message that is received when a status is deleted from Twitter.
+
+.. csv-table:: StatusDeletionNotice
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
+
+    "StatusId",":ref:`schema-Int64`","false","",""
+    "UserId",":ref:`schema-Int64`","false","",""
+

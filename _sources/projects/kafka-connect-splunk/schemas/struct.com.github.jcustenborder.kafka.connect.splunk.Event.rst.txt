@@ -1,0 +1,17 @@
+=====
+Event
+=====
+
+This schema represents the data received from the Splunk listener.
+
+.. csv-table:: Event
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
+
+    "time",":ref:`schema-Int64`","true","","The event time."
+    "host",":ref:`schema-String`","true","","The host value to assign to the event data. This is typically the hostname of the client from which you're sending data."
+    "source",":ref:`schema-String`","true","","The source value to assign to the event data. For example, if you're sending data from an app you're developing, you could set this key to the name of the app."
+    "sourcetype",":ref:`schema-String`","true","","The sourcetype value to assign to the event data."
+    "index",":ref:`schema-String`","true","","The name of the index by which the event data is to be indexed. The index you specify here must within the list of allowed indexes if the token has the indexes parameter set."
+    "event",":ref:`schema-String`","true","","This is the event it's self. This is the serialized json form. It could be an object or a string."
+

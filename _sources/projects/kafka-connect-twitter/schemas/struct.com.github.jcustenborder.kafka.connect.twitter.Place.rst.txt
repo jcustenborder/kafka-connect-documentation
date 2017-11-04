@@ -1,0 +1,19 @@
+=====
+Place
+=====
+
+Returns the place attached to this status
+
+.. csv-table:: Place
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
+
+    "Name",":ref:`schema-String`","true","",""
+    "StreetAddress",":ref:`schema-String`","true","",""
+    "CountryCode",":ref:`schema-String`","true","",""
+    "Id",":ref:`schema-String`","true","",""
+    "Country",":ref:`schema-String`","true","",""
+    "PlaceType",":ref:`schema-String`","true","",""
+    "URL",":ref:`schema-String`","true","",""
+    "FullName",":ref:`schema-String`","true","",""
+

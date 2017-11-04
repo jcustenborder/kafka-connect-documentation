@@ -7,4 +7,4 @@ Connectors
     :caption: Contents:
     :glob:
 
-    connectors/*/introduction
+    projects/*/connectors

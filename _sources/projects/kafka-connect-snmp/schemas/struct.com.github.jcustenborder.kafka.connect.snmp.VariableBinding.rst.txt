@@ -1,0 +1,22 @@
+===============
+VariableBinding
+===============
+
+
+.. csv-table:: VariableBinding
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
+
+    "oid",":ref:`schema-String`","false","","OID."
+    "type",":ref:`schema-String`","false","","Syntax type for variable binding."
+    "counter32",":ref:`schema-Int32`","true","","Counter32 value."
+    "counter64",":ref:`schema-Int64`","true","","Counter64 value."
+    "gauge32",":ref:`schema-Int32`","true","","Gauge32 value."
+    "integer",":ref:`schema-Int32`","true","","Integer value."
+    "ipaddress",":ref:`schema-String`","true","","IpAddress value."
+    "null",":ref:`schema-String`","true","","null value."
+    "objectIdentifier",":ref:`schema-String`","true","","OID value."
+    "octetString",":ref:`schema-String`","true","","Octet string value."
+    "opaque",":ref:`schema-String`","true","","opaque value."
+    "timeticks",":ref:`schema-Int32`","true","","timeticks value."
+

@@ -1,0 +1,12 @@
+==============
+AvroFlumeEvent
+==============
+
+
+.. csv-table:: AvroFlumeEvent
+    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
+    :widths: auto
+
+    "headers","Map of :ref:`schema-String`, :ref:`schema-String`","false","",
+    "body",":ref:`schema-Bytes`","false","",
+
