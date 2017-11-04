@@ -1,0 +1,20 @@
+=========
+Changelog
+=========
+
+
+**Unreleased**
+
+.. csv-table::
+    :header: "Date","Commit","Author","Message"
+
+    "2017-11-04 04:43:09","`6354b9c3d53f76f <https://github.com/jcustenborder/kafka-connect-transform-archive/commit/6354b9c3d53f76f>`_","Jeremy Custenborder","Initial (#1)
+
+* Initial commit.
+
+* Added documentation.
+
+* Added documentation.
+
+* Change the version to 1.0.0"
+

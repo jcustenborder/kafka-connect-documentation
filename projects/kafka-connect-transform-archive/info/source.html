@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Support &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Source &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -35,10 +35,7 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Additional Information" href="../info.html"/>
-        <link rel="next" title="Contributors" href="contributors.html"/>
-        <link rel="prev" title="Install" href="install.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -92,28 +89,10 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../transformations.html">Transformations</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-archive/transformations.html">Archive Transform</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../transformations.html">CEF Transform</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../transformations/ceftransformation.html">CEFTransformation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../info.html">Additional Information</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="install.html">Install</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Support</a></li>
-<li class="toctree-l4"><a class="reference internal" href="contributors.html">Contributors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="license.html">License</a></li>
-<li class="toctree-l4"><a class="reference internal" href="source.html">Source</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../changelog.html">Changelog</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-common/transformations.html">Common Transforms</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../configdef.type.html">ConfigDef.Type</a></li>
@@ -163,19 +142,13 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../transformations.html">Transformations</a> &raquo;</li>
-        
-          <li><a href="../transformations.html">CEF Transform</a> &raquo;</li>
-        
-          <li><a href="../info.html">Additional Information</a> &raquo;</li>
-        
-      <li>Support</li>
+      <li>Source</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-transform-cef/info/support.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-transform-archive/info/source.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -188,21 +161,58 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="support">
-<h1>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h1>
-<a class="reference external image-reference" href="https://github.com/jcustenborder/kafka-connect-transform-cef/issues"><img alt="https://img.shields.io/github/issues/jcustenborder/kafka-connect-transform-cef.svg" src="https://img.shields.io/github/issues/jcustenborder/kafka-connect-transform-cef.svg" /></a>
-<a class="reference external image-reference" href="https://github.com/jcustenborder/kafka-connect-transform-cef/issues"><img alt="https://img.shields.io/github/issues-closed/jcustenborder/kafka-connect-transform-cef.svg" src="https://img.shields.io/github/issues-closed/jcustenborder/kafka-connect-transform-cef.svg" /></a>
-<p>Issues for this project are currently managed on <a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-cef/issues">github</a>. Please
-go there to report any issues you encounter.</p>
-<div class="section" id="create-an-issue">
-<span id="id1"></span><h2>Create an issue<a class="headerlink" href="#create-an-issue" title="Permalink to this headline">¶</a></h2>
-<p>From time to time things don’t work as we expect. That’s ok and we are here to help as best as possible. When opening an
-issue please keep the following things in mind.</p>
+  <div class="section" id="source">
+<h1>Source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h1>
+<p>The source for this project is available <a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-archive">here</a>.</p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Be as descriptive as possible.</li>
-<li>Include the version of Kafka you are running.</li>
-<li>Include the version of kafka-connect-transform-cef you are running.</li>
+<li>Java JDK 8</li>
+<li><a class="reference external" href="https://maven.apache.org/">Apache Maven</a></li>
+<li><a class="reference external" href="https://www.confluent.io/download/">Confluent Open Source</a></li>
+<li><a class="reference external" href="https://www.docker.com/get-docker">Docker</a></li>
 </ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Confluent Open Source is not a hard requirement to run this connector. Most of the scripts and configurations that are
+stored in the repository utilize the <a class="reference external" href="https://github.com/confluentinc/schema-registry">Confluent Schema Registry</a> as
+the preferred method of serialization.</p>
+</div>
+</div>
+<div class="section" id="building-on-your-workstation">
+<h2>Building on your workstation<a class="headerlink" href="#building-on-your-workstation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone git@github.com:jcustenborder/kafka-connect-transform-archive.git
+<span class="nb">cd</span> kafka-connect-transform-archive
+mvn clean package
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-up-docker-on-your-workstation">
+<h2>Setting up docker on your workstation<a class="headerlink" href="#setting-up-docker-on-your-workstation" title="Permalink to this headline">¶</a></h2>
+<p>The following entries need to be added to the hosts file on your workstation.</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>127.0.0.1 zookeeper
+127.0.0.1 kafka
+127.0.0.1 schema-registry
+</pre></div>
+</div>
+<p>Start kafka on your workstation</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>docker-compose up -d
+</pre></div>
+</div>
+</div>
+<div class="section" id="debugging-on-your-workstation">
+<h2>Debugging on your workstation<a class="headerlink" href="#debugging-on-your-workstation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./bin/debug.sh
+</pre></div>
+</div>
+<div class="section" id="suspend-until-a-debugger-is-attached">
+<h3>Suspend until a debugger is attached<a class="headerlink" href="#suspend-until-a-debugger-is-attached" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">SUSPEND</span><span class="o">=</span><span class="s1">&#39;y&#39;</span>
+./bin/debug.sh
+</pre></div>
+</div>
+<p>Attach your debugger to port 5005.</p>
+</div>
 </div>
 </div>
 
@@ -213,15 +223,6 @@ issue please keep the following things in mind.</p>
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="contributors.html" class="btn btn-neutral float-right" title="Contributors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="install.html" class="btn btn-neutral" title="Install" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

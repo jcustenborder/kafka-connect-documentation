@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CEFMessage &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Contributors &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="Additional Information" href="../info.html"/>
-        <link rel="prev" title="Schemas" href="../schemas.html"/> 
+        <link rel="up" title="Additional Information" href="../info.html"/>
+        <link rel="next" title="License" href="license.html"/>
+        <link rel="prev" title="Support" href="support.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -97,16 +97,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../transformations.html">Transformations</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-archive/transformations.html">Archive Transform</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../transformations.html">CEF Transform</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../transformations/ceftransformation.html">CEFTransformation</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">CEFMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-cef/transformations.html">CEF Transform</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../transformations.html">Common Transforms</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../transformations/patternrename.key.html">PatternRename(Key)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transformations/patternrename.value.html">PatternRename(Value)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../info.html">Additional Information</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="install.html">Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Contributors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l4"><a class="reference internal" href="source.html">Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html">Changelog</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../info.html">Additional Information</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-common/transformations.html">Common Transforms</a></li>
 </ul>
 </li>
 </ul>
@@ -160,17 +165,17 @@
         
           <li><a href="../../../transformations.html">Transformations</a> &raquo;</li>
         
-          <li><a href="../transformations.html">CEF Transform</a> &raquo;</li>
+          <li><a href="../transformations.html">Common Transforms</a> &raquo;</li>
         
-          <li><a href="../schemas.html">Schemas</a> &raquo;</li>
+          <li><a href="../info.html">Additional Information</a> &raquo;</li>
         
-      <li>CEFMessage</li>
+      <li>Contributors</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-transform-cef/schemas/struct.com.github.jcustenborder.kafka.connect.transform.cef.CEFMessage.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-transform-common/info/contributors.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -183,97 +188,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cefmessage">
-<h1>CEFMessage<a class="headerlink" href="#cefmessage" title="Permalink to this headline">¶</a></h1>
-<p>The parsed representation of a CEF Message.</p>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">CEFMessage</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+  <div class="section" id="contributors">
+<h1>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h1>
+<img alt="https://img.shields.io/github/contributors/jcustenborder/kafka-connect-transform-common.svg" src="https://img.shields.io/github/contributors/jcustenborder/kafka-connect-transform-common.svg" /><p>The following individual(s) have contributed to this project.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Optional</th>
-<th class="head">Default Value</th>
-<th class="head">Documentation</th>
+<th class="head">Role</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>date</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>The timestamp of the message.</td>
-</tr>
-<tr class="row-odd"><td>facility</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>The facility of the message.</td>
-</tr>
-<tr class="row-even"><td>host</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>The host of the message.</td>
-</tr>
-<tr class="row-odd"><td>level</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>The level of the syslog message as defined by <span class="target" id="index-0"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc5424.html"><strong>RFC 5424</strong></a>.</td>
-</tr>
-<tr class="row-even"><td>message</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Unparsed version of the message.</td>
-</tr>
-<tr class="row-odd"><td>cefVersion</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Version of CEF the message is using.</td>
-</tr>
-<tr class="row-even"><td>deviceVendor</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Vendor of the device that logged the message.</td>
-</tr>
-<tr class="row-odd"><td>deviceProduct</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>The product that logged the message.</td>
-</tr>
-<tr class="row-even"><td>deviceVersion</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>The version of the device that is logging the message.</td>
-</tr>
-<tr class="row-odd"><td>deviceEventClassId</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>The internal event id for the message.</td>
-</tr>
-<tr class="row-even"><td>name</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Name of the event. This is typically a short description.</td>
-</tr>
-<tr class="row-odd"><td>severity</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>The severity of the message.</td>
-</tr>
-<tr class="row-even"><td>extensions</td>
-<td>Map of <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a>, <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Key value pairs of any extensions to the message.</td>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/jcustenborder">Jeremy Custenborder</a></td>
+<td>Committer</td>
 </tr>
 </tbody>
 </table>
@@ -289,10 +219,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../info.html" class="btn btn-neutral float-right" title="Additional Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../schemas.html" class="btn btn-neutral" title="Schemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="support.html" class="btn btn-neutral" title="Support" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
