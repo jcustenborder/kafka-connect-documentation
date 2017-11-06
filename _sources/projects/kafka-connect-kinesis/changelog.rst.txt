@@ -8,6 +8,8 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2017-11-06 21:51:10","`8910128918a881b <https://github.com/jcustenborder/kafka-connect-kinesis/commit/8910128918a881b>`_","Jeremy Custenborder","Corrected link to term."
+    "2017-11-03 20:28:14","`af1c6a4091fc0c2 <https://github.com/jcustenborder/kafka-connect-kinesis/commit/af1c6a4091fc0c2>`_","Jeremy Custenborder","Changed debug script to use built in variables and plugin isolation."
     "2017-11-03 20:25:17","`512b47021e2f3d8 <https://github.com/jcustenborder/kafka-connect-kinesis/commit/512b47021e2f3d8>`_","Jeremy Custenborder","bump to 1.0.0"
     "2017-07-18 22:10:21","`02f984a3abf859b <https://github.com/jcustenborder/kafka-connect-kinesis/commit/02f984a3abf859b>`_","Jeremy Custenborder","Rst (#2)
 
