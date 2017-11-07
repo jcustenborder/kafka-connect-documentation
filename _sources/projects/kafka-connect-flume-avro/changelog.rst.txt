@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2017-11-07 21:42:09","`3c3d540f33b25b0 <https://github.com/jcustenborder/kafka-connect-flume-avro/commit/3c3d540f33b25b0>`_","Jeremy Custenborder","Updated documentation"
     "2017-11-07 21:22:15","`f05a150beb7819e <https://github.com/jcustenborder/kafka-connect-flume-avro/commit/f05a150beb7819e>`_","Jeremy Custenborder","1.0.0 (#4)
 
 * Bump version to 1.0.0.
