@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2017-11-07 21:35:32","`cb60568db1d57f5 <https://github.com/jcustenborder/kafka-connect-vertica/commit/cb60568db1d57f5>`_","Jeremy Custenborder","Updated documentation"
     "2017-11-04 03:44:44","`9c3cd9557e20e96 <https://github.com/jcustenborder/kafka-connect-vertica/commit/9c3cd9557e20e96>`_","Jeremy Custenborder","0.11.0.0 cp5 (#3)
 
 * Bump to 0.11.0.0-cp5

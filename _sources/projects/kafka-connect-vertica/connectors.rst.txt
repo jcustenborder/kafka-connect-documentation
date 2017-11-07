@@ -7,15 +7,6 @@ to write data to Vertica.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Source Connectors:
-    :hidden:
-    :glob:
-
-    sources/*
-
-
-.. toctree::
-    :maxdepth: 1
     :caption: Sink Connectors:
     :hidden:
     :glob:
@@ -23,7 +14,9 @@ to write data to Vertica.
     sinks/*
 
 
+.. toctree::
+    :maxdepth: 0
+    :caption: Schemas:
+    :hidden:
 
-
-
-
+    info
