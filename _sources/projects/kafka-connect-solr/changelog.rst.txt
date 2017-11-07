@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2017-11-07 21:29:47","`a38a54494d26d00 <https://github.com/jcustenborder/kafka-connect-solr/commit/a38a54494d26d00>`_","Jeremy Custenborder","Updated documentation"
     "2017-11-04 02:42:42","`a926df4dabf3760 <https://github.com/jcustenborder/kafka-connect-solr/commit/a926df4dabf3760>`_","Jeremy Custenborder","Bump to 1.0.0 (#11)"
     "2017-11-04 02:36:12","`f156f0e1cca5ff4 <https://github.com/jcustenborder/kafka-connect-solr/commit/f156f0e1cca5ff4>`_","Jeremy Custenborder","Delete support. (#10)
 
