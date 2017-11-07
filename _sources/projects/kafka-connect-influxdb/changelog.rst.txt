@@ -1,0 +1,33 @@
+=========
+Changelog
+=========
+
+
+**Unreleased**
+
+.. csv-table::
+    :header: "Date","Commit","Author","Message"
+
+    "2017-11-07 21:23:09","`5ff0dd07876786a <https://github.com/jcustenborder/kafka-connect-influxdb/commit/5ff0dd07876786a>`_","Jeremy Custenborder","Bump version to 1.0.0. Added more documentation. (#2)"
+    "2017-07-18 22:09:44","`6e3ab97c90bd287 <https://github.com/jcustenborder/kafka-connect-influxdb/commit/6e3ab97c90bd287>`_","Jeremy Custenborder","Rst (#1)
+
+* Initial Commit.
+
+* Added docker-compose and Jenkinsfile.
+
+* Initial Documentation.
+
+* Initial Documentation.
+
+* Added source connector.
+
+* Added license header and fixed checkstyle.
+
+* Added example configs.
+
+* Added more documentation.
+
+* Removed expectedKeys and expectedValues since it is no longer used.
+
+* Bump version to 0.10.2.1-cp2."
+

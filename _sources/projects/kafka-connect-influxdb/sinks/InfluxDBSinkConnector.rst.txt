@@ -5,7 +5,6 @@ InfluxDBSinkConnector
 .. image:: InfluxDBSinkConnector.svg
 
 
-
 The InfluxDBSinkConnector is used to write data from a :term:`Kafka topic`_ to an InfluxDB host. When there are more than one record in a batch that have the same measurement, time, and tags, they will be combined to a single point an written to InfluxDB in a batch.
 
 
