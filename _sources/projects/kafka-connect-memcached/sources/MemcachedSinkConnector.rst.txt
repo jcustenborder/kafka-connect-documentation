@@ -21,7 +21,7 @@ Configuration
     :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
     :widths: auto
 
-    "memcached.hosts","List","High","[localhost:11211]","com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@178f5b5b","Memcached hosts to connnect to."
+    "memcached.hosts","List","High","[localhost:11211]","com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@4f66f2dd","Memcached hosts to connnect to."
     "memcached.default.expiration.secs","Int","Low","0","[0,...]","The default expiration in seconds."
     "memcached.failure.mode","String","Low","Retry","ValidEnum{enum=FailureMode, allowed=[Redistribute, Retry, Cancel]}","Set the failure mode.
 +==============+====================================================================+
