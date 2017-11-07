@@ -1,0 +1,77 @@
+====================
+JMX Source Connector
+====================
+
+.. image:: JMXSourceConnector.svg
+
+
+The JMXSourceConnector is a :term:`Source Connector` used to collect JMX metrics from remote hosts.
+
+
+
+-------------
+Configuration
+-------------
+
+.. csv-table:: Configuration
+    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
+    :widths: auto
+
+    "jmx.urls","List","High","","","The JMX urls to connect to."
+    "jmx.objects","List","Medium","","","jmx.objects"
+    "jmx.poll.schedule.ms","Long","Medium","60000","[15000,...]","jmx.poll.schedule.ms"
+    "jmx.security.enable","Boolean","Medium","false","",""
+    "jmx.security.password","Password","Medium","[hidden]","","jmx.security.password"
+    "jmx.security.username","String","Medium","","","jmx.security.username"
+    "jmx.poll.delay.ms","Long","Low","0","[0,...]","jmx.poll.delay.ms"
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+Property based example
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `standalone mode
+<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
+
+.. code-block:: properties
+
+    name=connector1
+    tasks.max=1
+    connector.class=com.github.jcustenborder.kafka.connect.jmx.JMXSourceConnector
+    # The following values must be configured.
+    jmx.urls=
+    jmx.objects=
+
+
+
+^^^^^^^^^^^^^^^^^^
+Rest based example
+^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `distributed mode
+<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
+Write the following json to `connector.json`, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s).
+
+.. code-block:: json
+
+    {
+        "name": "connector1",
+        "config": {
+            "connector.class": "com.github.jcustenborder.kafka.connect.jmx.JMXSourceConnector",
+            "jmx.urls":"",
+            "jmx.objects":"",
+        }
+    }
+
+Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
+one of your Kafka Connect worker(s).
+
+.. code-block:: bash
+
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+

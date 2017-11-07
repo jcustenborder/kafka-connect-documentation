@@ -1,0 +1,21 @@
+=========
+Changelog
+=========
+
+
+**Unreleased**
+
+.. csv-table::
+    :header: "Date","Commit","Author","Message"
+
+    "2017-11-07 22:19:57","`d76efa295dbe425 <https://github.com/jcustenborder/kafka-connect-jmx/commit/d76efa295dbe425>`_","Jeremy Custenborder","Removed Readme.md"
+    "2017-11-07 22:19:32","`92d8b6b59e45b06 <https://github.com/jcustenborder/kafka-connect-jmx/commit/92d8b6b59e45b06>`_","Jeremy Custenborder","Updated documentation"
+    "2017-11-07 22:18:55","`a68c13112942e37 <https://github.com/jcustenborder/kafka-connect-jmx/commit/a68c13112942e37>`_","Jeremy Custenborder","Updated documentation"
+    "2017-11-07 22:15:50","`8ed6d4839181506 <https://github.com/jcustenborder/kafka-connect-jmx/commit/8ed6d4839181506>`_","Jeremy Custenborder","Updated to 1.0.0"
+    "2017-11-07 22:14:04","`51c1e9afd6c7490 <https://github.com/jcustenborder/kafka-connect-jmx/commit/51c1e9afd6c7490>`_","Jeremy Custenborder","Updated documentation"
+    "2017-09-27 16:59:22","`4f73fcf0b984aea <https://github.com/jcustenborder/kafka-connect-jmx/commit/4f73fcf0b984aea>`_","Jeremy Custenborder","Cleanup."
+    "2017-07-09 00:13:47","`8b1e6531c8a84e1 <https://github.com/jcustenborder/kafka-connect-jmx/commit/8b1e6531c8a84e1>`_","Jeremy Custenborder","Added documentation."
+    "2017-07-08 23:49:45","`ffec1a4a861e7e2 <https://github.com/jcustenborder/kafka-connect-jmx/commit/ffec1a4a861e7e2>`_","Jeremy Custenborder","Added Jenkinsfile"
+    "2017-07-08 23:48:54","`4520a3c62bcb039 <https://github.com/jcustenborder/kafka-connect-jmx/commit/4520a3c62bcb039>`_","Jeremy Custenborder","Added licenses."
+    "2017-07-08 23:38:00","`1ec59558cf7907b <https://github.com/jcustenborder/kafka-connect-jmx/commit/1ec59558cf7907b>`_","Jeremy Custenborder","Initial Commit."
+
