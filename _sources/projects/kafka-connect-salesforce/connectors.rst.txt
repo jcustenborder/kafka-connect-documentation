@@ -29,5 +29,6 @@ made to objects.
     :hidden:
 
     schemas
+    info
 
 
