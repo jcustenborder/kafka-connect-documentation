@@ -5,7 +5,6 @@ SplunkHttpSinkConnector
 .. image:: SplunkHttpSinkConnector.svg
 
 
-
 The Sink Connector will transform data from a Kafka topic into a batch of json messages that will be written via HTTP to a configured `Splunk Http Event Collector <http://dev.splunk.com/view/event-collector/SP-CAAAE6M>`_.
 
 
@@ -46,14 +45,6 @@ This configuration is used typically along with `standalone mode
     # The following values must be configured.
     splunk.auth.token=
     splunk.remote.host=
-    splunk.ssl.enabled=
-    splunk.ssl.trust.store.password=
-    splunk.ssl.trust.store.path=
-    splunk.remote.port=
-    splunk.ssl.validate.certs=
-    splunk.connect.timeout.ms=
-    splunk.curl.logging.enabled=
-    splunk.read.timeout.ms=
 
 
 
@@ -75,14 +66,6 @@ post the configuration to one the distributed connect worker(s).
             "connector.class": "com.github.jcustenborder.kafka.connect.splunk.SplunkHttpSinkConnector",
             "splunk.auth.token":"",
             "splunk.remote.host":"",
-            "splunk.ssl.enabled":"",
-            "splunk.ssl.trust.store.password":"",
-            "splunk.ssl.trust.store.path":"",
-            "splunk.remote.port":"",
-            "splunk.ssl.validate.certs":"",
-            "splunk.connect.timeout.ms":"",
-            "splunk.curl.logging.enabled":"",
-            "splunk.read.timeout.ms":"",
         }
     }
 

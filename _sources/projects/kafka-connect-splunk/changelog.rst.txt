@@ -1,0 +1,41 @@
+=========
+Changelog
+=========
+
+
+**Unreleased**
+
+.. csv-table::
+    :header: "Date","Commit","Author","Message"
+
+    "2017-11-07 22:06:12","`5c1fcf56b9806e2 <https://github.com/jcustenborder/kafka-connect-splunk/commit/5c1fcf56b9806e2>`_","Jeremy Custenborder","Updated documentation"
+    "2017-11-04 02:56:18","`58ff43dd09e4211 <https://github.com/jcustenborder/kafka-connect-splunk/commit/58ff43dd09e4211>`_","Jeremy Custenborder","1.0.0 (#14)
+
+* Changed the version to 1.0.0
+
+* Added plugin.path"
+    "2017-07-18 21:58:49","`17933491982a28a <https://github.com/jcustenborder/kafka-connect-splunk/commit/17933491982a28a>`_","Jeremy Custenborder","Changed the version to 0.10.2.1-cp2."
+    "2017-07-03 01:16:05","`e8b4a3ba256bf01 <https://github.com/jcustenborder/kafka-connect-splunk/commit/e8b4a3ba256bf01>`_","Jeremy Custenborder","Corrected links."
+    "2017-07-03 00:52:06","`c4970af6b69913f <https://github.com/jcustenborder/kafka-connect-splunk/commit/c4970af6b69913f>`_","Jeremy Custenborder","Bump the version and add documentation."
+    "2017-04-21 04:16:30","`9c7a992969bf604 <https://github.com/jcustenborder/kafka-connect-splunk/commit/9c7a992969bf604>`_","Jeremy Custenborder","Cleanup and bump to the latest version of Kafka. (#10)"
+    "2017-02-11 07:36:11","`b4123c0e49cf1c6 <https://github.com/jcustenborder/kafka-connect-splunk/commit/b4123c0e49cf1c6>`_","Jeremy Custenborder","corrected refrences to connect-utils."
+    "2017-01-24 23:58:12","`8f908f7d124703d <https://github.com/jcustenborder/kafka-connect-splunk/commit/8f908f7d124703d>`_","Jeremy Custenborder","Parent refactor (#6)
+
+* Removed the groupId so we use the parent group id.
+
+* Added license header.
+
+* corrected urls"
+    "2017-01-22 23:32:17","`08f8e041875abb7 <https://github.com/jcustenborder/kafka-connect-splunk/commit/08f8e041875abb7>`_","Jeremy Custenborder","Moved to common debug script. Updated docker-compose to the latest images. Updated documentation."
+    "2017-01-22 23:25:14","`372f6ca84c00c25 <https://github.com/jcustenborder/kafka-connect-splunk/commit/372f6ca84c00c25>`_","Jeremy Custenborder","Refactored to use the common parent pom."
+    "2017-01-20 05:50:23","`031d7f2884bca77 <https://github.com/jcustenborder/kafka-connect-splunk/commit/031d7f2884bca77>`_","Jeremy Custenborder","Added full license file."
+    "2017-01-20 05:40:11","`5089a113c9b037b <https://github.com/jcustenborder/kafka-connect-splunk/commit/5089a113c9b037b>`_","Jeremy Custenborder","General cleanup around the json handling. Move to using a single ObjectMapper across the whole application. Added serializers for Struct and SourceRecord."
+    "2017-01-19 23:33:38","`0618a26caec2f58 <https://github.com/jcustenborder/kafka-connect-splunk/commit/0618a26caec2f58>`_","Jeremy Custenborder","Repro of issue-3."
+    "2016-09-02 07:17:26","`74183a08d90345d <https://github.com/jcustenborder/kafka-connect-splunk/commit/74183a08d90345d>`_","Jeremy Custenborder","Changed message queue to batch and pull at the configured values."
+    "2016-09-02 07:10:36","`d626cf80e26dd4f <https://github.com/jcustenborder/kafka-connect-splunk/commit/d626cf80e26dd4f>`_","Jeremy Custenborder","Corrected license headers for all files."
+    "2016-09-02 07:08:08","`060878e2929c91f <https://github.com/jcustenborder/kafka-connect-splunk/commit/060878e2929c91f>`_","Jeremy Custenborder","Corrected test. For some odd reason it doesn't work on jenkins but works on my mac."
+    "2016-09-02 07:04:23","`8bdfd40586cc359 <https://github.com/jcustenborder/kafka-connect-splunk/commit/8bdfd40586cc359>`_","Jeremy Custenborder","Set the time of the message to the time on the server if it is not in the data."
+    "2016-09-02 07:01:00","`f9650c7ea47da5c <https://github.com/jcustenborder/kafka-connect-splunk/commit/f9650c7ea47da5c>`_","Jeremy Custenborder","Added support for a SplunkHttpSource allowing users to post data directly to Kafka using an interface that is compatible with the Splunk HEC endpoint. Added lots of logging and error handling for the sink writing data to Splunk."
+    "2016-08-28 04:41:03","`455370e57d8d7a3 <https://github.com/jcustenborder/kafka-connect-splunk/commit/455370e57d8d7a3>`_","Jeremy Custenborder","Added build logic to create and upload releases to github"
+    "2016-08-27 19:13:30","`a4c3d3334a9f036 <https://github.com/jcustenborder/kafka-connect-splunk/commit/a4c3d3334a9f036>`_","Jeremy Custenborder","First successful end to end. Receiving data from syslog, writing to Kafka, reading from Kafka, writing to Splunk."
+

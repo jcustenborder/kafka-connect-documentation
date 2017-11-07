@@ -52,13 +52,6 @@ This configuration is used typically along with `standalone mode
     splunk.collector.index.default=
     splunk.ssl.key.store.password=
     splunk.ssl.key.store.path=
-    splunk.port=
-    topic.per.index=
-    backoff.ms=
-    batch.size=
-    splunk.collector.index.allowed=
-    splunk.collector.url=
-    splunk.ssl.renegotiation.allowed=
 
 
 
@@ -82,13 +75,6 @@ post the configuration to one the distributed connect worker(s).
             "splunk.collector.index.default":"",
             "splunk.ssl.key.store.password":"",
             "splunk.ssl.key.store.path":"",
-            "splunk.port":"",
-            "topic.per.index":"",
-            "backoff.ms":"",
-            "batch.size":"",
-            "splunk.collector.index.allowed":"",
-            "splunk.collector.url":"",
-            "splunk.ssl.renegotiation.allowed":"",
         }
     }
 
