@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Changelog &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Kafka Connect Connectors
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../connectors.html">Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../transformations.html">Transformations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../configdef.type.html">ConfigDef.Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schema.type.html">Schema Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Kafka Connect Connectors</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Changelog</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/projects/kafka-connect-salesforce/changelog.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<p><strong>Unreleased</strong></p>
+<ul class="simple">
+<li>Bumped to a later version of connect. Added documentation.</li>
+<li><dl class="first docutils">
+<dt>Changed visibility back to public.”</dt>
+<dd>“2017-07-11 19:16:29”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/49b44456d0c8240">49b44456d0c8240</a>”,”Pinky Rathore”,”Replay sfdc events (Issue-16) (#17)</dd>
+</dl>
+</li>
+<li>Added support for pattern replacement in kafka topic name to add event details like event type - created, updated, deleted in kafka topic name</li>
+<li>removed jackson-databind dependency, updated string pattern to be replaced</li>
+<li>When handshake is successful after failure, re-subscribe to push topic</li>
+<li>reset connected flag to true</li>
+<li>change flag type</li>
+<li>renamed flag</li>
+<li>removed isSubscribed flag</li>
+<li>change method type to private</li>
+<li><dl class="first docutils">
+<dt>Replay sfdc events using stored offset”</dt>
+<dd>“2017-07-10 04:43:42”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/43d887ea3234278">43d887ea3234278</a>”,”Jeremy Custenborder”,”Add RST Documentation / Bump Version. (#22)</dd>
+</dl>
+</li>
+<li>Bumped to a later version of connect. Added documentation.</li>
+<li><dl class="first docutils">
+<dt>Changed visibility back to public.”</dt>
+<dd>“2017-04-15 03:56:11”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/1e8d6455be21f65">1e8d6455be21f65</a>”,”Jeremy Custenborder”,”Corrected address type to a child object. Updated documentation. Bumped version to 0.3. (#15)”
+“2017-04-13 18:22:31”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/b802f2d545f48c7">b802f2d545f48c7</a>”,”Jeremy Custenborder”,”Templates (#13)</dd>
+</dl>
+</li>
+<li>Refactored config to use public finals like most of my other connectors</li>
+</ul>
+<p>do. Raised the default logging to INFO to get rid of all the log messages
+from reflections.</p>
+<ul class="simple">
+<li>Added template support for the topic name. This will allow a user to move data into</li>
+</ul>
+<p>different topics based on things like the <cite>${_ObjectType}</cite> field or any other
+field exposed in salesforce.”</p>
+<blockquote>
+<div>“2017-04-13 16:28:50”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/b2164e404133932">b2164e404133932</a>”,”Jeremy Custenborder”,”Reconnect (#11)</div></blockquote>
+<ul class="simple">
+<li>Moved the message listener for the topic off to it’s own class. Changed</li>
+</ul>
+<p>to initialize the channel and subscriptions to the handshake handler.
+Moved to use SourceRecordConcurrentLinkedDeque for the record storage.
+Updated docker-compose.yml to the latest version.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Added support to pull the timestamp from SystemModstamp if it is present.”</dt>
+<dd>“2017-04-13 13:50:13”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/1f22bad751c43fc">1f22bad751c43fc</a>”,”Jeremy Custenborder”,”Fallout from package rename of connect-utils. (#10)”
+“2017-01-24 22:35:14”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/d9bfd92c4394ba9">d9bfd92c4394ba9</a>”,”Jeremy Custenborder”,”Added license.”
+“2017-01-24 18:58:36”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/d02a1e4b8152742">d02a1e4b8152742</a>”,”Jeremy Custenborder”,”Added license headers.”
+“2017-01-24 18:55:05”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/fe721ec1905042c">fe721ec1905042c</a>”,”Jeremy Custenborder”,”Moved to standard namespace <cite>com.github.jcustenborder.kafka.connect</cite>.”
+“2017-01-23 21:16:31”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/9a0ba7dd809c6b5">9a0ba7dd809c6b5</a>”,”Stan Lemon”,”Make maven work on OS X and update gitignore”
+“2017-01-20 06:44:06”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/9190b0f2ffe6805">9190b0f2ffe6805</a>”,”Jeremy Custenborder”,”Moved to common kafka-connect-parent. Added standard Jenkinsfile.”
+“2016-10-23 23:37:08”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/440e15bcebcb793">440e15bcebcb793</a>”,”Jeremy Custenborder”,”Switched to use the tag from the organization config.”
+“2016-10-23 22:57:22”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/5a8077c6c5f7532">5a8077c6c5f7532</a>”,”Jeremy Custenborder”,”Change to target the jenkins branch.”
+“2016-10-23 05:34:37”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/209508ddb748059">209508ddb748059</a>”,”Jeremy Custenborder”,”Moved to use shared library.”
+“2016-10-23 04:57:39”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/d8307c2c70aa7a1">d8307c2c70aa7a1</a>”,”Jeremy Custenborder”,”Pass in the location of maven.”
+“2016-10-23 04:54:00”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/75249be6876fecf">75249be6876fecf</a>”,”Jeremy Custenborder”,”Testing”
+“2016-10-23 04:50:51”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/543b0f40d51344f">543b0f40d51344f</a>”,”Jeremy Custenborder”,”Refactoring Jenkinsfile”
+“2016-10-23 04:47:32”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/fa3b2a7e97aa04d">fa3b2a7e97aa04d</a>”,”Jeremy Custenborder”,”Refactor of Jenkinsfile”
+“2016-08-28 06:22:26”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/368e28aa32cbe65">368e28aa32cbe65</a>”,”Jeremy Custenborder”,”Comment out rpms for now.”
+“2016-08-28 06:19:55”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/1a593bc67168a5f">1a593bc67168a5f</a>”,”Jeremy Custenborder”,”Added jenkins support to write create releases on github.”
+“2016-08-23 15:44:28”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/4d7fddf55915190">4d7fddf55915190</a>”,”Jeremy Custenborder”,”Removed instructions around building connect-utils because it is now deployed to maven central. Corrected .gitignore file.”
+“2016-08-23 03:37:41”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/9850fe3367aa5f0">9850fe3367aa5f0</a>”,”Jeremy Custenborder”,”Inital commit for jenkinsfile.”
+“2016-08-23 03:19:02”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/9d58cf54925cd1f">9d58cf54925cd1f</a>”,”Jeremy Custenborder”,”Changed to pull the latest 0.1.0 version from maven.”
+“2016-08-16 18:32:04”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/a2dcea00873509c">a2dcea00873509c</a>”,”Jeremy Custenborder”,”Added rpm”
+“2016-08-16 06:42:09”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/b843105e049b2b6">b843105e049b2b6</a>”,”Jeremy Custenborder”,”Removed old boiler plate”
+“2016-08-16 06:39:49”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/f896583d42e5303">f896583d42e5303</a>”,”Jeremy Custenborder”,”Added more documentation.”
+“2016-08-16 06:26:11”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/6704386d552c90b">6704386d552c90b</a>”,”Jeremy Custenborder”,”Updated documentation.”
+“2016-08-16 05:47:18”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/ab0c0f144a061b8">ab0c0f144a061b8</a>”,”Jeremy Custenborder”,”Added licenses”</dd>
+</dl>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Jeremy Custenborder.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-10128000-10', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

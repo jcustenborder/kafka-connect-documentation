@@ -59,16 +59,6 @@ This configuration is used typically along with `standalone mode
     salesforce.password.token=
     salesforce.push.topic.name=
     salesforce.username=
-    kafka.topic.lowercase=
-    salesforce.instance=
-    connection.timeout=
-    curl.logging=
-    salesforce.push.topic.create=
-    salesforce.push.topic.notify.create=
-    salesforce.push.topic.notify.delete=
-    salesforce.push.topic.notify.undelete=
-    salesforce.push.topic.notify.update=
-    salesforce.version=
 
 
 
@@ -96,16 +86,6 @@ post the configuration to one the distributed connect worker(s).
             "salesforce.password.token":"",
             "salesforce.push.topic.name":"",
             "salesforce.username":"",
-            "kafka.topic.lowercase":"",
-            "salesforce.instance":"",
-            "connection.timeout":"",
-            "curl.logging":"",
-            "salesforce.push.topic.create":"",
-            "salesforce.push.topic.notify.create":"",
-            "salesforce.push.topic.notify.delete":"",
-            "salesforce.push.topic.notify.undelete":"",
-            "salesforce.push.topic.notify.update":"",
-            "salesforce.version":"",
         }
     }
 

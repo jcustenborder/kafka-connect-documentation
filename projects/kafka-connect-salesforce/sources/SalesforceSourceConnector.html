@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Salesforce Connector" href="../connectors.html"/>
+        <link rel="next" title="Solr Connector" href="../../kafka-connect-solr/connectors.html"/>
+        <link rel="prev" title="Salesforce Connector" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -89,9 +92,28 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-cassandra/connectors.html">Cassandra Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/connectors.html">Amazon Kinesis Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/connectors.html">Memcached Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/connectors.html">RabbitMQ Connector</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Salesforce Connector</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SalesforceSourceConnector</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/connectors.html">Solr Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/connectors.html">Spooldir Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/connectors.html">StatsD Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/connectors.html">Syslog Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/connectors.html">Twitter Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-vertica/connectors.html">Vertica Connector</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
 </ul>
 <ul>
@@ -141,6 +163,10 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
+        
+          <li><a href="../connectors.html">Salesforce Connector</a> &raquo;</li>
         
       <li>SalesforceSourceConnector</li>
     
@@ -321,16 +347,6 @@
 <span class="na">salesforce.password.token</span><span class="o">=</span>
 <span class="na">salesforce.push.topic.name</span><span class="o">=</span>
 <span class="na">salesforce.username</span><span class="o">=</span>
-<span class="na">kafka.topic.lowercase</span><span class="o">=</span>
-<span class="na">salesforce.instance</span><span class="o">=</span>
-<span class="na">connection.timeout</span><span class="o">=</span>
-<span class="na">curl.logging</span><span class="o">=</span>
-<span class="na">salesforce.push.topic.create</span><span class="o">=</span>
-<span class="na">salesforce.push.topic.notify.create</span><span class="o">=</span>
-<span class="na">salesforce.push.topic.notify.delete</span><span class="o">=</span>
-<span class="na">salesforce.push.topic.notify.undelete</span><span class="o">=</span>
-<span class="na">salesforce.push.topic.notify.update</span><span class="o">=</span>
-<span class="na">salesforce.version</span><span class="o">=</span>
 </pre></div>
 </div>
 </div>
@@ -351,16 +367,6 @@ post the configuration to one the distributed connect worker(s).</p>
         <span class="nt">&quot;salesforce.password.token&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;salesforce.push.topic.name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;salesforce.username&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;kafka.topic.lowercase&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.instance&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;connection.timeout&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;curl.logging&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.push.topic.create&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.push.topic.notify.create&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.push.topic.notify.delete&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.push.topic.notify.undelete&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.push.topic.notify.update&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.version&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -381,6 +387,15 @@ one of your Kafka Connect worker(s).</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../kafka-connect-solr/connectors.html" class="btn btn-neutral float-right" title="Solr Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../connectors.html" class="btn btn-neutral" title="Salesforce Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
