@@ -1,8 +1,19 @@
+=========
+Changelog
+=========
+
 
 **Unreleased**
 
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
-    "2017-09-27 16:20:03","`b7824bef3c62060 <https://github.com/jcustenborder/kafka-connect-parent/kafka-connect-jms/commit/b7824bef3c62060>`_","Jeremy Custenborder","Initial (#1)&#10;&#10;Source Connector"
+    "2017-11-07 21:44:55","`ef9cb109c00510b <https://github.com/jcustenborder/kafka-connect-jms/commit/ef9cb109c00510b>`_","Jeremy Custenborder","1.0.0 (#2)
+
+* Moved to 1.0.0.
+
+* Updated documentation"
+    "2017-09-27 16:20:03","`b7824bef3c62060 <https://github.com/jcustenborder/kafka-connect-jms/commit/b7824bef3c62060>`_","Jeremy Custenborder","Initial (#1)
+
+Source Connector"
 

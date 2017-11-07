@@ -2,7 +2,7 @@
 JMS Source Connector
 ====================
 
-.. image:: JMS Source Connector.svg
+.. image:: JMSSourceConnector.svg
 
 
 The JMS Source Connector is used to read data from a message queue and write it to a Kafka topic.
@@ -21,9 +21,9 @@ Configuration
     :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
     :widths: auto
 
-    "destination.name","String","High","java.lang.Object@3f7a48a1","","The name of the JMS destination to read from."
-    "java.naming.factory.initial","String","High","java.lang.Object@3f7a48a1","","The initial context for the JMS Provider See [Context.INITIAL_CONTEXT_FACTORY](https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#INITIAL_CONTEXT_FACTORY) for more details."
-    "topic","String","High","java.lang.Object@3f7a48a1","","The topic to write the incoming data to."
+    "destination.name","String","High","","","The name of the JMS destination to read from."
+    "java.naming.factory.initial","String","High","","","The initial context for the JMS Provider See [Context.INITIAL_CONTEXT_FACTORY](https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#INITIAL_CONTEXT_FACTORY) for more details."
+    "topic","String","High","","","The topic to write the incoming data to."
     "connection.factory.name","String","High","ConnectionFactory","","The name that is passed to the [Context.lookup](https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#lookup(java.lang.String)) of the InitialContext specified in `java.naming.factory.initial`. This should return the [ConnectionFactory](http://docs.oracle.com/javaee/6/api/javax/jms/ConnectionFactory.html) for the JMS provider."
     "destination.type","String","High","queue","[queue, topic]","The type of destination. `queue` and `topic` are supported."
     "java.naming.security.credentials","Password","High","[hidden]","","The security credentials to connect with. This is typically a password. See [Context.SECURITY_CREDENTIALS](https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#SECURITY_CREDENTIALS) for more details. The documentation for your JMS provider will be helpful as well."
