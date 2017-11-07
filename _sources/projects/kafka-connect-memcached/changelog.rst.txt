@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2017-11-07 21:24:57","`c7e6bfc8769552a <https://github.com/jcustenborder/kafka-connect-memcached/commit/c7e6bfc8769552a>`_","Jeremy Custenborder","Removed introduction.rst for connectors.rst"
     "2017-11-04 01:21:02","`17ed6062c24c33c <https://github.com/jcustenborder/kafka-connect-memcached/commit/17ed6062c24c33c>`_","Jeremy Custenborder","1.0.0 (#2)
 
 * Initial commit.
