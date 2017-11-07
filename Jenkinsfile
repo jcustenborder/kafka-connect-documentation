@@ -5,6 +5,7 @@ def connectors = [
         'kafka-connect-flume-avro':'jcustenborder/kafka-connect-flume-avro/master',
         'kafka-connect-influxdb':'jcustenborder/kafka-connect-influxdb/master',
         'kafka-connect-jms':'jcustenborder/kafka-connect-jms/master',
+        'kafka-connect-jmx':'jcustenborder/kafka-connect-jmx/master',
         'kafka-connect-kinesis':'jcustenborder/kafka-connect-kinesis/master',
         'kafka-connect-memcached':'jcustenborder/kafka-connect-memcached/master',
         'kafka-connect-rabbitmq':'jcustenborder/kafka-connect-rabbitmq/master',
