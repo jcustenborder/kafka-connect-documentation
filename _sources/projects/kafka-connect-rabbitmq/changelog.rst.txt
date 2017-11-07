@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2017-11-07 21:39:56","`4826abad02b0a42 <https://github.com/jcustenborder/kafka-connect-rabbitmq/commit/4826abad02b0a42>`_","Jeremy Custenborder","Updated documentation"
     "2017-11-04 01:24:35","`88bbc2d3d0561cb <https://github.com/jcustenborder/kafka-connect-rabbitmq/commit/88bbc2d3d0561cb>`_","Jeremy Custenborder","1.0.0 (#19)
 
 * Bump to 1.0.0. Refactored configuration settings to use RST.
