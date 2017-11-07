@@ -5,7 +5,6 @@ SimulatorSinkConnector
 .. image:: SimulatorSinkConnector.svg
 
 
-
 The SimulatorSinkConnector is used to read data from a topic at the configured rate.
 
 
@@ -36,8 +35,6 @@ This configuration is used typically along with `standalone mode
     tasks.max=1
     connector.class=com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector
     # The following values must be configured.
-    log.entries=
-    rate.limit=
 
 
 
@@ -57,8 +54,6 @@ post the configuration to one the distributed connect worker(s).
         "name": "connector1",
         "config": {
             "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
-            "log.entries":"",
-            "rate.limit":"",
         }
     }
 

@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Simulator Connector" href="../connectors.html"/>
+        <link rel="next" title="SimulatorSinkConnector" href="../sinks/SimulatorSinkConnector.html"/>
+        <link rel="prev" title="Simulator Connector" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -89,9 +92,33 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-cassandra/connectors.html">Cassandra Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/connectors.html">Flume Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-influxdb/connectors.html">InfluxDB Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/connectors.html">Amazon Kinesis Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/connectors.html">Memcached Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/connectors.html">RabbitMQ Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-salesforce/connectors.html">Salesforce Connector</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Simulator Connector</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SimulatorSourceConnector</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sinks/SimulatorSinkConnector.html">SimulatorSinkConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../info.html">Additional Information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/connectors.html">Solr Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/connectors.html">Spooldir Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/connectors.html">StatsD Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/connectors.html">Syslog Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/connectors.html">Twitter Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-vertica/connectors.html">Vertica Connector</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
 </ul>
 <ul>
@@ -141,6 +168,10 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
+        
+          <li><a href="../connectors.html">Simulator Connector</a> &raquo;</li>
         
       <li>SimulatorSourceConnector</li>
     
@@ -239,10 +270,6 @@
 <span class="na">key.schema.fields</span><span class="o">=</span>
 <span class="na">topic</span><span class="o">=</span>
 <span class="na">value.schema.fields</span><span class="o">=</span>
-<span class="na">batch.size</span><span class="o">=</span>
-<span class="na">key.schema.name</span><span class="o">=</span>
-<span class="na">rate.limit</span><span class="o">=</span>
-<span class="na">value.schema.name</span><span class="o">=</span>
 </pre></div>
 </div>
 </div>
@@ -258,10 +285,6 @@ post the configuration to one the distributed connect worker(s).</p>
         <span class="nt">&quot;key.schema.fields&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;value.schema.fields&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;batch.size&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;key.schema.name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rate.limit&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;value.schema.name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -282,6 +305,15 @@ one of your Kafka Connect worker(s).</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sinks/SimulatorSinkConnector.html" class="btn btn-neutral float-right" title="SimulatorSinkConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../connectors.html" class="btn btn-neutral" title="Simulator Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

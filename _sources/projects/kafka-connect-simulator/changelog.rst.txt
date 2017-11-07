@@ -1,0 +1,40 @@
+=========
+Changelog
+=========
+
+
+**Unreleased**
+
+.. csv-table::
+    :header: "Date","Commit","Author","Message"
+
+    "2017-11-07 22:01:16","`abfda0f9b9d1b17 <https://github.com/jcustenborder/kafka-connect-simulator/commit/abfda0f9b9d1b17>`_","Jeremy Custenborder","1.0.0 (#3)
+
+* Bumped to 1.0.0.
+
+* Bumped to 1.0.0.
+
+* Updated documentation"
+    "2017-07-18 22:11:53","`d714f9739edc906 <https://github.com/jcustenborder/kafka-connect-simulator/commit/d714f9739edc906>`_","Jeremy Custenborder","Rst (#2)
+
+* Corrected path to the proper target folder.
+
+* Added missing .gitignore
+
+* Moved to a docker-compose that will work with docker for mac.
+
+* Added sink connector.
+
+* Bumped to 0.10.2.1-cp2."
+    "2017-02-03 19:18:53","`43c5331580c210b <https://github.com/jcustenborder/kafka-connect-simulator/commit/43c5331580c210b>`_","Jeremy Custenborder","Corrected namespace to reflect the move of MarkdownFormatter."
+    "2017-01-22 22:51:45","`42bada1b713a1e6 <https://github.com/jcustenborder/kafka-connect-simulator/commit/42bada1b713a1e6>`_","Jeremy Custenborder","Corrected namespace of struct to reflect package namespace."
+    "2017-01-20 06:30:25","`b121fcf9e1db5e4 <https://github.com/jcustenborder/kafka-connect-simulator/commit/b121fcf9e1db5e4>`_","Jeremy Custenborder","Moved to a common pipeline."
+    "2017-01-19 17:47:13","`615be28f9206d73 <https://github.com/jcustenborder/kafka-connect-simulator/commit/615be28f9206d73>`_","Jeremy Custenborder","Set the default number of builds to keep at 10."
+    "2017-01-19 08:43:24","`909f0b801cbfedb <https://github.com/jcustenborder/kafka-connect-simulator/commit/909f0b801cbfedb>`_","Jeremy Custenborder","Refactored to use the parent pom."
+    "2017-01-19 08:27:29","`1815ecab059101a <https://github.com/jcustenborder/kafka-connect-simulator/commit/1815ecab059101a>`_","Jeremy Custenborder","Corrected the arguments."
+    "2017-01-19 08:25:52","`28459cd33828be8 <https://github.com/jcustenborder/kafka-connect-simulator/commit/28459cd33828be8>`_","Jeremy Custenborder","Changed to get the configuration file first."
+    "2017-01-19 08:23:09","`1aa3f4603930df5 <https://github.com/jcustenborder/kafka-connect-simulator/commit/1aa3f4603930df5>`_","Jeremy Custenborder","Changed to get the configuration file first."
+    "2017-01-19 07:57:12","`2e4e40c97364416 <https://github.com/jcustenborder/kafka-connect-simulator/commit/2e4e40c97364416>`_","Jeremy Custenborder","Moved to shared library for maven."
+    "2017-01-19 00:34:22","`3b7776118b72e6d <https://github.com/jcustenborder/kafka-connect-simulator/commit/3b7776118b72e6d>`_","Jeremy Custenborder","Added boilerplate jenkinsfile."
+    "2016-11-04 19:45:53","`f0824c91d17cb0b <https://github.com/jcustenborder/kafka-connect-simulator/commit/f0824c91d17cb0b>`_","Jeremy Custenborder","Corrected documentation."
+

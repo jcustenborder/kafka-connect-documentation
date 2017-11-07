@@ -43,10 +43,6 @@ This configuration is used typically along with `standalone mode
     key.schema.fields=
     topic=
     value.schema.fields=
-    batch.size=
-    key.schema.name=
-    rate.limit=
-    value.schema.name=
 
 
 
@@ -69,10 +65,6 @@ post the configuration to one the distributed connect worker(s).
             "key.schema.fields":"",
             "topic":"",
             "value.schema.fields":"",
-            "batch.size":"",
-            "key.schema.name":"",
-            "rate.limit":"",
-            "value.schema.name":"",
         }
     }
 
