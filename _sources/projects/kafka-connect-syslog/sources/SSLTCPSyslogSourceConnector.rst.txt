@@ -60,18 +60,6 @@ This configuration is used typically along with `standalone mode
     syslog.keystore.password=
     syslog.truststore=
     syslog.truststore.password=
-    syslog.port=
-    backoff.ms=
-    batch.size=
-    syslog.backlog=
-    syslog.charset=
-    syslog.max.active.sockets=
-    syslog.max.active.sockets.behavior=
-    syslog.reverse.dns.cache.ms=
-    syslog.reverse.dns.remote.ip=
-    syslog.shutdown.wait=
-    syslog.structured.data=
-    syslog.timeout=
 
 
 
@@ -96,18 +84,6 @@ post the configuration to one the distributed connect worker(s).
             "syslog.keystore.password":"",
             "syslog.truststore":"",
             "syslog.truststore.password":"",
-            "syslog.port":"",
-            "backoff.ms":"",
-            "batch.size":"",
-            "syslog.backlog":"",
-            "syslog.charset":"",
-            "syslog.max.active.sockets":"",
-            "syslog.max.active.sockets.behavior":"",
-            "syslog.reverse.dns.cache.ms":"",
-            "syslog.reverse.dns.remote.ip":"",
-            "syslog.shutdown.wait":"",
-            "syslog.structured.data":"",
-            "syslog.timeout":"",
         }
     }
 

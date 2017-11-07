@@ -52,18 +52,6 @@ This configuration is used typically along with `standalone mode
     connector.class=com.github.jcustenborder.kafka.connect.syslog.TCPSyslogSourceConnector
     # The following values must be configured.
     kafka.topic=
-    syslog.port=
-    backoff.ms=
-    batch.size=
-    syslog.backlog=
-    syslog.charset=
-    syslog.max.active.sockets=
-    syslog.max.active.sockets.behavior=
-    syslog.reverse.dns.cache.ms=
-    syslog.reverse.dns.remote.ip=
-    syslog.shutdown.wait=
-    syslog.structured.data=
-    syslog.timeout=
 
 
 
@@ -84,18 +72,6 @@ post the configuration to one the distributed connect worker(s).
         "config": {
             "connector.class": "com.github.jcustenborder.kafka.connect.syslog.TCPSyslogSourceConnector",
             "kafka.topic":"",
-            "syslog.port":"",
-            "backoff.ms":"",
-            "batch.size":"",
-            "syslog.backlog":"",
-            "syslog.charset":"",
-            "syslog.max.active.sockets":"",
-            "syslog.max.active.sockets.behavior":"",
-            "syslog.reverse.dns.cache.ms":"",
-            "syslog.reverse.dns.remote.ip":"",
-            "syslog.shutdown.wait":"",
-            "syslog.structured.data":"",
-            "syslog.timeout":"",
         }
     }
 
