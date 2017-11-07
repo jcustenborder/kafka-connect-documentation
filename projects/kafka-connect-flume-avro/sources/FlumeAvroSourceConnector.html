@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Flume Connector" href="../connectors.html"/>
+        <link rel="next" title="Schemas" href="../schemas.html"/>
+        <link rel="prev" title="Flume Connector" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -89,9 +92,30 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-cassandra/connectors.html">Cassandra Connector</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Flume Connector</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">FlumeAvroSourceConnector</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/connectors.html">Amazon Kinesis Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/connectors.html">Memcached Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/connectors.html">RabbitMQ Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-salesforce/connectors.html">Salesforce Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/connectors.html">Solr Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/connectors.html">Spooldir Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/connectors.html">StatsD Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/connectors.html">Syslog Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/connectors.html">Twitter Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-vertica/connectors.html">Vertica Connector</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
 </ul>
 <ul>
@@ -142,6 +166,10 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
+          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
+        
+          <li><a href="../connectors.html">Flume Connector</a> &raquo;</li>
+        
       <li>FlumeAvroSourceConnector</li>
     
     
@@ -185,28 +213,28 @@
 <tr class="row-even"><td>topic</td>
 <td>String</td>
 <td>High</td>
-<td><a class="reference external" href="mailto:java&#46;lang&#46;Object&#37;&#52;&#48;c9dcfcd">java<span>&#46;</span>lang<span>&#46;</span>Object<span>&#64;</span>c9dcfcd</a></td>
+<td>&#160;</td>
 <td>&#160;</td>
 <td>Topic to write the data to.</td>
 </tr>
 <tr class="row-odd"><td>ssl.enabled</td>
 <td>Boolean</td>
 <td>Medium</td>
-<td><a class="reference external" href="mailto:java&#46;lang&#46;Object&#37;&#52;&#48;c9dcfcd">java<span>&#46;</span>lang<span>&#46;</span>Object<span>&#64;</span>c9dcfcd</a></td>
+<td>&#160;</td>
 <td>&#160;</td>
 <td>Flag to determine if ssl should be configured for the connection.</td>
 </tr>
 <tr class="row-even"><td>ssl.keystore.password</td>
 <td>Password</td>
 <td>Medium</td>
-<td><a class="reference external" href="mailto:java&#46;lang&#46;Object&#37;&#52;&#48;c9dcfcd">java<span>&#46;</span>lang<span>&#46;</span>Object<span>&#64;</span>c9dcfcd</a></td>
+<td>&#160;</td>
 <td>&#160;</td>
 <td>The password for the java keystore containing the certificate.</td>
 </tr>
 <tr class="row-odd"><td>ssl.keystore.path</td>
 <td>String</td>
 <td>Medium</td>
-<td><a class="reference external" href="mailto:java&#46;lang&#46;Object&#37;&#52;&#48;c9dcfcd">java<span>&#46;</span>lang<span>&#46;</span>Object<span>&#64;</span>c9dcfcd</a></td>
+<td>&#160;</td>
 <td>&#160;</td>
 <td>The path to the keystore on the local file system.</td>
 </tr>
@@ -301,6 +329,15 @@ one of your Kafka Connect worker(s).</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../connectors.html" class="btn btn-neutral" title="Flume Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
