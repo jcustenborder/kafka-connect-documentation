@@ -1,9 +1,0 @@
-
-**Unreleased**
-
-.. csv-table::
-    :header: "Date","Commit","Author","Message"
-
-    "2017-09-27 17:57:24","`3d1901f14d22d20 <https://github.com/jcustenborder/kafka-connect-maprdb/commit/3d1901f14d22d20>`_","Jeremy Custenborder","Jenkinsfile (#2)&#10;&#10;* Added Jenkinsfile.&#13;&#10;&#13;&#10;* Bump to 0.11.0.0-cp5.&#13;&#10;&#13;&#10;* Added exclude for jackson-annotations."
-    "2017-09-27 17:30:10","`a54fc2d7ab03711 <https://github.com/jcustenborder/kafka-connect-maprdb/commit/a54fc2d7ab03711>`_","Jeremy Custenborder","Initial (#1)&#10;&#10;* Initial commit.&#13;&#10;&#13;&#10;* Added more items to the .gitignore.&#13;&#10;&#13;&#10;* First pass at converting structs.&#13;&#10;&#13;&#10;* Added testing around the converters.&#13;&#10;&#13;&#10;* Added support and test cases around child structs, arrays, and maps.&#13;&#10;&#13;&#10;* WIP&#13;&#10;&#13;&#10;* Refactored to delegate more conversion to the converters. Added example using twitter data.&#13;&#10;&#13;&#10;* Change the version to 5.2.2-mapr.&#13;&#10;&#13;&#10;* Change to pass in the mapr directory.&#13;&#10;&#13;&#10;* Added more documentation.&#13;&#10;&#13;&#10;* Added licenses.&#13;&#10;&#13;&#10;* Added more documentation and started outputting the RST documentation."
-
