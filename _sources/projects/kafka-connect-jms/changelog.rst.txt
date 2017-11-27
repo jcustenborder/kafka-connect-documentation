@@ -8,6 +8,11 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2017-11-27 22:37:55","`79445156fe5da5c <https://github.com/jcustenborder/kafka-connect-jms/commit/79445156fe5da5c>`_","Jeremy Custenborder","Issue 3 (#4)
+
+* Removed CLASSPATH cause we don't need it with isolation.
+
+* Fixes #3. Changed to commit during close. If `stop()` is called and a subsequent call to `commit()` comes in disregard."
     "2017-11-07 21:44:55","`ef9cb109c00510b <https://github.com/jcustenborder/kafka-connect-jms/commit/ef9cb109c00510b>`_","Jeremy Custenborder","1.0.0 (#2)
 
 * Moved to 1.0.0.
