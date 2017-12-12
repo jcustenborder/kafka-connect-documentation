@@ -23,6 +23,7 @@ Configuration
 
     "destination.name","String","High","","","The name of the JMS destination to read from."
     "java.naming.factory.initial","String","High","","","The initial context for the JMS Provider See [Context.INITIAL_CONTEXT_FACTORY](https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#INITIAL_CONTEXT_FACTORY) for more details."
+    "java.naming.provider.url","String","High","","","The url to connect to."
     "topic","String","High","","","The topic to write the incoming data to."
     "connection.factory.name","String","High","ConnectionFactory","","The name that is passed to the [Context.lookup](https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#lookup(java.lang.String)) of the InitialContext specified in `java.naming.factory.initial`. This should return the [ConnectionFactory](http://docs.oracle.com/javaee/6/api/javax/jms/ConnectionFactory.html) for the JMS provider."
     "destination.type","String","High","queue","[queue, topic]","The type of destination. `queue` and `topic` are supported."
@@ -49,6 +50,7 @@ This configuration is used typically along with `standalone mode
     # The following values must be configured.
     destination.name=
     java.naming.factory.initial=
+    java.naming.provider.url=
     topic=
 
 
@@ -71,6 +73,7 @@ post the configuration to one the distributed connect worker(s).
             "connector.class": "com.github.jcustenborder.kafka.connect.jms.JMSSourceConnector",
             "destination.name":"",
             "java.naming.factory.initial":"",
+            "java.naming.provider.url":"",
             "topic":"",
         }
     }

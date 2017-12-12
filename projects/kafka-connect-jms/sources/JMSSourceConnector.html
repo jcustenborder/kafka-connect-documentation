@@ -232,56 +232,63 @@
 <td>&#160;</td>
 <td>The initial context for the JMS Provider See [Context.INITIAL_CONTEXT_FACTORY](<a class="reference external" href="https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#INITIAL_CONTEXT_FACTORY">https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#INITIAL_CONTEXT_FACTORY</a>) for more details.</td>
 </tr>
-<tr class="row-even"><td>topic</td>
+<tr class="row-even"><td>java.naming.provider.url</td>
+<td>String</td>
+<td>High</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>The url to connect to.</td>
+</tr>
+<tr class="row-odd"><td>topic</td>
 <td>String</td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>The topic to write the incoming data to.</td>
 </tr>
-<tr class="row-odd"><td>connection.factory.name</td>
+<tr class="row-even"><td>connection.factory.name</td>
 <td>String</td>
 <td>High</td>
 <td>ConnectionFactory</td>
 <td>&#160;</td>
 <td>The name that is passed to the [Context.lookup](<a class="reference external" href="https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#lookup(java.lang.String">https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#lookup(java.lang.String</a>)) of the InitialContext specified in <cite>java.naming.factory.initial</cite>. This should return the [ConnectionFactory](<a class="reference external" href="http://docs.oracle.com/javaee/6/api/javax/jms/ConnectionFactory.html">http://docs.oracle.com/javaee/6/api/javax/jms/ConnectionFactory.html</a>) for the JMS provider.</td>
 </tr>
-<tr class="row-even"><td>destination.type</td>
+<tr class="row-odd"><td>destination.type</td>
 <td>String</td>
 <td>High</td>
 <td>queue</td>
 <td>[queue, topic]</td>
 <td>The type of destination. <cite>queue</cite> and <cite>topic</cite> are supported.</td>
 </tr>
-<tr class="row-odd"><td>java.naming.security.credentials</td>
+<tr class="row-even"><td>java.naming.security.credentials</td>
 <td>Password</td>
 <td>High</td>
 <td>[hidden]</td>
 <td>&#160;</td>
 <td>The security credentials to connect with. This is typically a password. See [Context.SECURITY_CREDENTIALS](<a class="reference external" href="https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#SECURITY_CREDENTIALS">https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#SECURITY_CREDENTIALS</a>) for more details. The documentation for your JMS provider will be helpful as well.</td>
 </tr>
-<tr class="row-even"><td>java.naming.security.principal</td>
+<tr class="row-odd"><td>java.naming.security.principal</td>
 <td>String</td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>The security principal to connect with. This is typically a username. See [Context.SECURITY_PRINCIPAL](<a class="reference external" href="https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#SECURITY_PRINCIPAL">https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html#SECURITY_PRINCIPAL</a>) for more details. The documentation for your JMS provider will be helpful as well.</td>
 </tr>
-<tr class="row-odd"><td>message.selector</td>
+<tr class="row-even"><td>message.selector</td>
 <td>String</td>
 <td>High</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>The [message selector](<a class="reference external" href="http://docs.oracle.com/javaee/6/api/javax/jms/Session.html#createConsumer(javax.jms.Destination">http://docs.oracle.com/javaee/6/api/javax/jms/Session.html#createConsumer(javax.jms.Destination</a>, java.lang.String, boolean))that should be applied to messages in the destination.</td>
 </tr>
-<tr class="row-even"><td>session.acknowledge.mode</td>
+<tr class="row-odd"><td>session.acknowledge.mode</td>
 <td>String</td>
 <td>Medium</td>
 <td>CLIENT_ACKNOWLEDGE</td>
 <td>[CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE]</td>
 <td>The acknowledgement mode for the JMS Session. See [Session.AUTO_ACKNOWLEDGE](<a class="reference external" href="http://docs.oracle.com/javaee/6/api/javax/jms/Session.html#AUTO_ACKNOWLEDGE">http://docs.oracle.com/javaee/6/api/javax/jms/Session.html#AUTO_ACKNOWLEDGE</a>), [Session.CLIENT_ACKNOWLEDGE](<a class="reference external" href="http://docs.oracle.com/javaee/6/api/javax/jms/Session.html#CLIENT_ACKNOWLEDGE">http://docs.oracle.com/javaee/6/api/javax/jms/Session.html#CLIENT_ACKNOWLEDGE</a>), and [Session.DUPS_OK_ACKNOWLEDGE](<a class="reference external" href="http://docs.oracle.com/javaee/6/api/javax/jms/Session.html#DUPS_OK_ACKNOWLEDGE">http://docs.oracle.com/javaee/6/api/javax/jms/Session.html#DUPS_OK_ACKNOWLEDGE</a>)</td>
 </tr>
-<tr class="row-odd"><td>session.transacted</td>
+<tr class="row-even"><td>session.transacted</td>
 <td>Boolean</td>
 <td>Low</td>
 <td>true</td>
@@ -299,6 +306,7 @@
 <span class="c"># The following values must be configured.</span>
 <span class="na">destination.name</span><span class="o">=</span>
 <span class="na">java.naming.factory.initial</span><span class="o">=</span>
+<span class="na">java.naming.provider.url</span><span class="o">=</span>
 <span class="na">topic</span><span class="o">=</span>
 </pre></div>
 </div>
@@ -314,6 +322,7 @@ post the configuration to one the distributed connect worker(s).</p>
         <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.jms.JMSSourceConnector&quot;</span><span class="p">,</span>
         <span class="nt">&quot;destination.name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;java.naming.factory.initial&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;java.naming.provider.url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
