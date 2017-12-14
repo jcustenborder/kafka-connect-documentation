@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2017-12-14 03:39:00","`4bcfd705c1736b9 <https://github.com/jcustenborder/kafka-connect-jms/commit/4bcfd705c1736b9>`_","Jeremy Custenborder","Move RecordConverter public."
     "2017-12-12 19:15:31","`38a4bbce358f39d <https://github.com/jcustenborder/kafka-connect-jms/commit/38a4bbce358f39d>`_","Jeremy Custenborder","Fixes #5. Force the user to set provider url."
     "2017-12-08 19:18:20","`47b07155d23cf37 <https://github.com/jcustenborder/kafka-connect-jms/commit/47b07155d23cf37>`_","Jeremy Custenborder","Fixes #5. Force the user to set provider url. (#6)"
     "2017-11-27 22:37:55","`79445156fe5da5c <https://github.com/jcustenborder/kafka-connect-jms/commit/79445156fe5da5c>`_","Jeremy Custenborder","Issue 3 (#4)
