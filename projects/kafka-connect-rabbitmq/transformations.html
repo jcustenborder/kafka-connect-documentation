@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>RabbitMQ Transformations &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="Additional Information" href="info.html"/>
-        <link rel="next" title="ConfigDef.Type" href="../../configdef.type.html"/>
-        <link rel="prev" title="Source" href="info/source.html"/> 
+        <link rel="up" title="Transformations" href="../../transformations.html"/>
+        <link rel="next" title="Archive Transform" href="../kafka-connect-transform-archive/transformations.html"/>
+        <link rel="prev" title="Transformations" href="../../transformations.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -96,24 +96,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../connectors.html">Connectors</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../transformations.html">Transformations</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-rabbitmq/transformations.html">RabbitMQ Transformations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RabbitMQ Transformations</a><ul class="simple">
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-archive/transformations.html">Archive Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-cef/transformations.html">CEF Transform</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="transformations.html">Common Transforms</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="transformations/extracttimestamp.value.html">ExtractTimestamp(Value)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="transformations/patternrename.key.html">PatternRename(Key)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="transformations/patternrename.value.html">PatternRename(Value)</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="info.html">Additional Information</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="info/install.html">Install</a></li>
-<li class="toctree-l4"><a class="reference internal" href="info/support.html">Support</a></li>
-<li class="toctree-l4"><a class="reference internal" href="info/contributors.html">Contributors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="info/license.html">License</a></li>
-<li class="toctree-l4"><a class="reference internal" href="info/source.html">Source</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Changelog</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-common/transformations.html">Common Transforms</a></li>
 </ul>
 </li>
 </ul>
@@ -167,17 +155,13 @@
         
           <li><a href="../../transformations.html">Transformations</a> &raquo;</li>
         
-          <li><a href="transformations.html">Common Transforms</a> &raquo;</li>
-        
-          <li><a href="info.html">Additional Information</a> &raquo;</li>
-        
-      <li>Changelog</li>
+      <li>RabbitMQ Transformations</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/projects/kafka-connect-transform-common/changelog.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/projects/kafka-connect-rabbitmq/transformations.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -190,27 +174,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="changelog">
-<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
-<p><strong>Unreleased</strong></p>
-<ul class="simple">
-<li>Moved to a common base transformation that supports both schema and schemaless data.</li>
-<li>Added transformation that will pull the timestamp from a field within the value. Closes #4.</li>
-<li><dl class="first docutils">
-<dt>Corrected missing headers. Added documentation.”</dt>
-<dd>“2017-11-04 04:35:58”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-common/commit/eb5fb379684695b">eb5fb379684695b</a>”,”Jeremy Custenborder”,”Bump to 1.0.0 (#2)”
-“2017-09-23 23:28:28”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-common/commit/e23316472a4acd0">e23316472a4acd0</a>”,”Jeremy Custenborder”,”bump to parent 0.11.0.0-cp4.”
-“2017-09-23 21:01:56”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-common/commit/577eeba77009f92">577eeba77009f92</a>”,”Jeremy Custenborder”,”Initial (#1)</dd>
-</dl>
-</li>
-<li>Initial commit.</li>
-<li>Added support for schemaless as well.</li>
-<li>Added documentation and examples.</li>
-<li>Bump to 0.11.0.0-cp3 to address issues with plugin isolation.</li>
-<li>Changed version.</li>
-<li>Added documentation and examples.</li>
-<li>Example”</li>
-</ul>
+  <div class="section" id="rabbitmq-transformations">
+<h1>RabbitMQ Transformations<a class="headerlink" href="#rabbitmq-transformations" title="Permalink to this headline">¶</a></h1>
+<p>The RabbitMQ Transformations help by extracting header values from RabbitMQ.</p>
+<div class="toctree-wrapper compound">
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">maxdepth:</th><td class="field-body"><p class="first">1
+:caption: Transformations:
+:hidden:
+:glob:</p>
+<p class="last">transformations/*</p>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -223,10 +204,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../configdef.type.html" class="btn btn-neutral float-right" title="ConfigDef.Type" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../kafka-connect-transform-archive/transformations.html" class="btn btn-neutral float-right" title="Archive Transform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="info/source.html" class="btn btn-neutral" title="Source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../transformations.html" class="btn btn-neutral" title="Transformations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

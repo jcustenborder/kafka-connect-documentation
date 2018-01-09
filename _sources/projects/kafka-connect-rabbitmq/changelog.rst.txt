@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-01-09 15:17:10","`e2629e835e6b064 <https://github.com/jcustenborder/kafka-connect-rabbitmq/commit/e2629e835e6b064>`_","Jeremy Custenborder","Added `ExtractHeader` transformation to pull the value of a header and use it for the key. Fixes #22. (#24)"
     "2017-11-07 21:39:56","`4826abad02b0a42 <https://github.com/jcustenborder/kafka-connect-rabbitmq/commit/4826abad02b0a42>`_","Jeremy Custenborder","Updated documentation"
     "2017-11-04 01:24:35","`88bbc2d3d0561cb <https://github.com/jcustenborder/kafka-connect-rabbitmq/commit/88bbc2d3d0561cb>`_","Jeremy Custenborder","1.0.0 (#19)
 
