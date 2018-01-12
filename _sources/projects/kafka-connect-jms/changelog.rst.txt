@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-01-12 21:46:10","`b05b9fc7f13ee55 <https://github.com/jcustenborder/kafka-connect-jms/commit/b05b9fc7f13ee55>`_","Jeremy Custenborder","Expose config to child classes."
     "2018-01-12 19:06:00","`0a456bdf4f668d1 <https://github.com/jcustenborder/kafka-connect-jms/commit/0a456bdf4f668d1>`_","Jeremy Custenborder","Refactored to allow server specific connectors. fixes #7 (#8)"
     "2017-12-14 03:39:00","`4bcfd705c1736b9 <https://github.com/jcustenborder/kafka-connect-jms/commit/4bcfd705c1736b9>`_","Jeremy Custenborder","Move RecordConverter public."
     "2017-12-12 19:15:31","`38a4bbce358f39d <https://github.com/jcustenborder/kafka-connect-jms/commit/38a4bbce358f39d>`_","Jeremy Custenborder","Fixes #5. Force the user to set provider url."
