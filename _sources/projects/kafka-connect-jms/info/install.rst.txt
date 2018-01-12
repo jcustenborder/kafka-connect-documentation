@@ -8,7 +8,7 @@ Install
     :target: https://github.com/jcustenborder/kafka-connect-jms/releases
 
 .. image:: https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-jms.svg
-    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-jms%7C0.0.1.8%7Cjar
+    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-jms%7C0.0.1.9%7Cjar
 
 ^^^^^^^^^^^^^^^^
 RPM Installation
@@ -41,7 +41,7 @@ Maven Installation
     <dependency>
         <groupId>com.github.jcustenborder.kafka.connect</groupId>
         <artifactId>kafka-connect-jms</artifactId>
-        <version>0.0.1.8</version>
+        <version>0.0.1.9</version>
     </dependency>
 
 
