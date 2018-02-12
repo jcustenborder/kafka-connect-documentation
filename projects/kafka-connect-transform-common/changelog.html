@@ -100,6 +100,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-archive/transformations.html">Archive Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-cef/transformations.html">CEF Transform</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="transformations.html">Common Transforms</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="transformations/extractnestedfield.key.html">ExtractNestedField(Key)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations/extractnestedfield.value.html">ExtractNestedField(Value)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transformations/extracttimestamp.value.html">ExtractTimestamp(Value)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transformations/patternrename.key.html">PatternRename(Key)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transformations/patternrename.value.html">PatternRename(Value)</a></li>
@@ -194,6 +196,14 @@
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <p><strong>Unreleased</strong></p>
 <ul class="simple">
+<li>Added support to extract a field from a nested struct. Fixes #6</li>
+<li>Update documentation.</li>
+<li>Corrected licensing.</li>
+<li><dl class="first docutils">
+<dt>Added more documentation.”</dt>
+<dd>“2017-12-01 22:59:50”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-common/commit/c4f3ff48f0e361f">c4f3ff48f0e361f</a>”,”Jeremy Custenborder”,”Added ExtractTimestamp transformation. (#5)</dd>
+</dl>
+</li>
 <li>Moved to a common base transformation that supports both schema and schemaless data.</li>
 <li>Added transformation that will pull the timestamp from a field within the value. Closes #4.</li>
 <li><dl class="first docutils">
