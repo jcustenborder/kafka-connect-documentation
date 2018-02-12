@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Contributors &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>ChangeCase(Value) &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Additional Information" href="../info.html"/>
-        <link rel="next" title="License" href="license.html"/>
-        <link rel="prev" title="Support" href="support.html"/> 
+        <link rel="up" title="Common Transforms" href="../transformations.html"/>
+        <link rel="next" title="ExtractNestedField(Key)" href="extractnestedfield.key.html"/>
+        <link rel="prev" title="ChangeCase(Key)" href="changecase.key.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -100,22 +100,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-archive/transformations.html">Archive Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-cef/transformations.html">CEF Transform</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../transformations.html">Common Transforms</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../transformations/changecase.key.html">ChangeCase(Key)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../transformations/changecase.value.html">ChangeCase(Value)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../transformations/extractnestedfield.key.html">ExtractNestedField(Key)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../transformations/extractnestedfield.value.html">ExtractNestedField(Value)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../transformations/extracttimestamp.value.html">ExtractTimestamp(Value)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../transformations/patternrename.key.html">PatternRename(Key)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../transformations/patternrename.value.html">PatternRename(Value)</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../info.html">Additional Information</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="install.html">Install</a></li>
-<li class="toctree-l4"><a class="reference internal" href="support.html">Support</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Contributors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="license.html">License</a></li>
-<li class="toctree-l4"><a class="reference internal" href="source.html">Source</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changecase.key.html">ChangeCase(Key)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ChangeCase(Value)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="extractnestedfield.key.html">ExtractNestedField(Key)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extractnestedfield.value.html">ExtractNestedField(Value)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extracttimestamp.value.html">ExtractTimestamp(Value)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="patternrename.key.html">PatternRename(Key)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="patternrename.value.html">PatternRename(Value)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../info.html">Additional Information</a></li>
 </ul>
 </li>
 </ul>
@@ -173,15 +168,13 @@
         
           <li><a href="../transformations.html">Common Transforms</a> &raquo;</li>
         
-          <li><a href="../info.html">Additional Information</a> &raquo;</li>
-        
-      <li>Contributors</li>
+      <li>ChangeCase(Value)</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-transform-common/info/contributors.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-transform-common/transformations/changecase.value.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -194,25 +187,73 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="contributors">
-<h1>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h1>
-<img alt="https://img.shields.io/github/contributors/jcustenborder/kafka-connect-transform-common.svg" src="https://img.shields.io/github/contributors/jcustenborder/kafka-connect-transform-common.svg" /><p>The following individual(s) have contributed to this project.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
+  <div class="section" id="changecase-value">
+<h1>ChangeCase(Value)<a class="headerlink" href="#changecase-value" title="Permalink to this headline">¶</a></h1>
+<p>This transformation is used to change the case of fields in an input struct.</p>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="colwidths-auto docutils" id="id1">
+<caption><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
-<th class="head">Role</th>
+<th class="head">Type</th>
+<th class="head">Importance</th>
+<th class="head">Default Value</th>
+<th class="head">Validator</th>
+<th class="head">Documentation</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference external" href="https://github.com/jcustenborder">Jeremy Custenborder</a></td>
-<td>Committer</td>
+<tr class="row-even"><td>from</td>
+<td>String</td>
+<td>High</td>
+<td>&#160;</td>
+<td>ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, UPPER_CAMEL, UPPER_UNDERSCORE]}</td>
+<td>The format to move from</td>
+</tr>
+<tr class="row-odd"><td>to</td>
+<td>String</td>
+<td>High</td>
+<td>&#160;</td>
+<td>ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, UPPER_CAMEL, UPPER_UNDERSCORE]}</td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
+<div class="section" id="property-based-example">
+<h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
+<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">connector1</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.transform.common.ChangeCase$Value</span>
+<span class="c"># The following values must be configured.</span>
+<span class="na">from</span><span class="o">=</span>
+<span class="na">to</span><span class="o">=</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rest-based-example">
+<h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
+Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s).</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.transform.common.ChangeCase$Value&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
+one of your Kafka Connect worker(s).</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -225,10 +266,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="extractnestedfield.key.html" class="btn btn-neutral float-right" title="ExtractNestedField(Key)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="support.html" class="btn btn-neutral" title="Support" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="changecase.key.html" class="btn btn-neutral" title="ChangeCase(Key)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
