@@ -10,6 +10,7 @@ Used to store the value of a header value. The `type` field stores the type of t
 
     "type",":ref:`schema-String`","false","","Used to define the type for the HeaderValue. This will define the corresponding field which will contain the value in it's original type."
     "timestamp",":ref:`schema-Int64`","true","","Storage for when the `type` field is set to `timestamp`. Null otherwise."
+    "array","Array of :ref:`schema-String`","true","","Storage for when the `type` field is set to `array`. Null otherwise."
     "int8",":ref:`schema-Int8`","true","","Storage for when the `type` field is set to `int8`. Null otherwise."
     "int16",":ref:`schema-Int16`","true","","Storage for when the `type` field is set to `int16`. Null otherwise."
     "int32",":ref:`schema-Int32`","true","","Storage for when the `type` field is set to `int32`. Null otherwise."
