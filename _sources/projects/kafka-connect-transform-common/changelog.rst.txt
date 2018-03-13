@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-03-13 18:24:54","`0f46bdbe2464e96 <https://github.com/jcustenborder/kafka-connect-transform-common/commit/0f46bdbe2464e96>`_","Jeremy Custenborder","Added a transformation to convert Connect Structured data to JSON. Fixes #9. (#10)"
     "2018-02-12 23:40:40","`dff5ca167c06143 <https://github.com/jcustenborder/kafka-connect-transform-common/commit/dff5ca167c06143>`_","Jeremy Custenborder","Added transformation to change the case of a field. fixes #3. (#8)"
     "2018-02-12 21:59:52","`d751e1a29ef37ee <https://github.com/jcustenborder/kafka-connect-transform-common/commit/d751e1a29ef37ee>`_","Jeremy Custenborder","Support for extracting nested fields. (#7)
 
