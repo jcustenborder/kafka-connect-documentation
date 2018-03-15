@@ -45,6 +45,7 @@ Configuration
     "cassandra.table.create.compression.enabled","Boolean","Medium","true","","Flag to determine if compression should be used when a table is created. Existing tables are not altered."
     "cassandra.table.manage.enabled","Boolean","Medium","true","","Flag to determine if the connector should manage the table."
     "cassandra.username","String","Medium","cassandra","","The username to connect to Cassandra with."
+    "cassandra.write.mode","String","Medium","Insert","ValidEnum{enum=WriteMode, allowed=[Insert, Update]}","The type of statement to build when writing to Cassandra."
 
 
 ^^^^^^^^^^^^^^^^^^^^^^

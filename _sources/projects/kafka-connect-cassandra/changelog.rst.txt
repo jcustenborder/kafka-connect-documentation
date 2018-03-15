@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-03-15 17:05:48","`a0947e274cda585 <https://github.com/jcustenborder/kafka-connect-cassandra/commit/a0947e274cda585>`_","Jeremy Custenborder","Added support for issuing updates. This is controlled by `cassandra.write.mode` which by default is `Insert`. fixes #6. (#7)"
     "2017-11-03 19:53:20","`ce99f93b9f3e1d8 <https://github.com/jcustenborder/kafka-connect-cassandra/commit/ce99f93b9f3e1d8>`_","Jeremy Custenborder","Moved documentation about table to topic to a note. Added more to the README. (#3)"
     "2017-11-02 01:40:33","`33e2733eaefc8d8 <https://github.com/jcustenborder/kafka-connect-cassandra/commit/33e2733eaefc8d8>`_","Jeremy Custenborder","1.0.0 (#2)
 
