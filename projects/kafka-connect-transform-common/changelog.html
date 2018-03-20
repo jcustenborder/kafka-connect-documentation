@@ -100,6 +100,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-archive/transformations.html">Archive Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-cef/transformations.html">CEF Transform</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="transformations.html">Common Transforms</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="transformations/bytestostring.key.html">BytesToString(Key)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations/bytestostring.value.html">BytesToString(Value)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transformations/changecase.key.html">ChangeCase(Key)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transformations/changecase.value.html">ChangeCase(Value)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transformations/extractnestedfield.key.html">ExtractNestedField(Key)</a></li>
@@ -199,6 +201,12 @@
   <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <p><strong>Unreleased</strong></p>
+<dl class="docutils">
+<dt>fixes #12.”</dt>
+<dd>“2018-03-13 18:24:54”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-common/commit/0f46bdbe2464e96">0f46bdbe2464e96</a>”,”Jeremy Custenborder”,”Added a transformation to convert Connect Structured data to JSON. Fixes #9. (#10)”
+“2018-02-12 23:40:40”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-common/commit/dff5ca167c06143">dff5ca167c06143</a>”,”Jeremy Custenborder”,”Added transformation to change the case of a field. fixes #3. (#8)”
+“2018-02-12 21:59:52”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-common/commit/d751e1a29ef37ee">d751e1a29ef37ee</a>”,”Jeremy Custenborder”,”Support for extracting nested fields. (#7)</dd>
+</dl>
 <ul class="simple">
 <li>Added support to extract a field from a nested struct. Fixes #6</li>
 <li>Update documentation.</li>
