@@ -10,6 +10,7 @@ def connectors = [
         'kafka-connect-memcached':'jcustenborder/kafka-connect-memcached/master',
         'kafka-connect-maprdb':'jcustenborder/kafka-connect-maprdb/master',
         'kafka-connect-rabbitmq':'jcustenborder/kafka-connect-rabbitmq/master',
+        'kafka-connect-redis':'jcustenborder/kafka-connect-redis/master',
         'kafka-connect-salesforce':'jcustenborder/kafka-connect-salesforce/master',
         'kafka-connect-simulator':'jcustenborder/kafka-connect-simulator/master',
         'kafka-connect-snmp':'jcustenborder/kafka-connect-snmp/master',
@@ -24,7 +25,8 @@ def connectors = [
         'kafka-connect-transform-archive':'jcustenborder/kafka-connect-transform-archive/master',
         'kafka-connect-transform-cef':'jcustenborder/kafka-connect-transform-cef/master',
         'kafka-connect-transform-common':'jcustenborder/kafka-connect-transform-common/master',
-        'kafka-connect-transform-maxmind':'jcustenborder/kafka-connect-transform-maxmind/master'
+        'kafka-connect-transform-maxmind':'jcustenborder/kafka-connect-transform-maxmind/master',
+        'kafka-connect-transform-xml':'jcustenborder/kafka-connect-transform-xml/master'
 ]
 
 properties([
