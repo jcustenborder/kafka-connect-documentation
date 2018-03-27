@@ -1,0 +1,47 @@
+=======
+Install
+=======
+
+.. image:: https://img.shields.io/github/license/jcustenborder/kafka-connect-redis.svg
+
+.. image:: https://img.shields.io/github/release/jcustenborder/kafka-connect-redis.svg
+    :target: https://github.com/jcustenborder/kafka-connect-redis/releases
+
+.. image:: https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-redis.svg
+    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-redis%7C0.0.2.1%7Cjar
+
+^^^^^^^^^^^^^^^^
+RPM Installation
+^^^^^^^^^^^^^^^^
+
+Before starting the RPM installation you must configure the :ref:`yum_repository` first.
+
+.. code-block:: bash
+
+    sudo yum install kafka-connect-redis
+
+
+^^^^^^^^^^^^^^^^
+DEB Installation
+^^^^^^^^^^^^^^^^
+
+Before starting the RPM installation you must configure the :ref:`apt_repository` first.
+
+.. code-block:: bash
+
+    sudo apt-get install kafka-connect-redis
+
+
+^^^^^^^^^^^^^^^^^^
+Maven Installation
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: xml
+
+    <dependency>
+        <groupId>com.github.jcustenborder.kafka.connect</groupId>
+        <artifactId>kafka-connect-redis</artifactId>
+        <version>0.0.2.1</version>
+    </dependency>
+
+

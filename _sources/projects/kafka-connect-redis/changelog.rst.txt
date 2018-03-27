@@ -1,0 +1,26 @@
+=========
+Changelog
+=========
+
+
+**Unreleased**
+
+.. csv-table::
+    :header: "Date","Commit","Author","Message"
+
+    "2018-03-27 04:10:02","`25513f0e5c532d2 <https://github.com/jcustenborder/kafka-connect-redis/commit/25513f0e5c532d2>`_","Jeremy Custenborder","Initial (#1)
+
+* Initial commit.
+
+* Refactored to allow the same code path to support clustered and non clustered.
+
+* Added Jenkinsfile
+
+* Removed class that was not used.
+
+* Moved to a combined session object.
+
+* Added more SSL options.
+
+* Updated README"
+
