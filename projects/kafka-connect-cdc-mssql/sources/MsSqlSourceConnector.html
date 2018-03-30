@@ -1,0 +1,470 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MsSqlSourceConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Kafka Connect Connectors
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../configdef.type.html">ConfigDef.Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../schema.type.html">Schema Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Kafka Connect Connectors</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>MsSqlSourceConnector</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/projects/kafka-connect-cdc-mssql/sources/MsSqlSourceConnector.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mssqlsourceconnector">
+<h1>MsSqlSourceConnector<a class="headerlink" href="#mssqlsourceconnector" title="Permalink to this headline">¶</a></h1>
+<img alt="../../../_images/MsSqlSourceConnector.svg" src="../../../_images/MsSqlSourceConnector.svg" /><p>The Microsoft SQL Server connector utilizes <a class="reference external" href="https://msdn.microsoft.com/en-us/library/bb933875.aspx">Change Tracking</a> to identify changes. There are two ways to read the changes from the source system as they are generated. [Change Data Capture](<a class="reference external" href="https://msdn.microsoft.com/en-us/library/cc645937.aspx">https://msdn.microsoft.com/en-us/library/cc645937.aspx</a>) is a feature that is only available on SQL Server Enterprise and Developer editions. [Change Tracking](<a class="reference external" href="https://msdn.microsoft.com/en-us/library/bb933875.aspx">https://msdn.microsoft.com/en-us/library/bb933875.aspx</a>) is a lightweight solution that will efficiently find rows that have changed. If the rows are modified in quick succession all of the changes might not be found. The latest version of the change will be returned.</p>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="initial-database">
+<h3>initial.database<a class="headerlink" href="#initial-database" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>The initial database to connect to.</p>
+</div>
+<div class="section" id="password">
+<h3>password<a class="headerlink" href="#password" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Password</p>
+<p>JDBC Password to connect to the database with.</p>
+</div>
+<div class="section" id="server-name">
+<h3>server.name<a class="headerlink" href="#server-name" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>The server to connect to.</p>
+</div>
+<div class="section" id="server-port">
+<h3>server.port<a class="headerlink" href="#server-port" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Int</p>
+<p>The port on the server to connect to.</p>
+</div>
+<div class="section" id="username">
+<h3>username<a class="headerlink" href="#username" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>JDBC Username to connect to the database with.</p>
+</div>
+<div class="section" id="schema-key-name-format">
+<h3>schema.key.name.format<a class="headerlink" href="#schema-key-name-format" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> ${namespace}.${tableName}Key</p>
+<p>Format used to generate the name for the key schema. The following template properties are available for string replacement. <cite>${databaseName}</cite>, <cite>${schemaName}</cite>, <cite>${tableName}</cite>, <cite>${namespace}</cite></p>
+</div>
+<div class="section" id="schema-namespace-format">
+<h3>schema.namespace.format<a class="headerlink" href="#schema-namespace-format" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> com.example.data.${databaseName}</p>
+<p>The namespace for the schemas generated by the connector. The following template properties are available for string replacement. <cite>${databaseName}</cite>, <cite>${schemaName}</cite>, <cite>${tableName}</cite>, <cite>${namespace}</cite></p>
+</div>
+<div class="section" id="schema-value-name-format">
+<h3>schema.value.name.format<a class="headerlink" href="#schema-value-name-format" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> ${namespace}.${tableName}Value</p>
+<p>Format used to generate the name for the value schema. The following template properties are available for string replacement. <cite>${databaseName}</cite>, <cite>${schemaName}</cite>, <cite>${tableName}</cite>, <cite>${namespace}</cite></p>
+</div>
+<div class="section" id="topicformat-format">
+<h3>topicFormat.format<a class="headerlink" href="#topicformat-format" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> ${databaseName}.${tableName}</p>
+<p>The topicFormat to write the data to.</p>
+</div>
+<div class="section" id="change-tracking-tables">
+<h3>change.tracking.tables<a class="headerlink" href="#change-tracking-tables" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> List</p>
+<p><strong>Default Value:</strong> []</p>
+<p>The tables in the source database to monitor for changes. If no tables are specified the <cite>[sys].[change_tracking_tables]</cite> view is queried for all of the available tables with change tracking enabled.</p>
+</div>
+<div class="section" id="jdbc-pool-max-idle">
+<h3>jdbc.pool.max.idle<a class="headerlink" href="#jdbc-pool-max-idle" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 10</p>
+<p>The maximum number of idle CONNECTIONS in the connection pool.</p>
+</div>
+<div class="section" id="jdbc-pool-max-total">
+<h3>jdbc.pool.max.total<a class="headerlink" href="#jdbc-pool-max-total" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 30</p>
+<p>The maximum number of CONNECTIONS for the connection pool to open. If a number greater than this value is requested, the caller will block waiting for a connection to be returned.</p>
+</div>
+<div class="section" id="jdbc-pool-min-idle">
+<h3>jdbc.pool.min.idle<a class="headerlink" href="#jdbc-pool-min-idle" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 3</p>
+<p>The minimum number of idle CONNECTIONS in the connection pool.</p>
+</div>
+<div class="section" id="backoff-time-ms">
+<h3>backoff.time.ms<a class="headerlink" href="#backoff-time-ms" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 1000</p>
+<p><strong>Validator:</strong> [50,…]</p>
+<p>The number of milliseconds to wait when no records are returned.</p>
+</div>
+<div class="section" id="batch-size">
+<h3>batch.size<a class="headerlink" href="#batch-size" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 512</p>
+<p><strong>Validator:</strong> [1,…]</p>
+<p>The number of records to return in a batch.</p>
+</div>
+<div class="section" id="multi-subnet-failover">
+<h3>multi.subnet.failover<a class="headerlink" href="#multi-subnet-failover" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+<p>Use High Availability MultiSubnetFailover (true/false)</p>
+</div>
+<div class="section" id="schema-cache-ms">
+<h3>schema.cache.ms<a class="headerlink" href="#schema-cache-ms" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 300000</p>
+<p><strong>Validator:</strong> [60000,…]</p>
+<p>The number of milliseconds to cache schema metadata in memory.</p>
+</div>
+<div class="section" id="schema-caseformat-column-name">
+<h3>schema.caseformat.column.name<a class="headerlink" href="#schema-caseformat-column-name" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> NONE</p>
+<p><strong>Validator:</strong> ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, LOWER, UPPER_CAMEL, UPPER_UNDERSCORE, UPPER, NONE]}</p>
+<p>This setting is used to control how the column names are cased when the resulting schemas are generated.</p>
+</div>
+<div class="section" id="schema-caseformat-database-name">
+<h3>schema.caseformat.database.name<a class="headerlink" href="#schema-caseformat-database-name" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> NONE</p>
+<p><strong>Validator:</strong> ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, LOWER, UPPER_CAMEL, UPPER_UNDERSCORE, UPPER, NONE]}</p>
+<p>This setting is used to control how the <cite>${databaseName}</cite> variable is cased when it is passed to the formatters defined in the <cite>schema.namespace.format</cite>, <cite>schema.key.name.format</cite>, <cite>schema.value.name.format</cite>, <cite>topicFormat.format</cite> settings. This allows you to control the naming applied to these properties. For example this can be used to take a database name of <cite>USER_TRACKING</cite> to a more java like case of <cite>userTracking</cite> or all lowercase <cite>usertracking</cite>.</p>
+</div>
+<div class="section" id="schema-caseformat-input">
+<h3>schema.caseformat.input<a class="headerlink" href="#schema-caseformat-input" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> UPPER_UNDERSCORE</p>
+<p><strong>Validator:</strong> ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, UPPER_CAMEL, UPPER_UNDERSCORE]}</p>
+<p>The naming convention used by the database format. This is used to define the source naming convention used by the other <cite>schema.caseformat.*</cite> properties.</p>
+</div>
+<div class="section" id="schema-caseformat-schema-name">
+<h3>schema.caseformat.schema.name<a class="headerlink" href="#schema-caseformat-schema-name" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> NONE</p>
+<p><strong>Validator:</strong> ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, LOWER, UPPER_CAMEL, UPPER_UNDERSCORE, UPPER, NONE]}</p>
+<p>This setting is used to control how the <cite>${schemaName}</cite> variable is cased when it is passed to the formatters defined in the <cite>schema.namespace.format</cite>, <cite>schema.key.name.format</cite>, <cite>schema.value.name.format</cite>, <cite>topicFormat.format</cite> settings. This allows you to control the naming applied to these properties. For example this can be used to take a schema name of <cite>SCOTT</cite> to a more java like case of <cite>Scott</cite> or all lowercase <cite>scott</cite>.</p>
+</div>
+<div class="section" id="schema-caseformat-table-name">
+<h3>schema.caseformat.table.name<a class="headerlink" href="#schema-caseformat-table-name" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> NONE</p>
+<p><strong>Validator:</strong> ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, LOWER, UPPER_CAMEL, UPPER_UNDERSCORE, UPPER, NONE]}</p>
+<p>This setting is used to control how the <cite>${tableName}</cite> variable is cased when it is passed to the formatters defined in the <cite>schema.namespace.format</cite>, <cite>schema.key.name.format</cite>, <cite>schema.value.name.format</cite>, <cite>topicFormat.format</cite> settings. This allows you to control the naming applied to these properties. For example this can be used to take a table name of <cite>USER_SETTING</cite> to a more java like case of <cite>UserSetting</cite> or all lowercase <cite>usersetting</cite>.</p>
+</div>
+<div class="section" id="uncomitted-record-max">
+<h3>uncomitted.record.max<a class="headerlink" href="#uncomitted-record-max" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 50000</p>
+<p><strong>Validator:</strong> [100,…]</p>
+<p>The maximum number of records to allow in the deque. Once this limit is reached the record deque will block to prevent running out of memory.</p>
+</div>
+<div class="section" id="uncomitted-record-timeout-ms">
+<h3>uncomitted.record.timeout.ms<a class="headerlink" href="#uncomitted-record-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Long</p>
+<p><strong>Default Value:</strong> 300000</p>
+<p><strong>Validator:</strong> [100,…]</p>
+<p>The maximum amount of time to wait when writing to the deque before throwing a timeout exception.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="property-based-example">
+<h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
+<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">MsSqlSourceConnector1</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.cdc.mssql.MsSqlSourceConnector</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="hll"><span class="na">initial.database</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">password</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">server.name</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">server.port</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">username</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="rest-based-example">
+<h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
+Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
+<div class="highlight-json" id="connector-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;MsSqlSourceConnector1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.cdc.mssql.MsSqlSourceConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="nt">&quot;initial.database&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;password&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;server.name&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;server.port&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;username&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
+one of your Kafka Connect worker(s).</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/MsSqlSourceConnector1/config
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Jeremy Custenborder.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-10128000-10', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>
