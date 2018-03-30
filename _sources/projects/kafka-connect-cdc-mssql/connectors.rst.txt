@@ -2,6 +2,8 @@
 SQL Server Connector
 ====================
 
+The SQL Server connector provides a Kafka Connect :term:`Source Connector` that can recieve changes
+from a SQL Server and write them to Kafka.
 
 .. toctree::
     :maxdepth: 1
@@ -19,26 +21,3 @@ SQL Server Connector
     :glob:
 
     sinks/*
-
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Transformations:
-    :hidden:
-    :glob:
-
-    transformations/*
-
-
-.. toctree::
-    :maxdepth: 0
-    :caption: Schemas:
-    :hidden:
-
-    schemas
-
-
-
-
-
-
