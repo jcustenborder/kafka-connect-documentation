@@ -200,7 +200,7 @@
             
   <div class="section" id="mssqlsourceconnector">
 <h1>MsSqlSourceConnector<a class="headerlink" href="#mssqlsourceconnector" title="Permalink to this headline">¶</a></h1>
-<img alt="../../../_images/MsSqlSourceConnector.svg" src="../../../_images/MsSqlSourceConnector.svg" /><p>The Microsoft SQL Server connector utilizes <a class="reference external" href="https://msdn.microsoft.com/en-us/library/bb933875.aspx">Change Tracking</a> to identify changes. There are two ways to read the changes from the source system as they are generated. [Change Data Capture](<a class="reference external" href="https://msdn.microsoft.com/en-us/library/cc645937.aspx">https://msdn.microsoft.com/en-us/library/cc645937.aspx</a>) is a feature that is only available on SQL Server Enterprise and Developer editions. [Change Tracking](<a class="reference external" href="https://msdn.microsoft.com/en-us/library/bb933875.aspx">https://msdn.microsoft.com/en-us/library/bb933875.aspx</a>) is a lightweight solution that will efficiently find rows that have changed. If the rows are modified in quick succession all of the changes might not be found. The latest version of the change will be returned.</p>
+<img alt="../../../_images/MsSqlSourceConnector.svg" src="../../../_images/MsSqlSourceConnector.svg" /><p>The Microsoft SQL Server connector utilizes <a class="reference external" href="https://msdn.microsoft.com/en-us/library/bb933875.aspx">Change Tracking</a> to identify changes. There are two ways to read the changes from the source system as they are generated. <a class="reference external" href="https://msdn.microsoft.com/en-us/library/cc645937.aspx">Change Data Capture</a> is a feature that is only available on SQL Server Enterprise and Developer editions. <a class="reference external" href="https://msdn.microsoft.com/en-us/library/bb933875.aspx">Change Tracking</a> is a lightweight solution that will efficiently find rows that have changed. If the rows are modified in quick succession all of the changes might not be found. The latest version of the change will be returned.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="initial-database">
@@ -415,14 +415,14 @@ post the configuration to one the distributed connect worker(s). Check here for 
 </div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/MsSqlSourceConnector1/config
 </pre></div>
 </div>
