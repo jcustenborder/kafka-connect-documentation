@@ -2,6 +2,7 @@
 
 def connectors = [
         'kafka-connect-cassandra':'jcustenborder/kafka-connect-cassandra/master',
+        'kafka-connect-cdc-mssql':'jcustenborder/kafka-connect-cdc-mssql/master',
         'kafka-connect-flume-avro':'jcustenborder/kafka-connect-flume-avro/master',
         'kafka-connect-influxdb':'jcustenborder/kafka-connect-influxdb/master',
         'kafka-connect-jms':'jcustenborder/kafka-connect-jms/master',
