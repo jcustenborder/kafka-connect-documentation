@@ -8,6 +8,11 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-04-02 23:39:45","`66aa0590b066b3d <https://github.com/jcustenborder/kafka-connect-kinesis/commit/66aa0590b066b3d>`_","Jeremy Custenborder","Added packaging plugin. Fixes #6. (#7)
+
+* Added packaging plugin. Fixes #6.
+
+* Updated the readme."
     "2017-11-07 21:53:03","`4025b5c81e3bb23 <https://github.com/jcustenborder/kafka-connect-kinesis/commit/4025b5c81e3bb23>`_","Jeremy Custenborder","Updated documentation"
     "2017-11-06 21:51:10","`8910128918a881b <https://github.com/jcustenborder/kafka-connect-kinesis/commit/8910128918a881b>`_","Jeremy Custenborder","Corrected link to term."
     "2017-11-03 20:28:14","`af1c6a4091fc0c2 <https://github.com/jcustenborder/kafka-connect-kinesis/commit/af1c6a4091fc0c2>`_","Jeremy Custenborder","Changed debug script to use built in variables and plugin isolation."

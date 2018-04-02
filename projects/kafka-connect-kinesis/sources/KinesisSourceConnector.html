@@ -104,6 +104,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Amazon Kinesis Connector</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">KinesisSourceConnector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
@@ -205,125 +206,125 @@
 <img alt="../../../_images/KinesisSourceConnector.svg" src="../../../_images/KinesisSourceConnector.svg" /><p>The KinesisSourceConnector is a <a href="#id1"><span class="problematic" id="id2">:term:`Source Connector`_</span></a> that is used to pull data from Amazon Kinesis in realtime and persist the data to a Kafka topic.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="colwidths-auto docutils" id="id3">
-<caption><span class="caption-text">Configuration</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Importance</th>
-<th class="head">Default Value</th>
-<th class="head">Validator</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>aws.access.key.id</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>aws.access.key.id</td>
-</tr>
-<tr class="row-odd"><td>aws.secret.key.id</td>
-<td>Password</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>aws.secret.key.id</td>
-</tr>
-<tr class="row-even"><td>kafka.topic</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The kafka topic to write the data to.</td>
-</tr>
-<tr class="row-odd"><td>kinesis.stream</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The Kinesis stream to read from.</td>
-</tr>
-<tr class="row-even"><td>kinesis.shard.id</td>
-<td>String</td>
-<td>High</td>
-<td>.*</td>
-<td>&#160;</td>
-<td>The shard of the Kinesis stream to read from. This is a regex which can be used to read all of the shards in the stream.</td>
-</tr>
-<tr class="row-odd"><td>kinesis.empty.records.backoff.ms</td>
-<td>Long</td>
-<td>Medium</td>
-<td>5000</td>
-<td>[500,…,2147483647]</td>
-<td>The number of milliseconds to backoff when the stream is empty.</td>
-</tr>
-<tr class="row-even"><td>kinesis.position</td>
-<td>String</td>
-<td>Medium</td>
-<td>TRIM_HORIZON</td>
-<td>ValidEnum{enum=ShardIteratorType, allowed=[AT_SEQUENCE_NUMBER, AFTER_SEQUENCE_NUMBER, TRIM_HORIZON, LATEST, AT_TIMESTAMP]}</td>
-<td>The position in the stream to reset to if no offsets are stored.</td>
-</tr>
-<tr class="row-odd"><td>kinesis.record.limit</td>
-<td>Int</td>
-<td>Medium</td>
-<td>500</td>
-<td>[1,…,10000]</td>
-<td>The number of records to read in each poll of the Kinesis shard.</td>
-</tr>
-<tr class="row-even"><td>kinesis.region</td>
-<td>String</td>
-<td>Medium</td>
-<td>US_EAST_1</td>
-<td>ValidEnum{enum=Regions, allowed=[GovCloud, US_EAST_1, US_EAST_2, US_WEST_1, US_WEST_2, EU_WEST_1, EU_WEST_2, EU_CENTRAL_1, AP_SOUTH_1, AP_SOUTHEAST_1, AP_SOUTHEAST_2, AP_NORTHEAST_1, AP_NORTHEAST_2, SA_EAST_1, CN_NORTH_1, CA_CENTRAL_1]}</td>
-<td>The AWS region for the Kinesis stream.</td>
-</tr>
-<tr class="row-odd"><td>kinesis.throughput.exceeded.backoff.ms</td>
-<td>Long</td>
-<td>Medium</td>
-<td>10000</td>
-<td>[500,…,2147483647]</td>
-<td>The number of milliseconds to backoff when a throughput exceeded exception is thrown.</td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="aws-access-key-id">
+<h3>aws.access.key.id<a class="headerlink" href="#aws-access-key-id" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>aws.access.key.id</p>
+</div>
+<div class="section" id="aws-secret-key-id">
+<h3>aws.secret.key.id<a class="headerlink" href="#aws-secret-key-id" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Password</p>
+<p>aws.secret.key.id</p>
+</div>
+<div class="section" id="kafka-topic">
+<h3>kafka.topic<a class="headerlink" href="#kafka-topic" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>The kafka topic to write the data to.</p>
+</div>
+<div class="section" id="kinesis-stream">
+<h3>kinesis.stream<a class="headerlink" href="#kinesis-stream" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>The Kinesis stream to read from.</p>
+</div>
+<div class="section" id="kinesis-shard-id">
+<h3>kinesis.shard.id<a class="headerlink" href="#kinesis-shard-id" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> .*</p>
+<p>The shard of the Kinesis stream to read from. This is a regex which can be used to read all of the shards in the stream.</p>
+</div>
+<div class="section" id="kinesis-empty-records-backoff-ms">
+<h3>kinesis.empty.records.backoff.ms<a class="headerlink" href="#kinesis-empty-records-backoff-ms" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Long</p>
+<p><strong>Default Value:</strong> 5000</p>
+<p><strong>Validator:</strong> [500,…,2147483647]</p>
+<p>The number of milliseconds to backoff when the stream is empty.</p>
+</div>
+<div class="section" id="kinesis-position">
+<h3>kinesis.position<a class="headerlink" href="#kinesis-position" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> TRIM_HORIZON</p>
+<p><strong>Validator:</strong> ValidEnum{enum=ShardIteratorType, allowed=[AT_SEQUENCE_NUMBER, AFTER_SEQUENCE_NUMBER, TRIM_HORIZON, LATEST, AT_TIMESTAMP]}</p>
+<p>The position in the stream to reset to if no offsets are stored.</p>
+</div>
+<div class="section" id="kinesis-record-limit">
+<h3>kinesis.record.limit<a class="headerlink" href="#kinesis-record-limit" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 500</p>
+<p><strong>Validator:</strong> [1,…,10000]</p>
+<p>The number of records to read in each poll of the Kinesis shard.</p>
+</div>
+<div class="section" id="kinesis-region">
+<h3>kinesis.region<a class="headerlink" href="#kinesis-region" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> US_EAST_1</p>
+<p><strong>Validator:</strong> ValidEnum{enum=Regions, allowed=[GovCloud, US_EAST_1, US_EAST_2, US_WEST_1, US_WEST_2, EU_WEST_1, EU_WEST_2, EU_CENTRAL_1, AP_SOUTH_1, AP_SOUTHEAST_1, AP_SOUTHEAST_2, AP_NORTHEAST_1, AP_NORTHEAST_2, SA_EAST_1, CN_NORTH_1, CA_CENTRAL_1]}</p>
+<p>The AWS region for the Kinesis stream.</p>
+</div>
+<div class="section" id="kinesis-throughput-exceeded-backoff-ms">
+<h3>kinesis.throughput.exceeded.backoff.ms<a class="headerlink" href="#kinesis-throughput-exceeded-backoff-ms" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Long</p>
+<p><strong>Default Value:</strong> 10000</p>
+<p><strong>Validator:</strong> [500,…,2147483647]</p>
+<p>The number of milliseconds to backoff when a throughput exceeded exception is thrown.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="property-based-example">
 <h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">connector1</span>
-<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">KinesisSourceConnector1</span>
 <span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.kinesis.KinesisSourceConnector</span>
-<span class="c"># The following values must be configured.</span>
-<span class="na">aws.access.key.id</span><span class="o">=</span>
-<span class="na">aws.secret.key.id</span><span class="o">=</span>
-<span class="na">kafka.topic</span><span class="o">=</span>
-<span class="na">kinesis.stream</span><span class="o">=</span>
-</pre></div>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="hll"><span class="na">aws.access.key.id</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">aws.secret.key.id</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">kafka.topic</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">kinesis.stream</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span></pre></div>
 </div>
 </div>
 <div class="section" id="rest-based-example">
 <h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
 Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.kinesis.KinesisSourceConnector&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;aws.access.key.id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;aws.secret.key.id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;kafka.topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;kinesis.stream&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
+<div class="highlight-json" id="connector-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;KinesisSourceConnector1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.kinesis.KinesisSourceConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="nt">&quot;aws.access.key.id&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;aws.secret.key.id&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;kafka.topic&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;kinesis.stream&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
+</span>  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
 </pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/KinesisSourceConnector1/config
+</pre></div>
+</div>
 </div>
 </div>
 </div>
