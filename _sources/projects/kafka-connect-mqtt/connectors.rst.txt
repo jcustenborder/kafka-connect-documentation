@@ -1,0 +1,23 @@
+==============
+Mqtt Connector
+==============
+
+The Mqtt Connector provides a mechanism for subscribing to topics on a Mqtt broker.
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Sink Connectors:
+    :hidden:
+    :glob:
+
+    sinks/*
+
+.. toctree::
+    :maxdepth: 0
+    :caption: Schemas:
+    :hidden:
+
+    schemas
+    info
+
+

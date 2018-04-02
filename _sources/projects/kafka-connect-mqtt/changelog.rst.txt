@@ -1,0 +1,26 @@
+=========
+Changelog
+=========
+
+
+**Unreleased**
+
+.. csv-table::
+    :header: "Date","Commit","Author","Message"
+
+    "2018-03-30 21:59:38","`a9352fb83558ee7 <https://github.com/jcustenborder/kafka-connect-mqtt/commit/a9352fb83558ee7>`_","Jeremy Custenborder","Updated documentation."
+    "2018-03-30 21:53:22","`68ed9af71a53478 <https://github.com/jcustenborder/kafka-connect-mqtt/commit/68ed9af71a53478>`_","Jeremy Custenborder","Updated documentation."
+    "2018-03-30 20:33:51","`4e10922b0fb2dad <https://github.com/jcustenborder/kafka-connect-mqtt/commit/4e10922b0fb2dad>`_","Jeremy Custenborder","Initial (#1)
+
+* Initial commit.
+
+* Added jenkinsfile
+
+* Added ignore
+
+* Added documentation.
+
+* Ensure that the / character is escaped.
+
+* Added more support information."
+

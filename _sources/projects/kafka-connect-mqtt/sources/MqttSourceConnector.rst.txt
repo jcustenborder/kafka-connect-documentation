@@ -1,0 +1,217 @@
+=====================
+Mqtt Source Connector
+=====================
+
+.. image:: MqttSourceConnector.svg
+
+
+This connector connects to a Mqtt broker and subscribes to the specified topics.
+
+
+.. TIP::
+    The output of this connector is an envelope with all of the properties of the incoming message. If you need the body of the Mqtt message as the value written to the topic in Kakfa, use a Transformation to achieve this.
+
+
+
+-------------
+Configuration
+-------------
+
+
+^^^^^^^^^^^^^^^
+mqtt.server.uri
+^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** List
+
+
+mqtt.server.uri
+
+^^^^^^^^^^^
+mqtt.topics
+^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** List
+
+
+The Mqtt topics to subscribe to.
+
+^^^^^^^^^^^^^^
+mqtt.client.id
+^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+**Default Value:** paho302006326484964
+
+
+
+
+^^^^^^^^^^^^^
+mqtt.password
+^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** Password
+
+**Default Value:** [hidden]
+
+
+
+
+^^^^^^^^^^^^^
+mqtt.username
+^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+
+
+
+^^^^^^^^^^^^^^^^^^
+kafka.topic.prefix
+^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** mqtt.
+
+
+The prefix to append to the Mqtt topic name when writing to Kafka.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+mqtt.clean.session.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mqtt.connect.timeout.seconds
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Int
+
+**Default Value:** 30
+
+**Validator:** [1,...]
+
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mqtt.keepalive.interval.seconds
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Int
+
+**Default Value:** 60
+
+**Validator:** [1,...]
+
+
+
+
+^^^^^^^^
+mqtt.qos
+^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Int
+
+**Default Value:** 0
+
+**Validator:** [0,...,3]
+
+
+mqtt.qos
+
+--------
+Examples
+--------
+
+^^^^^^^^^^^^^^^^^^^^^^
+Property based example
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `standalone mode
+<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
+
+.. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 4,5
+
+    name=MqttSourceConnector1
+    connector.class=com.github.jcustenborder.kafka.connect.mqtt.MqttSourceConnector
+    tasks.max=1
+    mqtt.server.uri=< Required Configuration >
+    mqtt.topics=< Required Configuration >
+
+
+
+
+^^^^^^^^^^^^^^^^^^
+Rest based example
+^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `distributed mode
+<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
+Write the following json to `connector.json`, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
+
+.. code-block:: json
+    :name: connector.json
+    :emphasize-lines: 6,7
+
+    {
+      "config" : {
+        "name" : "MqttSourceConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.mqtt.MqttSourceConnector",
+        "tasks.max" : "1",
+        "mqtt.server.uri" : "< Required Configuration >",
+        "mqtt.topics" : "< Required Configuration >"
+      }
+    }
+
+
+
+Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
+one of your Kafka Connect worker(s).
+
+.. code-block:: bash
+    :caption: Create a new connector
+
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/MqttSourceConnector1/config
+
+
