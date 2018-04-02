@@ -2,7 +2,7 @@
 SQL Server Connector
 ====================
 
-The SQL Server connector provides a Kafka Connect :term:`Source Connector` that can recieve changes
+The SQL Server connector provides a Kafka Connect :term:`Source Connector` that can receive changes
 from a SQL Server and write them to Kafka.
 
 .. toctree::
