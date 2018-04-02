@@ -25,28 +25,243 @@ The Cassandra Sink connector is used to write data to a Cassandra Cluster. This 
 Configuration
 -------------
 
-.. csv-table:: Configuration
-    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
-    :widths: auto
 
-    "cassandra.keyspace","String","High","","","The keyspace to write to."
-    "cassandra.keyspace.create.enabled","Boolean","High","true","","Flag to determine if the keyspace should be created if it does not exist."
-    "cassandra.compression","String","Medium","NONE","[NONE, SNAPPY, LZ4]","Compression algorithm to use when connecting to Cassandra."
-    "cassandra.consistency.level","String","Medium","LOCAL_QUORUM","ValidEnum{enum=ConsistencyLevel, allowed=[ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE]}","The requested consistency level to use when writing to Cassandra."
-    "cassandra.contact.points","List","Medium","[localhost]","","The hosts to connect to."
-    "cassandra.deletes.enabled","Boolean","Medium","true","","Flag to determine if the connector should process deletes."
-    "cassandra.password","Password","Medium","[hidden]","","The password to connect to Cassandra with."
-    "cassandra.port","Int","Medium","9042","ValidPort{start=1025, end=65535}","The port the Cassandra hosts are listening on."
-    "cassandra.security.enabled","Boolean","Medium","false","","Flag to determine if security is enabled."
-    "cassandra.ssl.enabled","Boolean","Medium","false","","Flag to determine if SSL is enabled when connecting to Cassandra."
-    "cassandra.ssl.provider","String","Medium","JDK","ValidEnum{enum=SslProvider, allowed=[JDK, OPENSSL, OPENSSL_REFCNT]}","The SSL Provider to use when connecting to Cassandra"
-    "cassandra.table.create.caching","String","Medium","NONE","ValidEnum{enum=Caching, allowed=[ALL, KEYS_ONLY, ROWS_ONLY, NONE]}","Caching setting to use."
-    "cassandra.table.create.compression.algorithm","String","Medium","NONE","[NONE, SNAPPY, LZ4, DEFLATE]","Compression algorithm to use when the table is created."
-    "cassandra.table.create.compression.enabled","Boolean","Medium","true","","Flag to determine if compression should be used when a table is created. Existing tables are not altered."
-    "cassandra.table.manage.enabled","Boolean","Medium","true","","Flag to determine if the connector should manage the table."
-    "cassandra.username","String","Medium","cassandra","","The username to connect to Cassandra with."
-    "cassandra.write.mode","String","Medium","Insert","ValidEnum{enum=WriteMode, allowed=[Insert, Update]}","The type of statement to build when writing to Cassandra."
+^^^^^^^^^^^^^^^^^^
+cassandra.keyspace
+^^^^^^^^^^^^^^^^^^
 
+**Importance:** High
+
+**Type:** String
+
+
+The keyspace to write to.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.keyspace.create.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if the keyspace should be created if it does not exist.
+
+^^^^^^^^^^^^^^^^^^^^^
+cassandra.compression
+^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** NONE
+
+**Validator:** [NONE, SNAPPY, LZ4]
+
+
+Compression algorithm to use when connecting to Cassandra.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.consistency.level
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** LOCAL_QUORUM
+
+**Validator:** ValidEnum{enum=ConsistencyLevel, allowed=[ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE]}
+
+
+The requested consistency level to use when writing to Cassandra.
+
+^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.contact.points
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** List
+
+**Default Value:** [localhost]
+
+
+The hosts to connect to.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.deletes.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if the connector should process deletes.
+
+^^^^^^^^^^^^^^^^^^
+cassandra.password
+^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Password
+
+**Default Value:** [hidden]
+
+
+The password to connect to Cassandra with.
+
+^^^^^^^^^^^^^^
+cassandra.port
+^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Int
+
+**Default Value:** 9042
+
+**Validator:** ValidPort{start=1025, end=65535}
+
+
+The port the Cassandra hosts are listening on.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.security.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+Flag to determine if security is enabled.
+
+^^^^^^^^^^^^^^^^^^^^^
+cassandra.ssl.enabled
+^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+Flag to determine if SSL is enabled when connecting to Cassandra.
+
+^^^^^^^^^^^^^^^^^^^^^^
+cassandra.ssl.provider
+^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** JDK
+
+**Validator:** ValidEnum{enum=SslProvider, allowed=[JDK, OPENSSL, OPENSSL_REFCNT]}
+
+
+The SSL Provider to use when connecting to Cassandra
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.table.create.caching
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** NONE
+
+**Validator:** ValidEnum{enum=Caching, allowed=[ALL, KEYS_ONLY, ROWS_ONLY, NONE]}
+
+
+Caching setting to use.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.table.create.compression.algorithm
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** NONE
+
+**Validator:** [NONE, SNAPPY, LZ4, DEFLATE]
+
+
+Compression algorithm to use when the table is created.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.table.create.compression.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if compression should be used when a table is created. Existing tables are not altered.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.table.manage.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if the connector should manage the table.
+
+^^^^^^^^^^^^^^^^^^
+cassandra.username
+^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** cassandra
+
+
+The username to connect to Cassandra with.
+
+^^^^^^^^^^^^^^^^^^^^
+cassandra.write.mode
+^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** Insert
+
+**Validator:** ValidEnum{enum=WriteMode, allowed=[Insert, Update]}
+
+
+The type of statement to build when writing to Cassandra.
+
+--------
+Examples
+--------
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Property based example
@@ -57,12 +272,15 @@ This configuration is used typically along with `standalone mode
 <http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
 .. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 4,5
 
-    name=connector1
-    tasks.max=1
+    name=CassandraSinkConnector1
     connector.class=com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnector
-    # The following values must be configured.
-    cassandra.keyspace=
+    tasks.max=1
+    topics=< Required Configuration >
+    cassandra.keyspace=< Required Configuration >
+
 
 
 
@@ -74,24 +292,37 @@ Rest based example
 This configuration is used typically along with `distributed mode
 <http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
 Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :name: connector.json
+    :emphasize-lines: 6,7
 
     {
-        "name": "connector1",
-        "config": {
-            "connector.class": "com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnector",
-            "cassandra.keyspace":"",
-        }
+      "config" : {
+        "name" : "CassandraSinkConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnector",
+        "tasks.max" : "1",
+        "topics" : "< Required Configuration >",
+        "cassandra.keyspace" : "< Required Configuration >"
+      }
     }
+
+
 
 Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
 one of your Kafka Connect worker(s).
 
 .. code-block:: bash
+    :caption: Create a new connector
 
     curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
 
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/CassandraSinkConnector1/config
 
 
