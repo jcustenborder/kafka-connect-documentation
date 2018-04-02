@@ -10,6 +10,7 @@ def connectors = [
         'kafka-connect-kinesis':'jcustenborder/kafka-connect-kinesis/master',
         'kafka-connect-memcached':'jcustenborder/kafka-connect-memcached/master',
         'kafka-connect-maprdb':'jcustenborder/kafka-connect-maprdb/master',
+        'kafka-connect-mqtt':'jcustenborder/kafka-connect-mqtt/master',
         'kafka-connect-rabbitmq':'jcustenborder/kafka-connect-rabbitmq/master',
         'kafka-connect-redis':'jcustenborder/kafka-connect-redis/master',
         'kafka-connect-salesforce':'jcustenborder/kafka-connect-salesforce/master',
