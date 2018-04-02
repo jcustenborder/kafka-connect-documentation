@@ -8,6 +8,15 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-04-02 23:41:57","`74a1d409d208202 <https://github.com/jcustenborder/kafka-connect-mqtt/commit/74a1d409d208202>`_","Jeremy Custenborder","Sink Connector (#5)
+
+* Corrected copyright year. Added Sink connector. fixes #2.
+
+* fixes #4.
+
+* Changed to pull the plugin version from the parent pom.
+
+* Use a static version of the plugin."
     "2018-03-30 21:59:38","`a9352fb83558ee7 <https://github.com/jcustenborder/kafka-connect-mqtt/commit/a9352fb83558ee7>`_","Jeremy Custenborder","Updated documentation."
     "2018-03-30 21:53:22","`68ed9af71a53478 <https://github.com/jcustenborder/kafka-connect-mqtt/commit/68ed9af71a53478>`_","Jeremy Custenborder","Updated documentation."
     "2018-03-30 20:33:51","`4e10922b0fb2dad <https://github.com/jcustenborder/kafka-connect-mqtt/commit/4e10922b0fb2dad>`_","Jeremy Custenborder","Initial (#1)
