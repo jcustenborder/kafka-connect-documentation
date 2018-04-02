@@ -8,7 +8,7 @@ Install
     :target: https://github.com/jcustenborder/kafka-connect-maprdb/releases
 
 .. image:: https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-maprdb.svg
-    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-maprdb%7C0.1.3%7Cjar
+    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-maprdb%7C0.1.4%7Cjar
 
 ^^^^^^^^^^^^^^^^
 RPM Installation
@@ -41,7 +41,7 @@ Maven Installation
     <dependency>
         <groupId>com.github.jcustenborder.kafka.connect</groupId>
         <artifactId>kafka-connect-maprdb</artifactId>
-        <version>0.1.3</version>
+        <version>0.1.4</version>
     </dependency>
 
 
