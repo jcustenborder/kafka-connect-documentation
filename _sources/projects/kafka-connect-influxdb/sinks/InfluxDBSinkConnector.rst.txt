@@ -13,19 +13,114 @@ The InfluxDBSinkConnector is used to write data from a :term:`Kafka topic`_ to a
 Configuration
 -------------
 
-.. csv-table:: Configuration
-    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
-    :widths: auto
 
-    "influxdb.database","String","High","","","The influxdb database to write to."
-    "influxdb.url","String","High","","","The url of the InfluxDB instance to write to."
-    "influxdb.password","Password","High","[hidden]","","The password to connect to InfluxDB with."
-    "influxdb.username","String","High","","","The username to connect to InfluxDB with."
-    "influxdb.consistency.level","String","Medium","ONE","ValidEnum{enum=ConsistencyLevel, allowed=[ALL, ANY, ONE, QUORUM]}","The default consistency level for writing data to InfluxDB."
-    "influxdb.timeunit","String","Medium","MILLISECONDS","ValidEnum{enum=TimeUnit, allowed=[NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS]}","The default timeunit for writing data to InfluxDB."
-    "influxdb.gzip.enable","Boolean","Low","true","","Flag to determine if gzip should be enabled."
-    "influxdb.log.level","String","Low","NONE","ValidEnum{enum=LogLevel, allowed=[NONE, BASIC, HEADERS, FULL]}","influxdb.log.level"
+^^^^^^^^^^^^^^^^^
+influxdb.database
+^^^^^^^^^^^^^^^^^
 
+**Importance:** High
+
+**Type:** String
+
+
+The influxdb database to write to.
+
+^^^^^^^^^^^^
+influxdb.url
+^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+
+The url of the InfluxDB instance to write to.
+
+^^^^^^^^^^^^^^^^^
+influxdb.password
+^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** Password
+
+**Default Value:** [hidden]
+
+
+The password to connect to InfluxDB with.
+
+^^^^^^^^^^^^^^^^^
+influxdb.username
+^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+
+The username to connect to InfluxDB with.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+influxdb.consistency.level
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** ONE
+
+**Validator:** ValidEnum{enum=ConsistencyLevel, allowed=[ALL, ANY, ONE, QUORUM]}
+
+
+The default consistency level for writing data to InfluxDB.
+
+^^^^^^^^^^^^^^^^^
+influxdb.timeunit
+^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** MILLISECONDS
+
+**Validator:** ValidEnum{enum=TimeUnit, allowed=[NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS]}
+
+
+The default timeunit for writing data to InfluxDB.
+
+^^^^^^^^^^^^^^^^^^^^
+influxdb.gzip.enable
+^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if gzip should be enabled.
+
+^^^^^^^^^^^^^^^^^^
+influxdb.log.level
+^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** String
+
+**Default Value:** NONE
+
+**Validator:** ValidEnum{enum=LogLevel, allowed=[NONE, BASIC, HEADERS, FULL]}
+
+
+influxdb.log.level
+
+--------
+Examples
+--------
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Property based example
@@ -36,13 +131,16 @@ This configuration is used typically along with `standalone mode
 <http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
 .. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 4,5,6
 
-    name=connector1
-    tasks.max=1
+    name=InfluxDBSinkConnector1
     connector.class=com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSinkConnector
-    # The following values must be configured.
-    influxdb.database=
-    influxdb.url=
+    tasks.max=1
+    topics=< Required Configuration >
+    influxdb.database=< Required Configuration >
+    influxdb.url=< Required Configuration >
+
 
 
 
@@ -54,25 +152,38 @@ Rest based example
 This configuration is used typically along with `distributed mode
 <http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
 Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :name: connector.json
+    :emphasize-lines: 6,7,8
 
     {
-        "name": "connector1",
-        "config": {
-            "connector.class": "com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSinkConnector",
-            "influxdb.database":"",
-            "influxdb.url":"",
-        }
+      "config" : {
+        "name" : "InfluxDBSinkConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSinkConnector",
+        "tasks.max" : "1",
+        "topics" : "< Required Configuration >",
+        "influxdb.database" : "< Required Configuration >",
+        "influxdb.url" : "< Required Configuration >"
+      }
     }
+
+
 
 Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
 one of your Kafka Connect worker(s).
 
 .. code-block:: bash
+    :caption: Create a new connector
 
     curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
 
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/InfluxDBSinkConnector1/config
 
 

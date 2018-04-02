@@ -17,28 +17,239 @@ The InfluxDBSourceConnector is used to emulate an InfluxDB host and receive mess
 Configuration
 -------------
 
-.. csv-table:: Configuration
-    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
-    :widths: auto
 
-    "http.enable","Boolean","High","true","","Flag to determine if http should be enabled."
-    "http.port","Int","High","8080","ValidPort{start=1000, end=65535}","Port the http listener should be started on."
-    "https.enable","Boolean","High","false","","Flag to determine if https should be enabled."
-    "https.port","Int","High","8443","ValidPort{start=1000, end=65535}","Port the https listener should be started on."
-    "topic.prefix","String","High","influxdb.","",""
-    "allowed.databases","List","Medium","[]","",""
-    "health.check.enable","Boolean","Medium","true","","Flag to determine if a health check url for a load balancer should be configured."
-    "health.check.path","String","Medium","/healthcheck","","Path that will respond with a health check."
-    "https.key.manager.password","Password","Medium","[hidden]","","The key manager password."
-    "https.key.store.password","Password","Medium","[hidden]","","The password for the ssl keystore."
-    "https.key.store.path","String","Medium","","","Path on the local filesystem that contains the ssl keystore."
-    "https.trust.store.password","Password","Medium","[hidden]","","The password for the ssl trust store."
-    "https.trust.store.path","String","Medium","","","The key manager password."
-    "thread.pool.max.size","Int","Medium","100","[10,...,1000]","The maximum number of threads for the thread pool to allocate."
-    "thread.pool.min.size","Int","Medium","10","[10,...,1000]","The minimum number of threads for the thread pool to allocate."
-    "http.idle.timeout.ms","Int","Low","30000","[5000,...,300000]","The number of milliseconds idle before a connection has timed out."
-    "https.idle.timeout.ms","Int","Low","30000","[5000,...,300000]","The number of milliseconds idle before a connection has timed out."
+^^^^^^^^^^^
+http.enable
+^^^^^^^^^^^
 
+**Importance:** High
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if http should be enabled.
+
+^^^^^^^^^
+http.port
+^^^^^^^^^
+
+**Importance:** High
+
+**Type:** Int
+
+**Default Value:** 8080
+
+**Validator:** ValidPort{start=1000, end=65535}
+
+
+Port the http listener should be started on.
+
+^^^^^^^^^^^^
+https.enable
+^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+Flag to determine if https should be enabled.
+
+^^^^^^^^^^
+https.port
+^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** Int
+
+**Default Value:** 8443
+
+**Validator:** ValidPort{start=1000, end=65535}
+
+
+Port the https listener should be started on.
+
+^^^^^^^^^^^^
+topic.prefix
+^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+**Default Value:** influxdb.
+
+
+
+
+^^^^^^^^^^^^^^^^^
+allowed.databases
+^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** List
+
+**Default Value:** []
+
+
+
+
+^^^^^^^^^^^^^^^^^^^
+health.check.enable
+^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if a health check url for a load balancer should be configured.
+
+^^^^^^^^^^^^^^^^^
+health.check.path
+^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** /healthcheck
+
+
+Path that will respond with a health check.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+https.key.manager.password
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Password
+
+**Default Value:** [hidden]
+
+
+The key manager password.
+
+^^^^^^^^^^^^^^^^^^^^^^^^
+https.key.store.password
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Password
+
+**Default Value:** [hidden]
+
+
+The password for the ssl keystore.
+
+^^^^^^^^^^^^^^^^^^^^
+https.key.store.path
+^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** String
+
+
+Path on the local filesystem that contains the ssl keystore.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+https.trust.store.password
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Password
+
+**Default Value:** [hidden]
+
+
+The password for the ssl trust store.
+
+^^^^^^^^^^^^^^^^^^^^^^
+https.trust.store.path
+^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** String
+
+
+The key manager password.
+
+^^^^^^^^^^^^^^^^^^^^
+thread.pool.max.size
+^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Int
+
+**Default Value:** 100
+
+**Validator:** [10,...,1000]
+
+
+The maximum number of threads for the thread pool to allocate.
+
+^^^^^^^^^^^^^^^^^^^^
+thread.pool.min.size
+^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Int
+
+**Default Value:** 10
+
+**Validator:** [10,...,1000]
+
+
+The minimum number of threads for the thread pool to allocate.
+
+^^^^^^^^^^^^^^^^^^^^
+http.idle.timeout.ms
+^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Int
+
+**Default Value:** 30000
+
+**Validator:** [5000,...,300000]
+
+
+The number of milliseconds idle before a connection has timed out.
+
+^^^^^^^^^^^^^^^^^^^^^
+https.idle.timeout.ms
+^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Int
+
+**Default Value:** 30000
+
+**Validator:** [5000,...,300000]
+
+
+The number of milliseconds idle before a connection has timed out.
+
+--------
+Examples
+--------
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Property based example
@@ -49,11 +260,12 @@ This configuration is used typically along with `standalone mode
 <http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
 .. code-block:: properties
+    :name: connector.properties
 
-    name=connector1
-    tasks.max=1
+    name=InfluxDBSourceConnector1
     connector.class=com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSourceConnector
-    # The following values must be configured.
+    tasks.max=1
+
 
 
 
@@ -65,23 +277,34 @@ Rest based example
 This configuration is used typically along with `distributed mode
 <http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
 Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :name: connector.json
 
     {
-        "name": "connector1",
-        "config": {
-            "connector.class": "com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSourceConnector",
-        }
+      "config" : {
+        "name" : "InfluxDBSourceConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSourceConnector",
+        "tasks.max" : "1"
+      }
     }
+
+
 
 Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
 one of your Kafka Connect worker(s).
 
 .. code-block:: bash
+    :caption: Create a new connector
 
     curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
 
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/InfluxDBSourceConnector1/config
 
 

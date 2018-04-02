@@ -101,6 +101,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">InfluxDB Connector</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">InfluxDBSourceConnector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../sinks/InfluxDBSinkConnector.html">InfluxDBSinkConnector</a></li>
@@ -209,146 +210,136 @@
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Importance</th>
-<th class="head">Default Value</th>
-<th class="head">Validator</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>http.enable</td>
-<td>Boolean</td>
-<td>High</td>
-<td>true</td>
-<td>&#160;</td>
-<td>Flag to determine if http should be enabled.</td>
-</tr>
-<tr class="row-odd"><td>http.port</td>
-<td>Int</td>
-<td>High</td>
-<td>8080</td>
-<td>ValidPort{start=1000, end=65535}</td>
-<td>Port the http listener should be started on.</td>
-</tr>
-<tr class="row-even"><td>https.enable</td>
-<td>Boolean</td>
-<td>High</td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine if https should be enabled.</td>
-</tr>
-<tr class="row-odd"><td>https.port</td>
-<td>Int</td>
-<td>High</td>
-<td>8443</td>
-<td>ValidPort{start=1000, end=65535}</td>
-<td>Port the https listener should be started on.</td>
-</tr>
-<tr class="row-even"><td>topic.prefix</td>
-<td>String</td>
-<td>High</td>
-<td>influxdb.</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>allowed.databases</td>
-<td>List</td>
-<td>Medium</td>
-<td>[]</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>health.check.enable</td>
-<td>Boolean</td>
-<td>Medium</td>
-<td>true</td>
-<td>&#160;</td>
-<td>Flag to determine if a health check url for a load balancer should be configured.</td>
-</tr>
-<tr class="row-odd"><td>health.check.path</td>
-<td>String</td>
-<td>Medium</td>
-<td>/healthcheck</td>
-<td>&#160;</td>
-<td>Path that will respond with a health check.</td>
-</tr>
-<tr class="row-even"><td>https.key.manager.password</td>
-<td>Password</td>
-<td>Medium</td>
-<td>[hidden]</td>
-<td>&#160;</td>
-<td>The key manager password.</td>
-</tr>
-<tr class="row-odd"><td>https.key.store.password</td>
-<td>Password</td>
-<td>Medium</td>
-<td>[hidden]</td>
-<td>&#160;</td>
-<td>The password for the ssl keystore.</td>
-</tr>
-<tr class="row-even"><td>https.key.store.path</td>
-<td>String</td>
-<td>Medium</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>Path on the local filesystem that contains the ssl keystore.</td>
-</tr>
-<tr class="row-odd"><td>https.trust.store.password</td>
-<td>Password</td>
-<td>Medium</td>
-<td>[hidden]</td>
-<td>&#160;</td>
-<td>The password for the ssl trust store.</td>
-</tr>
-<tr class="row-even"><td>https.trust.store.path</td>
-<td>String</td>
-<td>Medium</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The key manager password.</td>
-</tr>
-<tr class="row-odd"><td>thread.pool.max.size</td>
-<td>Int</td>
-<td>Medium</td>
-<td>100</td>
-<td>[10,…,1000]</td>
-<td>The maximum number of threads for the thread pool to allocate.</td>
-</tr>
-<tr class="row-even"><td>thread.pool.min.size</td>
-<td>Int</td>
-<td>Medium</td>
-<td>10</td>
-<td>[10,…,1000]</td>
-<td>The minimum number of threads for the thread pool to allocate.</td>
-</tr>
-<tr class="row-odd"><td>http.idle.timeout.ms</td>
-<td>Int</td>
-<td>Low</td>
-<td>30000</td>
-<td>[5000,…,300000]</td>
-<td>The number of milliseconds idle before a connection has timed out.</td>
-</tr>
-<tr class="row-even"><td>https.idle.timeout.ms</td>
-<td>Int</td>
-<td>Low</td>
-<td>30000</td>
-<td>[5000,…,300000]</td>
-<td>The number of milliseconds idle before a connection has timed out.</td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="http-enable">
+<h3>http.enable<a class="headerlink" href="#http-enable" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+<p>Flag to determine if http should be enabled.</p>
+</div>
+<div class="section" id="http-port">
+<h3>http.port<a class="headerlink" href="#http-port" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 8080</p>
+<p><strong>Validator:</strong> ValidPort{start=1000, end=65535}</p>
+<p>Port the http listener should be started on.</p>
+</div>
+<div class="section" id="https-enable">
+<h3>https.enable<a class="headerlink" href="#https-enable" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+<p>Flag to determine if https should be enabled.</p>
+</div>
+<div class="section" id="https-port">
+<h3>https.port<a class="headerlink" href="#https-port" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 8443</p>
+<p><strong>Validator:</strong> ValidPort{start=1000, end=65535}</p>
+<p>Port the https listener should be started on.</p>
+</div>
+<div class="section" id="topic-prefix">
+<h3>topic.prefix<a class="headerlink" href="#topic-prefix" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> influxdb.</p>
+</div>
+<div class="section" id="allowed-databases">
+<h3>allowed.databases<a class="headerlink" href="#allowed-databases" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> List</p>
+<p><strong>Default Value:</strong> []</p>
+</div>
+<div class="section" id="health-check-enable">
+<h3>health.check.enable<a class="headerlink" href="#health-check-enable" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+<p>Flag to determine if a health check url for a load balancer should be configured.</p>
+</div>
+<div class="section" id="health-check-path">
+<h3>health.check.path<a class="headerlink" href="#health-check-path" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> /healthcheck</p>
+<p>Path that will respond with a health check.</p>
+</div>
+<div class="section" id="https-key-manager-password">
+<h3>https.key.manager.password<a class="headerlink" href="#https-key-manager-password" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Password</p>
+<p><strong>Default Value:</strong> [hidden]</p>
+<p>The key manager password.</p>
+</div>
+<div class="section" id="https-key-store-password">
+<h3>https.key.store.password<a class="headerlink" href="#https-key-store-password" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Password</p>
+<p><strong>Default Value:</strong> [hidden]</p>
+<p>The password for the ssl keystore.</p>
+</div>
+<div class="section" id="https-key-store-path">
+<h3>https.key.store.path<a class="headerlink" href="#https-key-store-path" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> String</p>
+<p>Path on the local filesystem that contains the ssl keystore.</p>
+</div>
+<div class="section" id="https-trust-store-password">
+<h3>https.trust.store.password<a class="headerlink" href="#https-trust-store-password" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Password</p>
+<p><strong>Default Value:</strong> [hidden]</p>
+<p>The password for the ssl trust store.</p>
+</div>
+<div class="section" id="https-trust-store-path">
+<h3>https.trust.store.path<a class="headerlink" href="#https-trust-store-path" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> String</p>
+<p>The key manager password.</p>
+</div>
+<div class="section" id="thread-pool-max-size">
+<h3>thread.pool.max.size<a class="headerlink" href="#thread-pool-max-size" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 100</p>
+<p><strong>Validator:</strong> [10,…,1000]</p>
+<p>The maximum number of threads for the thread pool to allocate.</p>
+</div>
+<div class="section" id="thread-pool-min-size">
+<h3>thread.pool.min.size<a class="headerlink" href="#thread-pool-min-size" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 10</p>
+<p><strong>Validator:</strong> [10,…,1000]</p>
+<p>The minimum number of threads for the thread pool to allocate.</p>
+</div>
+<div class="section" id="http-idle-timeout-ms">
+<h3>http.idle.timeout.ms<a class="headerlink" href="#http-idle-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 30000</p>
+<p><strong>Validator:</strong> [5000,…,300000]</p>
+<p>The number of milliseconds idle before a connection has timed out.</p>
+</div>
+<div class="section" id="https-idle-timeout-ms">
+<h3>https.idle.timeout.ms<a class="headerlink" href="#https-idle-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 30000</p>
+<p><strong>Validator:</strong> [5000,…,300000]</p>
+<p>The number of milliseconds idle before a connection has timed out.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="property-based-example">
 <h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">connector1</span>
-<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">InfluxDBSourceConnector1</span>
 <span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSourceConnector</span>
-<span class="c"># The following values must be configured.</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
 </pre></div>
 </div>
 </div>
@@ -356,19 +347,30 @@
 <h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
 Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSourceConnector&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
+<div class="highlight-json" id="connector-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;InfluxDBSourceConnector1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSourceConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
 </pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/InfluxDBSourceConnector1/config
+</pre></div>
+</div>
 </div>
 </div>
 </div>
