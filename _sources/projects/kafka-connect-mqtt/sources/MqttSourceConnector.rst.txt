@@ -27,7 +27,7 @@ mqtt.server.uri
 **Type:** List
 
 
-mqtt.server.uri
+List of Mqtt brokers to connect to.
 
 ^^^^^^^^^^^
 mqtt.topics
@@ -40,19 +40,6 @@ mqtt.topics
 
 The Mqtt topics to subscribe to.
 
-^^^^^^^^^^^^^^
-mqtt.client.id
-^^^^^^^^^^^^^^
-
-**Importance:** High
-
-**Type:** String
-
-**Default Value:** paho302006326484964
-
-
-
-
 ^^^^^^^^^^^^^
 mqtt.password
 ^^^^^^^^^^^^^
@@ -64,7 +51,7 @@ mqtt.password
 **Default Value:** [hidden]
 
 
-
+Password to connect with.
 
 ^^^^^^^^^^^^^
 mqtt.username
@@ -75,7 +62,7 @@ mqtt.username
 **Type:** String
 
 
-
+Username to connect with.
 
 ^^^^^^^^^^^^^^^^^^
 kafka.topic.prefix
@@ -101,7 +88,7 @@ mqtt.clean.session.enabled
 **Default Value:** true
 
 
-
+Sets whether the client and server should remember state across restarts and reconnects.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mqtt.connect.timeout.seconds
@@ -116,7 +103,7 @@ mqtt.connect.timeout.seconds
 **Validator:** [1,...]
 
 
-
+Sets the connection timeout value.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mqtt.keepalive.interval.seconds
@@ -131,7 +118,7 @@ mqtt.keepalive.interval.seconds
 **Validator:** [1,...]
 
 
-
+Sets the "keep alive" interval.
 
 ^^^^^^^^
 mqtt.qos

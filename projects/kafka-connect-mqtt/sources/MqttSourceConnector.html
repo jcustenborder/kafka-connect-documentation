@@ -174,7 +174,7 @@
 <h3>mqtt.server.uri<a class="headerlink" href="#mqtt-server-uri" title="Permalink to this headline">¶</a></h3>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> List</p>
-<p>mqtt.server.uri</p>
+<p>List of Mqtt brokers to connect to.</p>
 </div>
 <div class="section" id="mqtt-topics">
 <h3>mqtt.topics<a class="headerlink" href="#mqtt-topics" title="Permalink to this headline">¶</a></h3>
@@ -182,22 +182,18 @@
 <p><strong>Type:</strong> List</p>
 <p>The Mqtt topics to subscribe to.</p>
 </div>
-<div class="section" id="mqtt-client-id">
-<h3>mqtt.client.id<a class="headerlink" href="#mqtt-client-id" title="Permalink to this headline">¶</a></h3>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> String</p>
-<p><strong>Default Value:</strong> paho302006326484964</p>
-</div>
 <div class="section" id="mqtt-password">
 <h3>mqtt.password<a class="headerlink" href="#mqtt-password" title="Permalink to this headline">¶</a></h3>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Password</p>
 <p><strong>Default Value:</strong> [hidden]</p>
+<p>Password to connect with.</p>
 </div>
 <div class="section" id="mqtt-username">
 <h3>mqtt.username<a class="headerlink" href="#mqtt-username" title="Permalink to this headline">¶</a></h3>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
+<p>Username to connect with.</p>
 </div>
 <div class="section" id="kafka-topic-prefix">
 <h3>kafka.topic.prefix<a class="headerlink" href="#kafka-topic-prefix" title="Permalink to this headline">¶</a></h3>
@@ -211,6 +207,7 @@
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> true</p>
+<p>Sets whether the client and server should remember state across restarts and reconnects.</p>
 </div>
 <div class="section" id="mqtt-connect-timeout-seconds">
 <h3>mqtt.connect.timeout.seconds<a class="headerlink" href="#mqtt-connect-timeout-seconds" title="Permalink to this headline">¶</a></h3>
@@ -218,6 +215,7 @@
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 30</p>
 <p><strong>Validator:</strong> [1,…]</p>
+<p>Sets the connection timeout value.</p>
 </div>
 <div class="section" id="mqtt-keepalive-interval-seconds">
 <h3>mqtt.keepalive.interval.seconds<a class="headerlink" href="#mqtt-keepalive-interval-seconds" title="Permalink to this headline">¶</a></h3>
@@ -225,6 +223,7 @@
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 60</p>
 <p><strong>Validator:</strong> [1,…]</p>
+<p>Sets the “keep alive” interval.</p>
 </div>
 <div class="section" id="mqtt-qos">
 <h3>mqtt.qos<a class="headerlink" href="#mqtt-qos" title="Permalink to this headline">¶</a></h3>
