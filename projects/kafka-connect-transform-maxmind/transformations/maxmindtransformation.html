@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Maxmind Transform" href="../transformations.html"/>
+        <link rel="next" title="Schemas" href="../schemas.html"/>
+        <link rel="prev" title="Maxmind Transform" href="../transformations.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -89,10 +92,27 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../transformations.html">Transformations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/transformations.html">RabbitMQ Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-archive/transformations.html">Archive Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-cef/transformations.html">CEF Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-common/transformations.html">Common Transforms</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../transformations.html">Maxmind Transform</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MaxMindTransformation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../info.html">Additional Information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-xml/transformations.html">Xml Transformations</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../configdef.type.html">ConfigDef.Type</a></li>
@@ -142,6 +162,10 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
+          <li><a href="../../../transformations.html">Transformations</a> &raquo;</li>
+        
+          <li><a href="../transformations.html">Maxmind Transform</a> &raquo;</li>
+        
       <li>MaxMindTransformation</li>
     
     
@@ -166,137 +190,135 @@
 <p>This transformation is used to lookup data from a <a class="reference external" href="http://dev.maxmind.com/geoip/geoip2/geolite2/#Downloads">MaxMind database</a> and append the data to an existing struct.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Importance</th>
-<th class="head">Default Value</th>
-<th class="head">Validator</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>field.input</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The field in the value() of the connect record to read the ip address from.</td>
-</tr>
-<tr class="row-odd"><td>field.output</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The field in the value() to write the GeoIp Data to. The schema will be appended.</td>
-</tr>
-<tr class="row-even"><td>maxmind.database.path</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The path of the database on the local file system.</td>
-</tr>
-<tr class="row-odd"><td>maxmind.enable.anonymousip</td>
-<td>Boolean</td>
-<td>Medium</td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine if the ip should be checked if it’s used for anonymous internet access.</td>
-</tr>
-<tr class="row-even"><td>maxmind.enable.asn</td>
-<td>Boolean</td>
-<td>Medium</td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine if the ip should be checked if ASN information should be included.</td>
-</tr>
-<tr class="row-odd"><td>maxmind.enable.city</td>
-<td>Boolean</td>
-<td>Medium</td>
-<td>true</td>
-<td>&#160;</td>
-<td>Flag to determine if the ip should be checked if city information should be included.</td>
-</tr>
-<tr class="row-even"><td>maxmind.enable.connectiontype</td>
-<td>Boolean</td>
-<td>Medium</td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine if the ip should be checked if connection information should be included.</td>
-</tr>
-<tr class="row-odd"><td>maxmind.enable.country</td>
-<td>Boolean</td>
-<td>Medium</td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine if the ip should be checked if country information should be included.</td>
-</tr>
-<tr class="row-even"><td>maxmind.enable.domain</td>
-<td>Boolean</td>
-<td>Medium</td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine if the ip should be checked if domain information should be included.</td>
-</tr>
-<tr class="row-odd"><td>maxmind.enable.enterprise</td>
-<td>Boolean</td>
-<td>Medium</td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine if the ip should be checked if enterprise information should be included.</td>
-</tr>
-<tr class="row-even"><td>maxmind.enable.isp</td>
-<td>Boolean</td>
-<td>Medium</td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine if the ip should be checked if ISP information should be included.</td>
-</tr>
-<tr class="row-odd"><td>maxmind.database.file.mode</td>
-<td>String</td>
-<td>Low</td>
-<td>MEMORY_MAPPED</td>
-<td>ValidEnum{enum=FileMode, allowed=[MEMORY_MAPPED, MEMORY]}</td>
-<td>The mode in which to open the database.</td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="field-input">
+<h3>field.input<a class="headerlink" href="#field-input" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>The field in the value() of the connect record to read the ip address from.</p>
+</div>
+<div class="section" id="field-output">
+<h3>field.output<a class="headerlink" href="#field-output" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>The field in the value() to write the GeoIp Data to. The schema will be appended.</p>
+</div>
+<div class="section" id="maxmind-database-path">
+<h3>maxmind.database.path<a class="headerlink" href="#maxmind-database-path" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>The path of the database on the local file system.</p>
+</div>
+<div class="section" id="maxmind-enable-anonymousip">
+<h3>maxmind.enable.anonymousip<a class="headerlink" href="#maxmind-enable-anonymousip" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+<p>Flag to determine if the ip should be checked if it’s used for anonymous internet access.</p>
+</div>
+<div class="section" id="maxmind-enable-asn">
+<h3>maxmind.enable.asn<a class="headerlink" href="#maxmind-enable-asn" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+<p>Flag to determine if the ip should be checked if ASN information should be included.</p>
+</div>
+<div class="section" id="maxmind-enable-city">
+<h3>maxmind.enable.city<a class="headerlink" href="#maxmind-enable-city" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+<p>Flag to determine if the ip should be checked if city information should be included.</p>
+</div>
+<div class="section" id="maxmind-enable-connectiontype">
+<h3>maxmind.enable.connectiontype<a class="headerlink" href="#maxmind-enable-connectiontype" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+<p>Flag to determine if the ip should be checked if connection information should be included.</p>
+</div>
+<div class="section" id="maxmind-enable-country">
+<h3>maxmind.enable.country<a class="headerlink" href="#maxmind-enable-country" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+<p>Flag to determine if the ip should be checked if country information should be included.</p>
+</div>
+<div class="section" id="maxmind-enable-domain">
+<h3>maxmind.enable.domain<a class="headerlink" href="#maxmind-enable-domain" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+<p>Flag to determine if the ip should be checked if domain information should be included.</p>
+</div>
+<div class="section" id="maxmind-enable-enterprise">
+<h3>maxmind.enable.enterprise<a class="headerlink" href="#maxmind-enable-enterprise" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+<p>Flag to determine if the ip should be checked if enterprise information should be included.</p>
+</div>
+<div class="section" id="maxmind-enable-isp">
+<h3>maxmind.enable.isp<a class="headerlink" href="#maxmind-enable-isp" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+<p>Flag to determine if the ip should be checked if ISP information should be included.</p>
+</div>
+<div class="section" id="maxmind-database-file-mode">
+<h3>maxmind.database.file.mode<a class="headerlink" href="#maxmind-database-file-mode" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> MEMORY_MAPPED</p>
+<p><strong>Validator:</strong> ValidEnum{enum=FileMode, allowed=[MEMORY_MAPPED, MEMORY]}</p>
+<p>The mode in which to open the database.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="property-based-example">
 <h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">connector1</span>
+<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">Connector1</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">org.apache.kafka.some.SourceConnector</span>
 <span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
-<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.transform.maxmind.MaxMindTransformation</span>
-<span class="c"># The following values must be configured.</span>
-<span class="na">field.input</span><span class="o">=</span>
-<span class="na">field.output</span><span class="o">=</span>
-<span class="na">maxmind.database.path</span><span class="o">=</span>
-</pre></div>
+<span class="na">transforms</span><span class="o">=</span><span class="s">tran</span>
+<span class="na">transforms.tran.type</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.transform.maxmind.MaxMindTransformation</span>
+<span class="hll"><span class="na">transforms.tran.field.input</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">transforms.tran.field.output</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">transforms.tran.maxmind.database.path</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span></pre></div>
 </div>
 </div>
 <div class="section" id="rest-based-example">
 <h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
 Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.transform.maxmind.MaxMindTransformation&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;field.input&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;field.output&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;maxmind.database.path&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
+<div class="highlight-json" id="connector-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Connector1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.some.SourceConnector&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;transforms&quot;</span> <span class="p">:</span> <span class="s2">&quot;tran&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;transforms.tran.type&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.transform.maxmind.MaxMindTransformation&quot;</span><span class="p">,</span>
+<span class="hll">  <span class="nt">&quot;transforms.tran.field.input&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">  <span class="nt">&quot;transforms.tran.field.output&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">  <span class="nt">&quot;transforms.tran.maxmind.database.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
+</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
 </pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/MaxMindTransformation1/config
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -309,6 +331,15 @@ one of your Kafka Connect worker(s).</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../transformations.html" class="btn btn-neutral" title="Maxmind Transform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

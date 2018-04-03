@@ -10,23 +10,162 @@ This transformation is used to lookup data from a `MaxMind database <http://dev.
 Configuration
 -------------
 
-.. csv-table:: Configuration
-    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
-    :widths: auto
 
-    "field.input","String","High","","","The field in the value() of the connect record to read the ip address from."
-    "field.output","String","High","","","The field in the value() to write the GeoIp Data to. The schema will be appended."
-    "maxmind.database.path","String","High","","","The path of the database on the local file system."
-    "maxmind.enable.anonymousip","Boolean","Medium","false","","Flag to determine if the ip should be checked if it's used for anonymous internet access."
-    "maxmind.enable.asn","Boolean","Medium","false","","Flag to determine if the ip should be checked if ASN information should be included."
-    "maxmind.enable.city","Boolean","Medium","true","","Flag to determine if the ip should be checked if city information should be included."
-    "maxmind.enable.connectiontype","Boolean","Medium","false","","Flag to determine if the ip should be checked if connection information should be included."
-    "maxmind.enable.country","Boolean","Medium","false","","Flag to determine if the ip should be checked if country information should be included."
-    "maxmind.enable.domain","Boolean","Medium","false","","Flag to determine if the ip should be checked if domain information should be included."
-    "maxmind.enable.enterprise","Boolean","Medium","false","","Flag to determine if the ip should be checked if enterprise information should be included."
-    "maxmind.enable.isp","Boolean","Medium","false","","Flag to determine if the ip should be checked if ISP information should be included."
-    "maxmind.database.file.mode","String","Low","MEMORY_MAPPED","ValidEnum{enum=FileMode, allowed=[MEMORY_MAPPED, MEMORY]}","The mode in which to open the database."
+^^^^^^^^^^^
+field.input
+^^^^^^^^^^^
 
+**Importance:** High
+
+**Type:** String
+
+
+The field in the value() of the connect record to read the ip address from.
+
+^^^^^^^^^^^^
+field.output
+^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+
+The field in the value() to write the GeoIp Data to. The schema will be appended.
+
+^^^^^^^^^^^^^^^^^^^^^
+maxmind.database.path
+^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+
+The path of the database on the local file system.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+maxmind.enable.anonymousip
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+Flag to determine if the ip should be checked if it's used for anonymous internet access.
+
+^^^^^^^^^^^^^^^^^^
+maxmind.enable.asn
+^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+Flag to determine if the ip should be checked if ASN information should be included.
+
+^^^^^^^^^^^^^^^^^^^
+maxmind.enable.city
+^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if the ip should be checked if city information should be included.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+maxmind.enable.connectiontype
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+Flag to determine if the ip should be checked if connection information should be included.
+
+^^^^^^^^^^^^^^^^^^^^^^
+maxmind.enable.country
+^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+Flag to determine if the ip should be checked if country information should be included.
+
+^^^^^^^^^^^^^^^^^^^^^
+maxmind.enable.domain
+^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+Flag to determine if the ip should be checked if domain information should be included.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^
+maxmind.enable.enterprise
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+Flag to determine if the ip should be checked if enterprise information should be included.
+
+^^^^^^^^^^^^^^^^^^
+maxmind.enable.isp
+^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+Flag to determine if the ip should be checked if ISP information should be included.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+maxmind.database.file.mode
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** String
+
+**Default Value:** MEMORY_MAPPED
+
+**Validator:** ValidEnum{enum=FileMode, allowed=[MEMORY_MAPPED, MEMORY]}
+
+
+The mode in which to open the database.
+
+--------
+Examples
+--------
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Property based example
@@ -37,14 +176,18 @@ This configuration is used typically along with `standalone mode
 <http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
 .. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 6,7,8
 
-    name=connector1
+    name=Connector1
+    connector.class=org.apache.kafka.some.SourceConnector
     tasks.max=1
-    connector.class=com.github.jcustenborder.kafka.connect.transform.maxmind.MaxMindTransformation
-    # The following values must be configured.
-    field.input=
-    field.output=
-    maxmind.database.path=
+    transforms=tran
+    transforms.tran.type=com.github.jcustenborder.kafka.connect.transform.maxmind.MaxMindTransformation
+    transforms.tran.field.input=< Required Configuration >
+    transforms.tran.field.output=< Required Configuration >
+    transforms.tran.maxmind.database.path=< Required Configuration >
+
 
 
 
@@ -56,26 +199,37 @@ Rest based example
 This configuration is used typically along with `distributed mode
 <http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
 Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :name: connector.json
+    :emphasize-lines: 6,7,8
 
     {
-        "name": "connector1",
-        "config": {
-            "connector.class": "com.github.jcustenborder.kafka.connect.transform.maxmind.MaxMindTransformation",
-            "field.input":"",
-            "field.output":"",
-            "maxmind.database.path":"",
-        }
+      "name" : "Connector1",
+      "connector.class" : "org.apache.kafka.some.SourceConnector",
+      "transforms" : "tran",
+      "transforms.tran.type" : "com.github.jcustenborder.kafka.connect.transform.maxmind.MaxMindTransformation",
+      "transforms.tran.field.input" : "< Required Configuration >",
+      "transforms.tran.field.output" : "< Required Configuration >",
+      "transforms.tran.maxmind.database.path" : "< Required Configuration >"
     }
+
+
 
 Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
 one of your Kafka Connect worker(s).
 
 .. code-block:: bash
+    :caption: Create a new connector
 
     curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
 
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/MaxMindTransformation1/config
 
 

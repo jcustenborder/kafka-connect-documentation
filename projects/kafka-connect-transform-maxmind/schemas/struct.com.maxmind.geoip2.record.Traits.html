@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Schemas" href="../schemas.html"/>
+        <link rel="next" title="Additional Information" href="../info.html"/>
+        <link rel="prev" title="Subdivision" href="struct.com.maxmind.geoip2.record.Subdivision.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -89,10 +92,43 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../transformations.html">Transformations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/transformations.html">RabbitMQ Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-archive/transformations.html">Archive Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-cef/transformations.html">CEF Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-common/transformations.html">Common Transforms</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../transformations.html">Maxmind Transform</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../transformations/maxmindtransformation.html">MaxMindTransformation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.model.AnonymousIpResponse.html">AnonymousIpResponse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.model.AsnResponse.html">AsnResponse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.model.CityResponse.html">CityResponse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.model.ConnectionTypeResponse.html">ConnectionTypeResponse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.model.CountryResponse.html">CountryResponse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.model.DomainResponse.html">DomainResponse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.model.EnterpriseResponse.html">EnterpriseResponse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.model.GeoIpData.html">GeoIpData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.model.InsightsResponse.html">InsightsResponse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.model.IspResponse.html">IspResponse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.record.City.html">City</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.record.Continent.html">Continent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.record.Country.html">Country</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.record.Location.html">Location</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.record.Postal.html">Postal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.record.RepresentedCountry.html">RepresentedCountry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.maxmind.geoip2.record.Subdivision.html">Subdivision</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Traits</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../info.html">Additional Information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-xml/transformations.html">Xml Transformations</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../configdef.type.html">ConfigDef.Type</a></li>
@@ -141,6 +177,12 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../transformations.html">Transformations</a> &raquo;</li>
+        
+          <li><a href="../transformations.html">Maxmind Transform</a> &raquo;</li>
+        
+          <li><a href="../schemas.html">Schemas</a> &raquo;</li>
         
       <li>Traits</li>
     
@@ -245,6 +287,15 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../info.html" class="btn btn-neutral float-right" title="Additional Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="struct.com.maxmind.geoip2.record.Subdivision.html" class="btn btn-neutral" title="Subdivision" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
