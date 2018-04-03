@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-04-02 23:54:07","`f61c65ba58a2a09 <https://github.com/jcustenborder/kafka-connect-rabbitmq/commit/f61c65ba58a2a09>`_","Jeremy Custenborder","Updated the docs. Added support for the assembly plugin. Fixes #34. (#35)"
     "2018-03-13 22:59:25","`86b19bb00ed7528 <https://github.com/jcustenborder/kafka-connect-rabbitmq/commit/86b19bb00ed7528>`_","Jeremy Custenborder","Added support for list headers. Added test case as well. Fixes #25. (#31)"
     "2018-01-09 15:17:10","`e2629e835e6b064 <https://github.com/jcustenborder/kafka-connect-rabbitmq/commit/e2629e835e6b064>`_","Jeremy Custenborder","Added `ExtractHeader` transformation to pull the value of a header and use it for the key. Fixes #22. (#24)"
     "2017-11-07 21:39:56","`4826abad02b0a42 <https://github.com/jcustenborder/kafka-connect-rabbitmq/commit/4826abad02b0a42>`_","Jeremy Custenborder","Updated documentation"

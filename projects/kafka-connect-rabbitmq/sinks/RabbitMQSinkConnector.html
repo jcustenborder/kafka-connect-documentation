@@ -109,6 +109,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../sources/RabbitMQSourceConnector.html">RabbitMQSourceConnector</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">RabbitMQSinkConnector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
@@ -206,172 +207,169 @@
 <img alt="../../../_images/RabbitMQSinkConnector.svg" src="../../../_images/RabbitMQSinkConnector.svg" /><p>Connector is used to read data from a Kafka topic and publish it on a RabbitMQ exchange and routing key pair.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Importance</th>
-<th class="head">Default Value</th>
-<th class="head">Validator</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>rabbitmq.exchange</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>exchange to publish the messages on.</td>
-</tr>
-<tr class="row-odd"><td>rabbitmq.routing.key</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>routing key used for publishing the messages.</td>
-</tr>
-<tr class="row-even"><td>topics</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>Kafka topic to read the messages from.</td>
-</tr>
-<tr class="row-odd"><td>rabbitmq.host</td>
-<td>String</td>
-<td>High</td>
-<td>localhost</td>
-<td>&#160;</td>
-<td>The RabbitMQ host to connect to. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setHost-java.lang.String-">ConnectionFactory.setHost(java.lang.String)</a></td>
-</tr>
-<tr class="row-even"><td>rabbitmq.password</td>
-<td>String</td>
-<td>High</td>
-<td>guest</td>
-<td>&#160;</td>
-<td>The password to authenticate to RabbitMQ with. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setPassword-java.lang.String-">ConnectionFactory.setPassword(java.lang.String)</a></td>
-</tr>
-<tr class="row-odd"><td>rabbitmq.username</td>
-<td>String</td>
-<td>High</td>
-<td>guest</td>
-<td>&#160;</td>
-<td>The username to authenticate to RabbitMQ with. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setUsername-java.lang.String-">ConnectionFactory.setUsername(java.lang.String)</a></td>
-</tr>
-<tr class="row-even"><td>rabbitmq.virtual.host</td>
-<td>String</td>
-<td>High</td>
-<td>/</td>
-<td>&#160;</td>
-<td>The virtual host to use when connecting to the broker. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setVirtualHost-java.lang.String-">ConnectionFactory.setVirtualHost(java.lang.String)</a></td>
-</tr>
-<tr class="row-odd"><td>rabbitmq.port</td>
-<td>Int</td>
-<td>Medium</td>
-<td>5672</td>
-<td>&#160;</td>
-<td>The RabbitMQ port to connect to. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setPort-int-">ConnectionFactory.setPort(int)</a></td>
-</tr>
-<tr class="row-even"><td>rabbitmq.automatic.recovery.enabled</td>
-<td>Boolean</td>
-<td>Low</td>
-<td>true</td>
-<td>&#160;</td>
-<td>Enables or disables automatic connection recovery. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setAutomaticRecoveryEnabled-boolean-">ConnectionFactory.setAutomaticRecoveryEnabled(boolean)</a></td>
-</tr>
-<tr class="row-odd"><td>rabbitmq.connection.timeout.ms</td>
-<td>Int</td>
-<td>Low</td>
-<td>60000</td>
-<td>&#160;</td>
-<td>Connection TCP establishment timeout in milliseconds. zero for infinite. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setConnectionTimeout-int-">ConnectionFactory.setConnectionTimeout(int)</a></td>
-</tr>
-<tr class="row-even"><td>rabbitmq.handshake.timeout.ms</td>
-<td>Int</td>
-<td>Low</td>
-<td>10000</td>
-<td>&#160;</td>
-<td>The AMQP0-9-1 protocol handshake timeout, in milliseconds. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setHandshakeTimeout-int-">ConnectionFactory.setHandshakeTimeout(int)</a></td>
-</tr>
-<tr class="row-odd"><td>rabbitmq.network.recovery.interval.ms</td>
-<td>Int</td>
-<td>Low</td>
-<td>10000</td>
-<td>&#160;</td>
-<td>See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setNetworkRecoveryInterval-long-">ConnectionFactory.setNetworkRecoveryInterval(long)</a></td>
-</tr>
-<tr class="row-even"><td>rabbitmq.requested.channel.max</td>
-<td>Int</td>
-<td>Low</td>
-<td>0</td>
-<td>&#160;</td>
-<td>Initially requested maximum channel number. Zero for unlimited. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setRequestedChannelMax-int-">ConnectionFactory.setRequestedChannelMax(int)</a></td>
-</tr>
-<tr class="row-odd"><td>rabbitmq.requested.frame.max</td>
-<td>Int</td>
-<td>Low</td>
-<td>0</td>
-<td>&#160;</td>
-<td>Initially requested maximum frame size, in octets. Zero for unlimited. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setRequestedFrameMax-int-">ConnectionFactory.setRequestedFrameMax(int)</a></td>
-</tr>
-<tr class="row-even"><td>rabbitmq.requested.heartbeat.seconds</td>
-<td>Int</td>
-<td>Low</td>
-<td>60</td>
-<td>&#160;</td>
-<td>Set the requested heartbeat timeout. Heartbeat frames will be sent at about 1/2 the timeout interval. If server heartbeat timeout is configured to a non-zero value, this method can only be used to lower the value; otherwise any value provided by the client will be used. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setRequestedHeartbeat-int-">ConnectionFactory.setRequestedHeartbeat(int)</a></td>
-</tr>
-<tr class="row-odd"><td>rabbitmq.shutdown.timeout.ms</td>
-<td>Int</td>
-<td>Low</td>
-<td>10000</td>
-<td>&#160;</td>
-<td>Set the shutdown timeout. This is the amount of time that Consumer implementations have to continue working through deliveries (and other Consumer callbacks) after the connection has closed but before the ConsumerWorkService is torn down. If consumers exceed this timeout then any remaining queued deliveries (and other Consumer callbacks, <em>including</em> the Consumer’s handleShutdownSignal() invocation) will be lost. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setShutdownTimeout-int-">ConnectionFactory.setShutdownTimeout(int)</a></td>
-</tr>
-<tr class="row-even"><td>rabbitmq.topology.recovery.enabled</td>
-<td>Boolean</td>
-<td>Low</td>
-<td>true</td>
-<td>&#160;</td>
-<td>Enables or disables topology recovery. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setTopologyRecoveryEnabled-boolean-">ConnectionFactory.setTopologyRecoveryEnabled(boolean)</a></td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="rabbitmq-exchange">
+<h3>rabbitmq.exchange<a class="headerlink" href="#rabbitmq-exchange" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>exchange to publish the messages on.</p>
+</div>
+<div class="section" id="rabbitmq-routing-key">
+<h3>rabbitmq.routing.key<a class="headerlink" href="#rabbitmq-routing-key" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>routing key used for publishing the messages.</p>
+</div>
+<div class="section" id="topics">
+<h3>topics<a class="headerlink" href="#topics" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>Kafka topic to read the messages from.</p>
+</div>
+<div class="section" id="rabbitmq-host">
+<h3>rabbitmq.host<a class="headerlink" href="#rabbitmq-host" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> localhost</p>
+<p>The RabbitMQ host to connect to. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setHost-java.lang.String-">ConnectionFactory.setHost(java.lang.String)</a></p>
+</div>
+<div class="section" id="rabbitmq-password">
+<h3>rabbitmq.password<a class="headerlink" href="#rabbitmq-password" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> guest</p>
+<p>The password to authenticate to RabbitMQ with. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setPassword-java.lang.String-">ConnectionFactory.setPassword(java.lang.String)</a></p>
+</div>
+<div class="section" id="rabbitmq-username">
+<h3>rabbitmq.username<a class="headerlink" href="#rabbitmq-username" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> guest</p>
+<p>The username to authenticate to RabbitMQ with. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setUsername-java.lang.String-">ConnectionFactory.setUsername(java.lang.String)</a></p>
+</div>
+<div class="section" id="rabbitmq-virtual-host">
+<h3>rabbitmq.virtual.host<a class="headerlink" href="#rabbitmq-virtual-host" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> /</p>
+<p>The virtual host to use when connecting to the broker. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setVirtualHost-java.lang.String-">ConnectionFactory.setVirtualHost(java.lang.String)</a></p>
+</div>
+<div class="section" id="rabbitmq-port">
+<h3>rabbitmq.port<a class="headerlink" href="#rabbitmq-port" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 5672</p>
+<p>The RabbitMQ port to connect to. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setPort-int-">ConnectionFactory.setPort(int)</a></p>
+</div>
+<div class="section" id="rabbitmq-automatic-recovery-enabled">
+<h3>rabbitmq.automatic.recovery.enabled<a class="headerlink" href="#rabbitmq-automatic-recovery-enabled" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+<p>Enables or disables automatic connection recovery. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setAutomaticRecoveryEnabled-boolean-">ConnectionFactory.setAutomaticRecoveryEnabled(boolean)</a></p>
+</div>
+<div class="section" id="rabbitmq-connection-timeout-ms">
+<h3>rabbitmq.connection.timeout.ms<a class="headerlink" href="#rabbitmq-connection-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 60000</p>
+<p>Connection TCP establishment timeout in milliseconds. zero for infinite. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setConnectionTimeout-int-">ConnectionFactory.setConnectionTimeout(int)</a></p>
+</div>
+<div class="section" id="rabbitmq-handshake-timeout-ms">
+<h3>rabbitmq.handshake.timeout.ms<a class="headerlink" href="#rabbitmq-handshake-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 10000</p>
+<p>The AMQP0-9-1 protocol handshake timeout, in milliseconds. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setHandshakeTimeout-int-">ConnectionFactory.setHandshakeTimeout(int)</a></p>
+</div>
+<div class="section" id="rabbitmq-network-recovery-interval-ms">
+<h3>rabbitmq.network.recovery.interval.ms<a class="headerlink" href="#rabbitmq-network-recovery-interval-ms" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 10000</p>
+<p>See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setNetworkRecoveryInterval-long-">ConnectionFactory.setNetworkRecoveryInterval(long)</a></p>
+</div>
+<div class="section" id="rabbitmq-requested-channel-max">
+<h3>rabbitmq.requested.channel.max<a class="headerlink" href="#rabbitmq-requested-channel-max" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 0</p>
+<p>Initially requested maximum channel number. Zero for unlimited. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setRequestedChannelMax-int-">ConnectionFactory.setRequestedChannelMax(int)</a></p>
+</div>
+<div class="section" id="rabbitmq-requested-frame-max">
+<h3>rabbitmq.requested.frame.max<a class="headerlink" href="#rabbitmq-requested-frame-max" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 0</p>
+<p>Initially requested maximum frame size, in octets. Zero for unlimited. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setRequestedFrameMax-int-">ConnectionFactory.setRequestedFrameMax(int)</a></p>
+</div>
+<div class="section" id="rabbitmq-requested-heartbeat-seconds">
+<h3>rabbitmq.requested.heartbeat.seconds<a class="headerlink" href="#rabbitmq-requested-heartbeat-seconds" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 60</p>
+<p>Set the requested heartbeat timeout. Heartbeat frames will be sent at about 1/2 the timeout interval. If server heartbeat timeout is configured to a non-zero value, this method can only be used to lower the value; otherwise any value provided by the client will be used. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setRequestedHeartbeat-int-">ConnectionFactory.setRequestedHeartbeat(int)</a></p>
+</div>
+<div class="section" id="rabbitmq-shutdown-timeout-ms">
+<h3>rabbitmq.shutdown.timeout.ms<a class="headerlink" href="#rabbitmq-shutdown-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 10000</p>
+<p>Set the shutdown timeout. This is the amount of time that Consumer implementations have to continue working through deliveries (and other Consumer callbacks) after the connection has closed but before the ConsumerWorkService is torn down. If consumers exceed this timeout then any remaining queued deliveries (and other Consumer callbacks, <em>including</em> the Consumer’s handleShutdownSignal() invocation) will be lost. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setShutdownTimeout-int-">ConnectionFactory.setShutdownTimeout(int)</a></p>
+</div>
+<div class="section" id="rabbitmq-topology-recovery-enabled">
+<h3>rabbitmq.topology.recovery.enabled<a class="headerlink" href="#rabbitmq-topology-recovery-enabled" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+<p>Enables or disables topology recovery. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setTopologyRecoveryEnabled-boolean-">ConnectionFactory.setTopologyRecoveryEnabled(boolean)</a></p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="property-based-example">
 <h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">connector1</span>
-<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">RabbitMQSinkConnector1</span>
 <span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.rabbitmq.RabbitMQSinkConnector</span>
-<span class="c"># The following values must be configured.</span>
-<span class="na">rabbitmq.exchange</span><span class="o">=</span>
-<span class="na">rabbitmq.routing.key</span><span class="o">=</span>
-<span class="na">topics</span><span class="o">=</span>
-</pre></div>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="hll"><span class="na">topics</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">rabbitmq.exchange</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">rabbitmq.routing.key</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">topics</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span></pre></div>
 </div>
 </div>
 <div class="section" id="rest-based-example">
 <h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
 Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.rabbitmq.RabbitMQSinkConnector&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.exchange&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;rabbitmq.routing.key&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;topics&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
+<div class="highlight-json" id="connector-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;RabbitMQSinkConnector1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.rabbitmq.RabbitMQSinkConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;rabbitmq.exchange&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;rabbitmq.routing.key&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
+</span>  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
 </pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/RabbitMQSinkConnector1/config
+</pre></div>
+</div>
 </div>
 </div>
 </div>
