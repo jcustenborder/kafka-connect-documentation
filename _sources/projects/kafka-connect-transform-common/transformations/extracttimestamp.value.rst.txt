@@ -10,12 +10,21 @@ This transformation is used to use a field from the input data to override the t
 Configuration
 -------------
 
-.. csv-table:: Configuration
-    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
-    :widths: auto
 
-    "field.name","String","High","","","The field to pull the timestamp from. This must be an int64 or a timestamp."
+^^^^^^^^^^
+field.name
+^^^^^^^^^^
 
+**Importance:** High
+
+**Type:** String
+
+
+The field to pull the timestamp from. This must be an int64 or a timestamp.
+
+--------
+Examples
+--------
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Property based example
@@ -26,12 +35,16 @@ This configuration is used typically along with `standalone mode
 <http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
 .. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 6
 
-    name=connector1
+    name=Connector1
+    connector.class=org.apache.kafka.some.SourceConnector
     tasks.max=1
-    connector.class=com.github.jcustenborder.kafka.connect.transform.common.ExtractTimestamp$Value
-    # The following values must be configured.
-    field.name=
+    transforms=tran
+    transforms.tran.type=com.github.jcustenborder.kafka.connect.transform.common.ExtractTimestamp$Value
+    transforms.tran.field.name=< Required Configuration >
+
 
 
 
@@ -43,24 +56,35 @@ Rest based example
 This configuration is used typically along with `distributed mode
 <http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
 Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :name: connector.json
+    :emphasize-lines: 6
 
     {
-        "name": "connector1",
-        "config": {
-            "connector.class": "com.github.jcustenborder.kafka.connect.transform.common.ExtractTimestamp$Value",
-            "field.name":"",
-        }
+      "name" : "Connector1",
+      "connector.class" : "org.apache.kafka.some.SourceConnector",
+      "transforms" : "tran",
+      "transforms.tran.type" : "com.github.jcustenborder.kafka.connect.transform.common.ExtractTimestamp$Value",
+      "transforms.tran.field.name" : "< Required Configuration >"
     }
+
+
 
 Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
 one of your Kafka Connect worker(s).
 
 .. code-block:: bash
+    :caption: Create a new connector
 
     curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
 
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/Value1/config
 
 
