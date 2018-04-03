@@ -8,6 +8,12 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-04-03 15:15:26","`34057697a7c8946 <https://github.com/jcustenborder/kafka-connect-twitter/commit/34057697a7c8946>`_","Jeremy Custenborder","Issue 9 (#10)
+
+* Added plugin.path to the standard location.
+
+* Added connector hub. Fixes #9."
+    "2017-11-07 21:34:00","`36848f748130dcf <https://github.com/jcustenborder/kafka-connect-twitter/commit/36848f748130dcf>`_","Jeremy Custenborder","Updated documentation"
     "2017-11-04 03:30:40","`f2eb3dea412da60 <https://github.com/jcustenborder/kafka-connect-twitter/commit/f2eb3dea412da60>`_","Jeremy Custenborder","Bumped version to 1.0.0 (#7)"
     "2017-07-22 01:45:14","`4a0b23ccc720af9 <https://github.com/jcustenborder/kafka-connect-twitter/commit/4a0b23ccc720af9>`_","Jeremy Custenborder","Issue 5 (#6)
 
