@@ -13,18 +13,93 @@ This connector is used to connect to `SolrCloud <https://cwiki.apache.org/conflu
 Configuration
 -------------
 
-.. csv-table:: Configuration
-    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
-    :widths: auto
 
-    "solr.collection.name","String","High","","","Name of the solr collection to write to."
-    "solr.zookeeper.hosts","List","High","","","Zookeeper hosts that are used to store solr configuration."
-    "solr.password","Password","High","[hidden]","","The password to use for basic authentication."
-    "solr.username","String","High","","","The username to use for basic authentication."
-    "solr.zookeeper.chroot","String","High","","","Chroot within solr for the zookeeper configuration."
-    "solr.delete.documents.enabled","Boolean","Medium","true","","Flag to determine if the connector should delete documents. General practice in Kafka is to treat a record that contains a key with a null value as a delete."
-    "solr.commit.within","Int","Low","-1","","Configures Solr UpdaterRequest for a commit within the requested number of milliseconds ."
+^^^^^^^^^^^^^^^^^^^^
+solr.collection.name
+^^^^^^^^^^^^^^^^^^^^
 
+**Importance:** High
+
+**Type:** String
+
+
+Name of the solr collection to write to.
+
+^^^^^^^^^^^^^^^^^^^^
+solr.zookeeper.hosts
+^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** List
+
+
+Zookeeper hosts that are used to store solr configuration.
+
+^^^^^^^^^^^^^
+solr.password
+^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** Password
+
+**Default Value:** [hidden]
+
+
+The password to use for basic authentication.
+
+^^^^^^^^^^^^^
+solr.username
+^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+
+The username to use for basic authentication.
+
+^^^^^^^^^^^^^^^^^^^^^
+solr.zookeeper.chroot
+^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+
+Chroot within solr for the zookeeper configuration.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+solr.delete.documents.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if the connector should delete documents. General practice in Kafka is to treat a record that contains a key with a null value as a delete.
+
+^^^^^^^^^^^^^^^^^^
+solr.commit.within
+^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Int
+
+**Default Value:** -1
+
+
+Configures Solr UpdaterRequest for a commit within the requested number of milliseconds .
+
+--------
+Examples
+--------
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Property based example
@@ -35,13 +110,16 @@ This configuration is used typically along with `standalone mode
 <http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
 .. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 4,5,6
 
-    name=connector1
-    tasks.max=1
+    name=CloudSolrSinkConnector1
     connector.class=com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector
-    # The following values must be configured.
-    solr.collection.name=
-    solr.zookeeper.hosts=
+    tasks.max=1
+    topics=< Required Configuration >
+    solr.collection.name=< Required Configuration >
+    solr.zookeeper.hosts=< Required Configuration >
+
 
 
 
@@ -53,25 +131,38 @@ Rest based example
 This configuration is used typically along with `distributed mode
 <http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
 Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :name: connector.json
+    :emphasize-lines: 6,7,8
 
     {
-        "name": "connector1",
-        "config": {
-            "connector.class": "com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector",
-            "solr.collection.name":"",
-            "solr.zookeeper.hosts":"",
-        }
+      "config" : {
+        "name" : "CloudSolrSinkConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector",
+        "tasks.max" : "1",
+        "topics" : "< Required Configuration >",
+        "solr.collection.name" : "< Required Configuration >",
+        "solr.zookeeper.hosts" : "< Required Configuration >"
+      }
     }
+
+
 
 Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
 one of your Kafka Connect worker(s).
 
 .. code-block:: bash
+    :caption: Create a new connector
 
     curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
 
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/CloudSolrSinkConnector1/config
 
 
