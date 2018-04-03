@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-04-03 00:24:29","`22a8a77a4273db1 <https://github.com/jcustenborder/kafka-connect-salesforce/commit/22a8a77a4273db1>`_","Jeremy Custenborder","Added support for the connector hub. Fixes #31. (#32)"
     "2017-11-07 21:57:27","`86dd73f08016138 <https://github.com/jcustenborder/kafka-connect-salesforce/commit/86dd73f08016138>`_","Jeremy Custenborder","Updated documentation"
     "2017-11-07 21:16:54","`6c9a7f4452bf2c6 <https://github.com/jcustenborder/kafka-connect-salesforce/commit/6c9a7f4452bf2c6>`_","Jeremy Custenborder","Bump to 1.0.0. (#29)"
     "2017-07-18 21:53:40","`e26329f35d2eaf1 <https://github.com/jcustenborder/kafka-connect-salesforce/commit/e26329f35d2eaf1>`_","Jeremy Custenborder","Changed version to 0.10.2.1-cp2"

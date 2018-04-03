@@ -110,6 +110,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Salesforce Connector</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">SalesforceSourceConnector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../info.html">Additional Information</a></li>
@@ -204,189 +205,181 @@
 <img alt="../../../_images/SalesforceSourceConnector.svg" src="../../../_images/SalesforceSourceConnector.svg" /><p>The SalesforceSourceConnector is used to read changes from Salesforce in realtime.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Importance</th>
-<th class="head">Default Value</th>
-<th class="head">Validator</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>kafka.topic</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guarenteed to be there. <cite>_EventType</cite> and <cite>_ObjectType</cite> are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using <cite>salesforce.${_ObjectType}.${_EventType}</cite></td>
-</tr>
-<tr class="row-odd"><td>salesforce.consumer.key</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The consumer key for the OAuth application.</td>
-</tr>
-<tr class="row-even"><td>salesforce.consumer.secret</td>
-<td>Password</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The consumer secret for the OAuth application.</td>
-</tr>
-<tr class="row-odd"><td>salesforce.object</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The Salesforce object to create a topic for.</td>
-</tr>
-<tr class="row-even"><td>salesforce.password</td>
-<td>Password</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>Salesforce password to connect with.</td>
-</tr>
-<tr class="row-odd"><td>salesforce.password.token</td>
-<td>Password</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The Salesforce security token associated with the username.</td>
-</tr>
-<tr class="row-even"><td>salesforce.push.topic.name</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The Salesforce topic to subscribe to. If salesforce.push.topic.create is set to true, a PushTopic with this name will be created.</td>
-</tr>
-<tr class="row-odd"><td>salesforce.username</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>Salesforce username to connect with.</td>
-</tr>
-<tr class="row-even"><td>kafka.topic.lowercase</td>
-<td>Boolean</td>
-<td>High</td>
-<td>true</td>
-<td>&#160;</td>
-<td>Flag to determine if the kafka topic should be lowercased.</td>
-</tr>
-<tr class="row-odd"><td>salesforce.instance</td>
-<td>String</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The Salesforce instance to connect to.</td>
-</tr>
-<tr class="row-even"><td>connection.timeout</td>
-<td>Long</td>
-<td>Low</td>
-<td>30000</td>
-<td>[5000,…,600000]</td>
-<td>The amount of time to wait while connecting to the Salesforce streaming endpoint.</td>
-</tr>
-<tr class="row-odd"><td>curl.logging</td>
-<td>Boolean</td>
-<td>Low</td>
-<td>false</td>
-<td>&#160;</td>
-<td>If enabled the logs will output the equivalent curl commands. This is a security risk because your authorization header will end up in the log file. Use at your own risk.</td>
-</tr>
-<tr class="row-even"><td>salesforce.push.topic.create</td>
-<td>Boolean</td>
-<td>Low</td>
-<td>true</td>
-<td>&#160;</td>
-<td>Flag to determine if the PushTopic should be created if it does not exist.</td>
-</tr>
-<tr class="row-odd"><td>salesforce.push.topic.notify.create</td>
-<td>Boolean</td>
-<td>Low</td>
-<td>true</td>
-<td>&#160;</td>
-<td>Flag to determine if the PushTopic should respond to creates.</td>
-</tr>
-<tr class="row-even"><td>salesforce.push.topic.notify.delete</td>
-<td>Boolean</td>
-<td>Low</td>
-<td>true</td>
-<td>&#160;</td>
-<td>Flag to determine if the PushTopic should respond to deletes.</td>
-</tr>
-<tr class="row-odd"><td>salesforce.push.topic.notify.undelete</td>
-<td>Boolean</td>
-<td>Low</td>
-<td>true</td>
-<td>&#160;</td>
-<td>Flag to determine if the PushTopic should respond to undeletes.</td>
-</tr>
-<tr class="row-even"><td>salesforce.push.topic.notify.update</td>
-<td>Boolean</td>
-<td>Low</td>
-<td>true</td>
-<td>&#160;</td>
-<td>Flag to determine if the PushTopic should respond to updates.</td>
-</tr>
-<tr class="row-odd"><td>salesforce.version</td>
-<td>String</td>
-<td>Low</td>
-<td>latest</td>
-<td>ValidPattern{pattern=^(latest|[d.]+)$}</td>
-<td>The version of the salesforce API to use.</td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="kafka-topic">
+<h3>kafka.topic<a class="headerlink" href="#kafka-topic" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guarenteed to be there. <cite>_EventType</cite> and <cite>_ObjectType</cite> are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using <cite>salesforce.${_ObjectType}.${_EventType}</cite></p>
+</div>
+<div class="section" id="salesforce-consumer-key">
+<h3>salesforce.consumer.key<a class="headerlink" href="#salesforce-consumer-key" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>The consumer key for the OAuth application.</p>
+</div>
+<div class="section" id="salesforce-consumer-secret">
+<h3>salesforce.consumer.secret<a class="headerlink" href="#salesforce-consumer-secret" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Password</p>
+<p>The consumer secret for the OAuth application.</p>
+</div>
+<div class="section" id="salesforce-object">
+<h3>salesforce.object<a class="headerlink" href="#salesforce-object" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>The Salesforce object to create a topic for.</p>
+</div>
+<div class="section" id="salesforce-password">
+<h3>salesforce.password<a class="headerlink" href="#salesforce-password" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Password</p>
+<p>Salesforce password to connect with.</p>
+</div>
+<div class="section" id="salesforce-password-token">
+<h3>salesforce.password.token<a class="headerlink" href="#salesforce-password-token" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Password</p>
+<p>The Salesforce security token associated with the username.</p>
+</div>
+<div class="section" id="salesforce-push-topic-name">
+<h3>salesforce.push.topic.name<a class="headerlink" href="#salesforce-push-topic-name" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>The Salesforce topic to subscribe to. If salesforce.push.topic.create is set to true, a PushTopic with this name will be created.</p>
+</div>
+<div class="section" id="salesforce-username">
+<h3>salesforce.username<a class="headerlink" href="#salesforce-username" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>Salesforce username to connect with.</p>
+</div>
+<div class="section" id="kafka-topic-lowercase">
+<h3>kafka.topic.lowercase<a class="headerlink" href="#kafka-topic-lowercase" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+<p>Flag to determine if the kafka topic should be lowercased.</p>
+</div>
+<div class="section" id="salesforce-instance">
+<h3>salesforce.instance<a class="headerlink" href="#salesforce-instance" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p>The Salesforce instance to connect to.</p>
+</div>
+<div class="section" id="connection-timeout">
+<h3>connection.timeout<a class="headerlink" href="#connection-timeout" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Long</p>
+<p><strong>Default Value:</strong> 30000</p>
+<p><strong>Validator:</strong> [5000,…,600000]</p>
+<p>The amount of time to wait while connecting to the Salesforce streaming endpoint.</p>
+</div>
+<div class="section" id="curl-logging">
+<h3>curl.logging<a class="headerlink" href="#curl-logging" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+<p>If enabled the logs will output the equivalent curl commands. This is a security risk because your authorization header will end up in the log file. Use at your own risk.</p>
+</div>
+<div class="section" id="salesforce-push-topic-create">
+<h3>salesforce.push.topic.create<a class="headerlink" href="#salesforce-push-topic-create" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+<p>Flag to determine if the PushTopic should be created if it does not exist.</p>
+</div>
+<div class="section" id="salesforce-push-topic-notify-create">
+<h3>salesforce.push.topic.notify.create<a class="headerlink" href="#salesforce-push-topic-notify-create" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+<p>Flag to determine if the PushTopic should respond to creates.</p>
+</div>
+<div class="section" id="salesforce-push-topic-notify-delete">
+<h3>salesforce.push.topic.notify.delete<a class="headerlink" href="#salesforce-push-topic-notify-delete" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+<p>Flag to determine if the PushTopic should respond to deletes.</p>
+</div>
+<div class="section" id="salesforce-push-topic-notify-undelete">
+<h3>salesforce.push.topic.notify.undelete<a class="headerlink" href="#salesforce-push-topic-notify-undelete" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+<p>Flag to determine if the PushTopic should respond to undeletes.</p>
+</div>
+<div class="section" id="salesforce-push-topic-notify-update">
+<h3>salesforce.push.topic.notify.update<a class="headerlink" href="#salesforce-push-topic-notify-update" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+<p>Flag to determine if the PushTopic should respond to updates.</p>
+</div>
+<div class="section" id="salesforce-version">
+<h3>salesforce.version<a class="headerlink" href="#salesforce-version" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> latest</p>
+<p><strong>Validator:</strong> ValidPattern{pattern=^(latest|[d.]+)$}</p>
+<p>The version of the salesforce API to use.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="property-based-example">
 <h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">connector1</span>
-<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">SalesforceSourceConnector1</span>
 <span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.salesforce.SalesforceSourceConnector</span>
-<span class="c"># The following values must be configured.</span>
-<span class="na">kafka.topic</span><span class="o">=</span>
-<span class="na">salesforce.consumer.key</span><span class="o">=</span>
-<span class="na">salesforce.consumer.secret</span><span class="o">=</span>
-<span class="na">salesforce.object</span><span class="o">=</span>
-<span class="na">salesforce.password</span><span class="o">=</span>
-<span class="na">salesforce.password.token</span><span class="o">=</span>
-<span class="na">salesforce.push.topic.name</span><span class="o">=</span>
-<span class="na">salesforce.username</span><span class="o">=</span>
-</pre></div>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="hll"><span class="na">kafka.topic</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">salesforce.consumer.key</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">salesforce.consumer.secret</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">salesforce.object</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">salesforce.password</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">salesforce.password.token</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">salesforce.push.topic.name</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">salesforce.username</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span></pre></div>
 </div>
 </div>
 <div class="section" id="rest-based-example">
 <h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
 Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.salesforce.SalesforceSourceConnector&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;kafka.topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.consumer.key&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.consumer.secret&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.object&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.password&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.password.token&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.push.topic.name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;salesforce.username&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
+<div class="highlight-json" id="connector-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;SalesforceSourceConnector1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.salesforce.SalesforceSourceConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="nt">&quot;kafka.topic&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;salesforce.consumer.key&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;salesforce.consumer.secret&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;salesforce.object&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;salesforce.password&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;salesforce.password.token&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;salesforce.push.topic.name&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;salesforce.username&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
+</span>  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
 </pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/SalesforceSourceConnector1/config
+</pre></div>
+</div>
 </div>
 </div>
 </div>

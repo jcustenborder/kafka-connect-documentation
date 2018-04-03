@@ -13,29 +13,230 @@ The SalesforceSourceConnector is used to read changes from Salesforce in realtim
 Configuration
 -------------
 
-.. csv-table:: Configuration
-    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
-    :widths: auto
 
-    "kafka.topic","String","High","","","The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guarenteed to be there. `_EventType` and `_ObjectType` are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using `salesforce.${_ObjectType}.${_EventType}`"
-    "salesforce.consumer.key","String","High","","","The consumer key for the OAuth application."
-    "salesforce.consumer.secret","Password","High","","","The consumer secret for the OAuth application."
-    "salesforce.object","String","High","","","The Salesforce object to create a topic for."
-    "salesforce.password","Password","High","","","Salesforce password to connect with."
-    "salesforce.password.token","Password","High","","","The Salesforce security token associated with the username."
-    "salesforce.push.topic.name","String","High","","","The Salesforce topic to subscribe to. If salesforce.push.topic.create is set to true, a PushTopic with this name will be created."
-    "salesforce.username","String","High","","","Salesforce username to connect with."
-    "kafka.topic.lowercase","Boolean","High","true","","Flag to determine if the kafka topic should be lowercased."
-    "salesforce.instance","String","High","","","The Salesforce instance to connect to."
-    "connection.timeout","Long","Low","30000","[5000,...,600000]","The amount of time to wait while connecting to the Salesforce streaming endpoint."
-    "curl.logging","Boolean","Low","false","","If enabled the logs will output the equivalent curl commands. This is a security risk because your authorization header will end up in the log file. Use at your own risk."
-    "salesforce.push.topic.create","Boolean","Low","true","","Flag to determine if the PushTopic should be created if it does not exist."
-    "salesforce.push.topic.notify.create","Boolean","Low","true","","Flag to determine if the PushTopic should respond to creates."
-    "salesforce.push.topic.notify.delete","Boolean","Low","true","","Flag to determine if the PushTopic should respond to deletes."
-    "salesforce.push.topic.notify.undelete","Boolean","Low","true","","Flag to determine if the PushTopic should respond to undeletes."
-    "salesforce.push.topic.notify.update","Boolean","Low","true","","Flag to determine if the PushTopic should respond to updates."
-    "salesforce.version","String","Low","latest","ValidPattern{pattern=^(latest|[\d\.]+)$}","The version of the salesforce API to use."
+^^^^^^^^^^^
+kafka.topic
+^^^^^^^^^^^
 
+**Importance:** High
+
+**Type:** String
+
+
+The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guarenteed to be there. `_EventType` and `_ObjectType` are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using `salesforce.${_ObjectType}.${_EventType}`
+
+^^^^^^^^^^^^^^^^^^^^^^^
+salesforce.consumer.key
+^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+
+The consumer key for the OAuth application.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+salesforce.consumer.secret
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** Password
+
+
+The consumer secret for the OAuth application.
+
+^^^^^^^^^^^^^^^^^
+salesforce.object
+^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+
+The Salesforce object to create a topic for.
+
+^^^^^^^^^^^^^^^^^^^
+salesforce.password
+^^^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** Password
+
+
+Salesforce password to connect with.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^
+salesforce.password.token
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** Password
+
+
+The Salesforce security token associated with the username.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+salesforce.push.topic.name
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+
+The Salesforce topic to subscribe to. If salesforce.push.topic.create is set to true, a PushTopic with this name will be created.
+
+^^^^^^^^^^^^^^^^^^^
+salesforce.username
+^^^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+
+Salesforce username to connect with.
+
+^^^^^^^^^^^^^^^^^^^^^
+kafka.topic.lowercase
+^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if the kafka topic should be lowercased.
+
+^^^^^^^^^^^^^^^^^^^
+salesforce.instance
+^^^^^^^^^^^^^^^^^^^
+
+**Importance:** High
+
+**Type:** String
+
+
+The Salesforce instance to connect to.
+
+^^^^^^^^^^^^^^^^^^
+connection.timeout
+^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Long
+
+**Default Value:** 30000
+
+**Validator:** [5000,...,600000]
+
+
+The amount of time to wait while connecting to the Salesforce streaming endpoint.
+
+^^^^^^^^^^^^
+curl.logging
+^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+If enabled the logs will output the equivalent curl commands. This is a security risk because your authorization header will end up in the log file. Use at your own risk.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+salesforce.push.topic.create
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if the PushTopic should be created if it does not exist.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+salesforce.push.topic.notify.create
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if the PushTopic should respond to creates.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+salesforce.push.topic.notify.delete
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if the PushTopic should respond to deletes.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+salesforce.push.topic.notify.undelete
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if the PushTopic should respond to undeletes.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+salesforce.push.topic.notify.update
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+Flag to determine if the PushTopic should respond to updates.
+
+^^^^^^^^^^^^^^^^^^
+salesforce.version
+^^^^^^^^^^^^^^^^^^
+
+**Importance:** Low
+
+**Type:** String
+
+**Default Value:** latest
+
+**Validator:** ValidPattern{pattern=^(latest|[\d\.]+)$}
+
+
+The version of the salesforce API to use.
+
+--------
+Examples
+--------
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Property based example
@@ -46,19 +247,21 @@ This configuration is used typically along with `standalone mode
 <http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
 .. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 4,5,6,7,8,9,10,11
 
-    name=connector1
-    tasks.max=1
+    name=SalesforceSourceConnector1
     connector.class=com.github.jcustenborder.kafka.connect.salesforce.SalesforceSourceConnector
-    # The following values must be configured.
-    kafka.topic=
-    salesforce.consumer.key=
-    salesforce.consumer.secret=
-    salesforce.object=
-    salesforce.password=
-    salesforce.password.token=
-    salesforce.push.topic.name=
-    salesforce.username=
+    tasks.max=1
+    kafka.topic=< Required Configuration >
+    salesforce.consumer.key=< Required Configuration >
+    salesforce.consumer.secret=< Required Configuration >
+    salesforce.object=< Required Configuration >
+    salesforce.password=< Required Configuration >
+    salesforce.password.token=< Required Configuration >
+    salesforce.push.topic.name=< Required Configuration >
+    salesforce.username=< Required Configuration >
+
 
 
 
@@ -70,31 +273,43 @@ Rest based example
 This configuration is used typically along with `distributed mode
 <http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
 Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :name: connector.json
+    :emphasize-lines: 6,7,8,9,10,11,12,13
 
     {
-        "name": "connector1",
-        "config": {
-            "connector.class": "com.github.jcustenborder.kafka.connect.salesforce.SalesforceSourceConnector",
-            "kafka.topic":"",
-            "salesforce.consumer.key":"",
-            "salesforce.consumer.secret":"",
-            "salesforce.object":"",
-            "salesforce.password":"",
-            "salesforce.password.token":"",
-            "salesforce.push.topic.name":"",
-            "salesforce.username":"",
-        }
+      "config" : {
+        "name" : "SalesforceSourceConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.salesforce.SalesforceSourceConnector",
+        "tasks.max" : "1",
+        "kafka.topic" : "< Required Configuration >",
+        "salesforce.consumer.key" : "< Required Configuration >",
+        "salesforce.consumer.secret" : "< Required Configuration >",
+        "salesforce.object" : "< Required Configuration >",
+        "salesforce.password" : "< Required Configuration >",
+        "salesforce.password.token" : "< Required Configuration >",
+        "salesforce.push.topic.name" : "< Required Configuration >",
+        "salesforce.username" : "< Required Configuration >"
+      }
     }
+
+
 
 Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
 one of your Kafka Connect worker(s).
 
 .. code-block:: bash
+    :caption: Create a new connector
 
     curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
 
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/SalesforceSourceConnector1/config
 
 
