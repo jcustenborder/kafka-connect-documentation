@@ -17,13 +17,36 @@ The StatsDSourceConnector is used to listen for StatsD messages and write them t
 Configuration
 -------------
 
-.. csv-table:: Configuration
-    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
-    :widths: auto
 
-    "topic","String","High","","","The topic to write the data to."
-    "port","Int","High","8125","ValidPort{start=1000, end=65535}","The port to listen on."
+^^^^^
+topic
+^^^^^
 
+**Importance:** High
+
+**Type:** String
+
+
+The topic to write the data to.
+
+^^^^
+port
+^^^^
+
+**Importance:** High
+
+**Type:** Int
+
+**Default Value:** 8125
+
+**Validator:** ValidPort{start=1000, end=65535}
+
+
+The port to listen on.
+
+--------
+Examples
+--------
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Property based example
@@ -34,12 +57,14 @@ This configuration is used typically along with `standalone mode
 <http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
 .. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 4
 
-    name=connector1
-    tasks.max=1
+    name=StatsDSourceConnector1
     connector.class=com.github.jcustenborder.kafka.connect.statsd.StatsDSourceConnector
-    # The following values must be configured.
-    topic=
+    tasks.max=1
+    topic=< Required Configuration >
+
 
 
 
@@ -51,24 +76,36 @@ Rest based example
 This configuration is used typically along with `distributed mode
 <http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
 Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :name: connector.json
+    :emphasize-lines: 6
 
     {
-        "name": "connector1",
-        "config": {
-            "connector.class": "com.github.jcustenborder.kafka.connect.statsd.StatsDSourceConnector",
-            "topic":"",
-        }
+      "config" : {
+        "name" : "StatsDSourceConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.statsd.StatsDSourceConnector",
+        "tasks.max" : "1",
+        "topic" : "< Required Configuration >"
+      }
     }
+
+
 
 Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
 one of your Kafka Connect worker(s).
 
 .. code-block:: bash
+    :caption: Create a new connector
 
     curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
 
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/StatsDSourceConnector1/config
 
 

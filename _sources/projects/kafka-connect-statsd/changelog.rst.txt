@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-04-03 16:48:43","`051b11cfe1f35af <https://github.com/jcustenborder/kafka-connect-statsd/commit/051b11cfe1f35af>`_","Jeremy Custenborder","Added connector hub. fixes #4 (#5)"
     "2017-11-07 22:08:03","`bfc3adf9f697302 <https://github.com/jcustenborder/kafka-connect-statsd/commit/bfc3adf9f697302>`_","Jeremy Custenborder","Updated documentation"
     "2017-11-04 03:11:33","`f09dc3cf13a401e <https://github.com/jcustenborder/kafka-connect-statsd/commit/f09dc3cf13a401e>`_","Jeremy Custenborder","Bumped to Kafka 1.0.0 (#3)"
     "2017-07-18 22:16:10","`197a6c85b4ccc6d <https://github.com/jcustenborder/kafka-connect-statsd/commit/197a6c85b4ccc6d>`_","Jeremy Custenborder","Rst (#2)
