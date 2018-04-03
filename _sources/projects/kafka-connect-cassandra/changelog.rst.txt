@@ -8,6 +8,13 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-04-02 23:55:27","`a58b816ae36195d <https://github.com/jcustenborder/kafka-connect-cassandra/commit/a58b816ae36195d>`_","Jeremy Custenborder","Issue 9 (#10)
+
+* Added plugin support. fixes #9
+
+* Moved to a static version.
+
+* Changed back to 1.0.0"
     "2018-03-15 17:27:51","`47f49d18e785be4 <https://github.com/jcustenborder/kafka-connect-cassandra/commit/47f49d18e785be4>`_","Jeremy Custenborder","Added check for a null key and throw an appropriate error message. fixes #5 (#8)"
     "2018-03-15 17:05:48","`a0947e274cda585 <https://github.com/jcustenborder/kafka-connect-cassandra/commit/a0947e274cda585>`_","Jeremy Custenborder","Added support for issuing updates. This is controlled by `cassandra.write.mode` which by default is `Insert`. fixes #6. (#7)"
     "2017-11-03 19:53:20","`ce99f93b9f3e1d8 <https://github.com/jcustenborder/kafka-connect-cassandra/commit/ce99f93b9f3e1d8>`_","Jeremy Custenborder","Moved documentation about table to topic to a note. Added more to the README. (#3)"
