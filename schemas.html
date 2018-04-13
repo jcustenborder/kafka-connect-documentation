@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ConfigDef.Type &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Schemas &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="index.html"/>
-        <link rel="next" title="Schema Types" href="schema.type.html"/>
-        <link rel="prev" title="SyslogValue" href="projects/kafka-connect-syslog/schemas/struct.com.github.jcustenborder.kafka.connect.syslog.SyslogValue.html"/> 
+        <link rel="next" title="Schemas" href="projects/kafka-connect-influxdb/schemas.html"/>
+        <link rel="prev" title="FromXML(value)" href="projects/kafka-connect-transform-xml/transformations/fromxml.value.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -91,14 +91,29 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="connectors.html">Connectors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transformations.html">Transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Schemas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="projects/kafka-connect-flume-avro/schemas.html">Schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/kafka-connect-influxdb/schemas.html">Schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/kafka-connect-jms/schemas.html">Schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/kafka-connect-kinesis/schemas.html">Schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/kafka-connect-mqtt/schemas.html">Schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/kafka-connect-rabbitmq/schemas.html">Schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/kafka-connect-snmp/schemas.html">Schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/kafka-connect-splunk/schemas.html">Schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/kafka-connect-statsd/schemas.html">Schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/kafka-connect-syslog/schemas.html">Schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/kafka-connect-transform-cef/schemas.html">Schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/kafka-connect-transform-maxmind/schemas.html">Schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/kafka-connect-twitter/schemas.html">Schemas</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ConfigDef.Type</a></li>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configdef.type.html">ConfigDef.Type</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schema.type.html">Schema Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
@@ -145,13 +160,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>ConfigDef.Type</li>
+      <li>Schemas</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/configdef.type.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/schemas.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -164,17 +179,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="configdef-type">
-<h1>ConfigDef.Type<a class="headerlink" href="#configdef-type" title="Permalink to this headline">¶</a></h1>
-<p class="rubric" id="configuration-boolean">Boolean</p>
-<p class="rubric" id="configuration-class">Class</p>
-<p class="rubric" id="configuration-double">Double</p>
-<p class="rubric" id="configuration-int">Int</p>
-<p class="rubric" id="configuration-list">List</p>
-<p class="rubric" id="configuration-long">Long</p>
-<p class="rubric" id="configuration-password">Password</p>
-<p class="rubric" id="configuration-short">Short</p>
-<p class="rubric" id="configuration-string">String</p>
+  <div class="section" id="schemas">
+<h1>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="projects/kafka-connect-flume-avro/schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/kafka-connect-influxdb/schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/kafka-connect-jms/schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/kafka-connect-kinesis/schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/kafka-connect-mqtt/schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/kafka-connect-rabbitmq/schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/kafka-connect-snmp/schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/kafka-connect-splunk/schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/kafka-connect-statsd/schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/kafka-connect-syslog/schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/kafka-connect-transform-cef/schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/kafka-connect-transform-maxmind/schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/kafka-connect-twitter/schemas.html">Schemas</a></li>
+</ul>
+</div>
 </div>
 
 
@@ -187,10 +211,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="schema.type.html" class="btn btn-neutral float-right" title="Schema Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="projects/kafka-connect-influxdb/schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="projects/kafka-connect-syslog/schemas/struct.com.github.jcustenborder.kafka.connect.syslog.SyslogValue.html" class="btn btn-neutral" title="SyslogValue" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="projects/kafka-connect-transform-xml/transformations/fromxml.value.html" class="btn btn-neutral" title="FromXML(value)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
