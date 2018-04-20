@@ -191,7 +191,7 @@ error.path
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@2ae92511
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@6df8131c
 
 
 The directory to place files in which have error(s). This directory must exist and be writable by the user running Kafka Connect.
@@ -204,7 +204,7 @@ finished.path
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@582ce329
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@5e888fba
 
 
 The directory to place files that have been successfully processed. This directory must exist and be writable by the user running Kafka Connect.
@@ -228,7 +228,7 @@ input.path
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@6df8131c
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@3d2af8d7
 
 
 The directory to read files that will be processed. This directory must exist and be writable by the user running Kafka Connect.
@@ -481,74 +481,30 @@ The amount of time to wait if a poll returns an empty list of records.
 Examples
 --------
 
-^^^^^^^^^^^^^^^^^^^^^^
-Property based example
-^^^^^^^^^^^^^^^^^^^^^^
+^^^
+TSV
+^^^
 
-
-This configuration is used typically along with `standalone mode
-<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
-
-.. code-block:: properties
-    :name: connector.properties
-    :emphasize-lines: 4,5,6,7,8
-
-    name=SpoolDirCsvSourceConnector1
-    connector.class=com.github.jcustenborder.kafka.connect.spooldir.SpoolDirCsvSourceConnector
-    tasks.max=1
-    error.path=< Required Configuration >
-    finished.path=< Required Configuration >
-    input.file.pattern=< Required Configuration >
-    input.path=< Required Configuration >
-    topic=< Required Configuration >
+This example will read a TSV
 
 
 
-
-^^^^^^^^^^^^^^^^^^
-Rest based example
-^^^^^^^^^^^^^^^^^^
-
-
-This configuration is used typically along with `distributed mode
-<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
-Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s). Check here for more information about the
-`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
-
-.. code-block:: json
-    :caption: Connect Distributed REST example
-    :name: connector.json
-    :emphasize-lines: 6,7,8,9,10
-
-    {
-      "config" : {
-        "name" : "SpoolDirCsvSourceConnector1",
-        "connector.class" : "com.github.jcustenborder.kafka.connect.spooldir.SpoolDirCsvSourceConnector",
-        "tasks.max" : "1",
-        "error.path" : "< Required Configuration >",
-        "finished.path" : "< Required Configuration >",
-        "input.file.pattern" : "< Required Configuration >",
-        "input.path" : "< Required Configuration >",
-        "topic" : "< Required Configuration >"
-      }
-    }
+Select one of the following configuration methods based on how you have deployed Kafka Connect.
+Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
+example.
 
 
+**Distributed Mode Json**
 
-Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
-one of your Kafka Connect worker(s).
-
-.. code-block:: bash
-    :caption: Create a new connector
-
-    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+.. literalinclude:: SpoolDirCsvSourceConnector.tsv.example.json
+    :language: JSON
 
 
-.. code-block:: bash
-    :caption: Update an existing connector
+**Standalone Mode Properties**
 
-    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/SpoolDirCsvSourceConnector1/config
+.. literalinclude:: SpoolDirCsvSourceConnector.tsv.example.properties
+    :language: properties
+
 
 
 
