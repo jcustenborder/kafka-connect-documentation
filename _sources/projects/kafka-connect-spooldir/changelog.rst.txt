@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-04-20 21:38:03","`ac8c4e452402c16 <https://github.com/jcustenborder/kafka-connect-spooldir/commit/ac8c4e452402c16>`_","Jeremy Custenborder","Cleanup of configuration documentation."
     "2018-04-20 19:35:25","`d0a498b0bf48e1d <https://github.com/jcustenborder/kafka-connect-spooldir/commit/d0a498b0bf48e1d>`_","Jeremy Custenborder","Updated documentation to the corrected path for the build output. Fixes #45."
     "2018-04-03 00:26:04","`68b2e59226f0122 <https://github.com/jcustenborder/kafka-connect-spooldir/commit/68b2e59226f0122>`_","Jeremy Custenborder","Issue 42 (#43)
 

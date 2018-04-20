@@ -1,6 +1,6 @@
-==========================================================
-Com.github.jcustenborder.kafka.connect.spooldir Connectors
-==========================================================
+=====================
+File Input Connectors
+=====================
 
 .. toctree::
     :maxdepth: 1
