@@ -8,6 +8,14 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-04-20 19:35:25","`d0a498b0bf48e1d <https://github.com/jcustenborder/kafka-connect-spooldir/commit/d0a498b0bf48e1d>`_","Jeremy Custenborder","Updated documentation to the corrected path for the build output. Fixes #45."
+    "2018-04-03 00:26:04","`68b2e59226f0122 <https://github.com/jcustenborder/kafka-connect-spooldir/commit/68b2e59226f0122>`_","Jeremy Custenborder","Issue 42 (#43)
+
+* Added assembly plugin. fixes #42.
+
+* Corrected. Just a sink."
+    "2018-03-27 16:32:38","`7b36790f3587b20 <https://github.com/jcustenborder/kafka-connect-spooldir/commit/7b36790f3587b20>`_","Jeremy Custenborder","Corrected offset. fixes #40"
+    "2017-11-07 22:07:02","`1a52576b4719e95 <https://github.com/jcustenborder/kafka-connect-spooldir/commit/1a52576b4719e95>`_","Jeremy Custenborder","Updated documentation"
     "2017-11-04 03:00:53","`ee16eaba2f64fb8 <https://github.com/jcustenborder/kafka-connect-spooldir/commit/ee16eaba2f64fb8>`_","Jeremy Custenborder","Bumped kafka to 1.0.0 (#34)"
     "2017-07-22 03:46:29","`7a0ecc80908605e <https://github.com/jcustenborder/kafka-connect-spooldir/commit/7a0ecc80908605e>`_","Jeremy Custenborder","Issue 22 (#24)
 
