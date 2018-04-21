@@ -26,7 +26,7 @@ error.path
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@567412db
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@54e0b29c
 
 
 The directory to place files in which have error(s). This directory must exist and be writable by the user running Kafka Connect.
@@ -39,7 +39,7 @@ finished.path
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@4addfb95
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@33428132
 
 
 The directory to place files that have been successfully processed. This directory must exist and be writable by the user running Kafka Connect.
@@ -63,7 +63,7 @@ input.path
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@2d3bb293
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@4c24063c
 
 
 The directory to read files that will be processed. This directory must exist and be writable by the user running Kafka Connect.
