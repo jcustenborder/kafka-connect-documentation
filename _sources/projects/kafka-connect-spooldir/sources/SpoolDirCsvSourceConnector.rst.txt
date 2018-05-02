@@ -205,20 +205,6 @@ The directory to place files in which have error(s). This directory must exist a
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@6a49b3c7
-
-
-
-^^^^^^^^^^^^^
-finished.path
-^^^^^^^^^^^^^
-
-The directory to place files that have been successfully processed. This directory must exist and be writable by the user running Kafka Connect.
-
-**Importance:** High
-
-**Type:** String
-
 **Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@6f6c4462
 
 
@@ -250,6 +236,18 @@ The directory to read files that will be processed. This directory must exist an
 
 
 ^^^^^^^^^^^^^
+finished.path
+^^^^^^^^^^^^^
+
+The directory to place files that have been successfully processed. This directory must exist and be writable by the user running Kafka Connect.
+
+**Importance:** High
+
+**Type:** String
+
+
+
+^^^^^^^^^^^^^
 halt.on.error
 ^^^^^^^^^^^^^
 
@@ -260,6 +258,22 @@ Should the task halt when it encounters an error or continue to the next file.
 **Type:** Boolean
 
 **Default Value:** true
+
+
+
+^^^^^^^^^^^^^^
+cleanup.policy
+^^^^^^^^^^^^^^
+
+Determines how the connector should cleanup the files that have been successfully processed. NONE leaves the files in place which could cause them to be reprocessed if the connector is restarted. DELETE removes the file from the filesystem. MOVE will move the file to a finished directory.
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** MOVE
+
+**Validator:** ValidEnum{enum=CleanupPolicy, allowed=[NONE, DELETE, MOVE]}
 
 
 

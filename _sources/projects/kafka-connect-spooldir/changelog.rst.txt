@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-05-02 21:51:02","`b8f1b19cc2a1ca4 <https://github.com/jcustenborder/kafka-connect-spooldir/commit/b8f1b19cc2a1ca4>`_","Jeremy Custenborder","Added support for a configurable delete policy. Fixes #52. (#53)"
     "2018-05-02 14:02:38","`b85ffb68636b29b <https://github.com/jcustenborder/kafka-connect-spooldir/commit/b85ffb68636b29b>`_","Jeremy Custenborder","Issue 50 (#51)
 
 * Partial support for ELF. #50

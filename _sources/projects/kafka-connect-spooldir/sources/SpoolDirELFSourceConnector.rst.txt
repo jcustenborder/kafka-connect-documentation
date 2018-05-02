@@ -28,21 +28,7 @@ The directory to place files in which have error(s). This directory must exist a
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@5f2788f2
-
-
-
-^^^^^^^^^^^^^
-finished.path
-^^^^^^^^^^^^^
-
-The directory to place files that have been successfully processed. This directory must exist and be writable by the user running Kafka Connect.
-
-**Importance:** High
-
-**Type:** String
-
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@75f67ea7
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@6fb87b73
 
 
 
@@ -68,7 +54,19 @@ The directory to read files that will be processed. This directory must exist an
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@549561ab
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@5f2788f2
+
+
+
+^^^^^^^^^^^^^
+finished.path
+^^^^^^^^^^^^^
+
+The directory to place files that have been successfully processed. This directory must exist and be writable by the user running Kafka Connect.
+
+**Importance:** High
+
+**Type:** String
 
 
 
@@ -83,6 +81,22 @@ Should the task halt when it encounters an error or continue to the next file.
 **Type:** Boolean
 
 **Default Value:** true
+
+
+
+^^^^^^^^^^^^^^
+cleanup.policy
+^^^^^^^^^^^^^^
+
+Determines how the connector should cleanup the files that have been successfully processed. NONE leaves the files in place which could cause them to be reprocessed if the connector is restarted. DELETE removes the file from the filesystem. MOVE will move the file to a finished directory.
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** MOVE
+
+**Validator:** ValidEnum{enum=CleanupPolicy, allowed=[NONE, DELETE, MOVE]}
 
 
 
@@ -333,13 +347,12 @@ This configuration is used typically along with `standalone mode
 
 .. code-block:: properties
     :name: connector.properties
-    :emphasize-lines: 4,5,6,7,8
+    :emphasize-lines: 4,5,6,7
 
     name=SpoolDirELFSourceConnector1
     connector.class=com.github.jcustenborder.kafka.connect.spooldir.elf.SpoolDirELFSourceConnector
     tasks.max=1
     error.path=< Required Configuration >
-    finished.path=< Required Configuration >
     input.file.pattern=< Required Configuration >
     input.path=< Required Configuration >
     topic=< Required Configuration >
@@ -361,7 +374,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 .. code-block:: json
     :caption: Connect Distributed REST example
     :name: connector.json
-    :emphasize-lines: 6,7,8,9,10
+    :emphasize-lines: 6,7,8,9
 
     {
       "config" : {
@@ -369,7 +382,6 @@ post the configuration to one the distributed connect worker(s). Check here for 
         "connector.class" : "com.github.jcustenborder.kafka.connect.spooldir.elf.SpoolDirELFSourceConnector",
         "tasks.max" : "1",
         "error.path" : "< Required Configuration >",
-        "finished.path" : "< Required Configuration >",
         "input.file.pattern" : "< Required Configuration >",
         "input.path" : "< Required Configuration >",
         "topic" : "< Required Configuration >"
