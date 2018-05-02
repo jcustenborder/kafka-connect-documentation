@@ -1,11 +1,11 @@
-=====================
-Json Source Connector
-=====================
+=========================================
+Extended Log File Format Source Connector
+=========================================
 
-.. image:: SpoolDirJsonSourceConnector.svg
+.. image:: SpoolDirELFSourceConnector.svg
 
 
-This connector is used to `stream <https://en.wikipedia.org/wiki/JSON_Streaming>` JSON files from a directory while converting the data based on the schema supplied in the configuration.
+This connector is used to stream `Extended Log File Format <https://www.w3.org/TR/WD-logfile.html>` files from a directory while converting the data to a strongly typed schema.
 
 
 
@@ -28,7 +28,7 @@ The directory to place files in which have error(s). This directory must exist a
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@5b8e2ea7
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@5f2788f2
 
 
 
@@ -42,7 +42,7 @@ The directory to place files that have been successfully processed. This directo
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@6b994b71
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@75f67ea7
 
 
 
@@ -68,7 +68,7 @@ The directory to read files that will be processed. This directory must exist an
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@6fb87b73
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@549561ab
 
 
 
@@ -323,30 +323,74 @@ The amount of time to wait if a poll returns an empty list of records.
 Examples
 --------
 
-^^^^
-Json
-^^^^
-
-This example will read json from the input directory.
+^^^^^^^^^^^^^^^^^^^^^^
+Property based example
+^^^^^^^^^^^^^^^^^^^^^^
 
 
+This configuration is used typically along with `standalone mode
+<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
-Select one of the following configuration methods based on how you have deployed Kafka Connect.
-Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
-example.
+.. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 4,5,6,7,8
+
+    name=SpoolDirELFSourceConnector1
+    connector.class=com.github.jcustenborder.kafka.connect.spooldir.elf.SpoolDirELFSourceConnector
+    tasks.max=1
+    error.path=< Required Configuration >
+    finished.path=< Required Configuration >
+    input.file.pattern=< Required Configuration >
+    input.path=< Required Configuration >
+    topic=< Required Configuration >
 
 
-**Distributed Mode Json**
-
-.. literalinclude:: SpoolDirJsonSourceConnector.test.example.json
-    :language: JSON
 
 
-**Standalone Mode Properties**
+^^^^^^^^^^^^^^^^^^
+Rest based example
+^^^^^^^^^^^^^^^^^^
 
-.. literalinclude:: SpoolDirJsonSourceConnector.test.example.properties
-    :language: properties
 
+This configuration is used typically along with `distributed mode
+<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
+Write the following json to `connector.json`, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
+
+.. code-block:: json
+    :caption: Connect Distributed REST example
+    :name: connector.json
+    :emphasize-lines: 6,7,8,9,10
+
+    {
+      "config" : {
+        "name" : "SpoolDirELFSourceConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.spooldir.elf.SpoolDirELFSourceConnector",
+        "tasks.max" : "1",
+        "error.path" : "< Required Configuration >",
+        "finished.path" : "< Required Configuration >",
+        "input.file.pattern" : "< Required Configuration >",
+        "input.path" : "< Required Configuration >",
+        "topic" : "< Required Configuration >"
+      }
+    }
+
+
+
+Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
+one of your Kafka Connect worker(s).
+
+.. code-block:: bash
+    :caption: Create a new connector
+
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/SpoolDirELFSourceConnector1/config
 
 
 
