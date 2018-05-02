@@ -1,9 +1,7 @@
-===================
-Cassandra Connector
-===================
+===========================
+Apache Cassandra Connectors
+===========================
 
-The Cassandra Connector is a high speed mechanism for writing data to `Apache Cassandra
-<http://cassandra.apache.org/>`_.
 
 .. toctree::
     :maxdepth: 1
@@ -12,13 +10,3 @@ The Cassandra Connector is a high speed mechanism for writing data to `Apache Ca
     :glob:
 
     sinks/*
-
-.. toctree::
-    :maxdepth: 0
-    :caption: Schemas:
-    :hidden:
-
-    schemas
-    info
-
-

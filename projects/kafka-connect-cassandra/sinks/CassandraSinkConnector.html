@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Cassandra Connector" href="../connectors.html"/>
-        <link rel="next" title="Additional Information" href="../info.html"/>
-        <link rel="prev" title="Cassandra Connector" href="../connectors.html"/> 
+        <link rel="up" title="Apache Cassandra Connectors" href="../connectors.html"/>
+        <link rel="next" title="SQL Server Connector" href="../../kafka-connect-cdc-mssql/connectors.html"/>
+        <link rel="prev" title="Apache Cassandra Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -95,13 +95,13 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Cassandra Connector</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Apache Cassandra Connectors</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Cassandra Sink Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../info.html">Additional Information</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-cdc-mssql/connectors.html">SQL Server Connector</a></li>
@@ -180,7 +180,7 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Cassandra Connector</a> &raquo;</li>
+          <li><a href="../connectors.html">Apache Cassandra Connectors</a> &raquo;</li>
         
       <li>Cassandra Sink Connector</li>
     
@@ -218,175 +218,233 @@
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="cassandra-keyspace">
 <h3>cassandra.keyspace<a class="headerlink" href="#cassandra-keyspace" title="Permalink to this headline">¶</a></h3>
+<p>The keyspace to write to.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-<p>The keyspace to write to.</p>
 </div>
 <div class="section" id="cassandra-keyspace-create-enabled">
 <h3>cassandra.keyspace.create.enabled<a class="headerlink" href="#cassandra-keyspace-create-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Flag to determine if the keyspace should be created if it does not exist.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> true</p>
-<p>Flag to determine if the keyspace should be created if it does not exist.</p>
 </div>
 <div class="section" id="cassandra-compression">
 <h3>cassandra.compression<a class="headerlink" href="#cassandra-compression" title="Permalink to this headline">¶</a></h3>
+<p>Compression algorithm to use when connecting to Cassandra.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> NONE</p>
 <p><strong>Validator:</strong> [NONE, SNAPPY, LZ4]</p>
-<p>Compression algorithm to use when connecting to Cassandra.</p>
 </div>
 <div class="section" id="cassandra-consistency-level">
 <h3>cassandra.consistency.level<a class="headerlink" href="#cassandra-consistency-level" title="Permalink to this headline">¶</a></h3>
+<p>The requested consistency level to use when writing to Cassandra.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> LOCAL_QUORUM</p>
 <p><strong>Validator:</strong> ValidEnum{enum=ConsistencyLevel, allowed=[ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE]}</p>
-<p>The requested consistency level to use when writing to Cassandra.</p>
 </div>
 <div class="section" id="cassandra-contact-points">
 <h3>cassandra.contact.points<a class="headerlink" href="#cassandra-contact-points" title="Permalink to this headline">¶</a></h3>
+<p>The hosts to connect to.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> List</p>
 <p><strong>Default Value:</strong> [localhost]</p>
-<p>The hosts to connect to.</p>
 </div>
 <div class="section" id="cassandra-deletes-enabled">
 <h3>cassandra.deletes.enabled<a class="headerlink" href="#cassandra-deletes-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Flag to determine if the connector should process deletes.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> true</p>
-<p>Flag to determine if the connector should process deletes.</p>
 </div>
 <div class="section" id="cassandra-password">
 <h3>cassandra.password<a class="headerlink" href="#cassandra-password" title="Permalink to this headline">¶</a></h3>
+<p>The password to connect to Cassandra with.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Password</p>
 <p><strong>Default Value:</strong> [hidden]</p>
-<p>The password to connect to Cassandra with.</p>
 </div>
 <div class="section" id="cassandra-port">
 <h3>cassandra.port<a class="headerlink" href="#cassandra-port" title="Permalink to this headline">¶</a></h3>
+<p>The port the Cassandra hosts are listening on.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 9042</p>
 <p><strong>Validator:</strong> ValidPort{start=1025, end=65535}</p>
-<p>The port the Cassandra hosts are listening on.</p>
 </div>
 <div class="section" id="cassandra-security-enabled">
 <h3>cassandra.security.enabled<a class="headerlink" href="#cassandra-security-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Flag to determine if security is enabled.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> false</p>
-<p>Flag to determine if security is enabled.</p>
 </div>
 <div class="section" id="cassandra-ssl-enabled">
 <h3>cassandra.ssl.enabled<a class="headerlink" href="#cassandra-ssl-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Flag to determine if SSL is enabled when connecting to Cassandra.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> false</p>
-<p>Flag to determine if SSL is enabled when connecting to Cassandra.</p>
 </div>
 <div class="section" id="cassandra-ssl-provider">
 <h3>cassandra.ssl.provider<a class="headerlink" href="#cassandra-ssl-provider" title="Permalink to this headline">¶</a></h3>
+<p>The SSL Provider to use when connecting to Cassandra</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> JDK</p>
 <p><strong>Validator:</strong> ValidEnum{enum=SslProvider, allowed=[JDK, OPENSSL, OPENSSL_REFCNT]}</p>
-<p>The SSL Provider to use when connecting to Cassandra</p>
 </div>
 <div class="section" id="cassandra-table-create-caching">
 <h3>cassandra.table.create.caching<a class="headerlink" href="#cassandra-table-create-caching" title="Permalink to this headline">¶</a></h3>
+<p>Caching setting to use.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> NONE</p>
 <p><strong>Validator:</strong> ValidEnum{enum=Caching, allowed=[ALL, KEYS_ONLY, ROWS_ONLY, NONE]}</p>
-<p>Caching setting to use.</p>
 </div>
 <div class="section" id="cassandra-table-create-compression-algorithm">
 <h3>cassandra.table.create.compression.algorithm<a class="headerlink" href="#cassandra-table-create-compression-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>Compression algorithm to use when the table is created.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> NONE</p>
 <p><strong>Validator:</strong> [NONE, SNAPPY, LZ4, DEFLATE]</p>
-<p>Compression algorithm to use when the table is created.</p>
 </div>
 <div class="section" id="cassandra-table-create-compression-enabled">
 <h3>cassandra.table.create.compression.enabled<a class="headerlink" href="#cassandra-table-create-compression-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Flag to determine if compression should be used when a table is created. Existing tables are not altered.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> true</p>
-<p>Flag to determine if compression should be used when a table is created. Existing tables are not altered.</p>
 </div>
 <div class="section" id="cassandra-table-manage-enabled">
 <h3>cassandra.table.manage.enabled<a class="headerlink" href="#cassandra-table-manage-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Flag to determine if the connector should manage the table.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> true</p>
-<p>Flag to determine if the connector should manage the table.</p>
 </div>
 <div class="section" id="cassandra-username">
 <h3>cassandra.username<a class="headerlink" href="#cassandra-username" title="Permalink to this headline">¶</a></h3>
+<p>The username to connect to Cassandra with.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> cassandra</p>
-<p>The username to connect to Cassandra with.</p>
 </div>
 <div class="section" id="cassandra-write-mode">
 <h3>cassandra.write.mode<a class="headerlink" href="#cassandra-write-mode" title="Permalink to this headline">¶</a></h3>
+<p>The type of statement to build when writing to Cassandra.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> Insert</p>
 <p><strong>Validator:</strong> ValidEnum{enum=WriteMode, allowed=[Insert, Update]}</p>
-<p>The type of statement to build when writing to Cassandra.</p>
 </div>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="property-based-example">
-<h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
-<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
-<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">CassandraSinkConnector1</span>
-<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnector</span>
-<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
-<span class="hll"><span class="na">topics</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
-</span><span class="hll"><span class="na">cassandra.keyspace</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
-</span></pre></div>
-</div>
-</div>
-<div class="section" id="rest-based-example">
-<h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
-<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
-Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s). Check here for more information about the
-<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
-<div class="highlight-json" id="connector-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="section" id="upsert-mode">
+<h3>Upsert mode<a class="headerlink" href="#upsert-mode" title="Permalink to this headline">¶</a></h3>
+<p>This example will configure the connector to use upserts when writing data to Cassandra.</p>
+<p>Select one of the following configuration methods based on how you have deployed Kafka Connect.
+Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
+example.</p>
+<p><strong>Distributed Mode Json</strong></p>
+<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;cassandraSinkConnector1&quot;</span><span class="p">,</span>
   <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;CassandraSinkConnector1&quot;</span><span class="p">,</span>
     <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnector&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-<span class="hll">    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
-</span><span class="hll">    <span class="nt">&quot;cassandra.keyspace&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
-</span>  <span class="p">}</span>
+    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;topic1,topic2,topic3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cassandra.contact.points&quot;</span> <span class="p">:</span> <span class="s2">&quot;cassandra&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cassandra.keyspace&quot;</span> <span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cassandra.write.mode&quot;</span> <span class="p">:</span> <span class="s2">&quot;Update&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
-one of your Kafka Connect worker(s).</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
+<p><strong>Standalone Mode Properties</strong></p>
+<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="c">#</span>
+<span class="c">#Wed May 02 17:27:12 UTC 2018</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnector</span>
+<span class="na">cassandra.write.mode</span><span class="o">=</span><span class="s">Update</span>
+<span class="na">cassandra.contact.points</span><span class="o">=</span><span class="s">cassandra</span>
+<span class="na">cassandra.keyspace</span><span class="o">=</span><span class="s">test</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="na">topics</span><span class="o">=</span><span class="s">topic1,topic2,topic3</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/CassandraSinkConnector1/config
+<div class="section" id="standard">
+<h3>Standard<a class="headerlink" href="#standard" title="Permalink to this headline">¶</a></h3>
+<p>This example will connect to an Apache Cassandra instance without authentication.</p>
+<p>Select one of the following configuration methods based on how you have deployed Kafka Connect.
+Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
+example.</p>
+<p><strong>Distributed Mode Json</strong></p>
+<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;cassandraSinkConnector1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;topic1,topic2,topic3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cassandra.contact.points&quot;</span> <span class="p">:</span> <span class="s2">&quot;cassandra&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cassandra.keyspace&quot;</span> <span class="p">:</span> <span class="s2">&quot;test&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
+<p><strong>Standalone Mode Properties</strong></p>
+<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="c">#</span>
+<span class="c">#Wed May 02 17:27:12 UTC 2018</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnector</span>
+<span class="na">cassandra.contact.points</span><span class="o">=</span><span class="s">cassandra</span>
+<span class="na">cassandra.keyspace</span><span class="o">=</span><span class="s">test</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="na">topics</span><span class="o">=</span><span class="s">topic1,topic2,topic3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ssl-and-authentication">
+<h3>SSL and Authentication<a class="headerlink" href="#ssl-and-authentication" title="Permalink to this headline">¶</a></h3>
+<p>This example will connect to an Apache Cassandra instance with SSL and username / password authentication.</p>
+<p>Select one of the following configuration methods based on how you have deployed Kafka Connect.
+Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
+example.</p>
+<p><strong>Distributed Mode Json</strong></p>
+<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;cassandraSinkConnector1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;topic1,topic2,topic3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cassandra.contact.points&quot;</span> <span class="p">:</span> <span class="s2">&quot;cassandra&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cassandra.keyspace&quot;</span> <span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cassandra.ssl.enabled&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cassandra.username&quot;</span> <span class="p">:</span> <span class="s2">&quot;example&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cassandra.password&quot;</span> <span class="p">:</span> <span class="s2">&quot;password&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Standalone Mode Properties</strong></p>
+<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="c">#</span>
+<span class="c">#Wed May 02 17:27:12 UTC 2018</span>
+<span class="na">cassandra.password</span><span class="o">=</span><span class="s">password</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnector</span>
+<span class="na">cassandra.contact.points</span><span class="o">=</span><span class="s">cassandra</span>
+<span class="na">cassandra.username</span><span class="o">=</span><span class="s">example</span>
+<span class="na">cassandra.ssl.enabled</span><span class="o">=</span><span class="s">true</span>
+<span class="na">cassandra.keyspace</span><span class="o">=</span><span class="s">test</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="na">topics</span><span class="o">=</span><span class="s">topic1,topic2,topic3</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -402,10 +460,10 @@ one of your Kafka Connect worker(s).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../info.html" class="btn btn-neutral float-right" title="Additional Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../kafka-connect-cdc-mssql/connectors.html" class="btn btn-neutral float-right" title="SQL Server Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Cassandra Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="Apache Cassandra Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

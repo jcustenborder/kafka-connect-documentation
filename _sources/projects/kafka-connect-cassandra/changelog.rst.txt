@@ -8,6 +8,11 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-05-02 17:25:33","`b5b2564dc2a4501 <https://github.com/jcustenborder/kafka-connect-cassandra/commit/b5b2564dc2a4501>`_","Jeremy Custenborder","Error messages (#16)
+
+* Added error message that calls out when `record.keySchema()` is not a struct. Fixes #12. Added descriptive error message when `record.valueSchema()` does not include the same fields as `record.keySchema()`. Fixes #13.
+
+* Added more documentation."
     "2018-04-02 23:55:27","`a58b816ae36195d <https://github.com/jcustenborder/kafka-connect-cassandra/commit/a58b816ae36195d>`_","Jeremy Custenborder","Issue 9 (#10)
 
 * Added plugin support. fixes #9
