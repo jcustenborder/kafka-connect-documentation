@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-05-02 23:03:20","`e6c6ec4d30d91f9 <https://github.com/jcustenborder/kafka-connect-spooldir/commit/e6c6ec4d30d91f9>`_","Jeremy Custenborder","Added check for cleanup policy. Added log message when removing file."
     "2018-05-02 22:40:13","`3af4d58257f6dfc <https://github.com/jcustenborder/kafka-connect-spooldir/commit/3af4d58257f6dfc>`_","Jeremy Custenborder","validValues should not return null."
     "2018-05-02 21:51:02","`b8f1b19cc2a1ca4 <https://github.com/jcustenborder/kafka-connect-spooldir/commit/b8f1b19cc2a1ca4>`_","Jeremy Custenborder","Added support for a configurable delete policy. Fixes #52. (#53)"
     "2018-05-02 14:02:38","`b85ffb68636b29b <https://github.com/jcustenborder/kafka-connect-spooldir/commit/b85ffb68636b29b>`_","Jeremy Custenborder","Issue 50 (#51)
