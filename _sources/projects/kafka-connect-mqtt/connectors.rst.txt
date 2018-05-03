@@ -1,8 +1,14 @@
-==============
-Mqtt Connector
-==============
+======================================================
+Com.github.jcustenborder.kafka.connect.mqtt Connectors
+======================================================
 
-The Mqtt Connector provides a mechanism for subscribing to topics on a Mqtt broker.
+.. toctree::
+    :maxdepth: 1
+    :caption: Source Connectors:
+    :hidden:
+    :glob:
+
+    sources/*
 
 .. toctree::
     :maxdepth: 1
@@ -11,13 +17,3 @@ The Mqtt Connector provides a mechanism for subscribing to topics on a Mqtt brok
     :glob:
 
     sinks/*
-
-.. toctree::
-    :maxdepth: 0
-    :caption: Schemas:
-    :hidden:
-
-    schemas
-    info
-
-

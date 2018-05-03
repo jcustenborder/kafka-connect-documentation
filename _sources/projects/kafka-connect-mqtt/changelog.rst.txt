@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-05-03 20:34:08","`14683ca9b06bde3 <https://github.com/jcustenborder/kafka-connect-mqtt/commit/14683ca9b06bde3>`_","Randall Hauch","Correct MQTT capitalization (#6)"
     "2018-04-02 23:41:57","`74a1d409d208202 <https://github.com/jcustenborder/kafka-connect-mqtt/commit/74a1d409d208202>`_","Jeremy Custenborder","Sink Connector (#5)
 
 * Corrected copyright year. Added Sink connector. fixes #2.

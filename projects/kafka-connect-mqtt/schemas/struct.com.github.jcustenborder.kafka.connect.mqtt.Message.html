@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="Additional Information" href="../info.html"/>
-        <link rel="prev" title="Schemas" href="../schemas.html"/> 
+        <link rel="up" title="Com.github.jcustenborder.kafka.connect.mqtt Schemas" href="../schemas.html"/>
+        <link rel="next" title="Schemas" href="../../kafka-connect-syslog/schemas.html"/>
+        <link rel="prev" title="Com.github.jcustenborder.kafka.connect.mqtt Schemas" href="../schemas.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -101,8 +101,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-influxdb/schemas.html">Schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jms/schemas.html">Schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/schemas.html">Schemas</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Message</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Com.github.jcustenborder.kafka.connect.mqtt Schemas</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Message</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/schemas.html">Schemas</a></li>
@@ -164,11 +167,9 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
+          <li><a href="../../../schemas.html">Schemas</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Mqtt Connector</a> &raquo;</li>
-        
-          <li><a href="../schemas.html">Schemas</a> &raquo;</li>
+          <li><a href="../schemas.html">Com.github.jcustenborder.kafka.connect.mqtt Schemas</a> &raquo;</li>
         
       <li>Message</li>
     
@@ -191,55 +192,45 @@
             
   <div class="section" id="message">
 <h1>Message<a class="headerlink" href="#message" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">Message</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Optional</th>
-<th class="head">Default Value</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>messageId</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>The MQTT id of the message.</td>
-</tr>
-<tr class="row-odd"><td>payload</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-bytes"><span class="std std-ref">BYTES</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Payload of the message.</td>
-</tr>
-<tr class="row-even"><td>qos</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>QOS of the message.</td>
-</tr>
-<tr class="row-odd"><td>duplicate</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to determine whether or not this message might be a duplicate of one that has already been received.</td>
-</tr>
-<tr class="row-even"><td>retained</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Flag to whether or not this message should be/was retained by the server.</td>
-</tr>
-<tr class="row-odd"><td>topic</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Name of the Mqtt topic the message was published to.</td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="messageid">
+<h3>messageId<a class="headerlink" href="#messageid" title="Permalink to this headline">¶</a></h3>
+<p>The MQTT id of the message.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></p>
+</div>
+<div class="section" id="payload">
+<h3>payload<a class="headerlink" href="#payload" title="Permalink to this headline">¶</a></h3>
+<p>Payload of the message.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-bytes"><span class="std std-ref">BYTES</span></a></p>
+</div>
+<div class="section" id="qos">
+<h3>qos<a class="headerlink" href="#qos" title="Permalink to this headline">¶</a></h3>
+<p>QOS of the message.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></p>
+</div>
+<div class="section" id="duplicate">
+<h3>duplicate<a class="headerlink" href="#duplicate" title="Permalink to this headline">¶</a></h3>
+<p>Flag to determine whether or not this message might be a duplicate of one that has already been received.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="retained">
+<h3>retained<a class="headerlink" href="#retained" title="Permalink to this headline">¶</a></h3>
+<p>Flag to whether or not this message should be/was retained by the server.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="topic">
+<h3>topic<a class="headerlink" href="#topic" title="Permalink to this headline">¶</a></h3>
+<p>Name of the Mqtt topic the message was published to.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+</div>
 </div>
 
 
@@ -252,10 +243,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../info.html" class="btn btn-neutral float-right" title="Additional Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../kafka-connect-syslog/schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../schemas.html" class="btn btn-neutral" title="Schemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../schemas.html" class="btn btn-neutral" title="Com.github.jcustenborder.kafka.connect.mqtt Schemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

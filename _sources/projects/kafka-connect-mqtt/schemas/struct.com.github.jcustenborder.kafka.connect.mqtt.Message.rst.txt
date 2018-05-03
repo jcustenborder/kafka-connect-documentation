@@ -3,14 +3,81 @@ Message
 =======
 
 
-.. csv-table:: Message
-    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
-    :widths: auto
 
-    "messageId",":ref:`schema-Int32`","false","","The MQTT id of the message."
-    "payload",":ref:`schema-Bytes`","false","","Payload of the message."
-    "qos",":ref:`schema-Int32`","false","","QOS of the message."
-    "duplicate",":ref:`schema-Boolean`","false","","Flag to determine whether or not this message might be a duplicate of one that has already been received."
-    "retained",":ref:`schema-Boolean`","false","","Flag to whether or not this message should be/was retained by the server."
-    "topic",":ref:`schema-String`","false","","Name of the Mqtt topic the message was published to."
+------
+Fields
+------
+
+
+^^^^^^^^^
+messageId
+^^^^^^^^^
+
+The MQTT id of the message.
+
+**Optional:** yes
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^^^^
+payload
+^^^^^^^
+
+Payload of the message.
+
+**Optional:** yes
+
+**Type:** :ref:`schema-Bytes`
+
+
+
+^^^
+qos
+^^^
+
+QOS of the message.
+
+**Optional:** yes
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^^^^^^
+duplicate
+^^^^^^^^^
+
+Flag to determine whether or not this message might be a duplicate of one that has already been received.
+
+**Optional:** yes
+
+**Type:** :ref:`schema-Boolean`
+
+
+
+^^^^^^^^
+retained
+^^^^^^^^
+
+Flag to whether or not this message should be/was retained by the server.
+
+**Optional:** yes
+
+**Type:** :ref:`schema-Boolean`
+
+
+
+^^^^^
+topic
+^^^^^
+
+Name of the Mqtt topic the message was published to.
+
+**Optional:** yes
+
+**Type:** :ref:`schema-String`
+
+
 

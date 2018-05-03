@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Com.github.jcustenborder.kafka.connect.mqtt Connectors" href="../connectors.html"/>
+        <link rel="next" title="MqttSinkConnector" href="../sinks/MqttSinkConnector.html"/>
+        <link rel="prev" title="Com.github.jcustenborder.kafka.connect.mqtt Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -89,9 +92,42 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-cassandra/connectors.html">Apache Cassandra Connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-cdc-mssql/connectors.html">SQL Server Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/connectors.html">Flume Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-influxdb/connectors.html">InfluxDB Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jms/connectors.html">JMS Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jmx/connectors.html">JMX Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/connectors.html">Amazon Kinesis Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-maprdb/connectors.html">MapR DB Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/connectors.html">Memcached Connector</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Com.github.jcustenborder.kafka.connect.mqtt Connectors</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mqtt Source Connector</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sinks/MqttSinkConnector.html">MqttSinkConnector</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/connectors.html">RabbitMQ Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-redis/connectors.html">Redis Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-salesforce/connectors.html">Salesforce Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/connectors.html">Simulator Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-snmp/connectors.html">SNMP Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/connectors.html">Solr Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/connectors.html">Splunk Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/connectors.html">File Input Connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/connectors.html">StatsD Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/connectors.html">Syslog Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/connectors.html">Twitter Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-vertica/connectors.html">Vertica Connector</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../schemas.html">Schemas</a></li>
 </ul>
@@ -143,6 +179,10 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
+          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
+        
+          <li><a href="../connectors.html">Com.github.jcustenborder.kafka.connect.mqtt Connectors</a> &raquo;</li>
+        
       <li>Mqtt Source Connector</li>
     
     
@@ -171,68 +211,71 @@
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mqtt-server-uri">
 <h3>mqtt.server.uri<a class="headerlink" href="#mqtt-server-uri" title="Permalink to this headline">¶</a></h3>
+<p>List of Mqtt brokers to connect to.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> List</p>
-<p>List of Mqtt brokers to connect to.</p>
 </div>
 <div class="section" id="mqtt-topics">
 <h3>mqtt.topics<a class="headerlink" href="#mqtt-topics" title="Permalink to this headline">¶</a></h3>
+<p>The Mqtt topics to subscribe to.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> List</p>
-<p>The Mqtt topics to subscribe to.</p>
 </div>
 <div class="section" id="mqtt-password">
 <h3>mqtt.password<a class="headerlink" href="#mqtt-password" title="Permalink to this headline">¶</a></h3>
+<p>Password to connect with.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Password</p>
 <p><strong>Default Value:</strong> [hidden]</p>
-<p>Password to connect with.</p>
 </div>
 <div class="section" id="mqtt-username">
 <h3>mqtt.username<a class="headerlink" href="#mqtt-username" title="Permalink to this headline">¶</a></h3>
+<p>Username to connect with.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-<p>Username to connect with.</p>
 </div>
 <div class="section" id="kafka-topic-prefix">
 <h3>kafka.topic.prefix<a class="headerlink" href="#kafka-topic-prefix" title="Permalink to this headline">¶</a></h3>
+<p>The prefix to append to the Mqtt topic name when writing to Kafka.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> mqtt.</p>
-<p>The prefix to append to the Mqtt topic name when writing to Kafka.</p>
 </div>
 <div class="section" id="mqtt-clean-session-enabled">
 <h3>mqtt.clean.session.enabled<a class="headerlink" href="#mqtt-clean-session-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Sets whether the client and server should remember state across restarts and reconnects.</p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> true</p>
-<p>Sets whether the client and server should remember state across restarts and reconnects.</p>
 </div>
 <div class="section" id="mqtt-connect-timeout-seconds">
 <h3>mqtt.connect.timeout.seconds<a class="headerlink" href="#mqtt-connect-timeout-seconds" title="Permalink to this headline">¶</a></h3>
+<p>Sets the connection timeout value.</p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 30</p>
 <p><strong>Validator:</strong> [1,…]</p>
-<p>Sets the connection timeout value.</p>
 </div>
 <div class="section" id="mqtt-keepalive-interval-seconds">
 <h3>mqtt.keepalive.interval.seconds<a class="headerlink" href="#mqtt-keepalive-interval-seconds" title="Permalink to this headline">¶</a></h3>
+<p>Sets the “keep alive” interval.</p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 60</p>
 <p><strong>Validator:</strong> [1,…]</p>
-<p>Sets the “keep alive” interval.</p>
 </div>
 <div class="section" id="mqtt-qos">
 <h3>mqtt.qos<a class="headerlink" href="#mqtt-qos" title="Permalink to this headline">¶</a></h3>
+<p>mqtt.qos</p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 0</p>
 <p><strong>Validator:</strong> [0,…,3]</p>
-<p>mqtt.qos</p>
 </div>
 </div>
 <div class="section" id="examples">
@@ -254,7 +297,9 @@
 Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
 post the configuration to one the distributed connect worker(s). Check here for more information about the
 <a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
-<div class="highlight-json" id="connector-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="literal-block-wrapper docutils container" id="connector-json">
+<div class="code-block-caption"><span class="caption-text">Connect Distributed REST example</span><a class="headerlink" href="#connector-json" title="Permalink to this code">¶</a></div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;MqttSourceConnector1&quot;</span><span class="p">,</span>
     <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.mqtt.MqttSourceConnector&quot;</span><span class="p">,</span>
@@ -264,6 +309,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 </span>  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</div>
 </div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
@@ -290,6 +336,15 @@ one of your Kafka Connect worker(s).</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sinks/MqttSinkConnector.html" class="btn btn-neutral float-right" title="MqttSinkConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../connectors.html" class="btn btn-neutral" title="Com.github.jcustenborder.kafka.connect.mqtt Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

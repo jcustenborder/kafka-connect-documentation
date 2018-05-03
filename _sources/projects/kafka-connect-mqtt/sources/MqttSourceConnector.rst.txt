@@ -17,32 +17,40 @@ This connector connects to a Mqtt broker and subscribes to the specified topics.
 Configuration
 -------------
 
+-------
+General
+-------
+
 
 ^^^^^^^^^^^^^^^
 mqtt.server.uri
 ^^^^^^^^^^^^^^^
 
+List of Mqtt brokers to connect to.
+
 **Importance:** High
 
 **Type:** List
 
 
-List of Mqtt brokers to connect to.
 
 ^^^^^^^^^^^
 mqtt.topics
 ^^^^^^^^^^^
 
+The Mqtt topics to subscribe to.
+
 **Importance:** High
 
 **Type:** List
 
 
-The Mqtt topics to subscribe to.
 
 ^^^^^^^^^^^^^
 mqtt.password
 ^^^^^^^^^^^^^
+
+Password to connect with.
 
 **Importance:** High
 
@@ -51,22 +59,24 @@ mqtt.password
 **Default Value:** [hidden]
 
 
-Password to connect with.
 
 ^^^^^^^^^^^^^
 mqtt.username
 ^^^^^^^^^^^^^
+
+Username to connect with.
 
 **Importance:** High
 
 **Type:** String
 
 
-Username to connect with.
 
 ^^^^^^^^^^^^^^^^^^
 kafka.topic.prefix
 ^^^^^^^^^^^^^^^^^^
+
+The prefix to append to the Mqtt topic name when writing to Kafka.
 
 **Importance:** Medium
 
@@ -75,11 +85,12 @@ kafka.topic.prefix
 **Default Value:** mqtt.
 
 
-The prefix to append to the Mqtt topic name when writing to Kafka.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 mqtt.clean.session.enabled
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sets whether the client and server should remember state across restarts and reconnects.
 
 **Importance:** Low
 
@@ -88,11 +99,12 @@ mqtt.clean.session.enabled
 **Default Value:** true
 
 
-Sets whether the client and server should remember state across restarts and reconnects.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mqtt.connect.timeout.seconds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sets the connection timeout value.
 
 **Importance:** Low
 
@@ -103,11 +115,12 @@ mqtt.connect.timeout.seconds
 **Validator:** [1,...]
 
 
-Sets the connection timeout value.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 mqtt.keepalive.interval.seconds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sets the "keep alive" interval.
 
 **Importance:** Low
 
@@ -118,11 +131,12 @@ mqtt.keepalive.interval.seconds
 **Validator:** [1,...]
 
 
-Sets the "keep alive" interval.
 
 ^^^^^^^^
 mqtt.qos
 ^^^^^^^^
+
+mqtt.qos
 
 **Importance:** Low
 
@@ -133,7 +147,9 @@ mqtt.qos
 **Validator:** [0,...,3]
 
 
-mqtt.qos
+
+
+
 
 --------
 Examples
@@ -172,6 +188,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 `Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :caption: Connect Distributed REST example
     :name: connector.json
     :emphasize-lines: 6,7
 
@@ -200,5 +217,6 @@ one of your Kafka Connect worker(s).
     :caption: Update an existing connector
 
     curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/MqttSourceConnector1/config
+
 
 
