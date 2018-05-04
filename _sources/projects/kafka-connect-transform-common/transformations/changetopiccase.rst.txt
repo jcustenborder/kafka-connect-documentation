@@ -1,12 +1,12 @@
 ===============
-ChangeCase(Key)
+ChangeTopicCase
 ===============
 
-This transformation is used to change the case of fields in an input struct.
+This transformation is used to change the case of a topic.
 
 
 .. TIP::
-    This transformation is used to manipulate fields in the Key of the record.
+    This transformation will convert a topic name like 'TOPIC_NAME' to `topicName`, or `topic_name`.
 
 
 
@@ -23,7 +23,7 @@ General
 from
 ^^^^
 
-The format to move from 
+The format of the incoming topic name. `LOWER_CAMEL` = Java variable naming convention, e.g., "lowerCamel". `LOWER_HYPHEN` = Hyphenated variable naming convention, e.g., "lower-hyphen". `LOWER_UNDERSCORE` = C++ variable naming convention, e.g., "lower_underscore". `UPPER_CAMEL` = Java and C++ class naming convention, e.g., "UpperCamel". `UPPER_UNDERSCORE` = Java and C++ constant naming convention, e.g., "UPPER_UNDERSCORE".
 
 **Importance:** High
 
@@ -37,7 +37,7 @@ The format to move from
 to
 ^^
 
-
+The format of the outgoing topic name. `LOWER_CAMEL` = Java variable naming convention, e.g., "lowerCamel". `LOWER_HYPHEN` = Hyphenated variable naming convention, e.g., "lower-hyphen". `LOWER_UNDERSCORE` = C++ variable naming convention, e.g., "lower_underscore". `UPPER_CAMEL` = Java and C++ class naming convention, e.g., "UpperCamel". `UPPER_UNDERSCORE` = Java and C++ constant naming convention, e.g., "UPPER_UNDERSCORE".
 
 **Importance:** High
 
@@ -70,7 +70,7 @@ This configuration is used typically along with `standalone mode
     connector.class=org.apache.kafka.some.SourceConnector
     tasks.max=1
     transforms=tran
-    transforms.tran.type=com.github.jcustenborder.kafka.connect.transform.common.ChangeCase$Key
+    transforms.tran.type=com.github.jcustenborder.kafka.connect.transform.common.ChangeTopicCase
     transforms.tran.from=< Required Configuration >
     transforms.tran.to=< Required Configuration >
 
@@ -97,7 +97,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
       "name" : "Connector1",
       "connector.class" : "org.apache.kafka.some.SourceConnector",
       "transforms" : "tran",
-      "transforms.tran.type" : "com.github.jcustenborder.kafka.connect.transform.common.ChangeCase$Key",
+      "transforms.tran.type" : "com.github.jcustenborder.kafka.connect.transform.common.ChangeTopicCase",
       "transforms.tran.from" : "< Required Configuration >",
       "transforms.tran.to" : "< Required Configuration >"
     }
@@ -116,7 +116,7 @@ one of your Kafka Connect worker(s).
 .. code-block:: bash
     :caption: Update an existing connector
 
-    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/Key1/config
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/ChangeTopicCase1/config
 
 
 

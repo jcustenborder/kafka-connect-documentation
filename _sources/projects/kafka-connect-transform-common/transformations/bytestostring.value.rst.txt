@@ -10,10 +10,16 @@ This transformation is used to convert a byte array to a string.
 Configuration
 -------------
 
+-------
+General
+-------
+
 
 ^^^^^^^
 charset
 ^^^^^^^
+
+The charset to use when creating the output string.
 
 **Importance:** High
 
@@ -22,11 +28,12 @@ charset
 **Default Value:** UTF-8
 
 
-The charset to use when creating the output string.
 
 ^^^^^^
 fields
 ^^^^^^
+
+The fields to transform.
 
 **Importance:** High
 
@@ -35,7 +42,9 @@ fields
 **Default Value:** []
 
 
-The fields to transform.
+
+
+
 
 --------
 Examples
@@ -73,6 +82,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 `Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :caption: Connect Distributed REST example
     :name: connector.json
 
     {
@@ -97,5 +107,6 @@ one of your Kafka Connect worker(s).
     :caption: Update an existing connector
 
     curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/Value1/config
+
 
 

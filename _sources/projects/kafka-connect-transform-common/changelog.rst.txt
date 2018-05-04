@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-05-04 17:00:38","`cd06014031153c3 <https://github.com/jcustenborder/kafka-connect-transform-common/commit/cd06014031153c3>`_","Jeremy Custenborder","Added transformation to change the case of a topic. Fixes #19. (#20)"
     "2018-04-06 21:15:26","`9e86d304da6195f <https://github.com/jcustenborder/kafka-connect-transform-common/commit/9e86d304da6195f>`_","Jeremy Custenborder","Ignore String and bytes. fixes #11. (#18)"
     "2018-04-03 15:54:12","`3f823b0bd9b44fb <https://github.com/jcustenborder/kafka-connect-transform-common/commit/3f823b0bd9b44fb>`_","Jeremy Custenborder","Connector hub support. Fixes #16. (#17)"
     "2018-03-20 16:22:36","`97633d6156fae2f <https://github.com/jcustenborder/kafka-connect-transform-common/commit/97633d6156fae2f>`_","Jeremy Custenborder","Added docs."

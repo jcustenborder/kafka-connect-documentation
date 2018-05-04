@@ -10,15 +10,20 @@ This transformation is used to rename fields in the value of an input struct bas
 Configuration
 -------------
 
+-------
+General
+-------
+
 
 ^^^^^^^^^^^^^
 field.pattern
 ^^^^^^^^^^^^^
 
+
+
 **Importance:** High
 
 **Type:** String
-
 
 
 
@@ -26,16 +31,19 @@ field.pattern
 field.replacement
 ^^^^^^^^^^^^^^^^^
 
+
+
 **Importance:** High
 
 **Type:** String
 
 
 
-
 ^^^^^^^^^^^^^^^^^^^
 field.pattern.flags
 ^^^^^^^^^^^^^^^^^^^
+
+
 
 **Importance:** Low
 
@@ -44,6 +52,8 @@ field.pattern.flags
 **Default Value:** [CASE_INSENSITIVE]
 
 **Validator:** [UNICODE_CHARACTER_CLASS, CANON_EQ, UNICODE_CASE, DOTALL, LITERAL, MULTILINE, COMMENTS, CASE_INSENSITIVE, UNIX_LINES]
+
+
 
 
 
@@ -87,6 +97,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 `Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :caption: Connect Distributed REST example
     :name: connector.json
     :emphasize-lines: 6,7
 
@@ -114,5 +125,6 @@ one of your Kafka Connect worker(s).
     :caption: Update an existing connector
 
     curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/Value1/config
+
 
 
