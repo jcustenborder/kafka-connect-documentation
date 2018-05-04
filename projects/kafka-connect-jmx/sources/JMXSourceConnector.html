@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="JMX Connector" href="../connectors.html"/>
-        <link rel="next" title="Additional Information" href="../info.html"/>
-        <link rel="prev" title="JMX Connector" href="../connectors.html"/> 
+        <link rel="up" title="Com.github.jcustenborder.kafka.connect.jmx Connectors" href="../connectors.html"/>
+        <link rel="next" title="Amazon Kinesis Connector" href="../../kafka-connect-kinesis/connectors.html"/>
+        <link rel="prev" title="Com.github.jcustenborder.kafka.connect.jmx Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -100,12 +100,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/connectors.html">Flume Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-influxdb/connectors.html">InfluxDB Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jms/connectors.html">JMS Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">JMX Connector</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Com.github.jcustenborder.kafka.connect.jmx Connectors</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">JMX Source Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../info.html">Additional Information</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/connectors.html">Amazon Kinesis Connector</a></li>
@@ -179,7 +180,7 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">JMX Connector</a> &raquo;</li>
+          <li><a href="../connectors.html">Com.github.jcustenborder.kafka.connect.jmx Connectors</a> &raquo;</li>
         
       <li>JMX Source Connector</li>
     
@@ -205,100 +206,103 @@
 <img alt="../../../_images/JMXSourceConnector.svg" src="../../../_images/JMXSourceConnector.svg" /><p>The JMXSourceConnector is a <a class="reference internal" href="../../../glossary.html#term-source-connector"><span class="xref std std-term">Source Connector</span></a> used to collect JMX metrics from remote hosts.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Importance</th>
-<th class="head">Default Value</th>
-<th class="head">Validator</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>jmx.urls</td>
-<td>List</td>
-<td>High</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>The JMX urls to connect to.</td>
-</tr>
-<tr class="row-odd"><td>jmx.objects</td>
-<td>List</td>
-<td>Medium</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>jmx.objects</td>
-</tr>
-<tr class="row-even"><td>jmx.poll.schedule.ms</td>
-<td>Long</td>
-<td>Medium</td>
-<td>60000</td>
-<td>[15000,…]</td>
-<td>jmx.poll.schedule.ms</td>
-</tr>
-<tr class="row-odd"><td>jmx.security.enable</td>
-<td>Boolean</td>
-<td>Medium</td>
-<td>false</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>jmx.security.password</td>
-<td>Password</td>
-<td>Medium</td>
-<td>[hidden]</td>
-<td>&#160;</td>
-<td>jmx.security.password</td>
-</tr>
-<tr class="row-odd"><td>jmx.security.username</td>
-<td>String</td>
-<td>Medium</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>jmx.security.username</td>
-</tr>
-<tr class="row-even"><td>jmx.poll.delay.ms</td>
-<td>Long</td>
-<td>Low</td>
-<td>0</td>
-<td>[0,…]</td>
-<td>jmx.poll.delay.ms</td>
-</tr>
-</tbody>
-</table>
+</div>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="jmx-urls">
+<h3>jmx.urls<a class="headerlink" href="#jmx-urls" title="Permalink to this headline">¶</a></h3>
+<p>The JMX urls to connect to.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> List</p>
+</div>
+<div class="section" id="jmx-objects">
+<h3>jmx.objects<a class="headerlink" href="#jmx-objects" title="Permalink to this headline">¶</a></h3>
+<p>jmx.objects</p>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> List</p>
+</div>
+<div class="section" id="jmx-poll-schedule-ms">
+<h3>jmx.poll.schedule.ms<a class="headerlink" href="#jmx-poll-schedule-ms" title="Permalink to this headline">¶</a></h3>
+<p>jmx.poll.schedule.ms</p>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Long</p>
+<p><strong>Default Value:</strong> 60000</p>
+<p><strong>Validator:</strong> [15000,…]</p>
+</div>
+<div class="section" id="jmx-security-enable">
+<h3>jmx.security.enable<a class="headerlink" href="#jmx-security-enable" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+</div>
+<div class="section" id="jmx-security-password">
+<h3>jmx.security.password<a class="headerlink" href="#jmx-security-password" title="Permalink to this headline">¶</a></h3>
+<p>jmx.security.password</p>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Password</p>
+<p><strong>Default Value:</strong> [hidden]</p>
+</div>
+<div class="section" id="jmx-security-username">
+<h3>jmx.security.username<a class="headerlink" href="#jmx-security-username" title="Permalink to this headline">¶</a></h3>
+<p>jmx.security.username</p>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> String</p>
+</div>
+<div class="section" id="jmx-poll-delay-ms">
+<h3>jmx.poll.delay.ms<a class="headerlink" href="#jmx-poll-delay-ms" title="Permalink to this headline">¶</a></h3>
+<p>jmx.poll.delay.ms</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Long</p>
+<p><strong>Default Value:</strong> 0</p>
+<p><strong>Validator:</strong> [0,…]</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="property-based-example">
 <h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">connector1</span>
-<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">JMXSourceConnector1</span>
 <span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.jmx.JMXSourceConnector</span>
-<span class="c"># The following values must be configured.</span>
-<span class="na">jmx.urls</span><span class="o">=</span>
-<span class="na">jmx.objects</span><span class="o">=</span>
-</pre></div>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="hll"><span class="na">jmx.urls</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">jmx.objects</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span></pre></div>
 </div>
 </div>
 <div class="section" id="rest-based-example">
 <h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
 Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).</p>
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
+<div class="literal-block-wrapper docutils container" id="connector-json">
+<div class="code-block-caption"><span class="caption-text">Connect Distributed REST example</span><a class="headerlink" href="#connector-json" title="Permalink to this code">¶</a></div>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.jmx.JMXSourceConnector&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;jmx.urls&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;jmx.objects&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
+  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;JMXSourceConnector1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.jmx.JMXSourceConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="nt">&quot;jmx.urls&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;jmx.objects&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
+</span>  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+</div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
 </pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/JMXSourceConnector1/config
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -314,10 +318,10 @@ one of your Kafka Connect worker(s).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../info.html" class="btn btn-neutral float-right" title="Additional Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../kafka-connect-kinesis/connectors.html" class="btn btn-neutral float-right" title="Amazon Kinesis Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="JMX Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="Com.github.jcustenborder.kafka.connect.jmx Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

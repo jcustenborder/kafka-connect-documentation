@@ -1,8 +1,6 @@
-=============
-JMX Connector
-=============
-
-The JMX connector provides a method to pull data from remove JVMs using `JMX <https://en.wikipedia.org/wiki/Java_Management_Extensions>`_.
+=====================================================
+Com.github.jcustenborder.kafka.connect.jmx Connectors
+=====================================================
 
 .. toctree::
     :maxdepth: 1
@@ -12,20 +10,3 @@ The JMX connector provides a method to pull data from remove JVMs using `JMX <ht
 
     sources/*
 
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Sink Connectors:
-    :hidden:
-    :glob:
-
-    sinks/*
-
-
-.. toctree::
-    :maxdepth: 0
-    :caption: Schemas:
-    :hidden:
-
-    schemas
-    info

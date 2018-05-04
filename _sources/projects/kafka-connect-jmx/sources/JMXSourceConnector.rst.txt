@@ -13,18 +13,113 @@ The JMXSourceConnector is a :term:`Source Connector` used to collect JMX metrics
 Configuration
 -------------
 
-.. csv-table:: Configuration
-    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
-    :widths: auto
+-------
+General
+-------
 
-    "jmx.urls","List","High","","","The JMX urls to connect to."
-    "jmx.objects","List","Medium","","","jmx.objects"
-    "jmx.poll.schedule.ms","Long","Medium","60000","[15000,...]","jmx.poll.schedule.ms"
-    "jmx.security.enable","Boolean","Medium","false","",""
-    "jmx.security.password","Password","Medium","[hidden]","","jmx.security.password"
-    "jmx.security.username","String","Medium","","","jmx.security.username"
-    "jmx.poll.delay.ms","Long","Low","0","[0,...]","jmx.poll.delay.ms"
 
+^^^^^^^^
+jmx.urls
+^^^^^^^^
+
+The JMX urls to connect to.
+
+**Importance:** High
+
+**Type:** List
+
+
+
+^^^^^^^^^^^
+jmx.objects
+^^^^^^^^^^^
+
+jmx.objects
+
+**Importance:** Medium
+
+**Type:** List
+
+
+
+^^^^^^^^^^^^^^^^^^^^
+jmx.poll.schedule.ms
+^^^^^^^^^^^^^^^^^^^^
+
+jmx.poll.schedule.ms
+
+**Importance:** Medium
+
+**Type:** Long
+
+**Default Value:** 60000
+
+**Validator:** [15000,...]
+
+
+
+^^^^^^^^^^^^^^^^^^^
+jmx.security.enable
+^^^^^^^^^^^^^^^^^^^
+
+
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+
+^^^^^^^^^^^^^^^^^^^^^
+jmx.security.password
+^^^^^^^^^^^^^^^^^^^^^
+
+jmx.security.password
+
+**Importance:** Medium
+
+**Type:** Password
+
+**Default Value:** [hidden]
+
+
+
+^^^^^^^^^^^^^^^^^^^^^
+jmx.security.username
+^^^^^^^^^^^^^^^^^^^^^
+
+jmx.security.username
+
+**Importance:** Medium
+
+**Type:** String
+
+
+
+^^^^^^^^^^^^^^^^^
+jmx.poll.delay.ms
+^^^^^^^^^^^^^^^^^
+
+jmx.poll.delay.ms
+
+**Importance:** Low
+
+**Type:** Long
+
+**Default Value:** 0
+
+**Validator:** [0,...]
+
+
+
+
+
+
+--------
+Examples
+--------
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Property based example
@@ -35,13 +130,15 @@ This configuration is used typically along with `standalone mode
 <http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
 .. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 4,5
 
-    name=connector1
-    tasks.max=1
+    name=JMXSourceConnector1
     connector.class=com.github.jcustenborder.kafka.connect.jmx.JMXSourceConnector
-    # The following values must be configured.
-    jmx.urls=
-    jmx.objects=
+    tasks.max=1
+    jmx.urls=< Required Configuration >
+    jmx.objects=< Required Configuration >
+
 
 
 
@@ -53,25 +150,39 @@ Rest based example
 This configuration is used typically along with `distributed mode
 <http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
 Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :caption: Connect Distributed REST example
+    :name: connector.json
+    :emphasize-lines: 6,7
 
     {
-        "name": "connector1",
-        "config": {
-            "connector.class": "com.github.jcustenborder.kafka.connect.jmx.JMXSourceConnector",
-            "jmx.urls":"",
-            "jmx.objects":"",
-        }
+      "config" : {
+        "name" : "JMXSourceConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.jmx.JMXSourceConnector",
+        "tasks.max" : "1",
+        "jmx.urls" : "< Required Configuration >",
+        "jmx.objects" : "< Required Configuration >"
+      }
     }
+
+
 
 Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
 one of your Kafka Connect worker(s).
 
 .. code-block:: bash
+    :caption: Create a new connector
 
     curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/JMXSourceConnector1/config
 
 
 
