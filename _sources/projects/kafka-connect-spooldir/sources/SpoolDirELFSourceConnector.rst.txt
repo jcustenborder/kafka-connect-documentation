@@ -28,7 +28,7 @@ The directory to place files in which have error(s). This directory must exist a
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@6fb87b73
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@5abfb698
 
 
 
@@ -54,7 +54,7 @@ The directory to read files that will be processed. This directory must exist an
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@5f2788f2
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@61ce2d47
 
 
 
@@ -297,6 +297,20 @@ The Kafka topic to write the data to.
 **Importance:** High
 
 **Type:** String
+
+
+
+^^^^^^^^^^^^^^^^^^
+elf.separator.char
+^^^^^^^^^^^^^^^^^^
+
+The character that separates each field in the form of an integer. Typically in a CSV this is a TAB(9) or SPACE(32).
+
+**Importance:** High
+
+**Type:** Int
+
+**Default Value:** 9
 
 
 

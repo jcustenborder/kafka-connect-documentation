@@ -220,7 +220,7 @@
 <p>The directory to place files in which have error(s). This directory must exist and be writable by the user running Kafka Connect.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;utils&#46;config&#46;validators&#46;filesystem&#46;ValidDirectoryWritable&#37;&#52;&#48;6fb87b73">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>utils<span>&#46;</span>config<span>&#46;</span>validators<span>&#46;</span>filesystem<span>&#46;</span>ValidDirectoryWritable<span>&#64;</span>6fb87b73</a></p>
+<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;utils&#46;config&#46;validators&#46;filesystem&#46;ValidDirectoryWritable&#37;&#52;&#48;5abfb698">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>utils<span>&#46;</span>config<span>&#46;</span>validators<span>&#46;</span>filesystem<span>&#46;</span>ValidDirectoryWritable<span>&#64;</span>5abfb698</a></p>
 </div>
 <div class="section" id="input-file-pattern">
 <h3>input.file.pattern<a class="headerlink" href="#input-file-pattern" title="Permalink to this headline">¶</a></h3>
@@ -233,7 +233,7 @@
 <p>The directory to read files that will be processed. This directory must exist and be writable by the user running Kafka Connect.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;utils&#46;config&#46;validators&#46;filesystem&#46;ValidDirectoryWritable&#37;&#52;&#48;5f2788f2">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>utils<span>&#46;</span>config<span>&#46;</span>validators<span>&#46;</span>filesystem<span>&#46;</span>ValidDirectoryWritable<span>&#64;</span>5f2788f2</a></p>
+<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;utils&#46;config&#46;validators&#46;filesystem&#46;ValidDirectoryWritable&#37;&#52;&#48;61ce2d47">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>utils<span>&#46;</span>config<span>&#46;</span>validators<span>&#46;</span>filesystem<span>&#46;</span>ValidDirectoryWritable<span>&#64;</span>61ce2d47</a></p>
 </div>
 <div class="section" id="finished-path">
 <h3>finished.path<a class="headerlink" href="#finished-path" title="Permalink to this headline">¶</a></h3>
@@ -357,6 +357,13 @@
 <p>The Kafka topic to write the data to.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
+</div>
+<div class="section" id="elf-separator-char">
+<h3>elf.separator.char<a class="headerlink" href="#elf-separator-char" title="Permalink to this headline">¶</a></h3>
+<p>The character that separates each field in the form of an integer. Typically in a CSV this is a TAB(9) or SPACE(32).</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 9</p>
 </div>
 <div class="section" id="batch-size">
 <h3>batch.size<a class="headerlink" href="#batch-size" title="Permalink to this headline">¶</a></h3>
