@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-05-15 17:28:54","`a3640a74cd65230 <https://github.com/jcustenborder/kafka-connect-cassandra/commit/a3640a74cd65230>`_","Jeremy Custenborder","Updated documentation."
     "2018-05-15 17:22:45","`33c811a52ae3efd <https://github.com/jcustenborder/kafka-connect-cassandra/commit/33c811a52ae3efd>`_","Jeremy Custenborder","Issue 15 (#18)
 
 * Added trust store configuration. Cleanup of config so it will display better in c3. Fixes #15.
