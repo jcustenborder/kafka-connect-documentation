@@ -8,6 +8,11 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-05-15 17:22:45","`33c811a52ae3efd <https://github.com/jcustenborder/kafka-connect-cassandra/commit/33c811a52ae3efd>`_","Jeremy Custenborder","Issue 15 (#18)
+
+* Added trust store configuration. Cleanup of config so it will display better in c3. Fixes #15.
+
+* Added recommenders for username/password and table details."
     "2018-05-02 17:25:33","`b5b2564dc2a4501 <https://github.com/jcustenborder/kafka-connect-cassandra/commit/b5b2564dc2a4501>`_","Jeremy Custenborder","Error messages (#16)
 
 * Added error message that calls out when `record.keySchema()` is not a struct. Fixes #12. Added descriptive error message when `record.valueSchema()` does not include the same fields as `record.keySchema()`. Fixes #13.

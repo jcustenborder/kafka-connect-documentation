@@ -25,9 +25,116 @@ The Cassandra Sink connector is used to write data to a Cassandra Cluster. This 
 Configuration
 -------------
 
--------
-General
--------
+----------
+Connection
+----------
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.contact.points
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Cassandra hosts to connect to.
+
+**Importance:** High
+
+**Type:** List
+
+**Default Value:** [localhost]
+
+
+
+^^^^^^^^^^^^^^^^^^
+cassandra.password
+^^^^^^^^^^^^^^^^^^
+
+The password to connect to Cassandra with.
+
+**Importance:** High
+
+**Type:** Password
+
+**Default Value:** [hidden]
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.security.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if security is enabled.
+
+**Importance:** High
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+
+^^^^^^^^^^^^^^^^^^^^^
+cassandra.ssl.enabled
+^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if SSL is enabled when connecting to Cassandra.
+
+**Importance:** High
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+
+^^^^^^^^^^^^^^^^^^
+cassandra.username
+^^^^^^^^^^^^^^^^^^
+
+The username to connect to Cassandra with.
+
+**Importance:** High
+
+**Type:** String
+
+**Default Value:** cassandra
+
+
+
+^^^^^^^^^^^^^^
+cassandra.port
+^^^^^^^^^^^^^^
+
+The port the Cassandra hosts are listening on.
+
+**Importance:** Medium
+
+**Type:** Int
+
+**Default Value:** 9042
+
+**Validator:** ValidPort{start=1025, end=65535}
+
+
+
+^^^^^^^^^^^^^^^^^^^^^
+cassandra.compression
+^^^^^^^^^^^^^^^^^^^^^
+
+Compression algorithm to use when connecting to Cassandra.
+
+**Importance:** Low
+
+**Type:** String
+
+**Default Value:** NONE
+
+**Validator:** [NONE, SNAPPY, LZ4]
+
+
+
+--------
+Keyspace
+--------
 
 
 ^^^^^^^^^^^^^^^^^^
@@ -56,71 +163,16 @@ Flag to determine if the keyspace should be created if it does not exist.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^
-cassandra.compression
-^^^^^^^^^^^^^^^^^^^^^
-
-Compression algorithm to use when connecting to Cassandra.
-
-**Importance:** Medium
-
-**Type:** String
-
-**Default Value:** NONE
-
-**Validator:** [NONE, SNAPPY, LZ4]
+---
+SSL
+---
 
 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.ssl.truststore.password
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-cassandra.consistency.level
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The requested consistency level to use when writing to Cassandra.
-
-**Importance:** Medium
-
-**Type:** String
-
-**Default Value:** LOCAL_QUORUM
-
-**Validator:** ValidEnum{enum=ConsistencyLevel, allowed=[ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE]}
-
-
-
-^^^^^^^^^^^^^^^^^^^^^^^^
-cassandra.contact.points
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-The hosts to connect to.
-
-**Importance:** Medium
-
-**Type:** List
-
-**Default Value:** [localhost]
-
-
-
-^^^^^^^^^^^^^^^^^^^^^^^^^
-cassandra.deletes.enabled
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Flag to determine if the connector should process deletes.
-
-**Importance:** Medium
-
-**Type:** Boolean
-
-**Default Value:** true
-
-
-
-^^^^^^^^^^^^^^^^^^
-cassandra.password
-^^^^^^^^^^^^^^^^^^
-
-The password to connect to Cassandra with.
+Password to open the Java Truststore with.
 
 **Importance:** Medium
 
@@ -128,49 +180,21 @@ The password to connect to Cassandra with.
 
 **Default Value:** [hidden]
 
-
-
-^^^^^^^^^^^^^^
-cassandra.port
-^^^^^^^^^^^^^^
-
-The port the Cassandra hosts are listening on.
-
-**Importance:** Medium
-
-**Type:** Int
-
-**Default Value:** 9042
-
-**Validator:** ValidPort{start=1025, end=65535}
+**Validator:** com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@54d93fce
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-cassandra.security.enabled
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.ssl.truststore.path
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Flag to determine if security is enabled.
+Path to the Java Truststore.
 
 **Importance:** Medium
 
-**Type:** Boolean
+**Type:** String
 
-**Default Value:** false
-
-
-
-^^^^^^^^^^^^^^^^^^^^^
-cassandra.ssl.enabled
-^^^^^^^^^^^^^^^^^^^^^
-
-Flag to determine if SSL is enabled when connecting to Cassandra.
-
-**Importance:** Medium
-
-**Type:** Boolean
-
-**Default Value:** false
+**Validator:** com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@3f4b9792
 
 
 
@@ -180,13 +204,32 @@ cassandra.ssl.provider
 
 The SSL Provider to use when connecting to Cassandra
 
-**Importance:** Medium
+**Importance:** Low
 
 **Type:** String
 
 **Default Value:** JDK
 
 **Validator:** ValidEnum{enum=SslProvider, allowed=[JDK, OPENSSL, OPENSSL_REFCNT]}
+
+
+
+-----
+Table
+-----
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.table.manage.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the connector should manage the table.
+
+**Importance:** High
+
+**Type:** Boolean
+
+**Default Value:** true
 
 
 
@@ -222,45 +265,38 @@ Compression algorithm to use when the table is created.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-cassandra.table.create.compression.enabled
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Flag to determine if compression should be used when a table is created. Existing tables are not altered.
-
-**Importance:** Medium
-
-**Type:** Boolean
-
-**Default Value:** true
+-----
+Write
+-----
 
 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.consistency.level
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-cassandra.table.manage.enabled
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The requested consistency level to use when writing to Cassandra.
 
-Flag to determine if the connector should manage the table.
-
-**Importance:** Medium
-
-**Type:** Boolean
-
-**Default Value:** true
-
-
-
-^^^^^^^^^^^^^^^^^^
-cassandra.username
-^^^^^^^^^^^^^^^^^^
-
-The username to connect to Cassandra with.
-
-**Importance:** Medium
+**Importance:** High
 
 **Type:** String
 
-**Default Value:** cassandra
+**Default Value:** LOCAL_QUORUM
+
+**Validator:** ValidEnum{enum=ConsistencyLevel, allowed=[ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE]}
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.deletes.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the connector should process deletes.
+
+**Importance:** High
+
+**Type:** Boolean
+
+**Default Value:** true
 
 
 
@@ -270,13 +306,11 @@ cassandra.write.mode
 
 The type of statement to build when writing to Cassandra.
 
-**Importance:** Medium
+**Importance:** High
 
 **Type:** String
 
 **Default Value:** Insert
-
-**Validator:** ValidEnum{enum=WriteMode, allowed=[Insert, Update]}
 
 
 

@@ -98,7 +98,11 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Apache Cassandra Connectors</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Cassandra Sink Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connection">Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keyspace">Keyspace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssl">SSL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#table">Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#write">Write</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
@@ -219,8 +223,62 @@
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connection">
+<h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cassandra-contact-points">
+<h3>cassandra.contact.points<a class="headerlink" href="#cassandra-contact-points" title="Permalink to this headline">¶</a></h3>
+<p>The Cassandra hosts to connect to.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> List</p>
+<p><strong>Default Value:</strong> [localhost]</p>
+</div>
+<div class="section" id="cassandra-password">
+<h3>cassandra.password<a class="headerlink" href="#cassandra-password" title="Permalink to this headline">¶</a></h3>
+<p>The password to connect to Cassandra with.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Password</p>
+<p><strong>Default Value:</strong> [hidden]</p>
+</div>
+<div class="section" id="cassandra-security-enabled">
+<h3>cassandra.security.enabled<a class="headerlink" href="#cassandra-security-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Flag to determine if security is enabled.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+</div>
+<div class="section" id="cassandra-ssl-enabled">
+<h3>cassandra.ssl.enabled<a class="headerlink" href="#cassandra-ssl-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Flag to determine if SSL is enabled when connecting to Cassandra.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+</div>
+<div class="section" id="cassandra-username">
+<h3>cassandra.username<a class="headerlink" href="#cassandra-username" title="Permalink to this headline">¶</a></h3>
+<p>The username to connect to Cassandra with.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> cassandra</p>
+</div>
+<div class="section" id="cassandra-port">
+<h3>cassandra.port<a class="headerlink" href="#cassandra-port" title="Permalink to this headline">¶</a></h3>
+<p>The port the Cassandra hosts are listening on.</p>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 9042</p>
+<p><strong>Validator:</strong> ValidPort{start=1025, end=65535}</p>
+</div>
+<div class="section" id="cassandra-compression">
+<h3>cassandra.compression<a class="headerlink" href="#cassandra-compression" title="Permalink to this headline">¶</a></h3>
+<p>Compression algorithm to use when connecting to Cassandra.</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> NONE</p>
+<p><strong>Validator:</strong> [NONE, SNAPPY, LZ4]</p>
+</div>
+</div>
+<div class="section" id="keyspace">
+<h2>Keyspace<a class="headerlink" href="#keyspace" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="cassandra-keyspace">
 <h3>cassandra.keyspace<a class="headerlink" href="#cassandra-keyspace" title="Permalink to this headline">¶</a></h3>
 <p>The keyspace to write to.</p>
@@ -234,72 +292,41 @@
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> true</p>
 </div>
-<div class="section" id="cassandra-compression">
-<h3>cassandra.compression<a class="headerlink" href="#cassandra-compression" title="Permalink to this headline">¶</a></h3>
-<p>Compression algorithm to use when connecting to Cassandra.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> String</p>
-<p><strong>Default Value:</strong> NONE</p>
-<p><strong>Validator:</strong> [NONE, SNAPPY, LZ4]</p>
 </div>
-<div class="section" id="cassandra-consistency-level">
-<h3>cassandra.consistency.level<a class="headerlink" href="#cassandra-consistency-level" title="Permalink to this headline">¶</a></h3>
-<p>The requested consistency level to use when writing to Cassandra.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> String</p>
-<p><strong>Default Value:</strong> LOCAL_QUORUM</p>
-<p><strong>Validator:</strong> ValidEnum{enum=ConsistencyLevel, allowed=[ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE]}</p>
-</div>
-<div class="section" id="cassandra-contact-points">
-<h3>cassandra.contact.points<a class="headerlink" href="#cassandra-contact-points" title="Permalink to this headline">¶</a></h3>
-<p>The hosts to connect to.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> List</p>
-<p><strong>Default Value:</strong> [localhost]</p>
-</div>
-<div class="section" id="cassandra-deletes-enabled">
-<h3>cassandra.deletes.enabled<a class="headerlink" href="#cassandra-deletes-enabled" title="Permalink to this headline">¶</a></h3>
-<p>Flag to determine if the connector should process deletes.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Boolean</p>
-<p><strong>Default Value:</strong> true</p>
-</div>
-<div class="section" id="cassandra-password">
-<h3>cassandra.password<a class="headerlink" href="#cassandra-password" title="Permalink to this headline">¶</a></h3>
-<p>The password to connect to Cassandra with.</p>
+<div class="section" id="ssl">
+<h2>SSL<a class="headerlink" href="#ssl" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cassandra-ssl-truststore-password">
+<h3>cassandra.ssl.truststore.password<a class="headerlink" href="#cassandra-ssl-truststore-password" title="Permalink to this headline">¶</a></h3>
+<p>Password to open the Java Truststore with.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Password</p>
 <p><strong>Default Value:</strong> [hidden]</p>
+<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;cassandra&#46;CassandraSinkConnectorConfig$BlankOrValidator&#37;&#52;&#48;54d93fce">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>cassandra<span>&#46;</span>CassandraSinkConnectorConfig$BlankOrValidator<span>&#64;</span>54d93fce</a></p>
 </div>
-<div class="section" id="cassandra-port">
-<h3>cassandra.port<a class="headerlink" href="#cassandra-port" title="Permalink to this headline">¶</a></h3>
-<p>The port the Cassandra hosts are listening on.</p>
+<div class="section" id="cassandra-ssl-truststore-path">
+<h3>cassandra.ssl.truststore.path<a class="headerlink" href="#cassandra-ssl-truststore-path" title="Permalink to this headline">¶</a></h3>
+<p>Path to the Java Truststore.</p>
 <p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Int</p>
-<p><strong>Default Value:</strong> 9042</p>
-<p><strong>Validator:</strong> ValidPort{start=1025, end=65535}</p>
-</div>
-<div class="section" id="cassandra-security-enabled">
-<h3>cassandra.security.enabled<a class="headerlink" href="#cassandra-security-enabled" title="Permalink to this headline">¶</a></h3>
-<p>Flag to determine if security is enabled.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Boolean</p>
-<p><strong>Default Value:</strong> false</p>
-</div>
-<div class="section" id="cassandra-ssl-enabled">
-<h3>cassandra.ssl.enabled<a class="headerlink" href="#cassandra-ssl-enabled" title="Permalink to this headline">¶</a></h3>
-<p>Flag to determine if SSL is enabled when connecting to Cassandra.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Boolean</p>
-<p><strong>Default Value:</strong> false</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;cassandra&#46;CassandraSinkConnectorConfig$BlankOrValidator&#37;&#52;&#48;3f4b9792">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>cassandra<span>&#46;</span>CassandraSinkConnectorConfig$BlankOrValidator<span>&#64;</span>3f4b9792</a></p>
 </div>
 <div class="section" id="cassandra-ssl-provider">
 <h3>cassandra.ssl.provider<a class="headerlink" href="#cassandra-ssl-provider" title="Permalink to this headline">¶</a></h3>
 <p>The SSL Provider to use when connecting to Cassandra</p>
-<p><strong>Importance:</strong> Medium</p>
+<p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> JDK</p>
 <p><strong>Validator:</strong> ValidEnum{enum=SslProvider, allowed=[JDK, OPENSSL, OPENSSL_REFCNT]}</p>
+</div>
+</div>
+<div class="section" id="table">
+<h2>Table<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cassandra-table-manage-enabled">
+<h3>cassandra.table.manage.enabled<a class="headerlink" href="#cassandra-table-manage-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Flag to determine if the connector should manage the table.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
 </div>
 <div class="section" id="cassandra-table-create-caching">
 <h3>cassandra.table.create.caching<a class="headerlink" href="#cassandra-table-create-caching" title="Permalink to this headline">¶</a></h3>
@@ -317,34 +344,30 @@
 <p><strong>Default Value:</strong> NONE</p>
 <p><strong>Validator:</strong> [NONE, SNAPPY, LZ4, DEFLATE]</p>
 </div>
-<div class="section" id="cassandra-table-create-compression-enabled">
-<h3>cassandra.table.create.compression.enabled<a class="headerlink" href="#cassandra-table-create-compression-enabled" title="Permalink to this headline">¶</a></h3>
-<p>Flag to determine if compression should be used when a table is created. Existing tables are not altered.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Boolean</p>
-<p><strong>Default Value:</strong> true</p>
 </div>
-<div class="section" id="cassandra-table-manage-enabled">
-<h3>cassandra.table.manage.enabled<a class="headerlink" href="#cassandra-table-manage-enabled" title="Permalink to this headline">¶</a></h3>
-<p>Flag to determine if the connector should manage the table.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Boolean</p>
-<p><strong>Default Value:</strong> true</p>
-</div>
-<div class="section" id="cassandra-username">
-<h3>cassandra.username<a class="headerlink" href="#cassandra-username" title="Permalink to this headline">¶</a></h3>
-<p>The username to connect to Cassandra with.</p>
-<p><strong>Importance:</strong> Medium</p>
+<div class="section" id="write">
+<h2>Write<a class="headerlink" href="#write" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cassandra-consistency-level">
+<h3>cassandra.consistency.level<a class="headerlink" href="#cassandra-consistency-level" title="Permalink to this headline">¶</a></h3>
+<p>The requested consistency level to use when writing to Cassandra.</p>
+<p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-<p><strong>Default Value:</strong> cassandra</p>
+<p><strong>Default Value:</strong> LOCAL_QUORUM</p>
+<p><strong>Validator:</strong> ValidEnum{enum=ConsistencyLevel, allowed=[ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE]}</p>
+</div>
+<div class="section" id="cassandra-deletes-enabled">
+<h3>cassandra.deletes.enabled<a class="headerlink" href="#cassandra-deletes-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Flag to determine if the connector should process deletes.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
 </div>
 <div class="section" id="cassandra-write-mode">
 <h3>cassandra.write.mode<a class="headerlink" href="#cassandra-write-mode" title="Permalink to this headline">¶</a></h3>
 <p>The type of statement to build when writing to Cassandra.</p>
-<p><strong>Importance:</strong> Medium</p>
+<p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> Insert</p>
-<p><strong>Validator:</strong> ValidEnum{enum=WriteMode, allowed=[Insert, Update]}</p>
 </div>
 </div>
 <div class="section" id="examples">
@@ -371,7 +394,7 @@ example.</p>
 </div>
 <p><strong>Standalone Mode Properties</strong></p>
 <div class="highlight-properties"><div class="highlight"><pre><span></span><span class="c">#</span>
-<span class="c">#Wed May 02 17:27:12 UTC 2018</span>
+<span class="c">#Tue May 15 17:24:55 UTC 2018</span>
 <span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnector</span>
 <span class="na">cassandra.write.mode</span><span class="o">=</span><span class="s">Update</span>
 <span class="na">cassandra.contact.points</span><span class="o">=</span><span class="s">cassandra</span>
@@ -402,7 +425,7 @@ example.</p>
 </div>
 <p><strong>Standalone Mode Properties</strong></p>
 <div class="highlight-properties"><div class="highlight"><pre><span></span><span class="c">#</span>
-<span class="c">#Wed May 02 17:27:12 UTC 2018</span>
+<span class="c">#Tue May 15 17:24:55 UTC 2018</span>
 <span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnector</span>
 <span class="na">cassandra.contact.points</span><span class="o">=</span><span class="s">cassandra</span>
 <span class="na">cassandra.keyspace</span><span class="o">=</span><span class="s">test</span>
@@ -435,7 +458,7 @@ example.</p>
 </div>
 <p><strong>Standalone Mode Properties</strong></p>
 <div class="highlight-properties"><div class="highlight"><pre><span></span><span class="c">#</span>
-<span class="c">#Wed May 02 17:27:12 UTC 2018</span>
+<span class="c">#Tue May 15 17:24:55 UTC 2018</span>
 <span class="na">cassandra.password</span><span class="o">=</span><span class="s">password</span>
 <span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.cassandra.CassandraSinkConnector</span>
 <span class="na">cassandra.contact.points</span><span class="o">=</span><span class="s">cassandra</span>
