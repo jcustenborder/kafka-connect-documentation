@@ -264,50 +264,136 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="property-based-example">
-<h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
-<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
-<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">CloudSolrSinkConnector1</span>
-<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector</span>
-<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
-<span class="hll"><span class="na">topics</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
-</span><span class="hll"><span class="na">solr.zookeeper.hosts</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
-</span></pre></div>
-</div>
-</div>
-<div class="section" id="rest-based-example">
-<h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
-<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
-Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s). Check here for more information about the
-<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
-<div class="literal-block-wrapper docutils container" id="connector-json">
-<div class="code-block-caption"><span class="caption-text">Connect Distributed REST example</span><a class="headerlink" href="#connector-json" title="Permalink to this code">¶</a></div>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="section" id="drop-topic-prefix">
+<h3>Drop Topic prefix<a class="headerlink" href="#drop-topic-prefix" title="Permalink to this headline">¶</a></h3>
+<p>In this example each record has an incoming topic name prefixed with <cite>solr-</cite>. Assuming that our topic is <cite>solr-customer</cite> the following example will strip the prefix of <cite>solr-</cite> allowing us to write to the collection named <cite>customer</cite>. This is accomplished by using the RegexRouter transformation that is bundled with Apache Kafka.</p>
+<p>Select one of the following configuration methods based on how you have deployed Kafka Connect.
+Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
+example.</p>
+<p><strong>Distributed Mode Json</strong></p>
+<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;cloudSolrSinkConnector1&quot;</span><span class="p">,</span>
   <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;CloudSolrSinkConnector1&quot;</span><span class="p">,</span>
     <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-<span class="hll">    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
-</span><span class="hll">    <span class="nt">&quot;solr.zookeeper.hosts&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
-</span>  <span class="p">}</span>
+    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;topic1,topic2,topic3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;solr.zookeeper.hosts&quot;</span> <span class="p">:</span> <span class="s2">&quot;zookeeper.example.com:2181&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;solr.username&quot;</span> <span class="p">:</span> <span class="s2">&quot;freddy&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;solr.password&quot;</span> <span class="p">:</span> <span class="s2">&quot;password12345&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;transforms&quot;</span> <span class="p">:</span> <span class="s2">&quot;dropPrefix&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;transforms.dropPrefix.type&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.connect.transforms.RegexRouter&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;transforms.dropPrefix.regex&quot;</span> <span class="p">:</span> <span class="s2">&quot;solr-(.*)&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;transforms.dropPrefix.replacement&quot;</span> <span class="p">:</span> <span class="s2">&quot;$1&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
-one of your Kafka Connect worker(s).</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
+<p><strong>Standalone Mode Properties</strong></p>
+<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="na">topics</span><span class="o">=</span><span class="s">topic1,topic2,topic3</span>
+<span class="na">solr.zookeeper.hosts</span><span class="o">=</span><span class="s">zookeeper.example.com:2181</span>
+<span class="na">solr.username</span><span class="o">=</span><span class="s">freddy</span>
+<span class="na">solr.password</span><span class="o">=</span><span class="s">password12345</span>
+<span class="na">transforms</span><span class="o">=</span><span class="s">dropPrefix</span>
+<span class="na">transforms.dropPrefix.type</span><span class="o">=</span><span class="s">org.apache.kafka.connect.transforms.RegexRouter</span>
+<span class="na">transforms.dropPrefix.regex</span><span class="o">=</span><span class="s">solr-(.*)</span>
+<span class="na">transforms.dropPrefix.replacement</span><span class="o">=</span><span class="s">$1</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/CloudSolrSinkConnector1/config
+<div class="section" id="standard">
+<h3>Standard<a class="headerlink" href="#standard" title="Permalink to this headline">¶</a></h3>
+<p>This example will connect to a Solr Cloud cluster without authentication.</p>
+<p>Select one of the following configuration methods based on how you have deployed Kafka Connect.
+Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
+example.</p>
+<p><strong>Distributed Mode Json</strong></p>
+<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;cloudSolrSinkConnector1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;topic1,topic2,topic3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;solr.zookeeper.hosts&quot;</span> <span class="p">:</span> <span class="s2">&quot;zookeeper.example.com:2181&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
+<p><strong>Standalone Mode Properties</strong></p>
+<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="na">topics</span><span class="o">=</span><span class="s">topic1,topic2,topic3</span>
+<span class="na">solr.zookeeper.hosts</span><span class="o">=</span><span class="s">zookeeper.example.com:2181</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-authentication">
+<h3>Basic Authentication<a class="headerlink" href="#basic-authentication" title="Permalink to this headline">¶</a></h3>
+<p>This example will connect to a Solr Cloud cluster using basic authentication.</p>
+<p>Select one of the following configuration methods based on how you have deployed Kafka Connect.
+Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
+example.</p>
+<p><strong>Distributed Mode Json</strong></p>
+<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;cloudSolrSinkConnector1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;topic1,topic2,topic3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;solr.zookeeper.hosts&quot;</span> <span class="p">:</span> <span class="s2">&quot;zookeeper.example.com:2181&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;solr.username&quot;</span> <span class="p">:</span> <span class="s2">&quot;freddy&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;solr.password&quot;</span> <span class="p">:</span> <span class="s2">&quot;password12345&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Standalone Mode Properties</strong></p>
+<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="na">topics</span><span class="o">=</span><span class="s">topic1,topic2,topic3</span>
+<span class="na">solr.zookeeper.hosts</span><span class="o">=</span><span class="s">zookeeper.example.com:2181</span>
+<span class="na">solr.username</span><span class="o">=</span><span class="s">freddy</span>
+<span class="na">solr.password</span><span class="o">=</span><span class="s">password12345</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="force-collection-name">
+<h3>Force collection name<a class="headerlink" href="#force-collection-name" title="Permalink to this headline">¶</a></h3>
+<p>In this example we do not care about the incoming topic name. We want to force all topics to a specific collection. This is accomplished by using the RegexRouter transformation that is bundled with Apache Kafka.</p>
+<p>Select one of the following configuration methods based on how you have deployed Kafka Connect.
+Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
+example.</p>
+<p><strong>Distributed Mode Json</strong></p>
+<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;cloudSolrSinkConnector1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;topic1,topic2,topic3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;solr.zookeeper.hosts&quot;</span> <span class="p">:</span> <span class="s2">&quot;zookeeper.example.com:2181&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;solr.username&quot;</span> <span class="p">:</span> <span class="s2">&quot;freddy&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;solr.password&quot;</span> <span class="p">:</span> <span class="s2">&quot;password12345&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;transforms&quot;</span> <span class="p">:</span> <span class="s2">&quot;dropPrefix&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;transforms.dropPrefix.type&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.connect.transforms.RegexRouter&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;transforms.dropPrefix.regex&quot;</span> <span class="p">:</span> <span class="s2">&quot;.*&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;transforms.dropPrefix.replacement&quot;</span> <span class="p">:</span> <span class="s2">&quot;forced-collection&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Standalone Mode Properties</strong></p>
+<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="na">topics</span><span class="o">=</span><span class="s">topic1,topic2,topic3</span>
+<span class="na">solr.zookeeper.hosts</span><span class="o">=</span><span class="s">zookeeper.example.com:2181</span>
+<span class="na">solr.username</span><span class="o">=</span><span class="s">freddy</span>
+<span class="na">solr.password</span><span class="o">=</span><span class="s">password12345</span>
+<span class="na">transforms</span><span class="o">=</span><span class="s">dropPrefix</span>
+<span class="na">transforms.dropPrefix.type</span><span class="o">=</span><span class="s">org.apache.kafka.connect.transforms.RegexRouter</span>
+<span class="na">transforms.dropPrefix.regex</span><span class="o">=</span><span class="s">.*</span>
+<span class="na">transforms.dropPrefix.replacement</span><span class="o">=</span><span class="s">forced-collection</span>
+</pre></div>
 </div>
 </div>
 </div>

@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-05-17 19:36:15","`1e141fa1ed45e67 <https://github.com/jcustenborder/kafka-connect-solr/commit/1e141fa1ed45e67>`_","Jeremy Custenborder","Added more examples on how to use the CloudSolrConnector. Fixes #21. (#22)"
     "2018-05-17 17:52:37","`a0d7e117695f46f <https://github.com/jcustenborder/kafka-connect-solr/commit/a0d7e117695f46f>`_","Jeremy Custenborder","Issue 19 (#20)
 
 * Bump solr version to 7.3.1. Fixes #19

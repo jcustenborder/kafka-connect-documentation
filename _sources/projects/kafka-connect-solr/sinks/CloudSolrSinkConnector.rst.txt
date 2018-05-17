@@ -117,68 +117,108 @@ Configures Solr UpdaterRequest for a commit within the requested number of milli
 Examples
 --------
 
-^^^^^^^^^^^^^^^^^^^^^^
-Property based example
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
+Drop Topic prefix
+^^^^^^^^^^^^^^^^^
 
-
-This configuration is used typically along with `standalone mode
-<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
-
-.. code-block:: properties
-    :name: connector.properties
-    :emphasize-lines: 4,5
-
-    name=CloudSolrSinkConnector1
-    connector.class=com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector
-    tasks.max=1
-    topics=< Required Configuration >
-    solr.zookeeper.hosts=< Required Configuration >
+In this example each record has an incoming topic name prefixed with `solr-`. Assuming that our topic is `solr-customer` the following example will strip the prefix of `solr-` allowing us to write to the collection named `customer`. This is accomplished by using the RegexRouter transformation that is bundled with Apache Kafka.
 
 
 
+Select one of the following configuration methods based on how you have deployed Kafka Connect.
+Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
+example.
 
-^^^^^^^^^^^^^^^^^^
-Rest based example
-^^^^^^^^^^^^^^^^^^
+
+**Distributed Mode Json**
+
+.. literalinclude:: CloudSolrSinkConnector.strip-prefix.example.json
+    :language: JSON
 
 
-This configuration is used typically along with `distributed mode
-<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
-Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s). Check here for more information about the
-`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
+**Standalone Mode Properties**
 
-.. code-block:: json
-    :caption: Connect Distributed REST example
-    :name: connector.json
-    :emphasize-lines: 6,7
-
-    {
-      "config" : {
-        "name" : "CloudSolrSinkConnector1",
-        "connector.class" : "com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector",
-        "tasks.max" : "1",
-        "topics" : "< Required Configuration >",
-        "solr.zookeeper.hosts" : "< Required Configuration >"
-      }
-    }
+.. literalinclude:: CloudSolrSinkConnector.strip-prefix.example.properties
+    :language: properties
 
 
 
-Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
-one of your Kafka Connect worker(s).
+^^^^^^^^
+Standard
+^^^^^^^^
 
-.. code-block:: bash
-    :caption: Create a new connector
-
-    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+This example will connect to a Solr Cloud cluster without authentication.
 
 
-.. code-block:: bash
-    :caption: Update an existing connector
 
-    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/CloudSolrSinkConnector1/config
+Select one of the following configuration methods based on how you have deployed Kafka Connect.
+Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
+example.
+
+
+**Distributed Mode Json**
+
+.. literalinclude:: CloudSolrSinkConnector.example.example.json
+    :language: JSON
+
+
+**Standalone Mode Properties**
+
+.. literalinclude:: CloudSolrSinkConnector.example.example.properties
+    :language: properties
+
+
+
+^^^^^^^^^^^^^^^^^^^^
+Basic Authentication
+^^^^^^^^^^^^^^^^^^^^
+
+This example will connect to a Solr Cloud cluster using basic authentication.
+
+
+
+Select one of the following configuration methods based on how you have deployed Kafka Connect.
+Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
+example.
+
+
+**Distributed Mode Json**
+
+.. literalinclude:: CloudSolrSinkConnector.authentication.example.json
+    :language: JSON
+
+
+**Standalone Mode Properties**
+
+.. literalinclude:: CloudSolrSinkConnector.authentication.example.properties
+    :language: properties
+
+
+
+^^^^^^^^^^^^^^^^^^^^^
+Force collection name
+^^^^^^^^^^^^^^^^^^^^^
+
+In this example we do not care about the incoming topic name. We want to force all topics to a specific collection. This is accomplished by using the RegexRouter transformation that is bundled with Apache Kafka.
+
+
+
+Select one of the following configuration methods based on how you have deployed Kafka Connect.
+Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
+example.
+
+
+**Distributed Mode Json**
+
+.. literalinclude:: CloudSolrSinkConnector.force-collection.example.json
+    :language: JSON
+
+
+**Standalone Mode Properties**
+
+.. literalinclude:: CloudSolrSinkConnector.force-collection.example.properties
+    :language: properties
+
 
 
 
