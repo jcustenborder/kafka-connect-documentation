@@ -8,6 +8,25 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-05-17 17:52:37","`a0d7e117695f46f <https://github.com/jcustenborder/kafka-connect-solr/commit/a0d7e117695f46f>`_","Jeremy Custenborder","Issue 19 (#20)
+
+* Bump solr version to 7.3.1. Fixes #19
+
+* Add trace logging for documents that are added to an update request.
+
+* Moved to use TaskConfigs helper method.
+
+* Added Tip to the documentation for version mismatch messages. Fixes #12
+
+* Corrected syntax.
+
+* Corrected syntax.
+
+* Corrected syntax.
+
+* Corrected syntax.
+
+* Corrected syntax."
     "2018-05-17 16:47:07","`94e7299a37ed19e <https://github.com/jcustenborder/kafka-connect-solr/commit/94e7299a37ed19e>`_","Jeremy Custenborder","Basic Authentication. (#18)
 
 * Updated documentation.
