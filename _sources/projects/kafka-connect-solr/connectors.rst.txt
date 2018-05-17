@@ -1,8 +1,6 @@
-==============
-Solr Connector
-==============
-
-The Solr connector provides a high speed mechanism for sending updates to a Solr Index using Kafka Connect.
+===========================
+Apache Cassandra Connectors
+===========================
 
 
 .. toctree::
@@ -12,11 +10,3 @@ The Solr connector provides a high speed mechanism for sending updates to a Solr
     :glob:
 
     sinks/*
-
-
-.. toctree::
-    :maxdepth: 0
-    :caption: Schemas:
-    :hidden:
-
-    info

@@ -8,6 +8,13 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-05-17 16:47:07","`94e7299a37ed19e <https://github.com/jcustenborder/kafka-connect-solr/commit/94e7299a37ed19e>`_","Jeremy Custenborder","Basic Authentication. (#18)
+
+* Updated documentation.
+
+* Added connector hub plugin. Fixes #15.
+
+* Added basic authentication to all requests. Fixes #17."
     "2018-04-03 00:23:46","`c2354700b6361ce <https://github.com/jcustenborder/kafka-connect-solr/commit/c2354700b6361ce>`_","Jeremy Custenborder","Issue 15 (#16)
 
 * Added connector hub plugin. Fixes #15.
