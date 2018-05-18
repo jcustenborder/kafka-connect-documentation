@@ -13,98 +13,112 @@ The SalesforceSourceConnector is used to read changes from Salesforce in realtim
 Configuration
 -------------
 
+-------
+General
+-------
+
 
 ^^^^^^^^^^^
 kafka.topic
 ^^^^^^^^^^^
 
+The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guarenteed to be there. `_EventType` and `_ObjectType` are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using `salesforce.${_ObjectType}.${_EventType}`
+
 **Importance:** High
 
 **Type:** String
 
 
-The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guarenteed to be there. `_EventType` and `_ObjectType` are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using `salesforce.${_ObjectType}.${_EventType}`
 
 ^^^^^^^^^^^^^^^^^^^^^^^
 salesforce.consumer.key
 ^^^^^^^^^^^^^^^^^^^^^^^
 
+The consumer key for the OAuth application.
+
 **Importance:** High
 
 **Type:** String
 
 
-The consumer key for the OAuth application.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 salesforce.consumer.secret
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+The consumer secret for the OAuth application.
+
 **Importance:** High
 
 **Type:** Password
 
 
-The consumer secret for the OAuth application.
 
 ^^^^^^^^^^^^^^^^^
 salesforce.object
 ^^^^^^^^^^^^^^^^^
 
+The Salesforce object to create a topic for.
+
 **Importance:** High
 
 **Type:** String
 
 
-The Salesforce object to create a topic for.
 
 ^^^^^^^^^^^^^^^^^^^
 salesforce.password
 ^^^^^^^^^^^^^^^^^^^
 
+Salesforce password to connect with.
+
 **Importance:** High
 
 **Type:** Password
 
 
-Salesforce password to connect with.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 salesforce.password.token
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
+The Salesforce security token associated with the username.
+
 **Importance:** High
 
 **Type:** Password
 
 
-The Salesforce security token associated with the username.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 salesforce.push.topic.name
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+The Salesforce topic to subscribe to. If salesforce.push.topic.create is set to true, a PushTopic with this name will be created.
+
 **Importance:** High
 
 **Type:** String
 
 
-The Salesforce topic to subscribe to. If salesforce.push.topic.create is set to true, a PushTopic with this name will be created.
 
 ^^^^^^^^^^^^^^^^^^^
 salesforce.username
 ^^^^^^^^^^^^^^^^^^^
 
+Salesforce username to connect with.
+
 **Importance:** High
 
 **Type:** String
 
 
-Salesforce username to connect with.
 
 ^^^^^^^^^^^^^^^^^^^^^
 kafka.topic.lowercase
 ^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the kafka topic should be lowercased.
 
 **Importance:** High
 
@@ -113,22 +127,24 @@ kafka.topic.lowercase
 **Default Value:** true
 
 
-Flag to determine if the kafka topic should be lowercased.
 
 ^^^^^^^^^^^^^^^^^^^
 salesforce.instance
 ^^^^^^^^^^^^^^^^^^^
+
+The Salesforce instance to connect to.
 
 **Importance:** High
 
 **Type:** String
 
 
-The Salesforce instance to connect to.
 
 ^^^^^^^^^^^^^^^^^^
 connection.timeout
 ^^^^^^^^^^^^^^^^^^
+
+The amount of time to wait while connecting to the Salesforce streaming endpoint.
 
 **Importance:** Low
 
@@ -139,11 +155,12 @@ connection.timeout
 **Validator:** [5000,...,600000]
 
 
-The amount of time to wait while connecting to the Salesforce streaming endpoint.
 
 ^^^^^^^^^^^^
 curl.logging
 ^^^^^^^^^^^^
+
+If enabled the logs will output the equivalent curl commands. This is a security risk because your authorization header will end up in the log file. Use at your own risk.
 
 **Importance:** Low
 
@@ -152,12 +169,13 @@ curl.logging
 **Default Value:** false
 
 
-If enabled the logs will output the equivalent curl commands. This is a security risk because your authorization header will end up in the log file. Use at your own risk.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 salesforce.push.topic.create
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Flag to determine if the PushTopic should be created if it does not exist.
+
 **Importance:** Low
 
 **Type:** Boolean
@@ -165,12 +183,13 @@ salesforce.push.topic.create
 **Default Value:** true
 
 
-Flag to determine if the PushTopic should be created if it does not exist.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 salesforce.push.topic.notify.create
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Flag to determine if the PushTopic should respond to creates.
+
 **Importance:** Low
 
 **Type:** Boolean
@@ -178,12 +197,13 @@ salesforce.push.topic.notify.create
 **Default Value:** true
 
 
-Flag to determine if the PushTopic should respond to creates.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 salesforce.push.topic.notify.delete
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Flag to determine if the PushTopic should respond to deletes.
+
 **Importance:** Low
 
 **Type:** Boolean
@@ -191,12 +211,13 @@ salesforce.push.topic.notify.delete
 **Default Value:** true
 
 
-Flag to determine if the PushTopic should respond to deletes.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 salesforce.push.topic.notify.undelete
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Flag to determine if the PushTopic should respond to undeletes.
+
 **Importance:** Low
 
 **Type:** Boolean
@@ -204,12 +225,13 @@ salesforce.push.topic.notify.undelete
 **Default Value:** true
 
 
-Flag to determine if the PushTopic should respond to undeletes.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 salesforce.push.topic.notify.update
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Flag to determine if the PushTopic should respond to updates.
+
 **Importance:** Low
 
 **Type:** Boolean
@@ -217,11 +239,12 @@ salesforce.push.topic.notify.update
 **Default Value:** true
 
 
-Flag to determine if the PushTopic should respond to updates.
 
 ^^^^^^^^^^^^^^^^^^
 salesforce.version
 ^^^^^^^^^^^^^^^^^^
+
+The version of the salesforce API to use.
 
 **Importance:** Low
 
@@ -232,7 +255,9 @@ salesforce.version
 **Validator:** ValidPattern{pattern=^(latest|[\d\.]+)$}
 
 
-The version of the salesforce API to use.
+
+
+
 
 --------
 Examples
@@ -277,6 +302,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 `Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :caption: Connect Distributed REST example
     :name: connector.json
     :emphasize-lines: 6,7,8,9,10,11,12,13
 
@@ -311,5 +337,6 @@ one of your Kafka Connect worker(s).
     :caption: Update an existing connector
 
     curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/SalesforceSourceConnector1/config
+
 
 

@@ -35,10 +35,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="Additional Information" href="info.html"/>
-        <link rel="next" title="Simulator Connector" href="../kafka-connect-simulator/connectors.html"/>
-        <link rel="prev" title="Source" href="info/source.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -92,45 +89,9 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-cassandra/connectors.html">Apache Cassandra Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-cdc-mssql/connectors.html">SQL Server Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-flume-avro/connectors.html">Flume Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-influxdb/connectors.html">InfluxDB Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-jms/connectors.html">JMS Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-jmx/connectors.html">Com.github.jcustenborder.kafka.connect.jmx Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-kinesis/connectors.html">Amazon Kinesis Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-maprdb/connectors.html">MapR DB Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-memcached/connectors.html">Memcached Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-mqtt/connectors.html">Com.github.jcustenborder.kafka.connect.mqtt Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-rabbitmq/connectors.html">RabbitMQ Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-redis/connectors.html">Redis Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="connectors.html">Salesforce Connector</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="sources/SalesforceSourceConnector.html">SalesforceSourceConnector</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="info.html">Additional Information</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="info/install.html">Install</a></li>
-<li class="toctree-l4"><a class="reference internal" href="info/support.html">Support</a></li>
-<li class="toctree-l4"><a class="reference internal" href="info/contributors.html">Contributors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="info/license.html">License</a></li>
-<li class="toctree-l4"><a class="reference internal" href="info/source.html">Source</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Changelog</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-simulator/connectors.html">Simulator Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-snmp/connectors.html">SNMP Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-solr/connectors.html">Apache Solr Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-splunk/connectors.html">Splunk Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/connectors.html">File Input Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-statsd/connectors.html">StatsD Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-syslog/connectors.html">Syslog Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/connectors.html">Twitter Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-vertica/connectors.html">Vertica Connector</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../connectors.html">Connectors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../transformations.html">Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schemas.html">Schemas</a></li>
 </ul>
@@ -182,12 +143,6 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../connectors.html">Connectors</a> &raquo;</li>
-        
-          <li><a href="connectors.html">Salesforce Connector</a> &raquo;</li>
-        
-          <li><a href="info.html">Additional Information</a> &raquo;</li>
-        
       <li>Changelog</li>
     
     
@@ -210,6 +165,15 @@
   <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <p><strong>Unreleased</strong></p>
+<p>Docs claim you should return null to allow the task to pause, not an
+empty collection.
+<a class="reference external" href="https://kafka.apache.org/11/javadoc/org/apache/kafka/connect/source/SourceTask.html#poll">https://kafka.apache.org/11/javadoc/org/apache/kafka/connect/source/SourceTask.html#poll</a>–”</p>
+<blockquote>
+<div>“2018-04-03 00:24:29”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/22a8a77a4273db1">22a8a77a4273db1</a>”,”Jeremy Custenborder”,”Added support for the connector hub. Fixes #31. (#32)”
+“2017-11-07 21:57:27”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/86dd73f08016138">86dd73f08016138</a>”,”Jeremy Custenborder”,”Updated documentation”
+“2017-11-07 21:16:54”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/6c9a7f4452bf2c6">6c9a7f4452bf2c6</a>”,”Jeremy Custenborder”,”Bump to 1.0.0. (#29)”
+“2017-07-18 21:53:40”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/e26329f35d2eaf1">e26329f35d2eaf1</a>”,”Jeremy Custenborder”,”Changed version to 0.10.2.1-cp2”
+“2017-07-11 19:22:09”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/142ce9bf9205add">142ce9bf9205add</a>”,”Jeremy Custenborder”,”Rst (#23)</div></blockquote>
 <ul class="simple">
 <li>Bumped to a later version of connect. Added documentation.</li>
 <li><dl class="first docutils">
@@ -292,15 +256,6 @@ Updated docker-compose.yml to the latest version.</p>
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../kafka-connect-simulator/connectors.html" class="btn btn-neutral float-right" title="Simulator Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="info/source.html" class="btn btn-neutral" title="Source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
