@@ -8,6 +8,17 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-05-18 13:36:34","`01ca71b8d8ee932 <https://github.com/jcustenborder/kafka-connect-salesforce/commit/01ca71b8d8ee932>`_","Jeremy Custenborder","Corrected constants for checkstyle."
+    "2018-05-18 13:19:13","`4c7d1f5a029f82a <https://github.com/jcustenborder/kafka-connect-salesforce/commit/4c7d1f5a029f82a>`_","Ashish Mourya","null pointer check - if value node not present (#19)
+
+* null pointer check - if value node not present
+
+* Idle timeout Authentication issue chagnes"
+    "2018-05-18 13:18:09","`e416aaa28da6b5b <https://github.com/jcustenborder/kafka-connect-salesforce/commit/e416aaa28da6b5b>`_","Gavrie Philipson","Fix a few type-related issues (#27)
+
+* Fix type of relationshipOrder to be Integer
+
+* Add a few missing object field types"
     "2018-05-18 13:12:44","`2340097d1d55687 <https://github.com/jcustenborder/kafka-connect-salesforce/commit/2340097d1d55687>`_","Antony Stubbs","Fixes #34 - Use a default poll timeout of 100ms (#36)"
     "2018-05-18 13:12:31","`3155f9a36ca29dc <https://github.com/jcustenborder/kafka-connect-salesforce/commit/3155f9a36ca29dc>`_","Antony Stubbs","Fixes #35 - Return null if records are empty, so connect can pause (#37)
 

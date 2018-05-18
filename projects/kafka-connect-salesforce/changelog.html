@@ -165,6 +165,21 @@
   <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <p><strong>Unreleased</strong></p>
+<ul class="simple">
+<li>null pointer check - if value node not present</li>
+<li><dl class="first docutils">
+<dt>Idle timeout Authentication issue chagnes”</dt>
+<dd>“2018-05-18 13:18:09”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/e416aaa28da6b5b">e416aaa28da6b5b</a>”,”Gavrie Philipson”,”Fix a few type-related issues (#27)</dd>
+</dl>
+</li>
+<li>Fix type of relationshipOrder to be Integer</li>
+<li><dl class="first docutils">
+<dt>Add a few missing object field types”</dt>
+<dd>“2018-05-18 13:12:44”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/2340097d1d55687">2340097d1d55687</a>”,”Antony Stubbs”,”Fixes #34 - Use a default poll timeout of 100ms (#36)”
+“2018-05-18 13:12:31”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-salesforce/commit/3155f9a36ca29dc">3155f9a36ca29dc</a>”,”Antony Stubbs”,”Fixes #35 - Return null if records are empty, so connect can pause (#37)</dd>
+</dl>
+</li>
+</ul>
 <p>Docs claim you should return null to allow the task to pause, not an
 empty collection.
 <a class="reference external" href="https://kafka.apache.org/11/javadoc/org/apache/kafka/connect/source/SourceTask.html#poll">https://kafka.apache.org/11/javadoc/org/apache/kafka/connect/source/SourceTask.html#poll</a>–”</p>

@@ -8,7 +8,7 @@ Install
     :target: https://github.com/jcustenborder/kafka-connect-salesforce/releases
 
 .. image:: https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-salesforce.svg
-    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-salesforce%7C0.3.21%7Cjar
+    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-salesforce%7C0.3.25%7Cjar
 
 ^^^^^^^^^^^^^^^^
 RPM Installation
@@ -41,7 +41,7 @@ Maven Installation
     <dependency>
         <groupId>com.github.jcustenborder.kafka.connect</groupId>
         <artifactId>kafka-connect-salesforce</artifactId>
-        <version>0.3.21</version>
+        <version>0.3.25</version>
     </dependency>
 
 
