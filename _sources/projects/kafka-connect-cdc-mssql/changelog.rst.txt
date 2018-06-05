@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-06-05 18:03:51","`664628262b3d615 <https://github.com/jcustenborder/kafka-connect-cdc-mssql/commit/664628262b3d615>`_","Bui Nguyen Thang - Bob","fix issue #23 NullPointerException (#29)"
     "2018-04-02 23:50:29","`d16aa99ed8f2c4b <https://github.com/jcustenborder/kafka-connect-cdc-mssql/commit/d16aa99ed8f2c4b>`_","Jeremy Custenborder","Corrected typos (#21)"
     "2018-03-30 18:12:28","`03b6ff93c58bc2d <https://github.com/jcustenborder/kafka-connect-cdc-mssql/commit/03b6ff93c58bc2d>`_","Jeremy Custenborder","Updated documentation."
     "2018-03-30 17:56:08","`0ecda1b5184480c <https://github.com/jcustenborder/kafka-connect-cdc-mssql/commit/0ecda1b5184480c>`_","Jeremy Custenborder","Updated documentation."
