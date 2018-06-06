@@ -7,8 +7,8 @@ Install
 .. image:: https://img.shields.io/github/release/jcustenborder/kafka-connect-cassandra.svg
     :target: https://github.com/jcustenborder/kafka-connect-cassandra/releases
 
-.. image:: https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-cassandra.svg
-    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-cassandra%7C0.1.11%7Cjar
+.. image:: https://img.shields.io/maven-central/v/io.confluent/kafka-connect-cassandra.svg
+    :target: https://search.maven.org/#artifactdetails%7Cio.confluent%7Ckafka-connect-cassandra%7C1.0.0-beta%7Cjar
 
 ^^^^^^^^^^^^^^^^
 RPM Installation
@@ -39,9 +39,9 @@ Maven Installation
 .. code-block:: xml
 
     <dependency>
-        <groupId>com.github.jcustenborder.kafka.connect</groupId>
+        <groupId>io.confluent</groupId>
         <artifactId>kafka-connect-cassandra</artifactId>
-        <version>0.1.11</version>
+        <version>1.0.0-beta</version>
     </dependency>
 
 
