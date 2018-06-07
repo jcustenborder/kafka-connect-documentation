@@ -1,6 +1,6 @@
-============================================================
-Com.github.jcustenborder.kafka.connect.salesforce Connectors
-============================================================
+==================================
+Io.confluent.salesforce Connectors
+==================================
 
 .. toctree::
     :maxdepth: 1

@@ -276,7 +276,7 @@ This configuration is used typically along with `standalone mode
     :emphasize-lines: 4,5,6,7,8,9,10,11
 
     name=SalesforceSourceConnector1
-    connector.class=com.github.jcustenborder.kafka.connect.salesforce.SalesforceSourceConnector
+    connector.class=io.confluent.salesforce.SalesforceSourceConnector
     tasks.max=1
     kafka.topic=< Required Configuration >
     salesforce.consumer.key=< Required Configuration >
@@ -309,7 +309,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
     {
       "config" : {
         "name" : "SalesforceSourceConnector1",
-        "connector.class" : "com.github.jcustenborder.kafka.connect.salesforce.SalesforceSourceConnector",
+        "connector.class" : "io.confluent.salesforce.SalesforceSourceConnector",
         "tasks.max" : "1",
         "kafka.topic" : "< Required Configuration >",
         "salesforce.consumer.key" : "< Required Configuration >",
