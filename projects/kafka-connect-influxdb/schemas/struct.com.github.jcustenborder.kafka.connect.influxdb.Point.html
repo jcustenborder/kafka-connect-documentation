@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Schemas" href="../schemas.html"/>
+        <link rel="up" title="Io.confluent.influxdb Schemas" href="../schemas.html"/>
         <link rel="next" title="PointKey" href="struct.com.github.jcustenborder.kafka.connect.influxdb.PointKey.html"/>
-        <link rel="prev" title="Schemas" href="../schemas.html"/> 
+        <link rel="prev" title="Io.confluent.influxdb Schemas" href="../schemas.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -98,8 +98,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../schemas.html">Schemas</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/schemas.html">Schemas</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Point</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Io.confluent.influxdb Schemas</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Point</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.influxdb.PointKey.html">PointKey</a></li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.influxdb.PointValue.html">PointValue</a></li>
 </ul>
@@ -168,7 +171,7 @@
         
           <li><a href="../../../schemas.html">Schemas</a> &raquo;</li>
         
-          <li><a href="../schemas.html">Schemas</a> &raquo;</li>
+          <li><a href="../schemas.html">Io.confluent.influxdb Schemas</a> &raquo;</li>
         
       <li>Point</li>
     
@@ -192,49 +195,39 @@
   <div class="section" id="point">
 <h1>Point<a class="headerlink" href="#point" title="Permalink to this headline">¶</a></h1>
 <p>This schema represents the <a class="reference internal" href="../../../glossary.html#term-value"><span class="xref std std-term">value</span></a> that is written to Kafka.</p>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">Point</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Optional</th>
-<th class="head">Default Value</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>measurement</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>The name of the measurement.</td>
-</tr>
-<tr class="row-odd"><td>tags</td>
-<td>Map of <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a>, <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Tags associated with the measurement.</td>
-</tr>
-<tr class="row-even"><td>timestampNano</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Timestamp in nanosecond precision.</td>
-</tr>
-<tr class="row-odd"><td>timestamp</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Timestamp of the message.</td>
-</tr>
-<tr class="row-even"><td>values</td>
-<td>Array of <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>The values that were written to InfluxDB.</td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="measurement">
+<h3>measurement<a class="headerlink" href="#measurement" title="Permalink to this headline">¶</a></h3>
+<p>The name of the measurement.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="tags">
+<h3>tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
+<p>Tags associated with the measurement.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> Map of <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a>, <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="timestampnano">
+<h3>timestampNano<a class="headerlink" href="#timestampnano" title="Permalink to this headline">¶</a></h3>
+<p>Timestamp in nanosecond precision.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></p>
+</div>
+<div class="section" id="timestamp">
+<h3>timestamp<a class="headerlink" href="#timestamp" title="Permalink to this headline">¶</a></h3>
+<p>Timestamp of the message.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></p>
+</div>
+<div class="section" id="values">
+<h3>values<a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h3>
+<p>The values that were written to InfluxDB.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> Array of <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></p>
+</div>
+</div>
 </div>
 
 
@@ -250,7 +243,7 @@
         <a href="struct.com.github.jcustenborder.kafka.connect.influxdb.PointKey.html" class="btn btn-neutral float-right" title="PointKey" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../schemas.html" class="btn btn-neutral" title="Schemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../schemas.html" class="btn btn-neutral" title="Io.confluent.influxdb Schemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

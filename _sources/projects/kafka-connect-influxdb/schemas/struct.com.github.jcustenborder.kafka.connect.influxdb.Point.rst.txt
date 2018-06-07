@@ -4,13 +4,69 @@ Point
 
 This schema represents the :term:`value` that is written to Kafka.
 
-.. csv-table:: Point
-    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
-    :widths: auto
 
-    "measurement",":ref:`schema-String`","false","","The name of the measurement."
-    "tags","Map of :ref:`schema-String`, :ref:`schema-String`","false","","Tags associated with the measurement."
-    "timestampNano",":ref:`schema-Int64`","false","","Timestamp in nanosecond precision."
-    "timestamp",":ref:`schema-Int64`","false","","Timestamp of the message."
-    "values","Array of :ref:`schema-Struct`","false","","The values that were written to InfluxDB."
+------
+Fields
+------
+
+
+^^^^^^^^^^^
+measurement
+^^^^^^^^^^^
+
+The name of the measurement.
+
+**Optional:** yes
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^
+tags
+^^^^
+
+Tags associated with the measurement.
+
+**Optional:** yes
+
+**Type:** Map of :ref:`schema-String`, :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^
+timestampNano
+^^^^^^^^^^^^^
+
+Timestamp in nanosecond precision.
+
+**Optional:** yes
+
+**Type:** :ref:`schema-Int64`
+
+
+
+^^^^^^^^^
+timestamp
+^^^^^^^^^
+
+Timestamp of the message.
+
+**Optional:** yes
+
+**Type:** :ref:`schema-Int64`
+
+
+
+^^^^^^
+values
+^^^^^^
+
+The values that were written to InfluxDB.
+
+**Optional:** yes
+
+**Type:** Array of :ref:`schema-Struct`
+
+
 

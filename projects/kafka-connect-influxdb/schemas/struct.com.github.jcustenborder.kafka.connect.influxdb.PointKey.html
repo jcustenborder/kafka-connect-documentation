@@ -36,7 +36,7 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Schemas" href="../schemas.html"/>
+        <link rel="up" title="Io.confluent.influxdb Schemas" href="../schemas.html"/>
         <link rel="next" title="PointValue" href="struct.com.github.jcustenborder.kafka.connect.influxdb.PointValue.html"/>
         <link rel="prev" title="Point" href="struct.com.github.jcustenborder.kafka.connect.influxdb.Point.html"/> 
 
@@ -98,9 +98,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../schemas.html">Schemas</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/schemas.html">Schemas</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Io.confluent.influxdb Schemas</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.influxdb.Point.html">Point</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">PointKey</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PointKey</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.influxdb.PointValue.html">PointValue</a></li>
 </ul>
 </li>
@@ -168,7 +171,7 @@
         
           <li><a href="../../../schemas.html">Schemas</a> &raquo;</li>
         
-          <li><a href="../schemas.html">Schemas</a> &raquo;</li>
+          <li><a href="../schemas.html">Io.confluent.influxdb Schemas</a> &raquo;</li>
         
       <li>PointKey</li>
     
@@ -192,31 +195,21 @@
   <div class="section" id="pointkey">
 <h1>PointKey<a class="headerlink" href="#pointkey" title="Permalink to this headline">¶</a></h1>
 <p>This schema represents the <a class="reference internal" href="../../../glossary.html#term-key"><span class="xref std std-term">key</span></a> that is be written to the Kafka containing the data.</p>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">PointKey</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Optional</th>
-<th class="head">Default Value</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>measurement</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>The name of the measurement.</td>
-</tr>
-<tr class="row-odd"><td>tags</td>
-<td>Map of <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a>, <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Tags associated with the measurement.</td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="measurement">
+<h3>measurement<a class="headerlink" href="#measurement" title="Permalink to this headline">¶</a></h3>
+<p>The name of the measurement.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="tags">
+<h3>tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
+<p>Tags associated with the measurement.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> Map of <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a>, <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+</div>
 </div>
 
 

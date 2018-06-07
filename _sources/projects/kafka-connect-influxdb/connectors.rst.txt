@@ -1,10 +1,6 @@
-==================
-InfluxDB Connector
-==================
-
-The InfluxDB Connector provides a Kafka Connect :term:`Source Connector` that can receve data via emulating the
-`HTTP API <https://docs.influxdata.com/influxdb/v1.2/guides/writing_data/>`_. A :term:`Sink Connector` is also provided
-to write data to an InfluxDB host.
+================================
+Io.confluent.influxdb Connectors
+================================
 
 .. toctree::
     :maxdepth: 1
@@ -14,7 +10,6 @@ to write data to an InfluxDB host.
 
     sources/*
 
-
 .. toctree::
     :maxdepth: 1
     :caption: Sink Connectors:
@@ -22,11 +17,3 @@ to write data to an InfluxDB host.
     :glob:
 
     sinks/*
-
-
-.. toctree::
-    :maxdepth: 0
-    :caption: Schemas:
-    :hidden:
-
-    info

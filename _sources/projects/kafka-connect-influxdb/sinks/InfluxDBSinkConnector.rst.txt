@@ -13,32 +13,40 @@ The InfluxDBSinkConnector is used to write data from a :term:`Kafka topic`_ to a
 Configuration
 -------------
 
+-------
+General
+-------
+
 
 ^^^^^^^^^^^^^^^^^
 influxdb.database
 ^^^^^^^^^^^^^^^^^
 
+The influxdb database to write to.
+
 **Importance:** High
 
 **Type:** String
 
 
-The influxdb database to write to.
 
 ^^^^^^^^^^^^
 influxdb.url
 ^^^^^^^^^^^^
 
+The url of the InfluxDB instance to write to.
+
 **Importance:** High
 
 **Type:** String
 
 
-The url of the InfluxDB instance to write to.
 
 ^^^^^^^^^^^^^^^^^
 influxdb.password
 ^^^^^^^^^^^^^^^^^
+
+The password to connect to InfluxDB with.
 
 **Importance:** High
 
@@ -47,22 +55,24 @@ influxdb.password
 **Default Value:** [hidden]
 
 
-The password to connect to InfluxDB with.
 
 ^^^^^^^^^^^^^^^^^
 influxdb.username
 ^^^^^^^^^^^^^^^^^
+
+The username to connect to InfluxDB with.
 
 **Importance:** High
 
 **Type:** String
 
 
-The username to connect to InfluxDB with.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 influxdb.consistency.level
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The default consistency level for writing data to InfluxDB.
 
 **Importance:** Medium
 
@@ -73,11 +83,12 @@ influxdb.consistency.level
 **Validator:** ValidEnum{enum=ConsistencyLevel, allowed=[ALL, ANY, ONE, QUORUM]}
 
 
-The default consistency level for writing data to InfluxDB.
 
 ^^^^^^^^^^^^^^^^^
 influxdb.timeunit
 ^^^^^^^^^^^^^^^^^
+
+The default timeunit for writing data to InfluxDB.
 
 **Importance:** Medium
 
@@ -88,11 +99,12 @@ influxdb.timeunit
 **Validator:** ValidEnum{enum=TimeUnit, allowed=[NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS]}
 
 
-The default timeunit for writing data to InfluxDB.
 
 ^^^^^^^^^^^^^^^^^^^^
 influxdb.gzip.enable
 ^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if gzip should be enabled.
 
 **Importance:** Low
 
@@ -101,11 +113,12 @@ influxdb.gzip.enable
 **Default Value:** true
 
 
-Flag to determine if gzip should be enabled.
 
 ^^^^^^^^^^^^^^^^^^
 influxdb.log.level
 ^^^^^^^^^^^^^^^^^^
+
+influxdb.log.level
 
 **Importance:** Low
 
@@ -116,7 +129,9 @@ influxdb.log.level
 **Validator:** ValidEnum{enum=LogLevel, allowed=[NONE, BASIC, HEADERS, FULL]}
 
 
-influxdb.log.level
+
+
+
 
 --------
 Examples
@@ -135,7 +150,7 @@ This configuration is used typically along with `standalone mode
     :emphasize-lines: 4,5,6
 
     name=InfluxDBSinkConnector1
-    connector.class=com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSinkConnector
+    connector.class=io.confluent.influxdb.InfluxDBSinkConnector
     tasks.max=1
     topics=< Required Configuration >
     influxdb.database=< Required Configuration >
@@ -156,13 +171,14 @@ post the configuration to one the distributed connect worker(s). Check here for 
 `Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :caption: Connect Distributed REST example
     :name: connector.json
     :emphasize-lines: 6,7,8
 
     {
       "config" : {
         "name" : "InfluxDBSinkConnector1",
-        "connector.class" : "com.github.jcustenborder.kafka.connect.influxdb.InfluxDBSinkConnector",
+        "connector.class" : "io.confluent.influxdb.InfluxDBSinkConnector",
         "tasks.max" : "1",
         "topics" : "< Required Configuration >",
         "influxdb.database" : "< Required Configuration >",
@@ -185,5 +201,6 @@ one of your Kafka Connect worker(s).
     :caption: Update an existing connector
 
     curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/InfluxDBSinkConnector1/config
+
 
 

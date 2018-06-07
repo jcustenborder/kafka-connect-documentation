@@ -36,7 +36,7 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Schemas" href="../schemas.html"/>
+        <link rel="up" title="Io.confluent.influxdb Schemas" href="../schemas.html"/>
         <link rel="next" title="Com.github.jcustenborder.kafka.connect.mqtt Schemas" href="../../kafka-connect-mqtt/schemas.html"/>
         <link rel="prev" title="PointKey" href="struct.com.github.jcustenborder.kafka.connect.influxdb.PointKey.html"/> 
 
@@ -98,10 +98,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../schemas.html">Schemas</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/schemas.html">Schemas</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Io.confluent.influxdb Schemas</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.influxdb.Point.html">Point</a></li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.influxdb.PointKey.html">PointKey</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">PointValue</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PointValue</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jms/schemas.html">Schemas</a></li>
@@ -168,7 +171,7 @@
         
           <li><a href="../../../schemas.html">Schemas</a> &raquo;</li>
         
-          <li><a href="../schemas.html">Schemas</a> &raquo;</li>
+          <li><a href="../schemas.html">Io.confluent.influxdb Schemas</a> &raquo;</li>
         
       <li>PointValue</li>
     
@@ -192,61 +195,51 @@
   <div class="section" id="pointvalue">
 <h1>PointValue<a class="headerlink" href="#pointvalue" title="Permalink to this headline">¶</a></h1>
 <p>This schema represents a value written to InfluxDB.</p>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">PointValue</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Optional</th>
-<th class="head">Default Value</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>name</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>The name of the value</td>
-</tr>
-<tr class="row-odd"><td>type</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>The type of data. This value corresponds to one of fields of this struct.</td>
-</tr>
-<tr class="row-even"><td>float64</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-float64"><span class="std std-ref">FLOAT64</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>The float64 value for this field.</td>
-</tr>
-<tr class="row-odd"><td>int64</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>The int64 value for this field.</td>
-</tr>
-<tr class="row-even"><td>boolean</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>The boolean value for this field.</td>
-</tr>
-<tr class="row-odd"><td>timestamp</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Timestamp value.</td>
-</tr>
-<tr class="row-even"><td>string</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>String value.</td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="name">
+<h3>name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
+<p>The name of the value</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="type">
+<h3>type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
+<p>The type of data. This value corresponds to one of fields of this struct.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="float64">
+<h3>float64<a class="headerlink" href="#float64" title="Permalink to this headline">¶</a></h3>
+<p>The float64 value for this field.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-float64"><span class="std std-ref">FLOAT64</span></a></p>
+</div>
+<div class="section" id="int64">
+<h3>int64<a class="headerlink" href="#int64" title="Permalink to this headline">¶</a></h3>
+<p>The int64 value for this field.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></p>
+</div>
+<div class="section" id="boolean">
+<h3>boolean<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h3>
+<p>The boolean value for this field.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="timestamp">
+<h3>timestamp<a class="headerlink" href="#timestamp" title="Permalink to this headline">¶</a></h3>
+<p>Timestamp value.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></p>
+</div>
+<div class="section" id="string">
+<h3>string<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h3>
+<p>String value.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+</div>
 </div>
 
 
