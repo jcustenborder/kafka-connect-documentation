@@ -9,7 +9,7 @@ This connector connects to a Mqtt broker and subscribes to the specified topics.
 
 
 .. TIP::
-    The output of this connector is an envelope with all of the properties of the incoming message. If you need the body of the Mqtt message as the value written to the topic in Kakfa, use a Transformation to achieve this.
+    The output of this connector is an envelope with all of the properties of the incoming message. The body of the message is written to the value as bytes. The key is the topic the message was written to.
 
 
 
@@ -72,11 +72,11 @@ Username to connect with.
 
 
 
-^^^^^^^^^^^^^^^^^^
-kafka.topic.prefix
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^
+kafka.topic
+^^^^^^^^^^^
 
-The prefix to append to the Mqtt topic name when writing to Kafka.
+The kafka topic to write the data to.
 
 **Importance:** Medium
 
