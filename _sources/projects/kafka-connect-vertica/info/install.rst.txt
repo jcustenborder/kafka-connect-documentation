@@ -7,8 +7,8 @@ Install
 .. image:: https://img.shields.io/github/release/jcustenborder/kafka-connect-vertica.svg
     :target: https://github.com/jcustenborder/kafka-connect-vertica/releases
 
-.. image:: https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-vertica.svg
-    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-vertica%7C0.2.0.4%7Cjar
+.. image:: https://img.shields.io/maven-central/v/io.confluent/kafka-connect-vertica.svg
+    :target: https://search.maven.org/#artifactdetails%7Cio.confluent%7Ckafka-connect-vertica%7C0.2.0.5%7Cjar
 
 ^^^^^^^^^^^^^^^^
 RPM Installation
@@ -39,9 +39,9 @@ Maven Installation
 .. code-block:: xml
 
     <dependency>
-        <groupId>com.github.jcustenborder.kafka.connect</groupId>
+        <groupId>io.confluent</groupId>
         <artifactId>kafka-connect-vertica</artifactId>
-        <version>0.2.0.4</version>
+        <version>0.2.0.5</version>
     </dependency>
 
 

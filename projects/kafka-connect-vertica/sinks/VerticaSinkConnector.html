@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Vertica Connector" href="../connectors.html"/>
-        <link rel="next" title="Additional Information" href="../info.html"/>
-        <link rel="prev" title="Vertica Connector" href="../connectors.html"/> 
+        <link rel="up" title="Io.confluent.vertica Connectors" href="../connectors.html"/>
+        <link rel="next" title="Transformations" href="../../../transformations.html"/>
+        <link rel="prev" title="Io.confluent.vertica Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -116,13 +116,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/connectors.html">StatsD Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/connectors.html">Syslog Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/connectors.html">Twitter Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Vertica Connector</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Io.confluent.vertica Connectors</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">VerticaSinkConnector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../info.html">Additional Information</a></li>
 </ul>
 </li>
 </ul>
@@ -180,7 +180,7 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Vertica Connector</a> &raquo;</li>
+          <li><a href="../connectors.html">Io.confluent.vertica Connectors</a> &raquo;</li>
         
       <li>VerticaSinkConnector</li>
     
@@ -210,90 +210,93 @@
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="vertica-database">
 <h3>vertica.database<a class="headerlink" href="#vertica-database" title="Permalink to this headline">¶</a></h3>
+<p>The database on the Vertica system. This is used to build the JDBC url.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-<p>The database on the Vertica system. This is used to build the JDBC url.</p>
 </div>
 <div class="section" id="vertica-host">
 <h3>vertica.host<a class="headerlink" href="#vertica-host" title="Permalink to this headline">¶</a></h3>
+<p>The Vertica host to connect to. This is used to build the JDBC url.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-<p>The Vertica host to connect to. This is used to build the JDBC url.</p>
 </div>
 <div class="section" id="vertica-password">
 <h3>vertica.password<a class="headerlink" href="#vertica-password" title="Permalink to this headline">¶</a></h3>
+<p>The password to authenticate to Vertica with.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Password</p>
-<p>The password to authenticate to Vertica with.</p>
 </div>
 <div class="section" id="vertica-username">
 <h3>vertica.username<a class="headerlink" href="#vertica-username" title="Permalink to this headline">¶</a></h3>
+<p>The username to authenticate to Vertica with.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-<p>The username to authenticate to Vertica with.</p>
 </div>
 <div class="section" id="stream-builder-cache-ms">
 <h3>stream.builder.cache.ms<a class="headerlink" href="#stream-builder-cache-ms" title="Permalink to this headline">¶</a></h3>
+<p>The amount of time in milliseconds to cache the stream builder objects that are used to define the table structure.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 300000</p>
 <p><strong>Validator:</strong> [1000,…,2147483647]</p>
-<p>The amount of time in milliseconds to cache the stream builder objects that are used to define the table structure.</p>
 </div>
 <div class="section" id="vertica-buffer-size-bytes">
 <h3>vertica.buffer.size.bytes<a class="headerlink" href="#vertica-buffer-size-bytes" title="Permalink to this headline">¶</a></h3>
+<p>The buffer for the input stream that is used by the Vertica Copy Stream.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 1048576</p>
-<p>The buffer for the input stream that is used by the Vertica Copy Stream.</p>
 </div>
 <div class="section" id="vertica-timeout-ms">
 <h3>vertica.timeout.ms<a class="headerlink" href="#vertica-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<p>The timeout for completing the write to Vertica.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 60000</p>
 <p><strong>Validator:</strong> [10000,…,2147483647]</p>
-<p>The timeout for completing the write to Vertica.</p>
 </div>
 <div class="section" id="vertica-compression">
 <h3>vertica.compression<a class="headerlink" href="#vertica-compression" title="Permalink to this headline">¶</a></h3>
+<p>The type of compression for the data load.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> UNCOMPRESSED</p>
 <p><strong>Validator:</strong> ValidEnum{enum=VerticaCompressionType, allowed=[UNCOMPRESSED, BZIP, GZIP, LZO]}</p>
-<p>The type of compression for the data load.</p>
 </div>
 <div class="section" id="vertica-load-method">
 <h3>vertica.load.method<a class="headerlink" href="#vertica-load-method" title="Permalink to this headline">¶</a></h3>
+<p>The method for loading data.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> AUTO</p>
 <p><strong>Validator:</strong> ValidEnum{enum=VerticaLoadMethod, allowed=[AUTO, DIRECT, TRICKLE]}</p>
-<p>The method for loading data.</p>
 </div>
 <div class="section" id="vertica-port">
 <h3>vertica.port<a class="headerlink" href="#vertica-port" title="Permalink to this headline">¶</a></h3>
+<p>The Vertica port to connect to. This is used to build the JDBC url.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 5433</p>
 <p><strong>Validator:</strong> ValidPort{start=1025, end=65535}</p>
-<p>The Vertica port to connect to. This is used to build the JDBC url.</p>
 </div>
 <div class="section" id="expected-records">
 <h3>expected.records<a class="headerlink" href="#expected-records" title="Permalink to this headline">¶</a></h3>
+<p>The expected number of records the connector will process each time.</p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 10000</p>
-<p>The expected number of records the connector will process each time.</p>
 </div>
 <div class="section" id="expected-topics">
 <h3>expected.topics<a class="headerlink" href="#expected-topics" title="Permalink to this headline">¶</a></h3>
+<p>The expected number of topics the connector will process in a poll.</p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 500</p>
-<p>The expected number of topics the connector will process in a poll.</p>
 </div>
 </div>
 <div class="section" id="examples">
@@ -302,7 +305,7 @@
 <h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
 <div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">VerticaSinkConnector1</span>
-<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.vertica.VerticaSinkConnector</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">io.confluent.vertica.VerticaSinkConnector</span>
 <span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
 <span class="hll"><span class="na">topics</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
 </span><span class="hll"><span class="na">vertica.database</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
@@ -318,10 +321,12 @@
 Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
 post the configuration to one the distributed connect worker(s). Check here for more information about the
 <a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
-<div class="highlight-json" id="connector-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="literal-block-wrapper docutils container" id="connector-json">
+<div class="code-block-caption"><span class="caption-text">Connect Distributed REST example</span><a class="headerlink" href="#connector-json" title="Permalink to this code">¶</a></div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;VerticaSinkConnector1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.vertica.VerticaSinkConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;io.confluent.vertica.VerticaSinkConnector&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
 <span class="hll">    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
 </span><span class="hll">    <span class="nt">&quot;vertica.database&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
@@ -331,6 +336,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 </span>  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</div>
 </div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
@@ -360,10 +366,10 @@ one of your Kafka Connect worker(s).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../info.html" class="btn btn-neutral float-right" title="Additional Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../../transformations.html" class="btn btn-neutral float-right" title="Transformations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Vertica Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="Io.confluent.vertica Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

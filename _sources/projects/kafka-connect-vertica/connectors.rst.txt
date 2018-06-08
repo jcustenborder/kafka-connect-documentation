@@ -1,9 +1,7 @@
-=================
-Vertica Connector
-=================
+===============================
+Io.confluent.vertica Connectors
+===============================
 
-The Vertica Connector provides a high speed option to write data to Vertica using the `Vertica CopyStream <https://my.vertica.com/docs/7.1.x/HTML/Content/Authoring/ConnectingToHPVertica/ClientJDBC/UsingVerticaCopyStream.htm>`_
-to write data to Vertica.
 
 .. toctree::
     :maxdepth: 1
@@ -12,11 +10,3 @@ to write data to Vertica.
     :glob:
 
     sinks/*
-
-
-.. toctree::
-    :maxdepth: 0
-    :caption: Schemas:
-    :hidden:
-
-    info
