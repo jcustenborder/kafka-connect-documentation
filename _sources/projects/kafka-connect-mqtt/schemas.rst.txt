@@ -1,6 +1,6 @@
-===================================================
-Com.github.jcustenborder.kafka.connect.mqtt Schemas
-===================================================
+=================================
+Io.confluent.connect.mqtt Schemas
+=================================
 
 .. toctree::
     :maxdepth: 0

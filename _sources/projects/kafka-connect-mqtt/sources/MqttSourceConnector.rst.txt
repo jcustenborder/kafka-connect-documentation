@@ -168,7 +168,7 @@ This configuration is used typically along with `standalone mode
     :emphasize-lines: 4,5
 
     name=MqttSourceConnector1
-    connector.class=com.github.jcustenborder.kafka.connect.mqtt.MqttSourceConnector
+    connector.class=io.confluent.connect.mqtt.MqttSourceConnector
     tasks.max=1
     mqtt.server.uri=< Required Configuration >
     mqtt.topics=< Required Configuration >
@@ -195,7 +195,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
     {
       "config" : {
         "name" : "MqttSourceConnector1",
-        "connector.class" : "com.github.jcustenborder.kafka.connect.mqtt.MqttSourceConnector",
+        "connector.class" : "io.confluent.connect.mqtt.MqttSourceConnector",
         "tasks.max" : "1",
         "mqtt.server.uri" : "< Required Configuration >",
         "mqtt.topics" : "< Required Configuration >"
