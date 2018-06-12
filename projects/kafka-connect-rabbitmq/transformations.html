@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>RabbitMQ Transformations &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Io.confluent.connect.rabbitmq Transformations &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
         <link rel="up" title="Transformations" href="../../transformations.html"/>
-        <link rel="next" title="Archive Transform" href="../kafka-connect-transform-archive/transformations.html"/>
+        <link rel="next" title="ExtractHeader(Key)" href="transformations/extractheader.key.html"/>
         <link rel="prev" title="Transformations" href="../../transformations.html"/> 
 
   
@@ -96,7 +96,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../connectors.html">Connectors</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../transformations.html">Transformations</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">RabbitMQ Transformations</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Io.confluent.connect.rabbitmq Transformations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations/extractheader.key.html">ExtractHeader(Key)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations/extractheader.value.html">ExtractHeader(Value)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-archive/transformations.html">Archive Transform</a></li>
@@ -158,7 +160,7 @@
         
           <li><a href="../../transformations.html">Transformations</a> &raquo;</li>
         
-      <li>RabbitMQ Transformations</li>
+      <li>Io.confluent.connect.rabbitmq Transformations</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -177,24 +179,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rabbitmq-transformations">
-<h1>RabbitMQ Transformations<a class="headerlink" href="#rabbitmq-transformations" title="Permalink to this headline">¶</a></h1>
-<p>The RabbitMQ Transformations help by extracting header values from RabbitMQ.</p>
+  <div class="section" id="io-confluent-connect-rabbitmq-transformations">
+<h1>Io.confluent.connect.rabbitmq Transformations<a class="headerlink" href="#io-confluent-connect-rabbitmq-transformations" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">maxdepth:</th><td class="field-body"><p class="first">1
-:caption: Transformations:
-:hidden:
-:glob:</p>
-<p class="last">transformations/*</p>
-</td>
-</tr>
-</tbody>
-</table>
 </div>
 
 
@@ -207,7 +195,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../kafka-connect-transform-archive/transformations.html" class="btn btn-neutral float-right" title="Archive Transform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="transformations/extractheader.key.html" class="btn btn-neutral float-right" title="ExtractHeader(Key)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../../transformations.html" class="btn btn-neutral" title="Transformations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
