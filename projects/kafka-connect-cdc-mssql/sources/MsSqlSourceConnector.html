@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>MsSqlSourceConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Microsoft SQL Server &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Com.github.jcustenborder.kafka.connect.cdc.mssql Connectors" href="../connectors.html"/>
+        <link rel="up" title="Io.confluent.connect.cdc.mssql Connectors" href="../connectors.html"/>
         <link rel="next" title="Flume Connector" href="../../kafka-connect-flume-avro/connectors.html"/>
-        <link rel="prev" title="Com.github.jcustenborder.kafka.connect.cdc.mssql Connectors" href="../connectors.html"/> 
+        <link rel="prev" title="Io.confluent.connect.cdc.mssql Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -96,8 +96,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-cassandra/connectors.html">Apache Cassandra Connectors</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Com.github.jcustenborder.kafka.connect.cdc.mssql Connectors</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">MsSqlSourceConnector</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Io.confluent.connect.cdc.mssql Connectors</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Microsoft SQL Server</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
@@ -180,9 +180,9 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Com.github.jcustenborder.kafka.connect.cdc.mssql Connectors</a> &raquo;</li>
+          <li><a href="../connectors.html">Io.confluent.connect.cdc.mssql Connectors</a> &raquo;</li>
         
-      <li>MsSqlSourceConnector</li>
+      <li>Microsoft SQL Server</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -201,8 +201,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mssqlsourceconnector">
-<h1>MsSqlSourceConnector<a class="headerlink" href="#mssqlsourceconnector" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="microsoft-sql-server">
+<h1>Microsoft SQL Server<a class="headerlink" href="#microsoft-sql-server" title="Permalink to this headline">¶</a></h1>
 <img alt="../../../_images/MsSqlSourceConnector.svg" src="../../../_images/MsSqlSourceConnector.svg" /><p>The Microsoft SQL Server connector utilizes <a class="reference external" href="https://msdn.microsoft.com/en-us/library/bb933875.aspx">Change Tracking</a> to identify changes. There are two ways to read the changes from the source system as they are generated. <a class="reference external" href="https://msdn.microsoft.com/en-us/library/cc645937.aspx">Change Data Capture</a> is a feature that is only available on SQL Server Enterprise and Developer editions. <a class="reference external" href="https://msdn.microsoft.com/en-us/library/bb933875.aspx">Change Tracking</a> is a lightweight solution that will efficiently find rows that have changed. If the rows are modified in quick succession all of the changes might not be found. The latest version of the change will be returned.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
@@ -389,7 +389,7 @@
 <h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
 <div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">MsSqlSourceConnector1</span>
-<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.cdc.mssql.MsSqlSourceConnector</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">io.confluent.connect.cdc.mssql.MsSqlSourceConnector</span>
 <span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
 <span class="hll"><span class="na">initial.database</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
 </span><span class="hll"><span class="na">password</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
@@ -410,7 +410,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;MsSqlSourceConnector1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.cdc.mssql.MsSqlSourceConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;io.confluent.connect.cdc.mssql.MsSqlSourceConnector&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
 <span class="hll">    <span class="nt">&quot;initial.database&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
 </span><span class="hll">    <span class="nt">&quot;password&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
@@ -453,7 +453,7 @@ one of your Kafka Connect worker(s).</p>
         <a href="../../kafka-connect-flume-avro/connectors.html" class="btn btn-neutral float-right" title="Flume Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Com.github.jcustenborder.kafka.connect.cdc.mssql Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="Io.confluent.connect.cdc.mssql Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

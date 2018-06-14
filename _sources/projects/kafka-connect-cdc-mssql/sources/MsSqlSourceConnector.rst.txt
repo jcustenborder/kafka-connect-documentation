@@ -1,5 +1,5 @@
 ====================
-MsSqlSourceConnector
+Microsoft SQL Server
 ====================
 
 .. image:: MsSqlSourceConnector.svg
@@ -384,7 +384,7 @@ This configuration is used typically along with `standalone mode
     :emphasize-lines: 4,5,6,7,8
 
     name=MsSqlSourceConnector1
-    connector.class=com.github.jcustenborder.kafka.connect.cdc.mssql.MsSqlSourceConnector
+    connector.class=io.confluent.connect.cdc.mssql.MsSqlSourceConnector
     tasks.max=1
     initial.database=< Required Configuration >
     password=< Required Configuration >
@@ -414,7 +414,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
     {
       "config" : {
         "name" : "MsSqlSourceConnector1",
-        "connector.class" : "com.github.jcustenborder.kafka.connect.cdc.mssql.MsSqlSourceConnector",
+        "connector.class" : "io.confluent.connect.cdc.mssql.MsSqlSourceConnector",
         "tasks.max" : "1",
         "initial.database" : "< Required Configuration >",
         "password" : "< Required Configuration >",

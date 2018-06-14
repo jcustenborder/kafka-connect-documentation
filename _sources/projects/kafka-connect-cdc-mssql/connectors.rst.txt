@@ -1,6 +1,6 @@
-===========================================================
-Com.github.jcustenborder.kafka.connect.cdc.mssql Connectors
-===========================================================
+=========================================
+Io.confluent.connect.cdc.mssql Connectors
+=========================================
 
 .. toctree::
     :maxdepth: 1
