@@ -8,7 +8,7 @@ Install
     :target: https://github.com/jcustenborder/kafka-connect-rabbitmq/releases
 
 .. image:: https://img.shields.io/maven-central/v/io.confluent/kafka-connect-rabbitmq.svg
-    :target: https://search.maven.org/#artifactdetails%7Cio.confluent%7Ckafka-connect-rabbitmq%7C1.0.0-beta%7Cjar
+    :target: https://search.maven.org/#artifactdetails%7Cio.confluent%7Ckafka-connect-rabbitmq%7C1.0.0-preview%7Cjar
 
 ^^^^^^^^^^^^^^^^
 RPM Installation
@@ -41,7 +41,7 @@ Maven Installation
     <dependency>
         <groupId>io.confluent</groupId>
         <artifactId>kafka-connect-rabbitmq</artifactId>
-        <version>1.0.0-beta</version>
+        <version>1.0.0-preview</version>
     </dependency>
 
 
