@@ -19,10 +19,16 @@ You can do this by exporting the KAFKA_OPTS environment variable. For example `e
 Configuration
 -------------
 
+-------
+General
+-------
+
 
 ^^^^^^^^^^^^^^^^^^^
 mapr.table.cache.ms
 ^^^^^^^^^^^^^^^^^^^
+
+Number of milliseconds to cache a Table object.
 
 **Importance:** Low
 
@@ -33,7 +39,9 @@ mapr.table.cache.ms
 **Validator:** [1000,...]
 
 
-Number of milliseconds to cache a Table object.
+
+
+
 
 --------
 Examples
@@ -52,7 +60,7 @@ This configuration is used typically along with `standalone mode
     :emphasize-lines: 4
 
     name=MapRDBSinkConnector1
-    connector.class=com.github.jcustenborder.kafka.connect.mapr.db.MapRDBSinkConnector
+    connector.class=io.confluent.connect.mapr.db.MapRDBSinkConnector
     tasks.max=1
     topics=< Required Configuration >
 
@@ -71,13 +79,14 @@ post the configuration to one the distributed connect worker(s). Check here for 
 `Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :caption: Connect Distributed REST example
     :name: connector.json
     :emphasize-lines: 6
 
     {
       "config" : {
         "name" : "MapRDBSinkConnector1",
-        "connector.class" : "com.github.jcustenborder.kafka.connect.mapr.db.MapRDBSinkConnector",
+        "connector.class" : "io.confluent.connect.mapr.db.MapRDBSinkConnector",
         "tasks.max" : "1",
         "topics" : "< Required Configuration >"
       }
@@ -98,5 +107,6 @@ one of your Kafka Connect worker(s).
     :caption: Update an existing connector
 
     curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/MapRDBSinkConnector1/config
+
 
 
