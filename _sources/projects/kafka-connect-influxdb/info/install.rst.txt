@@ -8,7 +8,7 @@ Install
     :target: https://github.com/jcustenborder/kafka-connect-influxdb/releases
 
 .. image:: https://img.shields.io/maven-central/v/io.confluent/kafka-connect-influxdb.svg
-    :target: https://search.maven.org/#artifactdetails%7Cio.confluent%7Ckafka-connect-influxdb%7C0.1.0-SNAPSHOT%7Cjar
+    :target: https://search.maven.org/#artifactdetails%7Cio.confluent%7Ckafka-connect-influxdb%7C1.0.0-preview%7Cjar
 
 ^^^^^^^^^^^^^^^^
 RPM Installation
@@ -41,7 +41,7 @@ Maven Installation
     <dependency>
         <groupId>io.confluent</groupId>
         <artifactId>kafka-connect-influxdb</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>1.0.0-preview</version>
     </dependency>
 
 
