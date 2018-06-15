@@ -177,7 +177,7 @@ Password to open the Java Truststore with.
 
 **Default Value:** [hidden]
 
-**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@fef2768
+**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@4b5ceb5d
 
 
 
@@ -191,7 +191,7 @@ Path to the Java Truststore.
 
 **Type:** String
 
-**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@3a574a3b
+**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@22a2e581
 
 
 
