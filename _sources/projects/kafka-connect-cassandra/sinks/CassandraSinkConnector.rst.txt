@@ -2,9 +2,6 @@
 Cassandra Sink Connector
 ========================
 
-.. image:: CassandraSinkConnector.svg
-
-
 The Cassandra Sink connector is used to write data to a Cassandra Cluster. This connector works by utilizing the `Batch <http://docs.datastax.com/en/drivers/java/3.0/com/datastax/driver/core/querybuilder/Batch.html>`_ functionality to write all of the records in each poll in a single batch.
 
 
@@ -180,7 +177,7 @@ Password to open the Java Truststore with.
 
 **Default Value:** [hidden]
 
-**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@5bd585a5
+**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@fef2768
 
 
 
@@ -194,7 +191,7 @@ Path to the Java Truststore.
 
 **Type:** String
 
-**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@65c040c9
+**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@3a574a3b
 
 
 
