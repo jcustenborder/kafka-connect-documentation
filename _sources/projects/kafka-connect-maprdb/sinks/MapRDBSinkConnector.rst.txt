@@ -2,9 +2,6 @@
 MapRDBSinkConnector
 ===================
 
-.. image:: MapRDBSinkConnector.svg
-
-
 The MapRDBSinkConnector is used to write data in real time to a MapR DB table based on the configuration
 
 
