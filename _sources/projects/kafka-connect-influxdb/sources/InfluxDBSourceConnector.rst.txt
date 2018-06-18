@@ -2,9 +2,6 @@
 InfluxDBSourceConnector
 =======================
 
-.. image:: InfluxDBSourceConnector.svg
-
-
 The InfluxDBSourceConnector is used to emulate an InfluxDB host and receive messages written by an InfluxDB client.
 
 
