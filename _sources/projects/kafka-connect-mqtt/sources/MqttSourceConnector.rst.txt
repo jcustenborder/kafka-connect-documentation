@@ -2,9 +2,6 @@
 Mqtt Source Connector
 =====================
 
-.. image:: MqttSourceConnector.svg
-
-
 This connector connects to a Mqtt broker and subscribes to the specified topics.
 
 

@@ -2,9 +2,6 @@
 SalesforceSourceConnector
 =========================
 
-.. image:: SalesforceSourceConnector.svg
-
-
 The SalesforceSourceConnector is used to read changes from Salesforce in realtime.
 
 

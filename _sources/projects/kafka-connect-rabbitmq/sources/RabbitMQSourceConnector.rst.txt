@@ -2,9 +2,6 @@
 RabbitMQSourceConnector
 =======================
 
-.. image:: RabbitMQSourceConnector.svg
-
-
 Connector is used to read from a RabbitMQ Queue or Topic.
 
 

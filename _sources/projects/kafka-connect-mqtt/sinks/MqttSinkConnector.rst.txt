@@ -2,9 +2,6 @@
 MqttSinkConnector
 =================
 
-.. image:: MqttSinkConnector.svg
-
-
 
 
 

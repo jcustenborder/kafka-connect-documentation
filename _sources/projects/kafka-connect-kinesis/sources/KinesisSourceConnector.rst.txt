@@ -2,9 +2,6 @@
 KinesisSourceConnector
 ======================
 
-.. image:: KinesisSourceConnector.svg
-
-
 The KinesisSourceConnector is a :term:`Source Connector`_ that is used to pull data from Amazon Kinesis in realtime and persist the data to a Kafka topic.
 
 
