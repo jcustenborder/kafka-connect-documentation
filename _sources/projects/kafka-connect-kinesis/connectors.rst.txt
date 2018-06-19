@@ -1,6 +1,6 @@
-============================
-Kinesis Connector Connectors
-============================
+==================
+Kinesis Connectors
+==================
 
 .. toctree::
     :maxdepth: 1
