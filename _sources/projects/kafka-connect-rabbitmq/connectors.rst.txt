@@ -1,6 +1,6 @@
-========================================
-Io.confluent.connect.rabbitmq Connectors
-========================================
+===================
+RabbitMQ Connectors
+===================
 
 .. toctree::
     :maxdepth: 1

@@ -1,8 +1,20 @@
-=======================
-RabbitMQSourceConnector
-=======================
+=========================
+RabbitMQ Source Connector
+=========================
 
-Connector is used to read from a RabbitMQ Queue or Topic.
+The RabbitMQ Source connector is used to read data from a RabbitMQ queue or topic and persist the data in a Kafka topic.
+
+
+.. WARNING::
+    The queue or topic that this connector will be reading from must exist prior to starting the connector.
+
+
+.. IMPORTANT::
+    All of the headers that are associated with each message from RabbitMQ are prefixed with `rabbitmq.` and copied over to each of the records that are produced to Kafka. Due to this your configured message format must support headers.
+
+
+.. NOTE::
+    This connector is based on the AMQP protocol so it may work with other servers that implement this protocol.
 
 
 
@@ -82,63 +94,6 @@ The RabbitMQ port to connect to. See `ConnectionFactory.setPort(int) <https://ww
 **Type:** Int
 
 **Default Value:** 5672
-
-
-
--------
-General
--------
-
-
-^^^^^^^^^^^
-kafka.topic
-^^^^^^^^^^^
-
-Kafka topic to write the messages to.
-
-**Importance:** High
-
-**Type:** String
-
-
-
-^^^^^^^^^^^^^^
-rabbitmq.queue
-^^^^^^^^^^^^^^
-
-rabbitmq.queue
-
-**Importance:** High
-
-**Type:** List
-
-
-
-^^^^^^^^^^^^^^^^^^^^^^^
-rabbitmq.prefetch.count
-^^^^^^^^^^^^^^^^^^^^^^^
-
-Maximum number of messages that the server will deliver, 0 if unlimited. See `Channel.basicQos(int, boolean) <https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Channel.html#basicQos-int-boolean->`_
-
-**Importance:** Medium
-
-**Type:** Int
-
-**Default Value:** 0
-
-
-
-^^^^^^^^^^^^^^^^^^^^^^^^
-rabbitmq.prefetch.global
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-True if the settings should be applied to the entire channel rather than each consumer. See `Channel.basicQos(int, boolean) <https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Channel.html#basicQos-int-boolean->`_
-
-**Importance:** Medium
-
-**Type:** Boolean
-
-**Default Value:** false
 
 
 
@@ -265,6 +220,63 @@ Enables or disables topology recovery. See `ConnectionFactory.setTopologyRecover
 **Type:** Boolean
 
 **Default Value:** true
+
+
+
+------
+Source
+------
+
+
+^^^^^^^^^^^
+kafka.topic
+^^^^^^^^^^^
+
+Kafka topic to write the messages to.
+
+**Importance:** High
+
+**Type:** String
+
+
+
+^^^^^^^^^^^^^^
+rabbitmq.queue
+^^^^^^^^^^^^^^
+
+rabbitmq.queue
+
+**Importance:** High
+
+**Type:** List
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+rabbitmq.prefetch.count
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Maximum number of messages that the server will deliver, 0 if unlimited. See `Channel.basicQos(int, boolean) <https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Channel.html#basicQos-int-boolean->`_
+
+**Importance:** Medium
+
+**Type:** Int
+
+**Default Value:** 0
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^
+rabbitmq.prefetch.global
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+True if the settings should be applied to the entire channel rather than each consumer. See `Channel.basicQos(int, boolean) <https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Channel.html#basicQos-int-boolean->`_
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** false
 
 
 

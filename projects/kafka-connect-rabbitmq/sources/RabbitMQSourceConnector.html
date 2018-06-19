@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>RabbitMQSourceConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>RabbitMQ Source Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Io.confluent.connect.rabbitmq Connectors" href="../connectors.html"/>
+        <link rel="up" title="RabbitMQ Connectors" href="../connectors.html"/>
         <link rel="next" title="Redis Connector" href="../../kafka-connect-redis/connectors.html"/>
-        <link rel="prev" title="Io.confluent.connect.rabbitmq Connectors" href="../connectors.html"/> 
+        <link rel="prev" title="RabbitMQ Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -105,11 +105,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-maprdb/connectors.html">MapR DB Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/connectors.html">Memcached Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-mqtt/connectors.html">MQTT Connectors</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Io.confluent.connect.rabbitmq Connectors</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">RabbitMQSourceConnector</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">RabbitMQ Connectors</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">RabbitMQ Source Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#connection">Connection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#source">Source</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
@@ -181,9 +181,9 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Io.confluent.connect.rabbitmq Connectors</a> &raquo;</li>
+          <li><a href="../connectors.html">RabbitMQ Connectors</a> &raquo;</li>
         
-      <li>RabbitMQSourceConnector</li>
+      <li>RabbitMQ Source Connector</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -202,9 +202,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rabbitmqsourceconnector">
-<h1>RabbitMQSourceConnector<a class="headerlink" href="#rabbitmqsourceconnector" title="Permalink to this headline">¶</a></h1>
-<p>Connector is used to read from a RabbitMQ Queue or Topic.</p>
+  <div class="section" id="rabbitmq-source-connector">
+<h1>RabbitMQ Source Connector<a class="headerlink" href="#rabbitmq-source-connector" title="Permalink to this headline">¶</a></h1>
+<p>The RabbitMQ Source connector is used to read data from a RabbitMQ queue or topic and persist the data in a Kafka topic.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The queue or topic that this connector will be reading from must exist prior to starting the connector.</p>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">All of the headers that are associated with each message from RabbitMQ are prefixed with <cite>rabbitmq.</cite> and copied over to each of the records that are produced to Kafka. Due to this your configured message format must support headers.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This connector is based on the AMQP protocol so it may work with other servers that implement this protocol.</p>
+</div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -244,35 +256,6 @@
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 5672</p>
-</div>
-</div>
-<div class="section" id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="kafka-topic">
-<h3>kafka.topic<a class="headerlink" href="#kafka-topic" title="Permalink to this headline">¶</a></h3>
-<p>Kafka topic to write the messages to.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> String</p>
-</div>
-<div class="section" id="rabbitmq-queue">
-<h3>rabbitmq.queue<a class="headerlink" href="#rabbitmq-queue" title="Permalink to this headline">¶</a></h3>
-<p>rabbitmq.queue</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> List</p>
-</div>
-<div class="section" id="rabbitmq-prefetch-count">
-<h3>rabbitmq.prefetch.count<a class="headerlink" href="#rabbitmq-prefetch-count" title="Permalink to this headline">¶</a></h3>
-<p>Maximum number of messages that the server will deliver, 0 if unlimited. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Channel.html#basicQos-int-boolean-">Channel.basicQos(int, boolean)</a></p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Int</p>
-<p><strong>Default Value:</strong> 0</p>
-</div>
-<div class="section" id="rabbitmq-prefetch-global">
-<h3>rabbitmq.prefetch.global<a class="headerlink" href="#rabbitmq-prefetch-global" title="Permalink to this headline">¶</a></h3>
-<p>True if the settings should be applied to the entire channel rather than each consumer. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Channel.html#basicQos-int-boolean-">Channel.basicQos(int, boolean)</a></p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Boolean</p>
-<p><strong>Default Value:</strong> false</p>
 </div>
 <div class="section" id="rabbitmq-automatic-recovery-enabled">
 <h3>rabbitmq.automatic.recovery.enabled<a class="headerlink" href="#rabbitmq-automatic-recovery-enabled" title="Permalink to this headline">¶</a></h3>
@@ -336,6 +319,35 @@
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> true</p>
+</div>
+</div>
+<div class="section" id="source">
+<h2>Source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="kafka-topic">
+<h3>kafka.topic<a class="headerlink" href="#kafka-topic" title="Permalink to this headline">¶</a></h3>
+<p>Kafka topic to write the messages to.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+</div>
+<div class="section" id="rabbitmq-queue">
+<h3>rabbitmq.queue<a class="headerlink" href="#rabbitmq-queue" title="Permalink to this headline">¶</a></h3>
+<p>rabbitmq.queue</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> List</p>
+</div>
+<div class="section" id="rabbitmq-prefetch-count">
+<h3>rabbitmq.prefetch.count<a class="headerlink" href="#rabbitmq-prefetch-count" title="Permalink to this headline">¶</a></h3>
+<p>Maximum number of messages that the server will deliver, 0 if unlimited. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Channel.html#basicQos-int-boolean-">Channel.basicQos(int, boolean)</a></p>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 0</p>
+</div>
+<div class="section" id="rabbitmq-prefetch-global">
+<h3>rabbitmq.prefetch.global<a class="headerlink" href="#rabbitmq-prefetch-global" title="Permalink to this headline">¶</a></h3>
+<p>True if the settings should be applied to the entire channel rather than each consumer. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Channel.html#basicQos-int-boolean-">Channel.basicQos(int, boolean)</a></p>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
 </div>
 </div>
 <div class="section" id="examples">
@@ -402,7 +414,7 @@ one of your Kafka Connect worker(s).</p>
         <a href="../../kafka-connect-redis/connectors.html" class="btn btn-neutral float-right" title="Redis Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Io.confluent.connect.rabbitmq Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="RabbitMQ Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
