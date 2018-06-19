@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>SalesforceSourceConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Salesforce Source Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Io.confluent.salesforce Connectors" href="../connectors.html"/>
+        <link rel="up" title="Salesforce Connectors" href="../connectors.html"/>
         <link rel="next" title="Simulator Connector" href="../../kafka-connect-simulator/connectors.html"/>
-        <link rel="prev" title="Io.confluent.salesforce Connectors" href="../connectors.html"/> 
+        <link rel="prev" title="Salesforce Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -107,10 +107,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-mqtt/connectors.html">MQTT Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/connectors.html">RabbitMQ Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-redis/connectors.html">Redis Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Io.confluent.salesforce Connectors</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">SalesforceSourceConnector</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Salesforce Connectors</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Salesforce Source Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connection">Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kafka">Kafka</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#salesforce-streaming">Salesforce Streaming</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
@@ -180,9 +182,9 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Io.confluent.salesforce Connectors</a> &raquo;</li>
+          <li><a href="../connectors.html">Salesforce Connectors</a> &raquo;</li>
         
-      <li>SalesforceSourceConnector</li>
+      <li>Salesforce Source Connector</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -201,20 +203,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="salesforcesourceconnector">
-<h1>SalesforceSourceConnector<a class="headerlink" href="#salesforcesourceconnector" title="Permalink to this headline">¶</a></h1>
-<p>The SalesforceSourceConnector is used to read changes from Salesforce in realtime.</p>
+  <div class="section" id="salesforce-source-connector">
+<h1>Salesforce Source Connector<a class="headerlink" href="#salesforce-source-connector" title="Permalink to this headline">¶</a></h1>
+<p>The Salesforce Source Connector is used to capture changes from Salesforce.com utilizing the Salesforce streaming API.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The connector will dynamically create push topics when the connector is launched.</p>
+</div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="kafka-topic">
-<h3>kafka.topic<a class="headerlink" href="#kafka-topic" title="Permalink to this headline">¶</a></h3>
-<p>The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guarenteed to be there. <cite>_EventType</cite> and <cite>_ObjectType</cite> are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using <cite>salesforce.${_ObjectType}.${_EventType}</cite></p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> String</p>
-</div>
+<div class="section" id="connection">
+<h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="salesforce-consumer-key">
 <h3>salesforce.consumer.key<a class="headerlink" href="#salesforce-consumer-key" title="Permalink to this headline">¶</a></h3>
 <p>The consumer key for the OAuth application.</p>
@@ -226,12 +226,6 @@
 <p>The consumer secret for the OAuth application.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Password</p>
-</div>
-<div class="section" id="salesforce-object">
-<h3>salesforce.object<a class="headerlink" href="#salesforce-object" title="Permalink to this headline">¶</a></h3>
-<p>The Salesforce object to create a topic for.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> String</p>
 </div>
 <div class="section" id="salesforce-password">
 <h3>salesforce.password<a class="headerlink" href="#salesforce-password" title="Permalink to this headline">¶</a></h3>
@@ -245,24 +239,11 @@
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Password</p>
 </div>
-<div class="section" id="salesforce-push-topic-name">
-<h3>salesforce.push.topic.name<a class="headerlink" href="#salesforce-push-topic-name" title="Permalink to this headline">¶</a></h3>
-<p>The Salesforce topic to subscribe to. If salesforce.push.topic.create is set to true, a PushTopic with this name will be created.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> String</p>
-</div>
 <div class="section" id="salesforce-username">
 <h3>salesforce.username<a class="headerlink" href="#salesforce-username" title="Permalink to this headline">¶</a></h3>
 <p>Salesforce username to connect with.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-</div>
-<div class="section" id="kafka-topic-lowercase">
-<h3>kafka.topic.lowercase<a class="headerlink" href="#kafka-topic-lowercase" title="Permalink to this headline">¶</a></h3>
-<p>Flag to determine if the kafka topic should be lowercased.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> Boolean</p>
-<p><strong>Default Value:</strong> true</p>
 </div>
 <div class="section" id="salesforce-instance">
 <h3>salesforce.instance<a class="headerlink" href="#salesforce-instance" title="Permalink to this headline">¶</a></h3>
@@ -284,6 +265,45 @@
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> false</p>
+</div>
+<div class="section" id="salesforce-version">
+<h3>salesforce.version<a class="headerlink" href="#salesforce-version" title="Permalink to this headline">¶</a></h3>
+<p>The version of the salesforce API to use.</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> latest</p>
+<p><strong>Validator:</strong> ValidPattern{pattern=^(latest|[d.]+)$}</p>
+</div>
+</div>
+<div class="section" id="kafka">
+<h2>Kafka<a class="headerlink" href="#kafka" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="kafka-topic">
+<h3>kafka.topic<a class="headerlink" href="#kafka-topic" title="Permalink to this headline">¶</a></h3>
+<p>The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guarenteed to be there. <cite>_EventType</cite> and <cite>_ObjectType</cite> are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using <cite>salesforce.${_ObjectType}.${_EventType}</cite></p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+</div>
+<div class="section" id="kafka-topic-lowercase">
+<h3>kafka.topic.lowercase<a class="headerlink" href="#kafka-topic-lowercase" title="Permalink to this headline">¶</a></h3>
+<p>Flag to determine if the kafka topic should be lowercased.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+</div>
+</div>
+<div class="section" id="salesforce-streaming">
+<h2>Salesforce Streaming<a class="headerlink" href="#salesforce-streaming" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="salesforce-object">
+<h3>salesforce.object<a class="headerlink" href="#salesforce-object" title="Permalink to this headline">¶</a></h3>
+<p>The Salesforce object to create a topic for.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+</div>
+<div class="section" id="salesforce-push-topic-name">
+<h3>salesforce.push.topic.name<a class="headerlink" href="#salesforce-push-topic-name" title="Permalink to this headline">¶</a></h3>
+<p>The Salesforce topic to subscribe to. If salesforce.push.topic.create is set to true, a PushTopic with this name will be created.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
 </div>
 <div class="section" id="salesforce-push-topic-create">
 <h3>salesforce.push.topic.create<a class="headerlink" href="#salesforce-push-topic-create" title="Permalink to this headline">¶</a></h3>
@@ -319,14 +339,6 @@
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> true</p>
-</div>
-<div class="section" id="salesforce-version">
-<h3>salesforce.version<a class="headerlink" href="#salesforce-version" title="Permalink to this headline">¶</a></h3>
-<p>The version of the salesforce API to use.</p>
-<p><strong>Importance:</strong> Low</p>
-<p><strong>Type:</strong> String</p>
-<p><strong>Default Value:</strong> latest</p>
-<p><strong>Validator:</strong> ValidPattern{pattern=^(latest|[d.]+)$}</p>
 </div>
 </div>
 <div class="section" id="examples">
@@ -405,7 +417,7 @@ one of your Kafka Connect worker(s).</p>
         <a href="../../kafka-connect-simulator/connectors.html" class="btn btn-neutral float-right" title="Simulator Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Io.confluent.salesforce Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="Salesforce Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

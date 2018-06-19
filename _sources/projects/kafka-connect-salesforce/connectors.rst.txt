@@ -1,6 +1,6 @@
-==================================
-Io.confluent.salesforce Connectors
-==================================
+=====================
+Salesforce Connectors
+=====================
 
 .. toctree::
     :maxdepth: 1

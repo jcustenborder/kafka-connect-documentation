@@ -1,8 +1,12 @@
-=========================
-SalesforceSourceConnector
-=========================
+===========================
+Salesforce Source Connector
+===========================
 
-The SalesforceSourceConnector is used to read changes from Salesforce in realtime.
+The Salesforce Source Connector is used to capture changes from Salesforce.com utilizing the Salesforce streaming API.
+
+
+.. NOTE::
+    The connector will dynamically create push topics when the connector is launched.
 
 
 
@@ -10,21 +14,9 @@ The SalesforceSourceConnector is used to read changes from Salesforce in realtim
 Configuration
 -------------
 
--------
-General
--------
-
-
-^^^^^^^^^^^
-kafka.topic
-^^^^^^^^^^^
-
-The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guarenteed to be there. `_EventType` and `_ObjectType` are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using `salesforce.${_ObjectType}.${_EventType}`
-
-**Importance:** High
-
-**Type:** String
-
+----------
+Connection
+----------
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -48,18 +40,6 @@ The consumer secret for the OAuth application.
 **Importance:** High
 
 **Type:** Password
-
-
-
-^^^^^^^^^^^^^^^^^
-salesforce.object
-^^^^^^^^^^^^^^^^^
-
-The Salesforce object to create a topic for.
-
-**Importance:** High
-
-**Type:** String
 
 
 
@@ -87,18 +67,6 @@ The Salesforce security token associated with the username.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-salesforce.push.topic.name
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The Salesforce topic to subscribe to. If salesforce.push.topic.create is set to true, a PushTopic with this name will be created.
-
-**Importance:** High
-
-**Type:** String
-
-
-
 ^^^^^^^^^^^^^^^^^^^
 salesforce.username
 ^^^^^^^^^^^^^^^^^^^
@@ -108,20 +76,6 @@ Salesforce username to connect with.
 **Importance:** High
 
 **Type:** String
-
-
-
-^^^^^^^^^^^^^^^^^^^^^
-kafka.topic.lowercase
-^^^^^^^^^^^^^^^^^^^^^
-
-Flag to determine if the kafka topic should be lowercased.
-
-**Importance:** High
-
-**Type:** Boolean
-
-**Default Value:** true
 
 
 
@@ -164,6 +118,82 @@ If enabled the logs will output the equivalent curl commands. This is a security
 **Type:** Boolean
 
 **Default Value:** false
+
+
+
+^^^^^^^^^^^^^^^^^^
+salesforce.version
+^^^^^^^^^^^^^^^^^^
+
+The version of the salesforce API to use.
+
+**Importance:** Low
+
+**Type:** String
+
+**Default Value:** latest
+
+**Validator:** ValidPattern{pattern=^(latest|[\d\.]+)$}
+
+
+
+-----
+Kafka
+-----
+
+
+^^^^^^^^^^^
+kafka.topic
+^^^^^^^^^^^
+
+The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guarenteed to be there. `_EventType` and `_ObjectType` are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using `salesforce.${_ObjectType}.${_EventType}`
+
+**Importance:** High
+
+**Type:** String
+
+
+
+^^^^^^^^^^^^^^^^^^^^^
+kafka.topic.lowercase
+^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the kafka topic should be lowercased.
+
+**Importance:** High
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+
+--------------------
+Salesforce Streaming
+--------------------
+
+
+^^^^^^^^^^^^^^^^^
+salesforce.object
+^^^^^^^^^^^^^^^^^
+
+The Salesforce object to create a topic for.
+
+**Importance:** High
+
+**Type:** String
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+salesforce.push.topic.name
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Salesforce topic to subscribe to. If salesforce.push.topic.create is set to true, a PushTopic with this name will be created.
+
+**Importance:** High
+
+**Type:** String
 
 
 
@@ -234,22 +264,6 @@ Flag to determine if the PushTopic should respond to updates.
 **Type:** Boolean
 
 **Default Value:** true
-
-
-
-^^^^^^^^^^^^^^^^^^
-salesforce.version
-^^^^^^^^^^^^^^^^^^
-
-The version of the salesforce API to use.
-
-**Importance:** Low
-
-**Type:** String
-
-**Default Value:** latest
-
-**Validator:** ValidPattern{pattern=^(latest|[\d\.]+)$}
 
 
 
