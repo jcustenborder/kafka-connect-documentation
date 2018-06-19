@@ -1,8 +1,8 @@
-======================
-KinesisSourceConnector
-======================
+========================
+Kinesis Source Connector
+========================
 
-The KinesisSourceConnector is a :term:`Source Connector`_ that is used to pull data from Amazon Kinesis in realtime and persist the data to a Kafka topic.
+The Kinesis Source Connector is used to pull data from Amazon Kinesis and persist the data to a Kafka topic.
 
 
 
@@ -11,7 +11,7 @@ Configuration
 -------------
 
 -------
-General
+Kinesis
 -------
 
 
@@ -19,7 +19,7 @@ General
 aws.access.key.id
 ^^^^^^^^^^^^^^^^^
 
-aws.access.key.id
+The Amazon Access Key that will be used to connect to Kinesis with.
 
 **Importance:** High
 
@@ -31,23 +31,11 @@ aws.access.key.id
 aws.secret.key.id
 ^^^^^^^^^^^^^^^^^
 
-aws.secret.key.id
+The Amazon Secret Key that will be used to connect to Kinesis with.
 
 **Importance:** High
 
 **Type:** Password
-
-
-
-^^^^^^^^^^^
-kafka.topic
-^^^^^^^^^^^
-
-The kafka topic to write the data to.
-
-**Importance:** High
-
-**Type:** String
 
 
 
@@ -154,6 +142,23 @@ The number of milliseconds to backoff when a throughput exceeded exception is th
 **Default Value:** 10000
 
 **Validator:** [500,...,2147483647]
+
+
+
+-------
+General
+-------
+
+
+^^^^^^^^^^^
+kafka.topic
+^^^^^^^^^^^
+
+The kafka topic to write the data to.
+
+**Importance:** High
+
+**Type:** String
 
 
 

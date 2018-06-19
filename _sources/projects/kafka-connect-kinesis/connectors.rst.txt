@@ -1,6 +1,6 @@
-=======================================
-Io.confluent.connect.kinesis Connectors
-=======================================
+============================
+Kinesis Connector Connectors
+============================
 
 .. toctree::
     :maxdepth: 1

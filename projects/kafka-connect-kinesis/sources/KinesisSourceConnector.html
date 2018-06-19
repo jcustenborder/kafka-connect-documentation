@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>KinesisSourceConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Kinesis Source Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Io.confluent.connect.kinesis Connectors" href="../connectors.html"/>
+        <link rel="up" title="Kinesis Connector Connectors" href="../connectors.html"/>
         <link rel="next" title="Io.confluent.connect.mapr.db Connectors" href="../../kafka-connect-maprdb/connectors.html"/>
-        <link rel="prev" title="Io.confluent.connect.kinesis Connectors" href="../connectors.html"/> 
+        <link rel="prev" title="Kinesis Connector Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -101,9 +101,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-influxdb/connectors.html">InfluxDB Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jms/connectors.html">JMS Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jmx/connectors.html">Com.github.jcustenborder.kafka.connect.jmx Connectors</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Io.confluent.connect.kinesis Connectors</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">KinesisSourceConnector</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Kinesis Connector Connectors</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Kinesis Source Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kinesis">Kinesis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
@@ -180,9 +181,9 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Io.confluent.connect.kinesis Connectors</a> &raquo;</li>
+          <li><a href="../connectors.html">Kinesis Connector Connectors</a> &raquo;</li>
         
-      <li>KinesisSourceConnector</li>
+      <li>Kinesis Source Connector</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -201,31 +202,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="kinesissourceconnector">
-<h1>KinesisSourceConnector<a class="headerlink" href="#kinesissourceconnector" title="Permalink to this headline">¶</a></h1>
-<p>The KinesisSourceConnector is a <a href="#id1"><span class="problematic" id="id2">:term:`Source Connector`_</span></a> that is used to pull data from Amazon Kinesis in realtime and persist the data to a Kafka topic.</p>
+  <div class="section" id="kinesis-source-connector">
+<h1>Kinesis Source Connector<a class="headerlink" href="#kinesis-source-connector" title="Permalink to this headline">¶</a></h1>
+<p>The Kinesis Source Connector is used to pull data from Amazon Kinesis and persist the data to a Kafka topic.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="kinesis">
+<h2>Kinesis<a class="headerlink" href="#kinesis" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="aws-access-key-id">
 <h3>aws.access.key.id<a class="headerlink" href="#aws-access-key-id" title="Permalink to this headline">¶</a></h3>
-<p>aws.access.key.id</p>
+<p>The Amazon Access Key that will be used to connect to Kinesis with.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
 </div>
 <div class="section" id="aws-secret-key-id">
 <h3>aws.secret.key.id<a class="headerlink" href="#aws-secret-key-id" title="Permalink to this headline">¶</a></h3>
-<p>aws.secret.key.id</p>
+<p>The Amazon Secret Key that will be used to connect to Kinesis with.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Password</p>
-</div>
-<div class="section" id="kafka-topic">
-<h3>kafka.topic<a class="headerlink" href="#kafka-topic" title="Permalink to this headline">¶</a></h3>
-<p>The kafka topic to write the data to.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> String</p>
 </div>
 <div class="section" id="kinesis-stream">
 <h3>kinesis.stream<a class="headerlink" href="#kinesis-stream" title="Permalink to this headline">¶</a></h3>
@@ -281,6 +276,15 @@
 <p><strong>Validator:</strong> [500,…,2147483647]</p>
 </div>
 </div>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="kafka-topic">
+<h3>kafka.topic<a class="headerlink" href="#kafka-topic" title="Permalink to this headline">¶</a></h3>
+<p>The kafka topic to write the data to.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> String</p>
+</div>
+</div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="property-based-example">
@@ -320,14 +324,14 @@ post the configuration to one the distributed connect worker(s). Check here for 
 </div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/KinesisSourceConnector1/config
 </pre></div>
 </div>
@@ -349,7 +353,7 @@ one of your Kafka Connect worker(s).</p>
         <a href="../../kafka-connect-maprdb/connectors.html" class="btn btn-neutral float-right" title="Io.confluent.connect.mapr.db Connectors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Io.confluent.connect.kinesis Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="Kinesis Connector Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
