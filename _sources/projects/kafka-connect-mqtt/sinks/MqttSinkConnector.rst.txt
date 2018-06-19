@@ -1,7 +1,12 @@
-=================
-MqttSinkConnector
-=================
+===================
+MQTT Sink Connector
+===================
 
+This connector connects to a MQTT broker and publishes data to the specified topics.
+
+
+.. TIP::
+    This connector publishes using the Kafka topic name. If you need to publish to a different topic name use a transformation to change the topic name.
 
 
 
@@ -9,9 +14,9 @@ MqttSinkConnector
 Configuration
 -------------
 
--------
-General
--------
+----------
+Connection
+----------
 
 
 ^^^^^^^^^^^^^^^
@@ -49,36 +54,6 @@ Username to connect with.
 **Importance:** High
 
 **Type:** String
-
-
-
-^^^^^^^^
-mqtt.qos
-^^^^^^^^
-
-The QOS level to write messages to the Mqtt broker with.
-
-**Importance:** Medium
-
-**Type:** Int
-
-**Default Value:** 0
-
-**Validator:** [0,...,2]
-
-
-
-^^^^^^^^^^^^^^^^^^^^^
-mqtt.retained.enabled
-^^^^^^^^^^^^^^^^^^^^^
-
-Flag to determine if the messages should be retained.
-
-**Importance:** Medium
-
-**Type:** Boolean
-
-**Default Value:** true
 
 
 
@@ -125,6 +100,41 @@ Sets the "keep alive" interval.
 **Default Value:** 60
 
 **Validator:** [1,...]
+
+
+
+-----
+Write
+-----
+
+
+^^^^^^^^
+mqtt.qos
+^^^^^^^^
+
+The QOS level to write messages to the Mqtt broker with.
+
+**Importance:** Medium
+
+**Type:** Int
+
+**Default Value:** 0
+
+**Validator:** [0,...,2]
+
+
+
+^^^^^^^^^^^^^^^^^^^^^
+mqtt.retained.enabled
+^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the messages should be retained.
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** true
 
 
 

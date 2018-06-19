@@ -1,8 +1,8 @@
 =====================
-Mqtt Source Connector
+MQTT Source Connector
 =====================
 
-This connector connects to a Mqtt broker and subscribes to the specified topics.
+This connector connects to a MQTT broker and subscribes to the specified topics.
 
 
 .. TIP::
@@ -14,9 +14,9 @@ This connector connects to a Mqtt broker and subscribes to the specified topics.
 Configuration
 -------------
 
--------
-General
--------
+----------
+Connection
+----------
 
 
 ^^^^^^^^^^^^^^^
@@ -24,18 +24,6 @@ mqtt.server.uri
 ^^^^^^^^^^^^^^^
 
 List of Mqtt brokers to connect to.
-
-**Importance:** High
-
-**Type:** List
-
-
-
-^^^^^^^^^^^
-mqtt.topics
-^^^^^^^^^^^
-
-The Mqtt topics to subscribe to.
 
 **Importance:** High
 
@@ -66,20 +54,6 @@ Username to connect with.
 **Importance:** High
 
 **Type:** String
-
-
-
-^^^^^^^^^^^
-kafka.topic
-^^^^^^^^^^^
-
-The kafka topic to write the data to.
-
-**Importance:** Medium
-
-**Type:** String
-
-**Default Value:** mqtt.
 
 
 
@@ -129,11 +103,42 @@ Sets the "keep alive" interval.
 
 
 
+-----------
+MQTT Source
+-----------
+
+
+^^^^^^^^^^^
+mqtt.topics
+^^^^^^^^^^^
+
+The MQTT topics to subscribe to.
+
+**Importance:** High
+
+**Type:** List
+
+
+
+^^^^^^^^^^^
+kafka.topic
+^^^^^^^^^^^
+
+The Kafka topic to write the data to.
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** mqtt.
+
+
+
 ^^^^^^^^
 mqtt.qos
 ^^^^^^^^
 
-mqtt.qos
+The MQTT QOS level to subscribe to.
 
 **Importance:** Low
 

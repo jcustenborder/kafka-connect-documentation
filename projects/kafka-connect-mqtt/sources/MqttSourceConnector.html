@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Mqtt Source Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>MQTT Source Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Io.confluent.connect.mqtt Connectors" href="../connectors.html"/>
-        <link rel="next" title="MqttSinkConnector" href="../sinks/MqttSinkConnector.html"/>
-        <link rel="prev" title="Io.confluent.connect.mqtt Connectors" href="../connectors.html"/> 
+        <link rel="up" title="MQTT Connectors" href="../connectors.html"/>
+        <link rel="next" title="MQTT Sink Connector" href="../sinks/MqttSinkConnector.html"/>
+        <link rel="prev" title="MQTT Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -104,14 +104,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/connectors.html">Kinesis Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-maprdb/connectors.html">MapR DB Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/connectors.html">Memcached Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Io.confluent.connect.mqtt Connectors</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Mqtt Source Connector</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">MQTT Connectors</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MQTT Source Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connection">Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mqtt-source">MQTT Source</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../sinks/MqttSinkConnector.html">MqttSinkConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sinks/MqttSinkConnector.html">MQTT Sink Connector</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/connectors.html">Io.confluent.connect.rabbitmq Connectors</a></li>
@@ -181,9 +182,9 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Io.confluent.connect.mqtt Connectors</a> &raquo;</li>
+          <li><a href="../connectors.html">MQTT Connectors</a> &raquo;</li>
         
-      <li>Mqtt Source Connector</li>
+      <li>MQTT Source Connector</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -203,8 +204,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="mqtt-source-connector">
-<h1>Mqtt Source Connector<a class="headerlink" href="#mqtt-source-connector" title="Permalink to this headline">¶</a></h1>
-<p>This connector connects to a Mqtt broker and subscribes to the specified topics.</p>
+<h1>MQTT Source Connector<a class="headerlink" href="#mqtt-source-connector" title="Permalink to this headline">¶</a></h1>
+<p>This connector connects to a MQTT broker and subscribes to the specified topics.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">The output of this connector is an envelope with all of the properties of the incoming message. The body of the message is written to the value as bytes. The key is the topic the message was written to.</p>
@@ -212,17 +213,11 @@
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connection">
+<h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mqtt-server-uri">
 <h3>mqtt.server.uri<a class="headerlink" href="#mqtt-server-uri" title="Permalink to this headline">¶</a></h3>
 <p>List of Mqtt brokers to connect to.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> List</p>
-</div>
-<div class="section" id="mqtt-topics">
-<h3>mqtt.topics<a class="headerlink" href="#mqtt-topics" title="Permalink to this headline">¶</a></h3>
-<p>The Mqtt topics to subscribe to.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> List</p>
 </div>
@@ -238,13 +233,6 @@
 <p>Username to connect with.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-</div>
-<div class="section" id="kafka-topic">
-<h3>kafka.topic<a class="headerlink" href="#kafka-topic" title="Permalink to this headline">¶</a></h3>
-<p>The kafka topic to write the data to.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> String</p>
-<p><strong>Default Value:</strong> mqtt.</p>
 </div>
 <div class="section" id="mqtt-clean-session-enabled">
 <h3>mqtt.clean.session.enabled<a class="headerlink" href="#mqtt-clean-session-enabled" title="Permalink to this headline">¶</a></h3>
@@ -269,9 +257,25 @@
 <p><strong>Default Value:</strong> 60</p>
 <p><strong>Validator:</strong> [1,…]</p>
 </div>
+</div>
+<div class="section" id="mqtt-source">
+<h2>MQTT Source<a class="headerlink" href="#mqtt-source" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mqtt-topics">
+<h3>mqtt.topics<a class="headerlink" href="#mqtt-topics" title="Permalink to this headline">¶</a></h3>
+<p>The MQTT topics to subscribe to.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> List</p>
+</div>
+<div class="section" id="kafka-topic">
+<h3>kafka.topic<a class="headerlink" href="#kafka-topic" title="Permalink to this headline">¶</a></h3>
+<p>The Kafka topic to write the data to.</p>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> mqtt.</p>
+</div>
 <div class="section" id="mqtt-qos">
 <h3>mqtt.qos<a class="headerlink" href="#mqtt-qos" title="Permalink to this headline">¶</a></h3>
-<p>mqtt.qos</p>
+<p>The MQTT QOS level to subscribe to.</p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 0</p>
@@ -339,10 +343,10 @@ one of your Kafka Connect worker(s).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../sinks/MqttSinkConnector.html" class="btn btn-neutral float-right" title="MqttSinkConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../sinks/MqttSinkConnector.html" class="btn btn-neutral float-right" title="MQTT Sink Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Io.confluent.connect.mqtt Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="MQTT Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -1,6 +1,6 @@
-====================================
-Io.confluent.connect.mqtt Connectors
-====================================
+===============
+MQTT Connectors
+===============
 
 .. toctree::
     :maxdepth: 1
