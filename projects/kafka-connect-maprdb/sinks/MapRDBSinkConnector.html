@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>MapRDBSinkConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>MapR DB Sink Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Io.confluent.connect.mapr.db Connectors" href="../connectors.html"/>
+        <link rel="up" title="MapR DB Connectors" href="../connectors.html"/>
         <link rel="next" title="Memcached Connector" href="../../kafka-connect-memcached/connectors.html"/>
-        <link rel="prev" title="Io.confluent.connect.mapr.db Connectors" href="../connectors.html"/> 
+        <link rel="prev" title="MapR DB Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -102,8 +102,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jms/connectors.html">JMS Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jmx/connectors.html">Com.github.jcustenborder.kafka.connect.jmx Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/connectors.html">Kinesis Connectors</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Io.confluent.connect.mapr.db Connectors</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">MapRDBSinkConnector</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">MapR DB Connectors</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MapR DB Sink Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
@@ -180,9 +180,9 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Io.confluent.connect.mapr.db Connectors</a> &raquo;</li>
+          <li><a href="../connectors.html">MapR DB Connectors</a> &raquo;</li>
         
-      <li>MapRDBSinkConnector</li>
+      <li>MapR DB Sink Connector</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -201,15 +201,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="maprdbsinkconnector">
-<h1>MapRDBSinkConnector<a class="headerlink" href="#maprdbsinkconnector" title="Permalink to this headline">¶</a></h1>
-<p>The MapRDBSinkConnector is used to write data in real time to a MapR DB table based on the configuration</p>
+  <div class="section" id="mapr-db-sink-connector">
+<h1>MapR DB Sink Connector<a class="headerlink" href="#mapr-db-sink-connector" title="Permalink to this headline">¶</a></h1>
+<p>The MapR DB connector is used to write data to a MapR DB cluster.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">This connector requires that the MapR Client is installed and working properly on the host running the connect worker process. The Kafka Connect worker process must be started with <cite>-Dmapr.home.dir=/opt/mapr -Djava.library.path=/opt/mapr/lib/</cite>. You can do this by exporting the KAFKA_OPTS environment variable. For example <cite>export KAFKA_OPTS=”-Dmapr.home.dir=/opt/mapr -Djava.library.path=/opt/mapr/lib/”</cite> before starting Kafka Connect.</p>
+</div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">This connector requires that the MapR Client is installed and working properly on the host running the</p>
+<p class="last">The table on the MapR DB cluster is selected based on the topic name. If you need to change this take a look at the <span class="xref std std-ref">RegexRouter</span> transformation which can be used to change the topic name before it’s sent to MapR DB.</p>
 </div>
-<p>connect worker process. The Kafka Connect worker process must be started with <cite>-Dmapr.home.dir=/opt/mapr -Djava.library.path=/opt/mapr/lib/</cite>.
-You can do this by exporting the KAFKA_OPTS environment variable. For example <cite>export KAFKA_OPTS=”-Dmapr.home.dir=/opt/mapr -Djava.library.path=/opt/mapr/lib/”</cite> before starting Kafka Connect.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -286,7 +288,7 @@ one of your Kafka Connect worker(s).</p>
         <a href="../../kafka-connect-memcached/connectors.html" class="btn btn-neutral float-right" title="Memcached Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Io.confluent.connect.mapr.db Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="MapR DB Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
