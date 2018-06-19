@@ -1,14 +1,7 @@
-================================
-Io.confluent.influxdb Connectors
-================================
+===================
+InfluxDB Connectors
+===================
 
-.. toctree::
-    :maxdepth: 1
-    :caption: Source Connectors:
-    :hidden:
-    :glob:
-
-    sources/*
 
 .. toctree::
     :maxdepth: 1

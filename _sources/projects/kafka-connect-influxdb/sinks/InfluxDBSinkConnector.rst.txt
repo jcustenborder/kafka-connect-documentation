@@ -1,8 +1,8 @@
-=====================
-InfluxDBSinkConnector
-=====================
+=============
+InfluxDB Sink
+=============
 
-The InfluxDBSinkConnector is used to write data from a :term:`Kafka topic`_ to an InfluxDB host. When there are more than one record in a batch that have the same measurement, time, and tags, they will be combined to a single point an written to InfluxDB in a batch.
+The InfluxDB sink connector is used to write data from a :term:`Kafka topic`_ to an InfluxDB host. When there are more than one record in a batch that have the same measurement, time, and tags, they will be combined to a single point an written to InfluxDB in a batch.
 
 
 
@@ -10,21 +10,9 @@ The InfluxDBSinkConnector is used to write data from a :term:`Kafka topic`_ to a
 Configuration
 -------------
 
--------
-General
--------
-
-
-^^^^^^^^^^^^^^^^^
-influxdb.database
-^^^^^^^^^^^^^^^^^
-
-The influxdb database to write to.
-
-**Importance:** High
-
-**Type:** String
-
+----------
+Connection
+----------
 
 
 ^^^^^^^^^^^^
@@ -65,38 +53,6 @@ The username to connect to InfluxDB with.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-influxdb.consistency.level
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The default consistency level for writing data to InfluxDB.
-
-**Importance:** Medium
-
-**Type:** String
-
-**Default Value:** ONE
-
-**Validator:** ValidEnum{enum=ConsistencyLevel, allowed=[ALL, ANY, ONE, QUORUM]}
-
-
-
-^^^^^^^^^^^^^^^^^
-influxdb.timeunit
-^^^^^^^^^^^^^^^^^
-
-The default timeunit for writing data to InfluxDB.
-
-**Importance:** Medium
-
-**Type:** String
-
-**Default Value:** MILLISECONDS
-
-**Validator:** ValidEnum{enum=TimeUnit, allowed=[NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS]}
-
-
-
 ^^^^^^^^^^^^^^^^^^^^
 influxdb.gzip.enable
 ^^^^^^^^^^^^^^^^^^^^
@@ -127,6 +83,43 @@ influxdb.log.level
 
 
 
+-----
+Write
+-----
+
+
+^^^^^^^^^^^^^^^^^
+influxdb.timeunit
+^^^^^^^^^^^^^^^^^
+
+The default timeunit for writing data to InfluxDB.
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** MILLISECONDS
+
+**Validator:** ValidEnum{enum=TimeUnit, allowed=[NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS]}
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+influxdb.consistency.level
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The default consistency level for writing data to InfluxDB.
+
+**Importance:** Low
+
+**Type:** String
+
+**Default Value:** ONE
+
+**Validator:** ValidEnum{enum=ConsistencyLevel, allowed=[ALL, ANY, ONE, QUORUM]}
+
+
+
 
 
 
@@ -144,13 +137,12 @@ This configuration is used typically along with `standalone mode
 
 .. code-block:: properties
     :name: connector.properties
-    :emphasize-lines: 4,5,6
+    :emphasize-lines: 4,5
 
     name=InfluxDBSinkConnector1
     connector.class=io.confluent.influxdb.InfluxDBSinkConnector
     tasks.max=1
     topics=< Required Configuration >
-    influxdb.database=< Required Configuration >
     influxdb.url=< Required Configuration >
 
 
@@ -170,7 +162,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 .. code-block:: json
     :caption: Connect Distributed REST example
     :name: connector.json
-    :emphasize-lines: 6,7,8
+    :emphasize-lines: 6,7
 
     {
       "config" : {
@@ -178,7 +170,6 @@ post the configuration to one the distributed connect worker(s). Check here for 
         "connector.class" : "io.confluent.influxdb.InfluxDBSinkConnector",
         "tasks.max" : "1",
         "topics" : "< Required Configuration >",
-        "influxdb.database" : "< Required Configuration >",
         "influxdb.url" : "< Required Configuration >"
       }
     }

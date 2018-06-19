@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>InfluxDBSinkConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>InfluxDB Sink &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Io.confluent.influxdb Connectors" href="../connectors.html"/>
+        <link rel="up" title="InfluxDB Connectors" href="../connectors.html"/>
         <link rel="next" title="JMS Connector" href="../../kafka-connect-jms/connectors.html"/>
-        <link rel="prev" title="InfluxDBSourceConnector" href="../sources/InfluxDBSourceConnector.html"/> 
+        <link rel="prev" title="InfluxDB Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -98,11 +98,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-cassandra/connectors.html">Apache Cassandra Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-cdc-mssql/connectors.html">Microsoft SQL Server Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/connectors.html">Flume Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Io.confluent.influxdb Connectors</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../sources/InfluxDBSourceConnector.html">InfluxDBSourceConnector</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">InfluxDBSinkConnector</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">InfluxDB Connectors</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">InfluxDB Sink</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connection">Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#write">Write</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
@@ -181,9 +181,9 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Io.confluent.influxdb Connectors</a> &raquo;</li>
+          <li><a href="../connectors.html">InfluxDB Connectors</a> &raquo;</li>
         
-      <li>InfluxDBSinkConnector</li>
+      <li>InfluxDB Sink</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -202,20 +202,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="influxdbsinkconnector">
-<h1>InfluxDBSinkConnector<a class="headerlink" href="#influxdbsinkconnector" title="Permalink to this headline">¶</a></h1>
-<p>The InfluxDBSinkConnector is used to write data from a <a href="#id1"><span class="problematic" id="id2">:term:`Kafka topic`_</span></a> to an InfluxDB host. When there are more than one record in a batch that have the same measurement, time, and tags, they will be combined to a single point an written to InfluxDB in a batch.</p>
+  <div class="section" id="influxdb-sink">
+<h1>InfluxDB Sink<a class="headerlink" href="#influxdb-sink" title="Permalink to this headline">¶</a></h1>
+<p>The InfluxDB sink connector is used to write data from a <a href="#id1"><span class="problematic" id="id2">:term:`Kafka topic`_</span></a> to an InfluxDB host. When there are more than one record in a batch that have the same measurement, time, and tags, they will be combined to a single point an written to InfluxDB in a batch.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="influxdb-database">
-<h3>influxdb.database<a class="headerlink" href="#influxdb-database" title="Permalink to this headline">¶</a></h3>
-<p>The influxdb database to write to.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> String</p>
-</div>
+<div class="section" id="connection">
+<h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="influxdb-url">
 <h3>influxdb.url<a class="headerlink" href="#influxdb-url" title="Permalink to this headline">¶</a></h3>
 <p>The url of the InfluxDB instance to write to.</p>
@@ -235,22 +229,6 @@
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
 </div>
-<div class="section" id="influxdb-consistency-level">
-<h3>influxdb.consistency.level<a class="headerlink" href="#influxdb-consistency-level" title="Permalink to this headline">¶</a></h3>
-<p>The default consistency level for writing data to InfluxDB.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> String</p>
-<p><strong>Default Value:</strong> ONE</p>
-<p><strong>Validator:</strong> ValidEnum{enum=ConsistencyLevel, allowed=[ALL, ANY, ONE, QUORUM]}</p>
-</div>
-<div class="section" id="influxdb-timeunit">
-<h3>influxdb.timeunit<a class="headerlink" href="#influxdb-timeunit" title="Permalink to this headline">¶</a></h3>
-<p>The default timeunit for writing data to InfluxDB.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> String</p>
-<p><strong>Default Value:</strong> MILLISECONDS</p>
-<p><strong>Validator:</strong> ValidEnum{enum=TimeUnit, allowed=[NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS]}</p>
-</div>
 <div class="section" id="influxdb-gzip-enable">
 <h3>influxdb.gzip.enable<a class="headerlink" href="#influxdb-gzip-enable" title="Permalink to this headline">¶</a></h3>
 <p>Flag to determine if gzip should be enabled.</p>
@@ -267,6 +245,25 @@
 <p><strong>Validator:</strong> ValidEnum{enum=LogLevel, allowed=[NONE, BASIC, HEADERS, FULL]}</p>
 </div>
 </div>
+<div class="section" id="write">
+<h2>Write<a class="headerlink" href="#write" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="influxdb-timeunit">
+<h3>influxdb.timeunit<a class="headerlink" href="#influxdb-timeunit" title="Permalink to this headline">¶</a></h3>
+<p>The default timeunit for writing data to InfluxDB.</p>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> MILLISECONDS</p>
+<p><strong>Validator:</strong> ValidEnum{enum=TimeUnit, allowed=[NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS]}</p>
+</div>
+<div class="section" id="influxdb-consistency-level">
+<h3>influxdb.consistency.level<a class="headerlink" href="#influxdb-consistency-level" title="Permalink to this headline">¶</a></h3>
+<p>The default consistency level for writing data to InfluxDB.</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> ONE</p>
+<p><strong>Validator:</strong> ValidEnum{enum=ConsistencyLevel, allowed=[ALL, ANY, ONE, QUORUM]}</p>
+</div>
+</div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="property-based-example">
@@ -276,7 +273,6 @@
 <span class="na">connector.class</span><span class="o">=</span><span class="s">io.confluent.influxdb.InfluxDBSinkConnector</span>
 <span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
 <span class="hll"><span class="na">topics</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
-</span><span class="hll"><span class="na">influxdb.database</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
 </span><span class="hll"><span class="na">influxdb.url</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
 </span></pre></div>
 </div>
@@ -295,7 +291,6 @@ post the configuration to one the distributed connect worker(s). Check here for 
     <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;io.confluent.influxdb.InfluxDBSinkConnector&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
 <span class="hll">    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
-</span><span class="hll">    <span class="nt">&quot;influxdb.database&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
 </span><span class="hll">    <span class="nt">&quot;influxdb.url&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
 </span>  <span class="p">}</span>
 <span class="p">}</span>
@@ -333,7 +328,7 @@ one of your Kafka Connect worker(s).</p>
         <a href="../../kafka-connect-jms/connectors.html" class="btn btn-neutral float-right" title="JMS Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../sources/InfluxDBSourceConnector.html" class="btn btn-neutral" title="InfluxDBSourceConnector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="InfluxDB Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
