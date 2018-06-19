@@ -1,6 +1,6 @@
-=========================================
-Io.confluent.connect.cdc.mssql Connectors
-=========================================
+===============================
+Microsoft SQL Server Connectors
+===============================
 
 .. toctree::
     :maxdepth: 1
