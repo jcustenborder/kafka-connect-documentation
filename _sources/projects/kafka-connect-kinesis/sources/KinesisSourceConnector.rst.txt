@@ -77,7 +77,7 @@ The number of milliseconds to backoff when the stream is empty.
 
 **Default Value:** 5000
 
-**Validator:** [500,...,2147483647]
+**Validator:** [500,...]
 
 
 
@@ -93,7 +93,7 @@ The position in the stream to reset to if no offsets are stored.
 
 **Default Value:** TRIM_HORIZON
 
-**Validator:** ValidEnum{enum=ShardIteratorType, allowed=[AT_SEQUENCE_NUMBER, AFTER_SEQUENCE_NUMBER, TRIM_HORIZON, LATEST, AT_TIMESTAMP]}
+**Validator:** ``AT_SEQUENCE_NUMBER``, ``AFTER_SEQUENCE_NUMBER``, ``TRIM_HORIZON``, ``LATEST``, ``AT_TIMESTAMP``
 
 
 
@@ -125,7 +125,7 @@ The AWS region for the Kinesis stream.
 
 **Default Value:** US_EAST_1
 
-**Validator:** ValidEnum{enum=Regions, allowed=[GovCloud, US_EAST_1, US_EAST_2, US_WEST_1, US_WEST_2, EU_WEST_1, EU_WEST_2, EU_CENTRAL_1, AP_SOUTH_1, AP_SOUTHEAST_1, AP_SOUTHEAST_2, AP_NORTHEAST_1, AP_NORTHEAST_2, SA_EAST_1, CN_NORTH_1, CA_CENTRAL_1]}
+**Validator:** ``GovCloud``, ``US_EAST_1``, ``US_EAST_2``, ``US_WEST_1``, ``US_WEST_2``, ``EU_WEST_1``, ``EU_WEST_2``, ``EU_WEST_3``, ``EU_CENTRAL_1``, ``AP_SOUTH_1``, ``AP_SOUTHEAST_1``, ``AP_SOUTHEAST_2``, ``AP_NORTHEAST_1``, ``AP_NORTHEAST_2``, ``SA_EAST_1``, ``CN_NORTH_1``, ``CN_NORTHWEST_1``, ``CA_CENTRAL_1``
 
 
 
@@ -141,7 +141,7 @@ The number of milliseconds to backoff when a throughput exceeded exception is th
 
 **Default Value:** 10000
 
-**Validator:** [500,...,2147483647]
+**Validator:** [500,...]
 
 
 

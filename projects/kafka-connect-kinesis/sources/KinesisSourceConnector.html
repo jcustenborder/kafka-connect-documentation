@@ -241,7 +241,7 @@
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Long</p>
 <p><strong>Default Value:</strong> 5000</p>
-<p><strong>Validator:</strong> [500,…,2147483647]</p>
+<p><strong>Validator:</strong> [500,…]</p>
 </div>
 <div class="section" id="kinesis-position">
 <h3>kinesis.position<a class="headerlink" href="#kinesis-position" title="Permalink to this headline">¶</a></h3>
@@ -249,7 +249,7 @@
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> TRIM_HORIZON</p>
-<p><strong>Validator:</strong> ValidEnum{enum=ShardIteratorType, allowed=[AT_SEQUENCE_NUMBER, AFTER_SEQUENCE_NUMBER, TRIM_HORIZON, LATEST, AT_TIMESTAMP]}</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">AT_SEQUENCE_NUMBER</span></code>, <code class="docutils literal"><span class="pre">AFTER_SEQUENCE_NUMBER</span></code>, <code class="docutils literal"><span class="pre">TRIM_HORIZON</span></code>, <code class="docutils literal"><span class="pre">LATEST</span></code>, <code class="docutils literal"><span class="pre">AT_TIMESTAMP</span></code></p>
 </div>
 <div class="section" id="kinesis-record-limit">
 <h3>kinesis.record.limit<a class="headerlink" href="#kinesis-record-limit" title="Permalink to this headline">¶</a></h3>
@@ -265,7 +265,7 @@
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> US_EAST_1</p>
-<p><strong>Validator:</strong> ValidEnum{enum=Regions, allowed=[GovCloud, US_EAST_1, US_EAST_2, US_WEST_1, US_WEST_2, EU_WEST_1, EU_WEST_2, EU_CENTRAL_1, AP_SOUTH_1, AP_SOUTHEAST_1, AP_SOUTHEAST_2, AP_NORTHEAST_1, AP_NORTHEAST_2, SA_EAST_1, CN_NORTH_1, CA_CENTRAL_1]}</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">GovCloud</span></code>, <code class="docutils literal"><span class="pre">US_EAST_1</span></code>, <code class="docutils literal"><span class="pre">US_EAST_2</span></code>, <code class="docutils literal"><span class="pre">US_WEST_1</span></code>, <code class="docutils literal"><span class="pre">US_WEST_2</span></code>, <code class="docutils literal"><span class="pre">EU_WEST_1</span></code>, <code class="docutils literal"><span class="pre">EU_WEST_2</span></code>, <code class="docutils literal"><span class="pre">EU_WEST_3</span></code>, <code class="docutils literal"><span class="pre">EU_CENTRAL_1</span></code>, <code class="docutils literal"><span class="pre">AP_SOUTH_1</span></code>, <code class="docutils literal"><span class="pre">AP_SOUTHEAST_1</span></code>, <code class="docutils literal"><span class="pre">AP_SOUTHEAST_2</span></code>, <code class="docutils literal"><span class="pre">AP_NORTHEAST_1</span></code>, <code class="docutils literal"><span class="pre">AP_NORTHEAST_2</span></code>, <code class="docutils literal"><span class="pre">SA_EAST_1</span></code>, <code class="docutils literal"><span class="pre">CN_NORTH_1</span></code>, <code class="docutils literal"><span class="pre">CN_NORTHWEST_1</span></code>, <code class="docutils literal"><span class="pre">CA_CENTRAL_1</span></code></p>
 </div>
 <div class="section" id="kinesis-throughput-exceeded-backoff-ms">
 <h3>kinesis.throughput.exceeded.backoff.ms<a class="headerlink" href="#kinesis-throughput-exceeded-backoff-ms" title="Permalink to this headline">¶</a></h3>
@@ -273,7 +273,7 @@
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Long</p>
 <p><strong>Default Value:</strong> 10000</p>
-<p><strong>Validator:</strong> [500,…,2147483647]</p>
+<p><strong>Validator:</strong> [500,…]</p>
 </div>
 </div>
 <div class="section" id="general">
