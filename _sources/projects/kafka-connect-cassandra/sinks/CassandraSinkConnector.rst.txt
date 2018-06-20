@@ -177,7 +177,7 @@ Password to open the Java Truststore with.
 
 **Default Value:** [hidden]
 
-**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@2dc319cf
+**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@22a2e581
 
 
 
@@ -191,7 +191,7 @@ Path to the Java Truststore.
 
 **Type:** String
 
-**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@1690929
+**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@7ca8f5d7
 
 
 
@@ -207,7 +207,7 @@ The SSL Provider to use when connecting to Cassandra
 
 **Default Value:** JDK
 
-**Validator:** ValidEnum{enum=SslProvider, allowed=[JDK, OPENSSL, OPENSSL_REFCNT]}
+**Validator:** ``JDK``, ``OPENSSL``, ``OPENSSL_REFCNT``
 
 
 
@@ -242,7 +242,7 @@ Caching setting to use.
 
 **Default Value:** NONE
 
-**Validator:** ValidEnum{enum=Caching, allowed=[ALL, KEYS_ONLY, ROWS_ONLY, NONE]}
+**Validator:** ``ALL``, ``KEYS_ONLY``, ``ROWS_ONLY``, ``NONE``
 
 
 
@@ -279,7 +279,7 @@ The requested consistency level to use when writing to Cassandra.
 
 **Default Value:** LOCAL_QUORUM
 
-**Validator:** ValidEnum{enum=ConsistencyLevel, allowed=[ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE]}
+**Validator:** ``ANY``, ``ONE``, ``TWO``, ``THREE``, ``QUORUM``, ``ALL``, ``LOCAL_QUORUM``, ``EACH_QUORUM``, ``SERIAL``, ``LOCAL_SERIAL``, ``LOCAL_ONE``
 
 
 
