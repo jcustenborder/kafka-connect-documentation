@@ -6,7 +6,7 @@ The MapR DB connector is used to write data to a MapR DB cluster.
 
 
 .. IMPORTANT::
-    This connector requires that the MapR Client is installed and working properly on the host running the connect worker process. The Kafka Connect worker process must be started with `-Dmapr.home.dir=/opt/mapr -Djava.library.path=/opt/mapr/lib/`. You can do this by exporting the KAFKA_OPTS environment variable. For example `export KAFKA_OPTS="-Dmapr.home.dir=/opt/mapr -Djava.library.path=/opt/mapr/lib/"` before starting Kafka Connect.
+    This connector requires that the MapR Client is installed and working properly on the host running the connect worker process. The Kafka Connect worker process must be started with ``-Dmapr.home.dir=/opt/mapr -Djava.library.path=/opt/mapr/lib/``. You can do this by exporting the KAFKA_OPTS environment variable. For example ``export KAFKA_OPTS="-Dmapr.home.dir=/opt/mapr -Djava.library.path=/opt/mapr/lib/"`` before starting Kafka Connect.
 
 
 .. TIP::
