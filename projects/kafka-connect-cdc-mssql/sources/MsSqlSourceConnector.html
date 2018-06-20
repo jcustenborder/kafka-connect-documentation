@@ -213,7 +213,7 @@
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">This connector utilizes the <a class="reference external" href="https://msdn.microsoft.com/en-us/library/bb933875.aspx">Change Tracking</a> featureavailable in most versions of SQL Server. For this connector to detect changes you must <a class="reference external" href="https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server">enable Change Tracking</a> on the source database server.</p>
+<p class="last">This connector utilizes the <a class="reference external" href="https://msdn.microsoft.com/en-us/library/bb933875.aspx">Change Tracking</a> feature available in most versions of SQL Server. For this connector to detect changes you must <a class="reference external" href="https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server">enable Change Tracking</a> on the source database server.</p>
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
@@ -252,7 +252,7 @@
 </div>
 <div class="section" id="change-tracking-tables">
 <h3>change.tracking.tables<a class="headerlink" href="#change-tracking-tables" title="Permalink to this headline">¶</a></h3>
-<p>The tables in the source database to monitor for changes. If no tables are specified the <cite>[sys].[change_tracking_tables]</cite> view is queried for all of the available tables with change tracking enabled.</p>
+<p>The tables in the source database to monitor for changes. If no tables are specified the <code class="docutils literal"><span class="pre">[sys].[change_tracking_tables]</span></code> view is queried for all of the available tables with change tracking enabled.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> List</p>
 <p><strong>Default Value:</strong> []</p>
@@ -329,7 +329,7 @@
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> UPPER_UNDERSCORE</p>
-<p><strong>Validator:</strong> ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, LOWER, UPPER_CAMEL, UPPER_UNDERSCORE, UPPER, NONE]}</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">LOWER_HYPHEN</span></code>, <code class="docutils literal"><span class="pre">LOWER_UNDERSCORE</span></code>, <code class="docutils literal"><span class="pre">LOWER_CAMEL</span></code>, <code class="docutils literal"><span class="pre">LOWER</span></code>, <code class="docutils literal"><span class="pre">UPPER_CAMEL</span></code>, <code class="docutils literal"><span class="pre">UPPER_UNDERSCORE</span></code>, <code class="docutils literal"><span class="pre">UPPER</span></code>, <code class="docutils literal"><span class="pre">NONE</span></code></p>
 </div>
 <div class="section" id="schema-caseformat-database-name">
 <h3>schema.caseformat.database.name<a class="headerlink" href="#schema-caseformat-database-name" title="Permalink to this headline">¶</a></h3>
@@ -337,7 +337,7 @@
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> UPPER_UNDERSCORE</p>
-<p><strong>Validator:</strong> ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, LOWER, UPPER_CAMEL, UPPER_UNDERSCORE, UPPER, NONE]}</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">LOWER_HYPHEN</span></code>, <code class="docutils literal"><span class="pre">LOWER_UNDERSCORE</span></code>, <code class="docutils literal"><span class="pre">LOWER_CAMEL</span></code>, <code class="docutils literal"><span class="pre">LOWER</span></code>, <code class="docutils literal"><span class="pre">UPPER_CAMEL</span></code>, <code class="docutils literal"><span class="pre">UPPER_UNDERSCORE</span></code>, <code class="docutils literal"><span class="pre">UPPER</span></code>, <code class="docutils literal"><span class="pre">NONE</span></code></p>
 </div>
 <div class="section" id="schema-caseformat-input">
 <h3>schema.caseformat.input<a class="headerlink" href="#schema-caseformat-input" title="Permalink to this headline">¶</a></h3>
@@ -345,7 +345,7 @@
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> UPPER_UNDERSCORE</p>
-<p><strong>Validator:</strong> ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, UPPER_CAMEL, UPPER_UNDERSCORE]}</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">LOWER_HYPHEN</span></code>, <code class="docutils literal"><span class="pre">LOWER_UNDERSCORE</span></code>, <code class="docutils literal"><span class="pre">LOWER_CAMEL</span></code>, <code class="docutils literal"><span class="pre">UPPER_CAMEL</span></code>, <code class="docutils literal"><span class="pre">UPPER_UNDERSCORE</span></code></p>
 </div>
 <div class="section" id="schema-caseformat-schema-name">
 <h3>schema.caseformat.schema.name<a class="headerlink" href="#schema-caseformat-schema-name" title="Permalink to this headline">¶</a></h3>
@@ -353,7 +353,7 @@
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> UPPER_UNDERSCORE</p>
-<p><strong>Validator:</strong> ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, LOWER, UPPER_CAMEL, UPPER_UNDERSCORE, UPPER, NONE]}</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">LOWER_HYPHEN</span></code>, <code class="docutils literal"><span class="pre">LOWER_UNDERSCORE</span></code>, <code class="docutils literal"><span class="pre">LOWER_CAMEL</span></code>, <code class="docutils literal"><span class="pre">LOWER</span></code>, <code class="docutils literal"><span class="pre">UPPER_CAMEL</span></code>, <code class="docutils literal"><span class="pre">UPPER_UNDERSCORE</span></code>, <code class="docutils literal"><span class="pre">UPPER</span></code>, <code class="docutils literal"><span class="pre">NONE</span></code></p>
 </div>
 <div class="section" id="schema-caseformat-table-name">
 <h3>schema.caseformat.table.name<a class="headerlink" href="#schema-caseformat-table-name" title="Permalink to this headline">¶</a></h3>
@@ -361,7 +361,7 @@
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> UPPER_UNDERSCORE</p>
-<p><strong>Validator:</strong> ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, LOWER, UPPER_CAMEL, UPPER_UNDERSCORE, UPPER, NONE]}</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">LOWER_HYPHEN</span></code>, <code class="docutils literal"><span class="pre">LOWER_UNDERSCORE</span></code>, <code class="docutils literal"><span class="pre">LOWER_CAMEL</span></code>, <code class="docutils literal"><span class="pre">LOWER</span></code>, <code class="docutils literal"><span class="pre">UPPER_CAMEL</span></code>, <code class="docutils literal"><span class="pre">UPPER_UNDERSCORE</span></code>, <code class="docutils literal"><span class="pre">UPPER</span></code>, <code class="docutils literal"><span class="pre">NONE</span></code></p>
 </div>
 </div>
 <div class="section" id="source-database">

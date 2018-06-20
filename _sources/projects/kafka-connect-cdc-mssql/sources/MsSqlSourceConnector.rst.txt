@@ -10,7 +10,7 @@ The Microsoft SQL Server connector utilizes `Change Tracking <https://msdn.micro
 
 
 .. IMPORTANT::
-    This connector utilizes the `Change Tracking <https://msdn.microsoft.com/en-us/library/bb933875.aspx>`_ featureavailable in most versions of SQL Server. For this connector to detect changes you must `enable Change Tracking <https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server>`_ on the source database server.
+    This connector utilizes the `Change Tracking <https://msdn.microsoft.com/en-us/library/bb933875.aspx>`_ feature available in most versions of SQL Server. For this connector to detect changes you must `enable Change Tracking <https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server>`_ on the source database server.
 
 
 
@@ -87,7 +87,7 @@ JDBC Username to connect to the database with.
 change.tracking.tables
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The tables in the source database to monitor for changes. If no tables are specified the `[sys].[change_tracking_tables]` view is queried for all of the available tables with change tracking enabled.
+The tables in the source database to monitor for changes. If no tables are specified the ``[sys].[change_tracking_tables]`` view is queried for all of the available tables with change tracking enabled.
 
 **Importance:** Medium
 
@@ -240,7 +240,7 @@ This setting is used to control how the column names are cased when the resultin
 
 **Default Value:** UPPER_UNDERSCORE
 
-**Validator:** ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, LOWER, UPPER_CAMEL, UPPER_UNDERSCORE, UPPER, NONE]}
+**Validator:** ``LOWER_HYPHEN``, ``LOWER_UNDERSCORE``, ``LOWER_CAMEL``, ``LOWER``, ``UPPER_CAMEL``, ``UPPER_UNDERSCORE``, ``UPPER``, ``NONE``
 
 
 
@@ -256,7 +256,7 @@ This setting is used to control how the `${databaseName}` variable is cased when
 
 **Default Value:** UPPER_UNDERSCORE
 
-**Validator:** ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, LOWER, UPPER_CAMEL, UPPER_UNDERSCORE, UPPER, NONE]}
+**Validator:** ``LOWER_HYPHEN``, ``LOWER_UNDERSCORE``, ``LOWER_CAMEL``, ``LOWER``, ``UPPER_CAMEL``, ``UPPER_UNDERSCORE``, ``UPPER``, ``NONE``
 
 
 
@@ -272,7 +272,7 @@ The naming convention used by the database format. This is used to define the so
 
 **Default Value:** UPPER_UNDERSCORE
 
-**Validator:** ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, UPPER_CAMEL, UPPER_UNDERSCORE]}
+**Validator:** ``LOWER_HYPHEN``, ``LOWER_UNDERSCORE``, ``LOWER_CAMEL``, ``UPPER_CAMEL``, ``UPPER_UNDERSCORE``
 
 
 
@@ -288,7 +288,7 @@ This setting is used to control how the `${schemaName}` variable is cased when i
 
 **Default Value:** UPPER_UNDERSCORE
 
-**Validator:** ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, LOWER, UPPER_CAMEL, UPPER_UNDERSCORE, UPPER, NONE]}
+**Validator:** ``LOWER_HYPHEN``, ``LOWER_UNDERSCORE``, ``LOWER_CAMEL``, ``LOWER``, ``UPPER_CAMEL``, ``UPPER_UNDERSCORE``, ``UPPER``, ``NONE``
 
 
 
@@ -304,7 +304,7 @@ This setting is used to control how the `${tableName}` variable is cased when it
 
 **Default Value:** UPPER_UNDERSCORE
 
-**Validator:** ValidEnum{enum=CaseFormat, allowed=[LOWER_HYPHEN, LOWER_UNDERSCORE, LOWER_CAMEL, LOWER, UPPER_CAMEL, UPPER_UNDERSCORE, UPPER, NONE]}
+**Validator:** ``LOWER_HYPHEN``, ``LOWER_UNDERSCORE``, ``LOWER_CAMEL``, ``LOWER``, ``UPPER_CAMEL``, ``UPPER_UNDERSCORE``, ``UPPER``, ``NONE``
 
 
 

@@ -79,7 +79,7 @@ influxdb.log.level
 
 **Default Value:** NONE
 
-**Validator:** ValidEnum{enum=LogLevel, allowed=[NONE, BASIC, HEADERS, FULL]}
+**Validator:** ``NONE``, ``BASIC``, ``HEADERS``, ``FULL``
 
 
 
@@ -100,7 +100,7 @@ The default timeunit for writing data to InfluxDB.
 
 **Default Value:** MILLISECONDS
 
-**Validator:** ValidEnum{enum=TimeUnit, allowed=[NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS]}
+**Validator:** ``NANOSECONDS``, ``MICROSECONDS``, ``MILLISECONDS``, ``SECONDS``, ``MINUTES``, ``HOURS``, ``DAYS``
 
 
 
@@ -116,7 +116,7 @@ The default consistency level for writing data to InfluxDB.
 
 **Default Value:** ONE
 
-**Validator:** ValidEnum{enum=ConsistencyLevel, allowed=[ALL, ANY, ONE, QUORUM]}
+**Validator:** ``ALL``, ``ANY``, ``ONE``, ``QUORUM``
 
 
 
