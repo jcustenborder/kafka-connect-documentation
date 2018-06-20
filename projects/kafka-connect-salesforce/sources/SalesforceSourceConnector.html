@@ -272,14 +272,14 @@
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> latest</p>
-<p><strong>Validator:</strong> ValidPattern{pattern=^(latest|[d.]+)$}</p>
+<p><strong>Validator:</strong> Matches regex( ^(latest|[d.]+)$ )</p>
 </div>
 </div>
 <div class="section" id="kafka">
 <h2>Kafka<a class="headerlink" href="#kafka" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="kafka-topic">
 <h3>kafka.topic<a class="headerlink" href="#kafka-topic" title="Permalink to this headline">¶</a></h3>
-<p>The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guarenteed to be there. <cite>_EventType</cite> and <cite>_ObjectType</cite> are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using <cite>salesforce.${_ObjectType}.${_EventType}</cite></p>
+<p>The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guaranteed to be there. <code class="docutils literal"><span class="pre">_EventType</span></code> and <code class="docutils literal"><span class="pre">_ObjectType</span></code> are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using <code class="docutils literal"><span class="pre">salesforce.${_ObjectType}.${_EventType}</span></code></p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
 </div>

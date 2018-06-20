@@ -133,7 +133,7 @@ The version of the salesforce API to use.
 
 **Default Value:** latest
 
-**Validator:** ValidPattern{pattern=^(latest|[\d\.]+)$}
+**Validator:** Matches regex( ^(latest|[\d\.]+)$ )
 
 
 
@@ -146,7 +146,7 @@ Kafka
 kafka.topic
 ^^^^^^^^^^^
 
-The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guarenteed to be there. `_EventType` and `_ObjectType` are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using `salesforce.${_ObjectType}.${_EventType}`
+The Kafka topic to write the SalesForce data to. This is a template driven by the data returned by Salesforce. Any field in the schema can be used but you should always pick a value that is guaranteed to be there. ``_EventType`` and ``_ObjectType`` are two metadata fields that are included on every record. For example you could put update and deletes in a different topic by using ``salesforce.${_ObjectType}.${_EventType}``
 
 **Importance:** High
 
