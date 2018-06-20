@@ -6,6 +6,10 @@ This connector connects to a MQTT broker and subscribes to the specified topics.
 
 
 .. TIP::
+    If you need to change the topic take a look at the :ref:`RegexRouter <regexrouter>` transformation which can be used to change the topic name before it is written to Kafka.
+
+
+.. NOTE::
     The output of this connector is an envelope with all of the properties of the incoming message. The body of the message is written to the value as bytes. The key is the topic the message was written to.
 
 
@@ -23,7 +27,7 @@ Connection
 mqtt.server.uri
 ^^^^^^^^^^^^^^^
 
-List of Mqtt brokers to connect to.
+List of MQTT brokers to connect to.
 
 **Importance:** High
 

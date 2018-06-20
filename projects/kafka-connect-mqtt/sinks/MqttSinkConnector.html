@@ -208,6 +208,10 @@
 <p>This connector connects to a MQTT broker and publishes data to the specified topics.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
+<p class="last">If you need to change the topic take a look at the <span class="xref std std-ref">RegexRouter</span> transformation which can be used to change the topic name it is sent to the MQTT Server.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
 <p class="last">This connector publishes using the Kafka topic name. If you need to publish to a different topic name use a transformation to change the topic name.</p>
 </div>
 <div class="section" id="configuration">
@@ -217,7 +221,7 @@
 <h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mqtt-server-uri">
 <h3>mqtt.server.uri<a class="headerlink" href="#mqtt-server-uri" title="Permalink to this headline">¶</a></h3>
-<p>List of Mqtt brokers to connect to.</p>
+<p>List of MQTT brokers to connect to.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> List</p>
 </div>
@@ -262,7 +266,7 @@
 <h2>Write<a class="headerlink" href="#write" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mqtt-qos">
 <h3>mqtt.qos<a class="headerlink" href="#mqtt-qos" title="Permalink to this headline">¶</a></h3>
-<p>The QOS level to write messages to the Mqtt broker with.</p>
+<p>The QOS level to write messages to the MQTT broker with.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 0</p>

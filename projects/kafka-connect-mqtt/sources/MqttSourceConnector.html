@@ -208,6 +208,10 @@
 <p>This connector connects to a MQTT broker and subscribes to the specified topics.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
+<p class="last">If you need to change the topic take a look at the <span class="xref std std-ref">RegexRouter</span> transformation which can be used to change the topic name before it is written to Kafka.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
 <p class="last">The output of this connector is an envelope with all of the properties of the incoming message. The body of the message is written to the value as bytes. The key is the topic the message was written to.</p>
 </div>
 <div class="section" id="configuration">
@@ -217,7 +221,7 @@
 <h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mqtt-server-uri">
 <h3>mqtt.server.uri<a class="headerlink" href="#mqtt-server-uri" title="Permalink to this headline">¶</a></h3>
-<p>List of Mqtt brokers to connect to.</p>
+<p>List of MQTT brokers to connect to.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> List</p>
 </div>

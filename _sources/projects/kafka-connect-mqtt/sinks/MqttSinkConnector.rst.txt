@@ -6,6 +6,10 @@ This connector connects to a MQTT broker and publishes data to the specified top
 
 
 .. TIP::
+    If you need to change the topic take a look at the :ref:`RegexRouter <regexrouter>` transformation which can be used to change the topic name it is sent to the MQTT Server.
+
+
+.. NOTE::
     This connector publishes using the Kafka topic name. If you need to publish to a different topic name use a transformation to change the topic name.
 
 
@@ -23,7 +27,7 @@ Connection
 mqtt.server.uri
 ^^^^^^^^^^^^^^^
 
-List of Mqtt brokers to connect to.
+List of MQTT brokers to connect to.
 
 **Importance:** High
 
@@ -112,7 +116,7 @@ Write
 mqtt.qos
 ^^^^^^^^
 
-The QOS level to write messages to the Mqtt broker with.
+The QOS level to write messages to the MQTT broker with.
 
 **Importance:** Medium
 
