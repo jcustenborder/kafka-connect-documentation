@@ -177,7 +177,7 @@ Password to open the Java Truststore with.
 
 **Default Value:** [hidden]
 
-**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@1690929
+**Validator:** Empty String or Absolute path to a file that exists.
 
 
 
@@ -191,7 +191,7 @@ Path to the Java Truststore.
 
 **Type:** String
 
-**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@34d26a68
+**Validator:** Empty String or Absolute path to a file that exists.
 
 
 
