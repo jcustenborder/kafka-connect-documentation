@@ -211,7 +211,7 @@
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">All of the headers that are associated with each message from RabbitMQ are prefixed with <cite>rabbitmq.</cite> and copied over to each of the records that are produced to Kafka. Due to this your configured message format must support headers.</p>
+<p class="last">All of the headers that are associated with each message from RabbitMQ are prefixed with <code class="docutils literal"><span class="pre">rabbitmq.</span></code> and copied over to each of the records that are produced to Kafka. Due to this your configured message format must support headers.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -224,98 +224,99 @@
 <h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="rabbitmq-host">
 <h3>rabbitmq.host<a class="headerlink" href="#rabbitmq-host" title="Permalink to this headline">¶</a></h3>
-<p>The RabbitMQ host to connect to. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setHost-java.lang.String-">ConnectionFactory.setHost(java.lang.String)</a></p>
+<p>The RabbitMQ host to connect to. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setHost-java.lang.String-">ConnectionFactory.setHost(java.lang.String)</a></p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> localhost</p>
 </div>
 <div class="section" id="rabbitmq-password">
 <h3>rabbitmq.password<a class="headerlink" href="#rabbitmq-password" title="Permalink to this headline">¶</a></h3>
-<p>The password to authenticate to RabbitMQ with. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setPassword-java.lang.String-">ConnectionFactory.setPassword(java.lang.String)</a></p>
+<p>The password to authenticate to RabbitMQ with. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setPassword-java.lang.String-">ConnectionFactory.setPassword(java.lang.String)</a></p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> guest</p>
 </div>
 <div class="section" id="rabbitmq-username">
 <h3>rabbitmq.username<a class="headerlink" href="#rabbitmq-username" title="Permalink to this headline">¶</a></h3>
-<p>The username to authenticate to RabbitMQ with. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setUsername-java.lang.String-">ConnectionFactory.setUsername(java.lang.String)</a></p>
+<p>The username to authenticate to RabbitMQ with. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setUsername-java.lang.String-">ConnectionFactory.setUsername(java.lang.String)</a></p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> guest</p>
 </div>
 <div class="section" id="rabbitmq-virtual-host">
 <h3>rabbitmq.virtual.host<a class="headerlink" href="#rabbitmq-virtual-host" title="Permalink to this headline">¶</a></h3>
-<p>The virtual host to use when connecting to the broker. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setVirtualHost-java.lang.String-">ConnectionFactory.setVirtualHost(java.lang.String)</a></p>
+<p>The virtual host to use when connecting to the broker. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setVirtualHost-java.lang.String-">ConnectionFactory.setVirtualHost(java.lang.String)</a></p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> /</p>
 </div>
 <div class="section" id="rabbitmq-port">
 <h3>rabbitmq.port<a class="headerlink" href="#rabbitmq-port" title="Permalink to this headline">¶</a></h3>
-<p>The RabbitMQ port to connect to. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setPort-int-">ConnectionFactory.setPort(int)</a></p>
+<p>The RabbitMQ port to connect to. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setPort-int-">ConnectionFactory.setPort(int)</a></p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 5672</p>
 </div>
 <div class="section" id="rabbitmq-automatic-recovery-enabled">
 <h3>rabbitmq.automatic.recovery.enabled<a class="headerlink" href="#rabbitmq-automatic-recovery-enabled" title="Permalink to this headline">¶</a></h3>
-<p>Enables or disables automatic connection recovery. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setAutomaticRecoveryEnabled-boolean-">ConnectionFactory.setAutomaticRecoveryEnabled(boolean)</a></p>
+<p>Enables or disables automatic connection recovery. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setAutomaticRecoveryEnabled-boolean-">ConnectionFactory.setAutomaticRecoveryEnabled(boolean)</a></p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> true</p>
 </div>
 <div class="section" id="rabbitmq-connection-timeout-ms">
 <h3>rabbitmq.connection.timeout.ms<a class="headerlink" href="#rabbitmq-connection-timeout-ms" title="Permalink to this headline">¶</a></h3>
-<p>Connection TCP establishment timeout in milliseconds. zero for infinite. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setConnectionTimeout-int-">ConnectionFactory.setConnectionTimeout(int)</a></p>
+<p>Connection TCP establishment timeout in milliseconds. zero for infinite. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setConnectionTimeout-int-">ConnectionFactory.setConnectionTimeout(int)</a></p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 60000</p>
+<p><strong>Validator:</strong> [0,…]</p>
 </div>
 <div class="section" id="rabbitmq-handshake-timeout-ms">
 <h3>rabbitmq.handshake.timeout.ms<a class="headerlink" href="#rabbitmq-handshake-timeout-ms" title="Permalink to this headline">¶</a></h3>
-<p>The AMQP0-9-1 protocol handshake timeout, in milliseconds. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setHandshakeTimeout-int-">ConnectionFactory.setHandshakeTimeout(int)</a></p>
+<p>The AMQP0-9-1 protocol handshake timeout, in milliseconds. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setHandshakeTimeout-int-">ConnectionFactory.setHandshakeTimeout(int)</a></p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 10000</p>
 </div>
 <div class="section" id="rabbitmq-network-recovery-interval-ms">
 <h3>rabbitmq.network.recovery.interval.ms<a class="headerlink" href="#rabbitmq-network-recovery-interval-ms" title="Permalink to this headline">¶</a></h3>
-<p>See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setNetworkRecoveryInterval-long-">ConnectionFactory.setNetworkRecoveryInterval(long)</a></p>
+<p>See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setNetworkRecoveryInterval-long-">ConnectionFactory.setNetworkRecoveryInterval(long)</a></p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 10000</p>
 </div>
 <div class="section" id="rabbitmq-requested-channel-max">
 <h3>rabbitmq.requested.channel.max<a class="headerlink" href="#rabbitmq-requested-channel-max" title="Permalink to this headline">¶</a></h3>
-<p>Initially requested maximum channel number. Zero for unlimited. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setRequestedChannelMax-int-">ConnectionFactory.setRequestedChannelMax(int)</a></p>
+<p>Initially requested maximum channel number. Zero for unlimited. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setRequestedChannelMax-int-">ConnectionFactory.setRequestedChannelMax(int)</a></p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 0</p>
 </div>
 <div class="section" id="rabbitmq-requested-frame-max">
 <h3>rabbitmq.requested.frame.max<a class="headerlink" href="#rabbitmq-requested-frame-max" title="Permalink to this headline">¶</a></h3>
-<p>Initially requested maximum frame size, in octets. Zero for unlimited. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setRequestedFrameMax-int-">ConnectionFactory.setRequestedFrameMax(int)</a></p>
+<p>Initially requested maximum frame size, in octets. Zero for unlimited. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setRequestedFrameMax-int-">ConnectionFactory.setRequestedFrameMax(int)</a></p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 0</p>
 </div>
 <div class="section" id="rabbitmq-requested-heartbeat-seconds">
 <h3>rabbitmq.requested.heartbeat.seconds<a class="headerlink" href="#rabbitmq-requested-heartbeat-seconds" title="Permalink to this headline">¶</a></h3>
-<p>Set the requested heartbeat timeout. Heartbeat frames will be sent at about 1/2 the timeout interval. If server heartbeat timeout is configured to a non-zero value, this method can only be used to lower the value; otherwise any value provided by the client will be used. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setRequestedHeartbeat-int-">ConnectionFactory.setRequestedHeartbeat(int)</a></p>
+<p>Set the requested heartbeat timeout. Heartbeat frames will be sent at about 1/2 the timeout interval. If server heartbeat timeout is configured to a non-zero value, this method can only be used to lower the value; otherwise any value provided by the client will be used. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setRequestedHeartbeat-int-">ConnectionFactory.setRequestedHeartbeat(int)</a></p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 60</p>
 </div>
 <div class="section" id="rabbitmq-shutdown-timeout-ms">
 <h3>rabbitmq.shutdown.timeout.ms<a class="headerlink" href="#rabbitmq-shutdown-timeout-ms" title="Permalink to this headline">¶</a></h3>
-<p>Set the shutdown timeout. This is the amount of time that Consumer implementations have to continue working through deliveries (and other Consumer callbacks) after the connection has closed but before the ConsumerWorkService is torn down. If consumers exceed this timeout then any remaining queued deliveries (and other Consumer callbacks, <em>including</em> the Consumer’s handleShutdownSignal() invocation) will be lost. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setShutdownTimeout-int-">ConnectionFactory.setShutdownTimeout(int)</a></p>
+<p>Set the shutdown timeout. This is the amount of time that Consumer implementations have to continue working through deliveries (and other Consumer callbacks) after the connection has closed but before the ConsumerWorkService is torn down. If consumers exceed this timeout then any remaining queued deliveries (and other Consumer callbacks, <em>including</em> the Consumer’s handleShutdownSignal() invocation) will be lost. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setShutdownTimeout-int-">ConnectionFactory.setShutdownTimeout(int)</a></p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 10000</p>
 </div>
 <div class="section" id="rabbitmq-topology-recovery-enabled">
 <h3>rabbitmq.topology.recovery.enabled<a class="headerlink" href="#rabbitmq-topology-recovery-enabled" title="Permalink to this headline">¶</a></h3>
-<p>Enables or disables topology recovery. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/ConnectionFactory.html#setTopologyRecoveryEnabled-boolean-">ConnectionFactory.setTopologyRecoveryEnabled(boolean)</a></p>
+<p>Enables or disables topology recovery. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/ConnectionFactory.html#setTopologyRecoveryEnabled-boolean-">ConnectionFactory.setTopologyRecoveryEnabled(boolean)</a></p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> true</p>
@@ -331,20 +332,20 @@
 </div>
 <div class="section" id="rabbitmq-queue">
 <h3>rabbitmq.queue<a class="headerlink" href="#rabbitmq-queue" title="Permalink to this headline">¶</a></h3>
-<p>rabbitmq.queue</p>
+<p>RabbitMQ queue to read from.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> List</p>
 </div>
 <div class="section" id="rabbitmq-prefetch-count">
 <h3>rabbitmq.prefetch.count<a class="headerlink" href="#rabbitmq-prefetch-count" title="Permalink to this headline">¶</a></h3>
-<p>Maximum number of messages that the server will deliver, 0 if unlimited. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Channel.html#basicQos-int-boolean-">Channel.basicQos(int, boolean)</a></p>
+<p>Maximum number of messages that the server will deliver, 0 if unlimited. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/Channel.html#basicQos-int-boolean-">Channel.basicQos(int, boolean)</a></p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 0</p>
 </div>
 <div class="section" id="rabbitmq-prefetch-global">
 <h3>rabbitmq.prefetch.global<a class="headerlink" href="#rabbitmq-prefetch-global" title="Permalink to this headline">¶</a></h3>
-<p>True if the settings should be applied to the entire channel rather than each consumer. See <a class="reference external" href="https://www.rabbitmq.com/releases/rabbitmq-java-client/current-javadoc/com/rabbitmq/client/Channel.html#basicQos-int-boolean-">Channel.basicQos(int, boolean)</a></p>
+<p>True if the settings should be applied to the entire channel rather than each consumer. See <a class="reference external" href="https://rabbitmq.github.io/rabbitmq-java-client/api/current/com/rabbitmq/client/Channel.html#basicQos-int-boolean-">Channel.basicQos(int, boolean)</a></p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> false</p>
