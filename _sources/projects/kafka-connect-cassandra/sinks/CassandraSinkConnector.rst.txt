@@ -10,7 +10,7 @@ The Cassandra Sink connector is used to write data to a Cassandra Cluster. This 
 
 
 .. TIP::
-    If you encounter error messages like this `Batch for [test.twitter] is of size 127.661KiB, exceeding specified threshold of 50.000KiB by 77.661KiB.` or warning messages like `Batch for [test.twitter] is of size 25.885KiB, exceeding specified threshold of 5.000KiB by 20.885KiB.` Try adjusting the `consumer.max.poll.records` setting in the worker.properties for Kafka Connect.
+    If you encounter error messages like this ``Batch for [test.twitter] is of size 127.661KiB, exceeding specified threshold of 50.000KiB by 77.661KiB.`` or warning messages like ``Batch for [test.twitter] is of size 25.885KiB, exceeding specified threshold of 5.000KiB by 20.885KiB.`` Try adjusting the ``consumer.max.poll.records`` setting in the worker.properties for Kafka Connect.
 
 
 .. NOTE::
@@ -177,7 +177,7 @@ Password to open the Java Truststore with.
 
 **Default Value:** [hidden]
 
-**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@22a2e581
+**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@1690929
 
 
 
@@ -191,7 +191,7 @@ Path to the Java Truststore.
 
 **Type:** String
 
-**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@7ca8f5d7
+**Validator:** io.confluent.connect.cassandra.CassandraSinkConnectorConfig$BlankOrValidator@34d26a68
 
 
 

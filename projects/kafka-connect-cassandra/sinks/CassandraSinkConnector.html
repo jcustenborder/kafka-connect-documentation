@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Apache Cassandra Connectors" href="../connectors.html"/>
+        <link rel="up" title="Cassandra Connectors" href="../connectors.html"/>
         <link rel="next" title="Microsoft SQL Server Connectors" href="../../kafka-connect-cdc-mssql/connectors.html"/>
-        <link rel="prev" title="Apache Cassandra Connectors" href="../connectors.html"/> 
+        <link rel="prev" title="Cassandra Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -95,7 +95,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Apache Cassandra Connectors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Cassandra Connectors</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Cassandra Sink Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#connection">Connection</a></li>
@@ -184,7 +184,7 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Apache Cassandra Connectors</a> &raquo;</li>
+          <li><a href="../connectors.html">Cassandra Connectors</a> &raquo;</li>
         
       <li>Cassandra Sink Connector</li>
     
@@ -214,7 +214,7 @@
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">If you encounter error messages like this <cite>Batch for [test.twitter] is of size 127.661KiB, exceeding specified threshold of 50.000KiB by 77.661KiB.</cite> or warning messages like <cite>Batch for [test.twitter] is of size 25.885KiB, exceeding specified threshold of 5.000KiB by 20.885KiB.</cite> Try adjusting the <cite>consumer.max.poll.records</cite> setting in the worker.properties for Kafka Connect.</p>
+<p class="last">If you encounter error messages like this <code class="docutils literal"><span class="pre">Batch</span> <span class="pre">for</span> <span class="pre">[test.twitter]</span> <span class="pre">is</span> <span class="pre">of</span> <span class="pre">size</span> <span class="pre">127.661KiB,</span> <span class="pre">exceeding</span> <span class="pre">specified</span> <span class="pre">threshold</span> <span class="pre">of</span> <span class="pre">50.000KiB</span> <span class="pre">by</span> <span class="pre">77.661KiB.</span></code> or warning messages like <code class="docutils literal"><span class="pre">Batch</span> <span class="pre">for</span> <span class="pre">[test.twitter]</span> <span class="pre">is</span> <span class="pre">of</span> <span class="pre">size</span> <span class="pre">25.885KiB,</span> <span class="pre">exceeding</span> <span class="pre">specified</span> <span class="pre">threshold</span> <span class="pre">of</span> <span class="pre">5.000KiB</span> <span class="pre">by</span> <span class="pre">20.885KiB.</span></code> Try adjusting the <code class="docutils literal"><span class="pre">consumer.max.poll.records</span></code> setting in the worker.properties for Kafka Connect.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -301,14 +301,14 @@
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Password</p>
 <p><strong>Default Value:</strong> [hidden]</p>
-<p><strong>Validator:</strong> <a class="reference external" href="mailto:io&#46;confluent&#46;connect&#46;cassandra&#46;CassandraSinkConnectorConfig$BlankOrValidator&#37;&#52;&#48;22a2e581">io<span>&#46;</span>confluent<span>&#46;</span>connect<span>&#46;</span>cassandra<span>&#46;</span>CassandraSinkConnectorConfig$BlankOrValidator<span>&#64;</span>22a2e581</a></p>
+<p><strong>Validator:</strong> <a class="reference external" href="mailto:io&#46;confluent&#46;connect&#46;cassandra&#46;CassandraSinkConnectorConfig$BlankOrValidator&#37;&#52;&#48;1690929">io<span>&#46;</span>confluent<span>&#46;</span>connect<span>&#46;</span>cassandra<span>&#46;</span>CassandraSinkConnectorConfig$BlankOrValidator<span>&#64;</span>1690929</a></p>
 </div>
 <div class="section" id="cassandra-ssl-truststore-path">
 <h3>cassandra.ssl.truststore.path<a class="headerlink" href="#cassandra-ssl-truststore-path" title="Permalink to this headline">¶</a></h3>
 <p>Path to the Java Truststore.</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
-<p><strong>Validator:</strong> <a class="reference external" href="mailto:io&#46;confluent&#46;connect&#46;cassandra&#46;CassandraSinkConnectorConfig$BlankOrValidator&#37;&#52;&#48;7ca8f5d7">io<span>&#46;</span>confluent<span>&#46;</span>connect<span>&#46;</span>cassandra<span>&#46;</span>CassandraSinkConnectorConfig$BlankOrValidator<span>&#64;</span>7ca8f5d7</a></p>
+<p><strong>Validator:</strong> <a class="reference external" href="mailto:io&#46;confluent&#46;connect&#46;cassandra&#46;CassandraSinkConnectorConfig$BlankOrValidator&#37;&#52;&#48;34d26a68">io<span>&#46;</span>confluent<span>&#46;</span>connect<span>&#46;</span>cassandra<span>&#46;</span>CassandraSinkConnectorConfig$BlankOrValidator<span>&#64;</span>34d26a68</a></p>
 </div>
 <div class="section" id="cassandra-ssl-provider">
 <h3>cassandra.ssl.provider<a class="headerlink" href="#cassandra-ssl-provider" title="Permalink to this headline">¶</a></h3>
@@ -480,7 +480,7 @@ example.</p>
         <a href="../../kafka-connect-cdc-mssql/connectors.html" class="btn btn-neutral float-right" title="Microsoft SQL Server Connectors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Apache Cassandra Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="Cassandra Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

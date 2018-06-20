@@ -1,6 +1,6 @@
-===========================
-Apache Cassandra Connectors
-===========================
+====================
+Cassandra Connectors
+====================
 
 
 .. toctree::
