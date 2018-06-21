@@ -11,4 +11,4 @@ free to create an issue to discuss further.
 .. csv-table::
     :header: "Name"
 
-    "`The Apache License, Version 2.0 <https://www.apache.org/licenses/LICENSE-2.0>`_"
+    "`Confluent Software Evaluation License <https://www.confluent.io/software-evaluation-license>`_"
