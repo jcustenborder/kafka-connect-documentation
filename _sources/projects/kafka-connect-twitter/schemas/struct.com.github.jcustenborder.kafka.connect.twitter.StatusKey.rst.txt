@@ -4,9 +4,21 @@ StatusKey
 
 Key for a twitter status.
 
-.. csv-table:: StatusKey
-    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
-    :widths: auto
 
-    "Id",":ref:`schema-Int64`","true","",""
+------
+Fields
+------
+
+
+^^
+Id
+^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int64`
+
+
 

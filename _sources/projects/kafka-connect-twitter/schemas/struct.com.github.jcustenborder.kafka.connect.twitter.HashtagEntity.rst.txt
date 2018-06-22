@@ -3,11 +3,45 @@ HashtagEntity
 =============
 
 
-.. csv-table:: HashtagEntity
-    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
-    :widths: auto
 
-    "Text",":ref:`schema-String`","true","","Returns the text of the hashtag without #."
-    "Start",":ref:`schema-Int32`","true","","Returns the index of the start character of the hashtag."
-    "End",":ref:`schema-Int32`","true","","Returns the index of the end character of the hashtag."
+------
+Fields
+------
+
+
+^^^^
+Text
+^^^^
+
+Returns the text of the hashtag without #.
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^
+Start
+^^^^^
+
+Returns the index of the start character of the hashtag.
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^
+End
+^^^
+
+Returns the index of the end character of the hashtag.
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
 

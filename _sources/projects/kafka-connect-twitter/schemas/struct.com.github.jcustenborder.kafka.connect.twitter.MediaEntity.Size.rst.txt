@@ -3,11 +3,45 @@ Size
 ====
 
 
-.. csv-table:: Size
-    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
-    :widths: auto
 
-    "Resize",":ref:`schema-Int32`","true","",""
-    "Width",":ref:`schema-Int32`","true","",""
-    "Height",":ref:`schema-Int32`","true","",""
+------
+Fields
+------
+
+
+^^^^^^
+Resize
+^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^^
+Width
+^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^^^
+Height
+^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
 

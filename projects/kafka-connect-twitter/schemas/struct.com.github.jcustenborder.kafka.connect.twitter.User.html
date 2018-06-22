@@ -36,7 +36,7 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Schemas" href="../schemas.html"/>
+        <link rel="up" title="Com.github.jcustenborder.kafka.connect.twitter Schemas" href="../schemas.html"/>
         <link rel="next" title="UserMentionEntity" href="struct.com.github.jcustenborder.kafka.connect.twitter.UserMentionEntity.html"/>
         <link rel="prev" title="URLEntity" href="struct.com.github.jcustenborder.kafka.connect.twitter.URLEntity.html"/> 
 
@@ -105,7 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/schemas.html">Schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-cef/schemas.html">Schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/schemas.html">Schemas</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Com.github.jcustenborder.kafka.connect.twitter Schemas</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.html">ExtendedMediaEntity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.Variant.html">Variant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.GeoLocation.html">GeoLocation</a></li>
@@ -119,7 +119,10 @@
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusKey.html">StatusKey</a></li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.SymbolEntity.html">SymbolEntity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.URLEntity.html">URLEntity</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">User</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">User</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.UserMentionEntity.html">UserMentionEntity</a></li>
 </ul>
 </li>
@@ -174,11 +177,9 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
+          <li><a href="../../../schemas.html">Schemas</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Twitter Connector</a> &raquo;</li>
-        
-          <li><a href="../schemas.html">Schemas</a> &raquo;</li>
+          <li><a href="../schemas.html">Com.github.jcustenborder.kafka.connect.twitter Schemas</a> &raquo;</li>
         
       <li>User</li>
     
@@ -202,307 +203,266 @@
   <div class="section" id="user">
 <h1>User<a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h1>
 <p>Return the user associated with the status. This can be null if the instance is from User.getStatus().</p>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">User</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Optional</th>
-<th class="head">Default Value</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Id</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the id of the user</td>
-</tr>
-<tr class="row-odd"><td>Name</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the name of the user</td>
-</tr>
-<tr class="row-even"><td>ScreenName</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the screen name of the user</td>
-</tr>
-<tr class="row-odd"><td>Location</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the location of the user</td>
-</tr>
-<tr class="row-even"><td>Description</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the description of the user</td>
-</tr>
-<tr class="row-odd"><td>ContributorsEnabled</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Tests if the user is enabling contributors</td>
-</tr>
-<tr class="row-even"><td>ProfileImageURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the profile image url of the user</td>
-</tr>
-<tr class="row-odd"><td>BiggerProfileImageURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>MiniProfileImageURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>OriginalProfileImageURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ProfileImageURLHttps</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>BiggerProfileImageURLHttps</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>MiniProfileImageURLHttps</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>OriginalProfileImageURLHttps</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>DefaultProfileImage</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Tests if the user has not uploaded their own avatar</td>
-</tr>
-<tr class="row-odd"><td>URL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the url of the user</td>
-</tr>
-<tr class="row-even"><td>Protected</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Test if the user status is protected</td>
-</tr>
-<tr class="row-odd"><td>FollowersCount</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the number of followers</td>
-</tr>
-<tr class="row-even"><td>ProfileBackgroundColor</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ProfileTextColor</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ProfileLinkColor</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ProfileSidebarFillColor</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ProfileSidebarBorderColor</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ProfileUseBackgroundImage</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>DefaultProfile</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Tests if the user has not altered the theme or background</td>
-</tr>
-<tr class="row-odd"><td>ShowAllInlineMedia</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>FriendsCount</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the number of users the user follows (AKA “followings”)</td>
-</tr>
-<tr class="row-odd"><td>CreatedAt</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>FavouritesCount</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>UtcOffset</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>TimeZone</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ProfileBackgroundImageURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ProfileBackgroundImageUrlHttps</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ProfileBannerURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ProfileBannerRetinaURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ProfileBannerIPadURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ProfileBannerIPadRetinaURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ProfileBannerMobileURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ProfileBannerMobileRetinaURL</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ProfileBackgroundTiled</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>Lang</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the preferred language of the user</td>
-</tr>
-<tr class="row-odd"><td>StatusesCount</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>GeoEnabled</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>Verified</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>Translator</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>ListedCount</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the number of public lists the user is listed on, or -1 if the count is unavailable.</td>
-</tr>
-<tr class="row-even"><td>FollowRequestSent</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns true if the authenticating user has requested to follow this user, otherwise false.</td>
-</tr>
-<tr class="row-odd"><td>WithheldInCountries</td>
-<td>Array of <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Returns the list of country codes where the user is withheld</td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id">
+<h3>Id<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h3>
+<p>Returns the id of the user</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></p>
+</div>
+<div class="section" id="name">
+<h3>Name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
+<p>Returns the name of the user</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="screenname">
+<h3>ScreenName<a class="headerlink" href="#screenname" title="Permalink to this headline">¶</a></h3>
+<p>Returns the screen name of the user</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="location">
+<h3>Location<a class="headerlink" href="#location" title="Permalink to this headline">¶</a></h3>
+<p>Returns the location of the user</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="description">
+<h3>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>Returns the description of the user</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="contributorsenabled">
+<h3>ContributorsEnabled<a class="headerlink" href="#contributorsenabled" title="Permalink to this headline">¶</a></h3>
+<p>Tests if the user is enabling contributors</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="profileimageurl">
+<h3>ProfileImageURL<a class="headerlink" href="#profileimageurl" title="Permalink to this headline">¶</a></h3>
+<p>Returns the profile image url of the user</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="biggerprofileimageurl">
+<h3>BiggerProfileImageURL<a class="headerlink" href="#biggerprofileimageurl" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="miniprofileimageurl">
+<h3>MiniProfileImageURL<a class="headerlink" href="#miniprofileimageurl" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="originalprofileimageurl">
+<h3>OriginalProfileImageURL<a class="headerlink" href="#originalprofileimageurl" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profileimageurlhttps">
+<h3>ProfileImageURLHttps<a class="headerlink" href="#profileimageurlhttps" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="biggerprofileimageurlhttps">
+<h3>BiggerProfileImageURLHttps<a class="headerlink" href="#biggerprofileimageurlhttps" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="miniprofileimageurlhttps">
+<h3>MiniProfileImageURLHttps<a class="headerlink" href="#miniprofileimageurlhttps" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="originalprofileimageurlhttps">
+<h3>OriginalProfileImageURLHttps<a class="headerlink" href="#originalprofileimageurlhttps" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="defaultprofileimage">
+<h3>DefaultProfileImage<a class="headerlink" href="#defaultprofileimage" title="Permalink to this headline">¶</a></h3>
+<p>Tests if the user has not uploaded their own avatar</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="url">
+<h3>URL<a class="headerlink" href="#url" title="Permalink to this headline">¶</a></h3>
+<p>Returns the url of the user</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="protected">
+<h3>Protected<a class="headerlink" href="#protected" title="Permalink to this headline">¶</a></h3>
+<p>Test if the user status is protected</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="followerscount">
+<h3>FollowersCount<a class="headerlink" href="#followerscount" title="Permalink to this headline">¶</a></h3>
+<p>Returns the number of followers</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></p>
+</div>
+<div class="section" id="profilebackgroundcolor">
+<h3>ProfileBackgroundColor<a class="headerlink" href="#profilebackgroundcolor" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profiletextcolor">
+<h3>ProfileTextColor<a class="headerlink" href="#profiletextcolor" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profilelinkcolor">
+<h3>ProfileLinkColor<a class="headerlink" href="#profilelinkcolor" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profilesidebarfillcolor">
+<h3>ProfileSidebarFillColor<a class="headerlink" href="#profilesidebarfillcolor" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profilesidebarbordercolor">
+<h3>ProfileSidebarBorderColor<a class="headerlink" href="#profilesidebarbordercolor" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profileusebackgroundimage">
+<h3>ProfileUseBackgroundImage<a class="headerlink" href="#profileusebackgroundimage" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="defaultprofile">
+<h3>DefaultProfile<a class="headerlink" href="#defaultprofile" title="Permalink to this headline">¶</a></h3>
+<p>Tests if the user has not altered the theme or background</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="showallinlinemedia">
+<h3>ShowAllInlineMedia<a class="headerlink" href="#showallinlinemedia" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="friendscount">
+<h3>FriendsCount<a class="headerlink" href="#friendscount" title="Permalink to this headline">¶</a></h3>
+<p>Returns the number of users the user follows (AKA “followings”)</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></p>
+</div>
+<div class="section" id="createdat">
+<h3>CreatedAt<a class="headerlink" href="#createdat" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></p>
+</div>
+<div class="section" id="favouritescount">
+<h3>FavouritesCount<a class="headerlink" href="#favouritescount" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></p>
+</div>
+<div class="section" id="utcoffset">
+<h3>UtcOffset<a class="headerlink" href="#utcoffset" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></p>
+</div>
+<div class="section" id="timezone">
+<h3>TimeZone<a class="headerlink" href="#timezone" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profilebackgroundimageurl">
+<h3>ProfileBackgroundImageURL<a class="headerlink" href="#profilebackgroundimageurl" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profilebackgroundimageurlhttps">
+<h3>ProfileBackgroundImageUrlHttps<a class="headerlink" href="#profilebackgroundimageurlhttps" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profilebannerurl">
+<h3>ProfileBannerURL<a class="headerlink" href="#profilebannerurl" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profilebannerretinaurl">
+<h3>ProfileBannerRetinaURL<a class="headerlink" href="#profilebannerretinaurl" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profilebanneripadurl">
+<h3>ProfileBannerIPadURL<a class="headerlink" href="#profilebanneripadurl" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profilebanneripadretinaurl">
+<h3>ProfileBannerIPadRetinaURL<a class="headerlink" href="#profilebanneripadretinaurl" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profilebannermobileurl">
+<h3>ProfileBannerMobileURL<a class="headerlink" href="#profilebannermobileurl" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profilebannermobileretinaurl">
+<h3>ProfileBannerMobileRetinaURL<a class="headerlink" href="#profilebannermobileretinaurl" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="profilebackgroundtiled">
+<h3>ProfileBackgroundTiled<a class="headerlink" href="#profilebackgroundtiled" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="lang">
+<h3>Lang<a class="headerlink" href="#lang" title="Permalink to this headline">¶</a></h3>
+<p>Returns the preferred language of the user</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="statusescount">
+<h3>StatusesCount<a class="headerlink" href="#statusescount" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></p>
+</div>
+<div class="section" id="geoenabled">
+<h3>GeoEnabled<a class="headerlink" href="#geoenabled" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="verified">
+<h3>Verified<a class="headerlink" href="#verified" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="translator">
+<h3>Translator<a class="headerlink" href="#translator" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="listedcount">
+<h3>ListedCount<a class="headerlink" href="#listedcount" title="Permalink to this headline">¶</a></h3>
+<p>Returns the number of public lists the user is listed on, or -1 if the count is unavailable.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></p>
+</div>
+<div class="section" id="followrequestsent">
+<h3>FollowRequestSent<a class="headerlink" href="#followrequestsent" title="Permalink to this headline">¶</a></h3>
+<p>Returns true if the authenticating user has requested to follow this user, otherwise false.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="withheldincountries">
+<h3>WithheldInCountries<a class="headerlink" href="#withheldincountries" title="Permalink to this headline">¶</a></h3>
+<p>Returns the list of country codes where the user is withheld</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> Array of <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+</div>
 </div>
 
 

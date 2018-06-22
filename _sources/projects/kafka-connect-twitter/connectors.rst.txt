@@ -1,8 +1,6 @@
-=================
-Twitter Connector
-=================
-
-The Twitter Connector provides a Kafka Connect :term:`Source Connector` that can receive data from Twitter.
+=========================================================
+Com.github.jcustenborder.kafka.connect.twitter Connectors
+=========================================================
 
 .. toctree::
     :maxdepth: 1
@@ -11,14 +9,4 @@ The Twitter Connector provides a Kafka Connect :term:`Source Connector` that can
     :glob:
 
     sources/*
-
-
-.. toctree::
-    :maxdepth: 0
-    :caption: Schemas:
-    :hidden:
-
-    schemas
-    info
-
 

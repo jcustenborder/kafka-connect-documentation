@@ -3,11 +3,45 @@ SymbolEntity
 ============
 
 
-.. csv-table:: SymbolEntity
-    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
-    :widths: auto
 
-    "Start",":ref:`schema-Int32`","true","","Returns the index of the start character of the symbol."
-    "End",":ref:`schema-Int32`","true","","Returns the index of the end character of the symbol."
-    "Text",":ref:`schema-String`","true","","Returns the text of the entity"
+------
+Fields
+------
+
+
+^^^^^
+Start
+^^^^^
+
+Returns the index of the start character of the symbol.
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^
+End
+^^^
+
+Returns the index of the end character of the symbol.
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^
+Text
+^^^^
+
+Returns the text of the entity
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
 

@@ -3,24 +3,201 @@ MediaEntity
 ===========
 
 
-.. csv-table:: MediaEntity
-    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
-    :widths: auto
 
-    "Id",":ref:`schema-Int64`","true","","Returns the id of the media."
-    "Type",":ref:`schema-String`","true","","Returns the media type photo, video, animated_gif."
-    "MediaURL",":ref:`schema-String`","true","","Returns the media URL."
-    "Sizes","Map of :ref:`schema-Int32`, :ref:`schema-Struct`","false","",""
-    "MediaURLHttps",":ref:`schema-String`","true","","Returns the media secure URL."
-    "VideoAspectRatioWidth",":ref:`schema-Int32`","true","",""
-    "VideoAspectRatioHeight",":ref:`schema-Int32`","true","",""
-    "VideoDurationMillis",":ref:`schema-Int64`","true","",""
-    "VideoVariants","Array of :ref:`schema-Struct`","true","","Returns size variations of the media."
-    "ExtAltText",":ref:`schema-String`","true","",""
-    "URL",":ref:`schema-String`","true","","Returns the URL mentioned in the tweet."
-    "Text",":ref:`schema-String`","true","","Returns the URL mentioned in the tweet."
-    "ExpandedURL",":ref:`schema-String`","true","","Returns the expanded URL if mentioned URL is shorten."
-    "Start",":ref:`schema-Int32`","true","","Returns the index of the start character of the URL mentioned in the tweet."
-    "End",":ref:`schema-Int32`","true","","Returns the index of the end character of the URL mentioned in the tweet."
-    "DisplayURL",":ref:`schema-String`","true","","Returns the display URL if mentioned URL is shorten."
+------
+Fields
+------
+
+
+^^
+Id
+^^
+
+Returns the id of the media.
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int64`
+
+
+
+^^^^
+Type
+^^^^
+
+Returns the media type photo, video, animated_gif.
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^
+MediaURL
+^^^^^^^^
+
+Returns the media URL.
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^
+Sizes
+^^^^^
+
+
+
+**Optional:** yes
+
+**Type:** Map of :ref:`schema-Int32`, :ref:`schema-Struct`
+
+
+
+^^^^^^^^^^^^^
+MediaURLHttps
+^^^^^^^^^^^^^
+
+Returns the media secure URL.
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^
+VideoAspectRatioWidth
+^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+VideoAspectRatioHeight
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^^^^^^^^^^^^^^^^
+VideoDurationMillis
+^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int64`
+
+
+
+^^^^^^^^^^^^^
+VideoVariants
+^^^^^^^^^^^^^
+
+Returns size variations of the media.
+
+**Optional:** no
+
+**Type:** Array of :ref:`schema-Struct`
+
+
+
+^^^^^^^^^^
+ExtAltText
+^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^
+URL
+^^^
+
+Returns the URL mentioned in the tweet.
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^
+Text
+^^^^
+
+Returns the URL mentioned in the tweet.
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^
+ExpandedURL
+^^^^^^^^^^^
+
+Returns the expanded URL if mentioned URL is shorten.
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^
+Start
+^^^^^
+
+Returns the index of the start character of the URL mentioned in the tweet.
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^
+End
+^^^
+
+Returns the index of the end character of the URL mentioned in the tweet.
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^^^^^^^
+DisplayURL
+^^^^^^^^^^
+
+Returns the display URL if mentioned URL is shorten.
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
 

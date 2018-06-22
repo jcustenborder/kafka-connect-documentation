@@ -2,9 +2,6 @@
 TwitterSourceConnector
 ======================
 
-.. image:: TwitterSourceConnector.svg
-
-
 This Twitter Source connector is used to pull data from Twitter in realtime.
 
 
@@ -13,87 +10,100 @@ This Twitter Source connector is used to pull data from Twitter in realtime.
 Configuration
 -------------
 
+-------
+General
+-------
+
 
 ^^^^^^^^^^^^^^^
 filter.keywords
 ^^^^^^^^^^^^^^^
+
+Twitter keywords to filter for.
 
 **Importance:** High
 
 **Type:** List
 
 
-Twitter keywords to filter for.
 
 ^^^^^^^^^^^^^^^^^^
 kafka.status.topic
 ^^^^^^^^^^^^^^^^^^
+
+Kafka topic to write the statuses to.
 
 **Importance:** High
 
 **Type:** String
 
 
-Kafka topic to write the statuses to.
 
 ^^^^^^^^^^^^^^^
 process.deletes
 ^^^^^^^^^^^^^^^
+
+Should this connector process deletes.
 
 **Importance:** High
 
 **Type:** Boolean
 
 
-Should this connector process deletes.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 twitter.oauth.accessToken
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
+OAuth access token
+
 **Importance:** High
 
 **Type:** Password
 
 
-OAuth access token
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 twitter.oauth.accessTokenSecret
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+OAuth access token secret
+
 **Importance:** High
 
 **Type:** Password
 
 
-OAuth access token secret
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 twitter.oauth.consumerKey
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
+OAuth consumer key
+
 **Importance:** High
 
 **Type:** Password
 
 
-OAuth consumer key
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 twitter.oauth.consumerSecret
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+OAuth consumer secret
+
 **Importance:** High
 
 **Type:** Password
 
 
-OAuth consumer secret
 
 ^^^^^^^^^^^^^
 twitter.debug
 ^^^^^^^^^^^^^
+
+Flag to enable debug logging for the twitter api.
 
 **Importance:** Low
 
@@ -102,7 +112,9 @@ twitter.debug
 **Default Value:** false
 
 
-Flag to enable debug logging for the twitter api.
+
+
+
 
 --------
 Examples
@@ -146,6 +158,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 `Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :caption: Connect Distributed REST example
     :name: connector.json
     :emphasize-lines: 6,7,8,9,10,11,12
 
@@ -179,5 +192,6 @@ one of your Kafka Connect worker(s).
     :caption: Update an existing connector
 
     curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/TwitterSourceConnector1/config
+
 
 

@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Twitter Connector" href="../connectors.html"/>
-        <link rel="next" title="Schemas" href="../schemas.html"/>
-        <link rel="prev" title="Twitter Connector" href="../connectors.html"/> 
+        <link rel="up" title="Com.github.jcustenborder.kafka.connect.twitter Connectors" href="../connectors.html"/>
+        <link rel="next" title="Io.confluent.vertica Connectors" href="../../kafka-connect-vertica/connectors.html"/>
+        <link rel="prev" title="Com.github.jcustenborder.kafka.connect.twitter Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -115,14 +115,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/connectors.html">File Input Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/connectors.html">StatsD Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/connectors.html">Syslog Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Twitter Connector</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Com.github.jcustenborder.kafka.connect.twitter Connectors</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">TwitterSourceConnector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../info.html">Additional Information</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-vertica/connectors.html">Io.confluent.vertica Connectors</a></li>
@@ -181,7 +180,7 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Twitter Connector</a> &raquo;</li>
+          <li><a href="../connectors.html">Com.github.jcustenborder.kafka.connect.twitter Connectors</a> &raquo;</li>
         
       <li>TwitterSourceConnector</li>
     
@@ -204,57 +203,60 @@
             
   <div class="section" id="twittersourceconnector">
 <h1>TwitterSourceConnector<a class="headerlink" href="#twittersourceconnector" title="Permalink to this headline">¶</a></h1>
-<img alt="../../../_images/TwitterSourceConnector.svg" src="../../../_images/TwitterSourceConnector.svg" /><p>This Twitter Source connector is used to pull data from Twitter in realtime.</p>
+<p>This Twitter Source connector is used to pull data from Twitter in realtime.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="filter-keywords">
 <h3>filter.keywords<a class="headerlink" href="#filter-keywords" title="Permalink to this headline">¶</a></h3>
+<p>Twitter keywords to filter for.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> List</p>
-<p>Twitter keywords to filter for.</p>
 </div>
 <div class="section" id="kafka-status-topic">
 <h3>kafka.status.topic<a class="headerlink" href="#kafka-status-topic" title="Permalink to this headline">¶</a></h3>
+<p>Kafka topic to write the statuses to.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-<p>Kafka topic to write the statuses to.</p>
 </div>
 <div class="section" id="process-deletes">
 <h3>process.deletes<a class="headerlink" href="#process-deletes" title="Permalink to this headline">¶</a></h3>
+<p>Should this connector process deletes.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Boolean</p>
-<p>Should this connector process deletes.</p>
 </div>
 <div class="section" id="twitter-oauth-accesstoken">
 <h3>twitter.oauth.accessToken<a class="headerlink" href="#twitter-oauth-accesstoken" title="Permalink to this headline">¶</a></h3>
+<p>OAuth access token</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Password</p>
-<p>OAuth access token</p>
 </div>
 <div class="section" id="twitter-oauth-accesstokensecret">
 <h3>twitter.oauth.accessTokenSecret<a class="headerlink" href="#twitter-oauth-accesstokensecret" title="Permalink to this headline">¶</a></h3>
+<p>OAuth access token secret</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Password</p>
-<p>OAuth access token secret</p>
 </div>
 <div class="section" id="twitter-oauth-consumerkey">
 <h3>twitter.oauth.consumerKey<a class="headerlink" href="#twitter-oauth-consumerkey" title="Permalink to this headline">¶</a></h3>
+<p>OAuth consumer key</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Password</p>
-<p>OAuth consumer key</p>
 </div>
 <div class="section" id="twitter-oauth-consumersecret">
 <h3>twitter.oauth.consumerSecret<a class="headerlink" href="#twitter-oauth-consumersecret" title="Permalink to this headline">¶</a></h3>
+<p>OAuth consumer secret</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Password</p>
-<p>OAuth consumer secret</p>
 </div>
 <div class="section" id="twitter-debug">
 <h3>twitter.debug<a class="headerlink" href="#twitter-debug" title="Permalink to this headline">¶</a></h3>
+<p>Flag to enable debug logging for the twitter api.</p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> false</p>
-<p>Flag to enable debug logging for the twitter api.</p>
 </div>
 </div>
 <div class="section" id="examples">
@@ -281,7 +283,9 @@
 Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
 post the configuration to one the distributed connect worker(s). Check here for more information about the
 <a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
-<div class="highlight-json" id="connector-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="literal-block-wrapper docutils container" id="connector-json">
+<div class="code-block-caption"><span class="caption-text">Connect Distributed REST example</span><a class="headerlink" href="#connector-json" title="Permalink to this code">¶</a></div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;TwitterSourceConnector1&quot;</span><span class="p">,</span>
     <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnector&quot;</span><span class="p">,</span>
@@ -296,6 +300,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 </span>  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</div>
 </div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
@@ -325,10 +330,10 @@ one of your Kafka Connect worker(s).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../kafka-connect-vertica/connectors.html" class="btn btn-neutral float-right" title="Io.confluent.vertica Connectors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Twitter Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="Com.github.jcustenborder.kafka.connect.twitter Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

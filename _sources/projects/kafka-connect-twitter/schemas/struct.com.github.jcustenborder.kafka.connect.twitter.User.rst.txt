@@ -4,56 +4,585 @@ User
 
 Return the user associated with the status. This can be null if the instance is from User.getStatus().
 
-.. csv-table:: User
-    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
-    :widths: auto
 
-    "Id",":ref:`schema-Int64`","true","","Returns the id of the user"
-    "Name",":ref:`schema-String`","true","","Returns the name of the user"
-    "ScreenName",":ref:`schema-String`","true","","Returns the screen name of the user"
-    "Location",":ref:`schema-String`","true","","Returns the location of the user"
-    "Description",":ref:`schema-String`","true","","Returns the description of the user"
-    "ContributorsEnabled",":ref:`schema-Boolean`","true","","Tests if the user is enabling contributors"
-    "ProfileImageURL",":ref:`schema-String`","true","","Returns the profile image url of the user"
-    "BiggerProfileImageURL",":ref:`schema-String`","true","",""
-    "MiniProfileImageURL",":ref:`schema-String`","true","",""
-    "OriginalProfileImageURL",":ref:`schema-String`","true","",""
-    "ProfileImageURLHttps",":ref:`schema-String`","true","",""
-    "BiggerProfileImageURLHttps",":ref:`schema-String`","true","",""
-    "MiniProfileImageURLHttps",":ref:`schema-String`","true","",""
-    "OriginalProfileImageURLHttps",":ref:`schema-String`","true","",""
-    "DefaultProfileImage",":ref:`schema-Boolean`","true","","Tests if the user has not uploaded their own avatar"
-    "URL",":ref:`schema-String`","true","","Returns the url of the user"
-    "Protected",":ref:`schema-Boolean`","true","","Test if the user status is protected"
-    "FollowersCount",":ref:`schema-Int32`","true","","Returns the number of followers"
-    "ProfileBackgroundColor",":ref:`schema-String`","true","",""
-    "ProfileTextColor",":ref:`schema-String`","true","",""
-    "ProfileLinkColor",":ref:`schema-String`","true","",""
-    "ProfileSidebarFillColor",":ref:`schema-String`","true","",""
-    "ProfileSidebarBorderColor",":ref:`schema-String`","true","",""
-    "ProfileUseBackgroundImage",":ref:`schema-Boolean`","true","",""
-    "DefaultProfile",":ref:`schema-Boolean`","true","","Tests if the user has not altered the theme or background"
-    "ShowAllInlineMedia",":ref:`schema-Boolean`","true","",""
-    "FriendsCount",":ref:`schema-Int32`","true","","Returns the number of users the user follows (AKA ""followings"")"
-    "CreatedAt",":ref:`schema-Int64`","true","",""
-    "FavouritesCount",":ref:`schema-Int32`","true","",""
-    "UtcOffset",":ref:`schema-Int32`","true","",""
-    "TimeZone",":ref:`schema-String`","true","",""
-    "ProfileBackgroundImageURL",":ref:`schema-String`","true","",""
-    "ProfileBackgroundImageUrlHttps",":ref:`schema-String`","true","",""
-    "ProfileBannerURL",":ref:`schema-String`","true","",""
-    "ProfileBannerRetinaURL",":ref:`schema-String`","true","",""
-    "ProfileBannerIPadURL",":ref:`schema-String`","true","",""
-    "ProfileBannerIPadRetinaURL",":ref:`schema-String`","true","",""
-    "ProfileBannerMobileURL",":ref:`schema-String`","true","",""
-    "ProfileBannerMobileRetinaURL",":ref:`schema-String`","true","",""
-    "ProfileBackgroundTiled",":ref:`schema-Boolean`","true","",""
-    "Lang",":ref:`schema-String`","true","","Returns the preferred language of the user"
-    "StatusesCount",":ref:`schema-Int32`","true","",""
-    "GeoEnabled",":ref:`schema-Boolean`","true","",""
-    "Verified",":ref:`schema-Boolean`","true","",""
-    "Translator",":ref:`schema-Boolean`","true","",""
-    "ListedCount",":ref:`schema-Int32`","true","","Returns the number of public lists the user is listed on, or -1 if the count is unavailable."
-    "FollowRequestSent",":ref:`schema-Boolean`","true","","Returns true if the authenticating user has requested to follow this user, otherwise false."
-    "WithheldInCountries","Array of :ref:`schema-String`","false","","Returns the list of country codes where the user is withheld"
+------
+Fields
+------
+
+
+^^
+Id
+^^
+
+Returns the id of the user
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int64`
+
+
+
+^^^^
+Name
+^^^^
+
+Returns the name of the user
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^
+ScreenName
+^^^^^^^^^^
+
+Returns the screen name of the user
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^
+Location
+^^^^^^^^
+
+Returns the location of the user
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^
+Description
+^^^^^^^^^^^
+
+Returns the description of the user
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^
+ContributorsEnabled
+^^^^^^^^^^^^^^^^^^^
+
+Tests if the user is enabling contributors
+
+**Optional:** no
+
+**Type:** :ref:`schema-Boolean`
+
+
+
+^^^^^^^^^^^^^^^
+ProfileImageURL
+^^^^^^^^^^^^^^^
+
+Returns the profile image url of the user
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^
+BiggerProfileImageURL
+^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^
+MiniProfileImageURL
+^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+OriginalProfileImageURL
+^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^
+ProfileImageURLHttps
+^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+BiggerProfileImageURLHttps
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^
+MiniProfileImageURLHttps
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OriginalProfileImageURLHttps
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^
+DefaultProfileImage
+^^^^^^^^^^^^^^^^^^^
+
+Tests if the user has not uploaded their own avatar
+
+**Optional:** no
+
+**Type:** :ref:`schema-Boolean`
+
+
+
+^^^
+URL
+^^^
+
+Returns the url of the user
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^
+Protected
+^^^^^^^^^
+
+Test if the user status is protected
+
+**Optional:** no
+
+**Type:** :ref:`schema-Boolean`
+
+
+
+^^^^^^^^^^^^^^
+FollowersCount
+^^^^^^^^^^^^^^
+
+Returns the number of followers
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+ProfileBackgroundColor
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^
+ProfileTextColor
+^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^
+ProfileLinkColor
+^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+ProfileSidebarFillColor
+^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^
+ProfileSidebarBorderColor
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^
+ProfileUseBackgroundImage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Boolean`
+
+
+
+^^^^^^^^^^^^^^
+DefaultProfile
+^^^^^^^^^^^^^^
+
+Tests if the user has not altered the theme or background
+
+**Optional:** no
+
+**Type:** :ref:`schema-Boolean`
+
+
+
+^^^^^^^^^^^^^^^^^^
+ShowAllInlineMedia
+^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Boolean`
+
+
+
+^^^^^^^^^^^^
+FriendsCount
+^^^^^^^^^^^^
+
+Returns the number of users the user follows (AKA "followings")
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^^^^^^
+CreatedAt
+^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int64`
+
+
+
+^^^^^^^^^^^^^^^
+FavouritesCount
+^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^^^^^^
+UtcOffset
+^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^^^^^
+TimeZone
+^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^
+ProfileBackgroundImageURL
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ProfileBackgroundImageUrlHttps
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^
+ProfileBannerURL
+^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+ProfileBannerRetinaURL
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^
+ProfileBannerIPadURL
+^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+ProfileBannerIPadRetinaURL
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+ProfileBannerMobileURL
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ProfileBannerMobileRetinaURL
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+ProfileBackgroundTiled
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Boolean`
+
+
+
+^^^^
+Lang
+^^^^
+
+Returns the preferred language of the user
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^^^^^
+StatusesCount
+^^^^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^^^^^^^
+GeoEnabled
+^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Boolean`
+
+
+
+^^^^^^^^
+Verified
+^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Boolean`
+
+
+
+^^^^^^^^^^
+Translator
+^^^^^^^^^^
+
+
+
+**Optional:** no
+
+**Type:** :ref:`schema-Boolean`
+
+
+
+^^^^^^^^^^^
+ListedCount
+^^^^^^^^^^^
+
+Returns the number of public lists the user is listed on, or -1 if the count is unavailable.
+
+**Optional:** no
+
+**Type:** :ref:`schema-Int32`
+
+
+
+^^^^^^^^^^^^^^^^^
+FollowRequestSent
+^^^^^^^^^^^^^^^^^
+
+Returns true if the authenticating user has requested to follow this user, otherwise false.
+
+**Optional:** no
+
+**Type:** :ref:`schema-Boolean`
+
+
+
+^^^^^^^^^^^^^^^^^^^
+WithheldInCountries
+^^^^^^^^^^^^^^^^^^^
+
+Returns the list of country codes where the user is withheld
+
+**Optional:** yes
+
+**Type:** Array of :ref:`schema-String`
+
+
 

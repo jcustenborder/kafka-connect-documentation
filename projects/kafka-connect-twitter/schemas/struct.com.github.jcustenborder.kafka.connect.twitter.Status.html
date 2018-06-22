@@ -36,7 +36,7 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Schemas" href="../schemas.html"/>
+        <link rel="up" title="Com.github.jcustenborder.kafka.connect.twitter Schemas" href="../schemas.html"/>
         <link rel="next" title="StatusDeletionNotice" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNotice.html"/>
         <link rel="prev" title="Place" href="struct.com.github.jcustenborder.kafka.connect.twitter.Place.html"/> 
 
@@ -105,7 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/schemas.html">Schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-cef/schemas.html">Schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/schemas.html">Schemas</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Com.github.jcustenborder.kafka.connect.twitter Schemas</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.html">ExtendedMediaEntity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.Variant.html">Variant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.GeoLocation.html">GeoLocation</a></li>
@@ -113,7 +113,10 @@
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.html">MediaEntity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.Size.html">Size</a></li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.Place.html">Place</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Status</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Status</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNotice.html">StatusDeletionNotice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNoticeKey.html">StatusDeletionNoticeKey</a></li>
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusKey.html">StatusKey</a></li>
@@ -174,11 +177,9 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
+          <li><a href="../../../schemas.html">Schemas</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Twitter Connector</a> &raquo;</li>
-        
-          <li><a href="../schemas.html">Schemas</a> &raquo;</li>
+          <li><a href="../schemas.html">Com.github.jcustenborder.kafka.connect.twitter Schemas</a> &raquo;</li>
         
       <li>Status</li>
     
@@ -202,181 +203,168 @@
   <div class="section" id="status">
 <h1>Status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h1>
 <p>Twitter status message.</p>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">Status</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Optional</th>
-<th class="head">Default Value</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>CreatedAt</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Return the created_at</td>
-</tr>
-<tr class="row-odd"><td>Id</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the id of the status</td>
-</tr>
-<tr class="row-even"><td>Text</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the text of the status</td>
-</tr>
-<tr class="row-odd"><td>Source</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the source</td>
-</tr>
-<tr class="row-even"><td>Truncated</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Test if the status is truncated</td>
-</tr>
-<tr class="row-odd"><td>InReplyToStatusId</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the in_reply_tostatus_id</td>
-</tr>
-<tr class="row-even"><td>InReplyToUserId</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the in_reply_user_id</td>
-</tr>
-<tr class="row-odd"><td>InReplyToScreenName</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the in_reply_to_screen_name</td>
-</tr>
-<tr class="row-even"><td>GeoLocation</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns The location that this tweet refers to if available.</td>
-</tr>
-<tr class="row-odd"><td>Place</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the place attached to this status</td>
-</tr>
-<tr class="row-even"><td>Favorited</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Test if the status is favorited</td>
-</tr>
-<tr class="row-odd"><td>Retweeted</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Test if the status is retweeted</td>
-</tr>
-<tr class="row-even"><td>FavoriteCount</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Indicates approximately how many times this Tweet has been “favorited” by Twitter users.</td>
-</tr>
-<tr class="row-odd"><td>User</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Return the user associated with the status. This can be null if the instance is from User.getStatus().</td>
-</tr>
-<tr class="row-even"><td>Retweet</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>Contributors</td>
-<td>Array of <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Returns an array of contributors, or null if no contributor is associated with this status.</td>
-</tr>
-<tr class="row-even"><td>RetweetCount</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the number of times this tweet has been retweeted, or -1 when the tweet was created before this feature was enabled.</td>
-</tr>
-<tr class="row-odd"><td>RetweetedByMe</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>CurrentUserRetweetId</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the authenticating user’s retweet’s id of this tweet, or -1L when the tweet was created before this feature was enabled.</td>
-</tr>
-<tr class="row-odd"><td>PossiblySensitive</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>Lang</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns the lang of the status text if available.</td>
-</tr>
-<tr class="row-odd"><td>WithheldInCountries</td>
-<td>Array of <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Returns the list of country codes where the tweet is withheld</td>
-</tr>
-<tr class="row-even"><td>HashtagEntities</td>
-<td>Array of <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns an array if hashtag mentioned in the tweet.</td>
-</tr>
-<tr class="row-odd"><td>UserMentionEntities</td>
-<td>Array of <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns an array of user mentions in the tweet.</td>
-</tr>
-<tr class="row-even"><td>MediaEntities</td>
-<td>Array of <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns an array of MediaEntities if medias are available in the tweet.</td>
-</tr>
-<tr class="row-odd"><td>SymbolEntities</td>
-<td>Array of <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns an array of SymbolEntities if medias are available in the tweet.</td>
-</tr>
-<tr class="row-even"><td>URLEntities</td>
-<td>Array of <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Returns an array if URLEntity mentioned in the tweet.</td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="createdat">
+<h3>CreatedAt<a class="headerlink" href="#createdat" title="Permalink to this headline">¶</a></h3>
+<p>Return the created_at</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></p>
+</div>
+<div class="section" id="id">
+<h3>Id<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h3>
+<p>Returns the id of the status</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></p>
+</div>
+<div class="section" id="text">
+<h3>Text<a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h3>
+<p>Returns the text of the status</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="source">
+<h3>Source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h3>
+<p>Returns the source</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="truncated">
+<h3>Truncated<a class="headerlink" href="#truncated" title="Permalink to this headline">¶</a></h3>
+<p>Test if the status is truncated</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="inreplytostatusid">
+<h3>InReplyToStatusId<a class="headerlink" href="#inreplytostatusid" title="Permalink to this headline">¶</a></h3>
+<p>Returns the in_reply_tostatus_id</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></p>
+</div>
+<div class="section" id="inreplytouserid">
+<h3>InReplyToUserId<a class="headerlink" href="#inreplytouserid" title="Permalink to this headline">¶</a></h3>
+<p>Returns the in_reply_user_id</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></p>
+</div>
+<div class="section" id="inreplytoscreenname">
+<h3>InReplyToScreenName<a class="headerlink" href="#inreplytoscreenname" title="Permalink to this headline">¶</a></h3>
+<p>Returns the in_reply_to_screen_name</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="geolocation">
+<h3>GeoLocation<a class="headerlink" href="#geolocation" title="Permalink to this headline">¶</a></h3>
+<p>Returns The location that this tweet refers to if available.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></p>
+</div>
+<div class="section" id="place">
+<h3>Place<a class="headerlink" href="#place" title="Permalink to this headline">¶</a></h3>
+<p>Returns the place attached to this status</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></p>
+</div>
+<div class="section" id="favorited">
+<h3>Favorited<a class="headerlink" href="#favorited" title="Permalink to this headline">¶</a></h3>
+<p>Test if the status is favorited</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="retweeted">
+<h3>Retweeted<a class="headerlink" href="#retweeted" title="Permalink to this headline">¶</a></h3>
+<p>Test if the status is retweeted</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="favoritecount">
+<h3>FavoriteCount<a class="headerlink" href="#favoritecount" title="Permalink to this headline">¶</a></h3>
+<p>Indicates approximately how many times this Tweet has been “favorited” by Twitter users.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></p>
+</div>
+<div class="section" id="user">
+<h3>User<a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h3>
+<p>Return the user associated with the status. This can be null if the instance is from User.getStatus().</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></p>
+</div>
+<div class="section" id="retweet">
+<h3>Retweet<a class="headerlink" href="#retweet" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="contributors">
+<h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<p>Returns an array of contributors, or null if no contributor is associated with this status.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> Array of <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></p>
+</div>
+<div class="section" id="retweetcount">
+<h3>RetweetCount<a class="headerlink" href="#retweetcount" title="Permalink to this headline">¶</a></h3>
+<p>Returns the number of times this tweet has been retweeted, or -1 when the tweet was created before this feature was enabled.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></p>
+</div>
+<div class="section" id="retweetedbyme">
+<h3>RetweetedByMe<a class="headerlink" href="#retweetedbyme" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="currentuserretweetid">
+<h3>CurrentUserRetweetId<a class="headerlink" href="#currentuserretweetid" title="Permalink to this headline">¶</a></h3>
+<p>Returns the authenticating user’s retweet’s id of this tweet, or -1L when the tweet was created before this feature was enabled.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></p>
+</div>
+<div class="section" id="possiblysensitive">
+<h3>PossiblySensitive<a class="headerlink" href="#possiblysensitive" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-boolean"><span class="std std-ref">BOOLEAN</span></a></p>
+</div>
+<div class="section" id="lang">
+<h3>Lang<a class="headerlink" href="#lang" title="Permalink to this headline">¶</a></h3>
+<p>Returns the lang of the status text if available.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="withheldincountries">
+<h3>WithheldInCountries<a class="headerlink" href="#withheldincountries" title="Permalink to this headline">¶</a></h3>
+<p>Returns the list of country codes where the tweet is withheld</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> Array of <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="hashtagentities">
+<h3>HashtagEntities<a class="headerlink" href="#hashtagentities" title="Permalink to this headline">¶</a></h3>
+<p>Returns an array if hashtag mentioned in the tweet.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> Array of <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></p>
+</div>
+<div class="section" id="usermentionentities">
+<h3>UserMentionEntities<a class="headerlink" href="#usermentionentities" title="Permalink to this headline">¶</a></h3>
+<p>Returns an array of user mentions in the tweet.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> Array of <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></p>
+</div>
+<div class="section" id="mediaentities">
+<h3>MediaEntities<a class="headerlink" href="#mediaentities" title="Permalink to this headline">¶</a></h3>
+<p>Returns an array of MediaEntities if medias are available in the tweet.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> Array of <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></p>
+</div>
+<div class="section" id="symbolentities">
+<h3>SymbolEntities<a class="headerlink" href="#symbolentities" title="Permalink to this headline">¶</a></h3>
+<p>Returns an array of SymbolEntities if medias are available in the tweet.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> Array of <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></p>
+</div>
+<div class="section" id="urlentities">
+<h3>URLEntities<a class="headerlink" href="#urlentities" title="Permalink to this headline">¶</a></h3>
+<p>Returns an array if URLEntity mentioned in the tweet.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> Array of <a class="reference internal" href="../../../schema.type.html#schema-struct"><span class="std std-ref">STRUCT</span></a></p>
+</div>
+</div>
 </div>
 
 
