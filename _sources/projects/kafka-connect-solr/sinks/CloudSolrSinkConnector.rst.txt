@@ -2,9 +2,6 @@
 Cloud Solr
 ==========
 
-.. image:: CloudSolrSinkConnector.svg
-
-
 This connector is used to connect to `SolrCloud <https://cwiki.apache.org/confluence/display/solr/SolrCloud>`_ using the Zookeeper based configuration.
 
 
