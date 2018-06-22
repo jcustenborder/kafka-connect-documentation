@@ -2,9 +2,6 @@
 Memcached Sink
 ==============
 
-.. image:: MemcachedSinkConnector.svg
-
-
 The Memcached Sink provides a :term:`Sink Connector` that can write data in real time to a memcached environment.
 
 
@@ -17,13 +14,48 @@ The Memcached Sink provides a :term:`Sink Connector` that can write data in real
 Configuration
 -------------
 
-.. csv-table:: Configuration
-    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
-    :widths: auto
+----------
+Connection
+----------
 
-    "memcached.hosts","List","High","[localhost:11211]","com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@76ec47dd","Memcached hosts to connnect to."
-    "memcached.default.expiration.secs","Int","Low","0","[0,...]","The default expiration in seconds."
-    "memcached.failure.mode","String","Low","Retry","ValidEnum{enum=FailureMode, allowed=[Redistribute, Retry, Cancel]}","Set the failure mode.
+
+^^^^^^^^^^^^^^^
+memcached.hosts
+^^^^^^^^^^^^^^^
+
+Memcached hosts to connnect to.
+
+**Importance:** High
+
+**Type:** List
+
+**Default Value:** [localhost:11211]
+
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@de0c402
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+memcached.default.expiration.secs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The default expiration in seconds.
+
+**Importance:** Low
+
+**Type:** Int
+
+**Default Value:** 0
+
+**Validator:** [-1,...]
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+memcached.failure.mode
+^^^^^^^^^^^^^^^^^^^^^^
+
+Set the failure mode.
 +==============+====================================================================+
 | Mode         | Description                                                        |
 +==============+====================================================================+
@@ -32,8 +64,23 @@ Configuration
 | Redistribute | Move on to functional nodes when nodes fail.                       |
 +--------------+--------------------------------------------------------------------+
 | Retry        | Continue to retry a failing node until it comes back up.           |
-+--------------+--------------------------------------------------------------------+"
-    "memcached.locator","String","Low","ARRAY_MOD","ValidEnum{enum=Locator, allowed=[ARRAY_MOD, CONSISTENT, VBUCKET]}","The locator type.
++--------------+--------------------------------------------------------------------+
+
+**Importance:** Low
+
+**Type:** String
+
+**Default Value:** Retry
+
+**Validator:** ``Redistribute``, ``Retry``, ``Cancel``
+
+
+
+^^^^^^^^^^^^^^^^^
+memcached.locator
+^^^^^^^^^^^^^^^^^
+
+The locator type.
 +============+======================================================+
 | Locator    | Description                                          |
 +============+======================================================+
@@ -42,20 +89,122 @@ Configuration
 | CONSISTENT | Consistent hash algorithm.                           |
 +------------+------------------------------------------------------+
 | VBUCKET    | VBucket support.                                     |
-+------------+------------------------------------------------------+"
-    "memcached.nagle.algorithm.enabled","Boolean","Low","false","","Enables the Nagle algorithm."
-    "memcached.op.time.timeout.msecs","Long","Low","-1","[-1,...]","The default operation timeout in milliseconds."
-    "memcached.optimize.enable","Boolean","Low","true","","Set to false if the default operation optimization is not desirable."
-    "memcached.protocol","String","Low","BINARY","ValidEnum{enum=Protocol, allowed=[TEXT, BINARY]}","Specify the protocol to use.+==========+================================+
++------------+------------------------------------------------------+
+
+**Importance:** Low
+
+**Type:** String
+
+**Default Value:** ARRAY_MOD
+
+**Validator:** ``ARRAY_MOD``, ``CONSISTENT``, ``VBUCKET``
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+memcached.nagle.algorithm.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Enables the Nagle algorithm.
+
+**Importance:** Low
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+memcached.op.time.timeout.msecs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The default operation timeout in milliseconds.
+
+**Importance:** Low
+
+**Type:** Long
+
+**Default Value:** -1
+
+**Validator:** [-1,...]
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^
+memcached.optimize.enable
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set to false if the default operation optimization is not desirable.
+
+**Importance:** Low
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+
+^^^^^^^^^^^^^^^^^^
+memcached.protocol
+^^^^^^^^^^^^^^^^^^
+
+Specify the protocol to use.+==========+================================+
 | Protocol | Description                    |
 +==========+================================+
 | BINARY   | Use the binary protocol.       |
 +----------+--------------------------------+
 | TEXT     | Use the text (ascii) protocol. |
-+----------+--------------------------------+"
-    "memcached.read.buffer.bytes","Int","Low","-1","[-1,...]","memcached.read.buffer.bytes"
-    "memcached.reconnect.delay.max.secs","Long","Low","30","[1,...]","The maximum reconnect delay."
++----------+--------------------------------+
 
+**Importance:** Low
+
+**Type:** String
+
+**Default Value:** BINARY
+
+**Validator:** ``TEXT``, ``BINARY``
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+memcached.read.buffer.bytes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+memcached.read.buffer.bytes
+
+**Importance:** Low
+
+**Type:** Int
+
+**Default Value:** -1
+
+**Validator:** [-1,...]
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+memcached.reconnect.delay.max.secs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The maximum reconnect delay.
+
+**Importance:** Low
+
+**Type:** Long
+
+**Default Value:** 30
+
+**Validator:** [1,...]
+
+
+
+
+
+
+--------
+Examples
+--------
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Property based example
@@ -66,11 +215,14 @@ This configuration is used typically along with `standalone mode
 <http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
 .. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 4
 
-    name=connector1
-    tasks.max=1
+    name=MemcachedSinkConnector1
     connector.class=com.github.jcustenborder.kafka.connect.memcached.MemcachedSinkConnector
-    # The following values must be configured.
+    tasks.max=1
+    topics=< Required Configuration >
+
 
 
 
@@ -82,23 +234,38 @@ Rest based example
 This configuration is used typically along with `distributed mode
 <http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
 Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :caption: Connect Distributed REST example
+    :name: connector.json
+    :emphasize-lines: 6
 
     {
-        "name": "connector1",
-        "config": {
-            "connector.class": "com.github.jcustenborder.kafka.connect.memcached.MemcachedSinkConnector",
-        }
+      "config" : {
+        "name" : "MemcachedSinkConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.memcached.MemcachedSinkConnector",
+        "tasks.max" : "1",
+        "topics" : "< Required Configuration >"
+      }
     }
+
+
 
 Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
 one of your Kafka Connect worker(s).
 
 .. code-block:: bash
+    :caption: Create a new connector
 
     curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/MemcachedSinkConnector1/config
 
 
 

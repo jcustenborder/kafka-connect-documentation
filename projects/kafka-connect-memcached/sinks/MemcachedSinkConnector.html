@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Memcached Connector" href="../connectors.html"/>
-        <link rel="next" title="Additional Information" href="../info.html"/>
-        <link rel="prev" title="Memcached Connector" href="../connectors.html"/> 
+        <link rel="up" title="Com.github.jcustenborder.kafka.connect.memcached Connectors" href="../connectors.html"/>
+        <link rel="next" title="MQTT Connectors" href="../../kafka-connect-mqtt/connectors.html"/>
+        <link rel="prev" title="Com.github.jcustenborder.kafka.connect.memcached Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -103,12 +103,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jmx/connectors.html">Com.github.jcustenborder.kafka.connect.jmx Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-kinesis/connectors.html">Kinesis Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-maprdb/connectors.html">MapR DB Connectors</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Memcached Connector</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Com.github.jcustenborder.kafka.connect.memcached Connectors</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Memcached Sink</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connection">Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../info.html">Additional Information</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-mqtt/connectors.html">MQTT Connectors</a></li>
@@ -179,7 +180,7 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Memcached Connector</a> &raquo;</li>
+          <li><a href="../connectors.html">Com.github.jcustenborder.kafka.connect.memcached Connectors</a> &raquo;</li>
         
       <li>Memcached Sink</li>
     
@@ -202,14 +203,36 @@
             
   <div class="section" id="memcached-sink">
 <h1>Memcached Sink<a class="headerlink" href="#memcached-sink" title="Permalink to this headline">¶</a></h1>
-<img alt="../../../_images/MemcachedSinkConnector.svg" src="../../../_images/MemcachedSinkConnector.svg" /><p>The Memcached Sink provides a <a class="reference internal" href="../../../glossary.html#term-sink-connector"><span class="xref std std-term">Sink Connector</span></a> that can write data in real time to a memcached environment.</p>
+<p>The Memcached Sink provides a <a class="reference internal" href="../../../glossary.html#term-sink-connector"><span class="xref std std-term">Sink Connector</span></a> that can write data in real time to a memcached environment.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">This connector expects that the key will be a string and the value will be a byte representation of the message. Your data might not be formatted like this. Take a look at transformations to apply the convert the data to the proper format.</p>
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>+==============+====================================================================+
+</div>
+<div class="section" id="connection">
+<h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="memcached-hosts">
+<h3>memcached.hosts<a class="headerlink" href="#memcached-hosts" title="Permalink to this headline">¶</a></h3>
+<p>Memcached hosts to connnect to.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> List</p>
+<p><strong>Default Value:</strong> [localhost:11211]</p>
+<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;utils&#46;config&#46;ValidHostnameAndPort&#37;&#52;&#48;de0c402">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>utils<span>&#46;</span>config<span>&#46;</span>ValidHostnameAndPort<span>&#64;</span>de0c402</a></p>
+</div>
+<div class="section" id="memcached-default-expiration-secs">
+<h3>memcached.default.expiration.secs<a class="headerlink" href="#memcached-default-expiration-secs" title="Permalink to this headline">¶</a></h3>
+<p>The default expiration in seconds.</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 0</p>
+<p><strong>Validator:</strong> [-1,…]</p>
+</div>
+<div class="section" id="memcached-failure-mode">
+<h3>memcached.failure.mode<a class="headerlink" href="#memcached-failure-mode" title="Permalink to this headline">¶</a></h3>
+<p>Set the failure mode.
++==============+====================================================================+
 | Mode         | Description                                                        |
 +==============+====================================================================+
 | Cancel       | Automatically cancel all operations heading towards a downed node. |
@@ -217,10 +240,16 @@
 | Redistribute | Move on to functional nodes when nodes fail.                       |
 +————–+——————————————————————–+
 | Retry        | Continue to retry a failing node until it comes back up.           |
-+————–+——————————————————————–+”</p>
-<blockquote>
-<div>“memcached.locator”,”String”,”Low”,”ARRAY_MOD”,”ValidEnum{enum=Locator, allowed=[ARRAY_MOD, CONSISTENT, VBUCKET]}”,”The locator type.</div></blockquote>
-<p>+============+======================================================+
++————–+——————————————————————–+</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> Retry</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">Redistribute</span></code>, <code class="docutils literal"><span class="pre">Retry</span></code>, <code class="docutils literal"><span class="pre">Cancel</span></code></p>
+</div>
+<div class="section" id="memcached-locator">
+<h3>memcached.locator<a class="headerlink" href="#memcached-locator" title="Permalink to this headline">¶</a></h3>
+<p>The locator type.
++============+======================================================+
 | Locator    | Description                                          |
 +============+======================================================+
 | ARRAY_MOD  | Array modulus - the classic node location algorithm. |
@@ -228,50 +257,109 @@
 | CONSISTENT | Consistent hash algorithm.                           |
 +————+——————————————————+
 | VBUCKET    | VBucket support.                                     |
-+————+——————————————————+”</p>
-<blockquote>
-<div>“memcached.nagle.algorithm.enabled”,”Boolean”,”Low”,”false”,”“,”Enables the Nagle algorithm.”
-“memcached.op.time.timeout.msecs”,”Long”,”Low”,”-1”,”[-1,…]”,”The default operation timeout in milliseconds.”
-“memcached.optimize.enable”,”Boolean”,”Low”,”true”,”“,”Set to false if the default operation optimization is not desirable.”
-“memcached.protocol”,”String”,”Low”,”BINARY”,”ValidEnum{enum=Protocol, allowed=[TEXT, BINARY]}”,”Specify the protocol to use.+==========+================================+</div></blockquote>
-<div class="line-block">
-<div class="line">Protocol | Description                    |</div>
++————+——————————————————+</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> ARRAY_MOD</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">ARRAY_MOD</span></code>, <code class="docutils literal"><span class="pre">CONSISTENT</span></code>, <code class="docutils literal"><span class="pre">VBUCKET</span></code></p>
 </div>
-<p>+==========+================================+
+<div class="section" id="memcached-nagle-algorithm-enabled">
+<h3>memcached.nagle.algorithm.enabled<a class="headerlink" href="#memcached-nagle-algorithm-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Enables the Nagle algorithm.</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+</div>
+<div class="section" id="memcached-op-time-timeout-msecs">
+<h3>memcached.op.time.timeout.msecs<a class="headerlink" href="#memcached-op-time-timeout-msecs" title="Permalink to this headline">¶</a></h3>
+<p>The default operation timeout in milliseconds.</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Long</p>
+<p><strong>Default Value:</strong> -1</p>
+<p><strong>Validator:</strong> [-1,…]</p>
+</div>
+<div class="section" id="memcached-optimize-enable">
+<h3>memcached.optimize.enable<a class="headerlink" href="#memcached-optimize-enable" title="Permalink to this headline">¶</a></h3>
+<p>Set to false if the default operation optimization is not desirable.</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+</div>
+<div class="section" id="memcached-protocol">
+<h3>memcached.protocol<a class="headerlink" href="#memcached-protocol" title="Permalink to this headline">¶</a></h3>
+<p>Specify the protocol to use.+==========+================================+
+| Protocol | Description                    |
++==========+================================+
 | BINARY   | Use the binary protocol.       |
 +———-+——————————–+
 | TEXT     | Use the text (ascii) protocol. |
-+———-+——————————–+”</p>
-<blockquote>
-<div>“memcached.read.buffer.bytes”,”Int”,”Low”,”-1”,”[-1,…]”,”memcached.read.buffer.bytes”
-“memcached.reconnect.delay.max.secs”,”Long”,”Low”,”30”,”[1,…]”,”The maximum reconnect delay.”</div></blockquote>
++———-+——————————–+</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> BINARY</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">TEXT</span></code>, <code class="docutils literal"><span class="pre">BINARY</span></code></p>
+</div>
+<div class="section" id="memcached-read-buffer-bytes">
+<h3>memcached.read.buffer.bytes<a class="headerlink" href="#memcached-read-buffer-bytes" title="Permalink to this headline">¶</a></h3>
+<p>memcached.read.buffer.bytes</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> -1</p>
+<p><strong>Validator:</strong> [-1,…]</p>
+</div>
+<div class="section" id="memcached-reconnect-delay-max-secs">
+<h3>memcached.reconnect.delay.max.secs<a class="headerlink" href="#memcached-reconnect-delay-max-secs" title="Permalink to this headline">¶</a></h3>
+<p>The maximum reconnect delay.</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Long</p>
+<p><strong>Default Value:</strong> 30</p>
+<p><strong>Validator:</strong> [1,…]</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="property-based-example">
 <h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">connector1</span>
-<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">MemcachedSinkConnector1</span>
 <span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.memcached.MemcachedSinkConnector</span>
-<span class="c"># The following values must be configured.</span>
-</pre></div>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="hll"><span class="na">topics</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span></pre></div>
 </div>
 </div>
 <div class="section" id="rest-based-example">
 <h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
 <p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
 Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).</p>
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
+<div class="literal-block-wrapper docutils container" id="connector-json">
+<div class="code-block-caption"><span class="caption-text">Connect Distributed REST example</span><a class="headerlink" href="#connector-json" title="Permalink to this code">¶</a></div>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connector1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;connector.class&quot;</span><span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.memcached.MemcachedSinkConnector&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
+  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;MemcachedSinkConnector1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.memcached.MemcachedSinkConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
+</span>  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+</div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
 </pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/MemcachedSinkConnector1/config
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -287,10 +375,10 @@ one of your Kafka Connect worker(s).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../info.html" class="btn btn-neutral float-right" title="Additional Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../kafka-connect-mqtt/connectors.html" class="btn btn-neutral float-right" title="MQTT Connectors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Memcached Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="Com.github.jcustenborder.kafka.connect.memcached Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

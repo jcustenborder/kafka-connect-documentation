@@ -8,6 +8,7 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-04-02 23:41:13","`a9cda98e4b95197 <https://github.com/jcustenborder/kafka-connect-memcached/commit/a9cda98e4b95197>`_","Jeremy Custenborder","Cleanup of configuration settings. Added support for plugin builder. Fixes #3. (#4)"
     "2017-11-15 22:36:35","`12fc6f3ed5a4779 <https://github.com/jcustenborder/kafka-connect-memcached/commit/12fc6f3ed5a4779>`_","Jeremy Custenborder","Corrected to be a sink connector."
     "2017-11-07 21:30:37","`fd8c12cd38e4fdc <https://github.com/jcustenborder/kafka-connect-memcached/commit/fd8c12cd38e4fdc>`_","Jeremy Custenborder","Updated documentation"
     "2017-11-07 21:24:57","`c7e6bfc8769552a <https://github.com/jcustenborder/kafka-connect-memcached/commit/c7e6bfc8769552a>`_","Jeremy Custenborder","Removed introduction.rst for connectors.rst"
