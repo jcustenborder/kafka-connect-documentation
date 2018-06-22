@@ -2,9 +2,6 @@
 RedisSinkConnector
 ==================
 
-.. image:: RedisSinkConnector.svg
-
-
 Sink connector for writing data to Redis
 
 
@@ -21,10 +18,16 @@ Sink connector for writing data to Redis
 Configuration
 -------------
 
+-------
+General
+-------
+
 
 ^^^^^^^^^^^
 redis.hosts
 ^^^^^^^^^^^
+
+
 
 **Importance:** High
 
@@ -34,10 +37,11 @@ redis.hosts
 
 
 
-
 ^^^^^^^^^^^^^^^^^
 redis.client.mode
 ^^^^^^^^^^^^^^^^^
+
+
 
 **Importance:** Medium
 
@@ -45,14 +49,15 @@ redis.client.mode
 
 **Default Value:** Standalone
 
-**Validator:** ValidEnum{enum=ClientMode, allowed=[Standalone, Cluster]}
-
+**Validator:** ``Standalone``, ``Cluster``
 
 
 
 ^^^^^^^^^^^^^^
 redis.database
 ^^^^^^^^^^^^^^
+
+
 
 **Importance:** Medium
 
@@ -62,10 +67,11 @@ redis.database
 
 
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 redis.operation.timeout.ms
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+redis.operation.timeout.ms
 
 **Importance:** Medium
 
@@ -76,11 +82,12 @@ redis.operation.timeout.ms
 **Validator:** [100,...]
 
 
-redis.operation.timeout.ms
 
 ^^^^^^^^^^^^^^
 redis.password
 ^^^^^^^^^^^^^^
+
+
 
 **Importance:** Medium
 
@@ -90,10 +97,11 @@ redis.password
 
 
 
-
 ^^^^^^^^^^^^^^^^^
 redis.ssl.enabled
 ^^^^^^^^^^^^^^^^^
+
+
 
 **Importance:** Medium
 
@@ -103,17 +111,17 @@ redis.ssl.enabled
 
 
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 redis.ssl.keystore.password
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 
 **Importance:** Medium
 
 **Type:** Password
 
 **Default Value:** [hidden]
-
 
 
 
@@ -121,16 +129,19 @@ redis.ssl.keystore.password
 redis.ssl.keystore.path
 ^^^^^^^^^^^^^^^^^^^^^^^
 
+
+
 **Importance:** Medium
 
 **Type:** String
 
 
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 redis.ssl.truststore.password
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 
 **Importance:** Medium
 
@@ -140,10 +151,11 @@ redis.ssl.truststore.password
 
 
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 redis.ssl.truststore.path
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 
 **Importance:** Medium
 
@@ -151,10 +163,11 @@ redis.ssl.truststore.path
 
 
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 redis.auto.reconnect.enabled
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 
 **Importance:** Low
 
@@ -164,10 +177,11 @@ redis.auto.reconnect.enabled
 
 
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^
 redis.request.queue.size
 ^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 
 **Importance:** Low
 
@@ -177,10 +191,11 @@ redis.request.queue.size
 
 
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 redis.socket.connect.timeout.ms
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 
 **Importance:** Low
 
@@ -190,10 +205,11 @@ redis.socket.connect.timeout.ms
 
 
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 redis.socket.keep.alive.enabled
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 
 **Importance:** Low
 
@@ -203,10 +219,11 @@ redis.socket.keep.alive.enabled
 
 
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 redis.socket.tcp.no.delay.enabled
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 
 **Importance:** Low
 
@@ -216,10 +233,11 @@ redis.socket.tcp.no.delay.enabled
 
 
 
-
 ^^^^^^^^^^^^^^^^^^
 redis.ssl.provider
 ^^^^^^^^^^^^^^^^^^
+
+
 
 **Importance:** Low
 
@@ -227,7 +245,9 @@ redis.ssl.provider
 
 **Default Value:** JDK
 
-**Validator:** ValidEnum{enum=RedisSslProvider, allowed=[OPENSSL, JDK]}
+**Validator:** ``OPENSSL``, ``JDK``
+
+
 
 
 
@@ -268,6 +288,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 `Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :caption: Connect Distributed REST example
     :name: connector.json
     :emphasize-lines: 6
 
@@ -295,5 +316,6 @@ one of your Kafka Connect worker(s).
     :caption: Update an existing connector
 
     curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/RedisSinkConnector1/config
+
 
 

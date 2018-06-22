@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Redis Connector" href="../connectors.html"/>
+        <link rel="up" title="Com.github.jcustenborder.kafka.connect.redis Connectors" href="../connectors.html"/>
         <link rel="next" title="Salesforce Connectors" href="../../kafka-connect-salesforce/connectors.html"/>
-        <link rel="prev" title="Redis Connector" href="../connectors.html"/> 
+        <link rel="prev" title="Com.github.jcustenborder.kafka.connect.redis Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -106,9 +106,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/connectors.html">Com.github.jcustenborder.kafka.connect.memcached Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-mqtt/connectors.html">MQTT Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-rabbitmq/connectors.html">RabbitMQ Connectors</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Redis Connector</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Com.github.jcustenborder.kafka.connect.redis Connectors</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">RedisSinkConnector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
@@ -179,7 +180,7 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Redis Connector</a> &raquo;</li>
+          <li><a href="../connectors.html">Com.github.jcustenborder.kafka.connect.redis Connectors</a> &raquo;</li>
         
       <li>RedisSinkConnector</li>
     
@@ -202,7 +203,7 @@
             
   <div class="section" id="redissinkconnector">
 <h1>RedisSinkConnector<a class="headerlink" href="#redissinkconnector" title="Permalink to this headline">¶</a></h1>
-<img alt="../../../_images/RedisSinkConnector.svg" src="../../../_images/RedisSinkConnector.svg" /><p>Sink connector for writing data to Redis</p>
+<p>Sink connector for writing data to Redis</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">This connector expects to received data with a key of bytes and a values of bytes. If your data is structured you need to use a Transformation to convert this data from structured data like a Struct to an array of bytes for the key and value.</p>
@@ -213,6 +214,9 @@
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="redis-hosts">
 <h3>redis.hosts<a class="headerlink" href="#redis-hosts" title="Permalink to this headline">¶</a></h3>
 <p><strong>Importance:</strong> High</p>
@@ -224,7 +228,7 @@
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> Standalone</p>
-<p><strong>Validator:</strong> ValidEnum{enum=ClientMode, allowed=[Standalone, Cluster]}</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">Standalone</span></code>, <code class="docutils literal"><span class="pre">Cluster</span></code></p>
 </div>
 <div class="section" id="redis-database">
 <h3>redis.database<a class="headerlink" href="#redis-database" title="Permalink to this headline">¶</a></h3>
@@ -234,11 +238,11 @@
 </div>
 <div class="section" id="redis-operation-timeout-ms">
 <h3>redis.operation.timeout.ms<a class="headerlink" href="#redis-operation-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<p>redis.operation.timeout.ms</p>
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> Long</p>
 <p><strong>Default Value:</strong> 10000</p>
 <p><strong>Validator:</strong> [100,…]</p>
-<p>redis.operation.timeout.ms</p>
 </div>
 <div class="section" id="redis-password">
 <h3>redis.password<a class="headerlink" href="#redis-password" title="Permalink to this headline">¶</a></h3>
@@ -309,7 +313,7 @@
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> JDK</p>
-<p><strong>Validator:</strong> ValidEnum{enum=RedisSslProvider, allowed=[OPENSSL, JDK]}</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">OPENSSL</span></code>, <code class="docutils literal"><span class="pre">JDK</span></code></p>
 </div>
 </div>
 <div class="section" id="examples">
@@ -330,7 +334,9 @@
 Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
 post the configuration to one the distributed connect worker(s). Check here for more information about the
 <a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
-<div class="highlight-json" id="connector-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="literal-block-wrapper docutils container" id="connector-json">
+<div class="code-block-caption"><span class="caption-text">Connect Distributed REST example</span><a class="headerlink" href="#connector-json" title="Permalink to this code">¶</a></div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;RedisSinkConnector1&quot;</span><span class="p">,</span>
     <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.redis.RedisSinkConnector&quot;</span><span class="p">,</span>
@@ -339,6 +345,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 </span>  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</div>
 </div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
@@ -371,7 +378,7 @@ one of your Kafka Connect worker(s).</p>
         <a href="../../kafka-connect-salesforce/connectors.html" class="btn btn-neutral float-right" title="Salesforce Connectors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Redis Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="Com.github.jcustenborder.kafka.connect.redis Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
