@@ -1,12 +1,8 @@
-===============
-ChangeCase(Key)
-===============
+=============
+ToLong(Value)
+=============
 
-This transformation is used to change the case of fields in an input struct.
-
-
-.. TIP::
-    This transformation is used to manipulate fields in the Key of the record.
+This transformation is used to convert a number to a long
 
 
 
@@ -19,31 +15,31 @@ General
 -------
 
 
-^^^^
-from
-^^^^
+^^^^^^^
+charset
+^^^^^^^
 
-The format to move from 
-
-**Importance:** High
-
-**Type:** String
-
-**Validator:** ``LOWER_HYPHEN``, ``LOWER_UNDERSCORE``, ``LOWER_CAMEL``, ``UPPER_CAMEL``, ``UPPER_UNDERSCORE``
-
-
-
-^^
-to
-^^
-
-
+The charset to use when creating the output string.
 
 **Importance:** High
 
 **Type:** String
 
-**Validator:** ``LOWER_HYPHEN``, ``LOWER_UNDERSCORE``, ``LOWER_CAMEL``, ``UPPER_CAMEL``, ``UPPER_UNDERSCORE``
+**Default Value:** UTF-8
+
+
+
+^^^^^^
+fields
+^^^^^^
+
+The fields to transform.
+
+**Importance:** High
+
+**Type:** List
+
+**Default Value:** []
 
 
 
@@ -64,15 +60,12 @@ This configuration is used typically along with `standalone mode
 
 .. code-block:: properties
     :name: connector.properties
-    :emphasize-lines: 6,7
 
     name=Connector1
     connector.class=org.apache.kafka.some.SourceConnector
     tasks.max=1
     transforms=tran
-    transforms.tran.type=com.github.jcustenborder.kafka.connect.transform.common.ChangeCase$Key
-    transforms.tran.from=< Required Configuration >
-    transforms.tran.to=< Required Configuration >
+    transforms.tran.type=com.github.jcustenborder.kafka.connect.transform.common.ToLong$Value
 
 
 
@@ -91,15 +84,12 @@ post the configuration to one the distributed connect worker(s). Check here for 
 .. code-block:: json
     :caption: Connect Distributed REST example
     :name: connector.json
-    :emphasize-lines: 6,7
 
     {
       "name" : "Connector1",
       "connector.class" : "org.apache.kafka.some.SourceConnector",
       "transforms" : "tran",
-      "transforms.tran.type" : "com.github.jcustenborder.kafka.connect.transform.common.ChangeCase$Key",
-      "transforms.tran.from" : "< Required Configuration >",
-      "transforms.tran.to" : "< Required Configuration >"
+      "transforms.tran.type" : "com.github.jcustenborder.kafka.connect.transform.common.ToLong$Value"
     }
 
 
@@ -116,7 +106,7 @@ one of your Kafka Connect worker(s).
 .. code-block:: bash
     :caption: Update an existing connector
 
-    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/Key1/config
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/Value1/config
 
 
 
