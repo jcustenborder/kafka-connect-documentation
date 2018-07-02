@@ -292,6 +292,14 @@
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> true</p>
 </div>
+<div class="section" id="cassandra-keyspace-replication-factor">
+<h3>cassandra.keyspace.replication.factor<a class="headerlink" href="#cassandra-keyspace-replication-factor" title="Permalink to this headline">¶</a></h3>
+<p>The replication factor to use if a keyspace is created by the connector.</p>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 3</p>
+<p><strong>Validator:</strong> [1,…]</p>
+</div>
 </div>
 <div class="section" id="ssl">
 <h2>SSL<a class="headerlink" href="#ssl" title="Permalink to this headline">¶</a></h2>
@@ -361,13 +369,6 @@
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> true</p>
-</div>
-<div class="section" id="cassandra-write-mode">
-<h3>cassandra.write.mode<a class="headerlink" href="#cassandra-write-mode" title="Permalink to this headline">¶</a></h3>
-<p>The type of statement to build when writing to Cassandra.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> String</p>
-<p><strong>Default Value:</strong> Insert</p>
 </div>
 </div>
 <div class="section" id="examples">

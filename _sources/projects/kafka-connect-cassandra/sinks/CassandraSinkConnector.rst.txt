@@ -160,6 +160,22 @@ Flag to determine if the keyspace should be created if it does not exist.
 
 
 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cassandra.keyspace.replication.factor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The replication factor to use if a keyspace is created by the connector.
+
+**Importance:** High
+
+**Type:** Int
+
+**Default Value:** 3
+
+**Validator:** [1,...]
+
+
+
 ---
 SSL
 ---
@@ -294,20 +310,6 @@ Flag to determine if the connector should process deletes.
 **Type:** Boolean
 
 **Default Value:** true
-
-
-
-^^^^^^^^^^^^^^^^^^^^
-cassandra.write.mode
-^^^^^^^^^^^^^^^^^^^^
-
-The type of statement to build when writing to Cassandra.
-
-**Importance:** High
-
-**Type:** String
-
-**Default Value:** Insert
 
 
 
