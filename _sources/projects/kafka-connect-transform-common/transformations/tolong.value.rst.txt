@@ -15,20 +15,6 @@ General
 -------
 
 
-^^^^^^^
-charset
-^^^^^^^
-
-The charset to use when creating the output string.
-
-**Importance:** High
-
-**Type:** String
-
-**Default Value:** UTF-8
-
-
-
 ^^^^^^
 fields
 ^^^^^^
