@@ -5,7 +5,6 @@ def connectors = [
         'kafka-connect-jms':'jcustenborder/kafka-connect-jms/master',
         'kafka-connect-jmx':'jcustenborder/kafka-connect-jmx/master',
         'kafka-connect-memcached':'jcustenborder/kafka-connect-memcached/master',
-        'kafka-connect-mqtt':'jcustenborder/kafka-connect-mqtt/master',
         'kafka-connect-redis':'jcustenborder/kafka-connect-redis/master',
         'kafka-connect-simulator':'jcustenborder/kafka-connect-simulator/master',
         'kafka-connect-snmp':'jcustenborder/kafka-connect-snmp/master',
