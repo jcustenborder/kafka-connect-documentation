@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Com.github.jcustenborder.kafka.connect.memcached Connectors" href="../connectors.html"/>
+        <link rel="up" title="Memcached Connectors" href="../connectors.html"/>
         <link rel="next" title="Com.github.jcustenborder.kafka.connect.redis Connectors" href="../../kafka-connect-redis/connectors.html"/>
-        <link rel="prev" title="Com.github.jcustenborder.kafka.connect.memcached Connectors" href="../connectors.html"/> 
+        <link rel="prev" title="Memcached Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -98,7 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/connectors.html">Flume Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jms/connectors.html">JMS Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jmx/connectors.html">Com.github.jcustenborder.kafka.connect.jmx Connectors</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Com.github.jcustenborder.kafka.connect.memcached Connectors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Memcached Connectors</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Memcached Sink</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#connection">Connection</a></li>
@@ -171,7 +171,7 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Com.github.jcustenborder.kafka.connect.memcached Connectors</a> &raquo;</li>
+          <li><a href="../connectors.html">Memcached Connectors</a> &raquo;</li>
         
       <li>Memcached Sink</li>
     
@@ -210,7 +210,7 @@
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> List</p>
 <p><strong>Default Value:</strong> [localhost:11211]</p>
-<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;utils&#46;config&#46;ValidHostnameAndPort&#37;&#52;&#48;de0c402">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>utils<span>&#46;</span>config<span>&#46;</span>ValidHostnameAndPort<span>&#64;</span>de0c402</a></p>
+<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;utils&#46;config&#46;ValidHostnameAndPort&#37;&#52;&#48;3e3bf77b">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>utils<span>&#46;</span>config<span>&#46;</span>ValidHostnameAndPort<span>&#64;</span>3e3bf77b</a></p>
 </div>
 <div class="section" id="memcached-default-expiration-secs">
 <h3>memcached.default.expiration.secs<a class="headerlink" href="#memcached-default-expiration-secs" title="Permalink to this headline">¶</a></h3>
@@ -218,7 +218,7 @@
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 0</p>
-<p><strong>Validator:</strong> [-1,…]</p>
+<p><strong>Validator:</strong> [0,…]</p>
 </div>
 <div class="section" id="memcached-failure-mode">
 <h3>memcached.failure.mode<a class="headerlink" href="#memcached-failure-mode" title="Permalink to this headline">¶</a></h3>
@@ -266,7 +266,7 @@
 <p>The default operation timeout in milliseconds.</p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Long</p>
-<p><strong>Default Value:</strong> -1</p>
+<p><strong>Default Value:</strong> 30000</p>
 <p><strong>Validator:</strong> [-1,…]</p>
 </div>
 <div class="section" id="memcached-optimize-enable">
@@ -369,7 +369,7 @@ one of your Kafka Connect worker(s).</p>
         <a href="../../kafka-connect-redis/connectors.html" class="btn btn-neutral float-right" title="Com.github.jcustenborder.kafka.connect.redis Connectors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Com.github.jcustenborder.kafka.connect.memcached Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="Memcached Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

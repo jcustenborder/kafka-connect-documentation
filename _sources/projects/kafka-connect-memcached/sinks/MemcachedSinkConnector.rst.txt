@@ -31,7 +31,7 @@ Memcached hosts to connnect to.
 
 **Default Value:** [localhost:11211]
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@de0c402
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@3e3bf77b
 
 
 
@@ -47,7 +47,7 @@ The default expiration in seconds.
 
 **Default Value:** 0
 
-**Validator:** [-1,...]
+**Validator:** [0,...]
 
 
 
@@ -125,7 +125,7 @@ The default operation timeout in milliseconds.
 
 **Type:** Long
 
-**Default Value:** -1
+**Default Value:** 30000
 
 **Validator:** [-1,...]
 
