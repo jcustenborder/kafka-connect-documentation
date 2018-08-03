@@ -1,6 +1,6 @@
-=========================================================
-Com.github.jcustenborder.kafka.connect.twitter Connectors
-=========================================================
+==================
+Twitter Connectors
+==================
 
 .. toctree::
     :maxdepth: 1

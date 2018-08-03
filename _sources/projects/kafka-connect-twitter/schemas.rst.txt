@@ -1,6 +1,6 @@
-======================================================
-Com.github.jcustenborder.kafka.connect.twitter Schemas
-======================================================
+===============
+Twitter Schemas
+===============
 
 .. toctree::
     :maxdepth: 0

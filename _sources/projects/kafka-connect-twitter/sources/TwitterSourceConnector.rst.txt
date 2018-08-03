@@ -1,6 +1,6 @@
-======================
-TwitterSourceConnector
-======================
+=======
+Twitter
+=======
 
 This Twitter Source connector is used to pull data from Twitter in realtime.
 
