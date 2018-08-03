@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="StatsD Connector" href="../connectors.html"/>
-        <link rel="next" title="Schemas" href="../schemas.html"/>
-        <link rel="prev" title="StatsD Connector" href="../connectors.html"/> 
+        <link rel="up" title="Com.github.jcustenborder.kafka.connect.statsd Connectors" href="../connectors.html"/>
+        <link rel="next" title="Syslog Connector" href="../../kafka-connect-syslog/connectors.html"/>
+        <link rel="prev" title="Com.github.jcustenborder.kafka.connect.statsd Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -105,14 +105,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/connectors.html">Apache Solr Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/connectors.html">Splunk Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/connectors.html">File Input Connectors</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">StatsD Connector</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Com.github.jcustenborder.kafka.connect.statsd Connectors</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">StatsDSourceConnector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../info.html">Additional Information</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/connectors.html">Syslog Connector</a></li>
@@ -172,7 +171,7 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">StatsD Connector</a> &raquo;</li>
+          <li><a href="../connectors.html">Com.github.jcustenborder.kafka.connect.statsd Connectors</a> &raquo;</li>
         
       <li>StatsDSourceConnector</li>
     
@@ -195,26 +194,29 @@
             
   <div class="section" id="statsdsourceconnector">
 <h1>StatsDSourceConnector<a class="headerlink" href="#statsdsourceconnector" title="Permalink to this headline">¶</a></h1>
-<img alt="../../../_images/StatsDSourceConnector.svg" src="../../../_images/StatsDSourceConnector.svg" /><p>The StatsDSourceConnector is used to listen for StatsD messages and write them to Kafka</p>
+<p>The StatsDSourceConnector is used to listen for StatsD messages and write them to Kafka</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">This connector listens on a network port. Running more than one task or running in distributed mode can cause some undesired effects if another task already has the port open. It is recommended that you run this connector in <a class="reference internal" href="../../../glossary.html#term-standalone-mode"><span class="xref std std-term">Standalone Mode</span></a>.</p>
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="topic">
 <h3>topic<a class="headerlink" href="#topic" title="Permalink to this headline">¶</a></h3>
+<p>The topic to write the data to.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-<p>The topic to write the data to.</p>
 </div>
 <div class="section" id="port">
 <h3>port<a class="headerlink" href="#port" title="Permalink to this headline">¶</a></h3>
+<p>The port to listen on.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 8125</p>
 <p><strong>Validator:</strong> ValidPort{start=1000, end=65535}</p>
-<p>The port to listen on.</p>
 </div>
 </div>
 <div class="section" id="examples">
@@ -235,7 +237,9 @@
 Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
 post the configuration to one the distributed connect worker(s). Check here for more information about the
 <a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
-<div class="highlight-json" id="connector-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="literal-block-wrapper docutils container" id="connector-json">
+<div class="code-block-caption"><span class="caption-text">Connect Distributed REST example</span><a class="headerlink" href="#connector-json" title="Permalink to this code">¶</a></div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;StatsDSourceConnector1&quot;</span><span class="p">,</span>
     <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.statsd.StatsDSourceConnector&quot;</span><span class="p">,</span>
@@ -244,6 +248,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 </span>  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</div>
 </div>
 <p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
 one of your Kafka Connect worker(s).</p>
@@ -273,10 +278,10 @@ one of your Kafka Connect worker(s).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../kafka-connect-syslog/connectors.html" class="btn btn-neutral float-right" title="Syslog Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="StatsD Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="Com.github.jcustenborder.kafka.connect.statsd Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

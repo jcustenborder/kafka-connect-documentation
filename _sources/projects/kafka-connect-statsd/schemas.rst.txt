@@ -1,10 +1,12 @@
-=======
-Schemas
-=======
+=====================================================
+Com.github.jcustenborder.kafka.connect.statsd Schemas
+=====================================================
 
 .. toctree::
     :maxdepth: 0
     :caption: Schemas:
+    :hidden:
     :glob:
+    :titlesonly:
 
     schemas/*

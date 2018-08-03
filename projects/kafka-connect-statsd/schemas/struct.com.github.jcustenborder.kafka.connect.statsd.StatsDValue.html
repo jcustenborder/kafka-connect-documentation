@@ -36,8 +36,8 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Schemas" href="../schemas.html"/>
-        <link rel="next" title="Additional Information" href="../info.html"/>
+        <link rel="up" title="Com.github.jcustenborder.kafka.connect.statsd Schemas" href="../schemas.html"/>
+        <link rel="next" title="Schemas" href="../../kafka-connect-syslog/schemas.html"/>
         <link rel="prev" title="StatsDKey" href="struct.com.github.jcustenborder.kafka.connect.statsd.StatsDKey.html"/> 
 
   
@@ -101,9 +101,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-jms/schemas.html">Schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-snmp/schemas.html">Schemas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/schemas.html">Schemas</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../schemas.html">Com.github.jcustenborder.kafka.connect.statsd Schemas</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.statsd.StatsDKey.html">StatsDKey</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">StatsDValue</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">StatsDValue</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-syslog/schemas.html">Schemas</a></li>
@@ -161,11 +164,9 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
+          <li><a href="../../../schemas.html">Schemas</a> &raquo;</li>
         
-          <li><a href="../connectors.html">StatsD Connector</a> &raquo;</li>
-        
-          <li><a href="../schemas.html">Schemas</a> &raquo;</li>
+          <li><a href="../schemas.html">Com.github.jcustenborder.kafka.connect.statsd Schemas</a> &raquo;</li>
         
       <li>StatsDValue</li>
     
@@ -188,61 +189,51 @@
             
   <div class="section" id="statsdvalue">
 <h1>StatsDValue<a class="headerlink" href="#statsdvalue" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="colwidths-auto docutils" id="id1">
-<caption><span class="caption-text">StatsDValue</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Optional</th>
-<th class="head">Default Value</th>
-<th class="head">Documentation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>sender</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Remote address of the host sending data.</td>
-</tr>
-<tr class="row-odd"><td>recipient</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Address of the host that received the data.</td>
-</tr>
-<tr class="row-even"><td>name</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Name of the metric.</td>
-</tr>
-<tr class="row-odd"><td>type</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Type of metric.</td>
-</tr>
-<tr class="row-even"><td>value</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-float64"><span class="std std-ref">FLOAT64</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Value for the metric.</td>
-</tr>
-<tr class="row-odd"><td>sampleRate</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-float64"><span class="std std-ref">FLOAT64</span></a></td>
-<td>true</td>
-<td>&#160;</td>
-<td>Sample rate for the metric. Only valid for counters.</td>
-</tr>
-<tr class="row-even"><td>timestamp</td>
-<td><a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></td>
-<td>false</td>
-<td>&#160;</td>
-<td>Timestamp for the metric.</td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sender">
+<h3>sender<a class="headerlink" href="#sender" title="Permalink to this headline">¶</a></h3>
+<p>Remote address of the host sending data.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="recipient">
+<h3>recipient<a class="headerlink" href="#recipient" title="Permalink to this headline">¶</a></h3>
+<p>Address of the host that received the data.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="name">
+<h3>name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
+<p>Name of the metric.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="type">
+<h3>type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
+<p>Type of metric.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></p>
+</div>
+<div class="section" id="value">
+<h3>value<a class="headerlink" href="#value" title="Permalink to this headline">¶</a></h3>
+<p>Value for the metric.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-float64"><span class="std std-ref">FLOAT64</span></a></p>
+</div>
+<div class="section" id="samplerate">
+<h3>sampleRate<a class="headerlink" href="#samplerate" title="Permalink to this headline">¶</a></h3>
+<p>Sample rate for the metric. Only valid for counters.</p>
+<p><strong>Optional:</strong> no</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-float64"><span class="std std-ref">FLOAT64</span></a></p>
+</div>
+<div class="section" id="timestamp">
+<h3>timestamp<a class="headerlink" href="#timestamp" title="Permalink to this headline">¶</a></h3>
+<p>Timestamp for the metric.</p>
+<p><strong>Optional:</strong> yes</p>
+<p><strong>Type:</strong> <a class="reference internal" href="../../../schema.type.html#schema-int64"><span class="std std-ref">INT64</span></a></p>
+</div>
+</div>
 </div>
 
 
@@ -255,7 +246,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../info.html" class="btn btn-neutral float-right" title="Additional Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../kafka-connect-syslog/schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="struct.com.github.jcustenborder.kafka.connect.statsd.StatsDKey.html" class="btn btn-neutral" title="StatsDKey" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

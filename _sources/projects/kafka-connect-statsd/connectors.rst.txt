@@ -1,9 +1,6 @@
-================
-StatsD Connector
-================
-
-The StatsD Connector provides a Kafka Connect :term:`Source Connector` that can receive data from remote hosts using the
-statsd protocol.
+========================================================
+Com.github.jcustenborder.kafka.connect.statsd Connectors
+========================================================
 
 .. toctree::
     :maxdepth: 1
@@ -12,23 +9,4 @@ statsd protocol.
     :glob:
 
     sources/*
-
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Sink Connectors:
-    :hidden:
-    :glob:
-
-    sinks/*
-
-
-.. toctree::
-    :maxdepth: 0
-    :caption: Schemas:
-    :hidden:
-
-    schemas
-    info
-
 

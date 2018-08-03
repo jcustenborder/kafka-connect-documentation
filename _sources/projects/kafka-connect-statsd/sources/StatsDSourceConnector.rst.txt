@@ -2,9 +2,6 @@
 StatsDSourceConnector
 =====================
 
-.. image:: StatsDSourceConnector.svg
-
-
 The StatsDSourceConnector is used to listen for StatsD messages and write them to Kafka
 
 
@@ -17,21 +14,28 @@ The StatsDSourceConnector is used to listen for StatsD messages and write them t
 Configuration
 -------------
 
+-------
+General
+-------
+
 
 ^^^^^
 topic
 ^^^^^
+
+The topic to write the data to.
 
 **Importance:** High
 
 **Type:** String
 
 
-The topic to write the data to.
 
 ^^^^
 port
 ^^^^
+
+The port to listen on.
 
 **Importance:** High
 
@@ -42,7 +46,9 @@ port
 **Validator:** ValidPort{start=1000, end=65535}
 
 
-The port to listen on.
+
+
+
 
 --------
 Examples
@@ -80,6 +86,7 @@ post the configuration to one the distributed connect worker(s). Check here for 
 `Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :caption: Connect Distributed REST example
     :name: connector.json
     :emphasize-lines: 6
 
@@ -107,5 +114,6 @@ one of your Kafka Connect worker(s).
     :caption: Update an existing connector
 
     curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/StatsDSourceConnector1/config
+
 
 

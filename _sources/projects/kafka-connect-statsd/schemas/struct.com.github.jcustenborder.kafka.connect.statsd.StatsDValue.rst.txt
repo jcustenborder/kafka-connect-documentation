@@ -3,15 +3,93 @@ StatsDValue
 ===========
 
 
-.. csv-table:: StatsDValue
-    :header: "Name", "Type", "Optional", "Default Value", "Documentation"
-    :widths: auto
 
-    "sender",":ref:`schema-String`","true","","Remote address of the host sending data."
-    "recipient",":ref:`schema-String`","true","","Address of the host that received the data."
-    "name",":ref:`schema-String`","false","","Name of the metric."
-    "type",":ref:`schema-String`","false","","Type of metric."
-    "value",":ref:`schema-Float64`","false","","Value for the metric."
-    "sampleRate",":ref:`schema-Float64`","true","","Sample rate for the metric. Only valid for counters."
-    "timestamp",":ref:`schema-Int64`","false","","Timestamp for the metric."
+------
+Fields
+------
+
+
+^^^^^^
+sender
+^^^^^^
+
+Remote address of the host sending data.
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^^^^^
+recipient
+^^^^^^^^^
+
+Address of the host that received the data.
+
+**Optional:** no
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^
+name
+^^^^
+
+Name of the metric.
+
+**Optional:** yes
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^
+type
+^^^^
+
+Type of metric.
+
+**Optional:** yes
+
+**Type:** :ref:`schema-String`
+
+
+
+^^^^^
+value
+^^^^^
+
+Value for the metric.
+
+**Optional:** yes
+
+**Type:** :ref:`schema-Float64`
+
+
+
+^^^^^^^^^^
+sampleRate
+^^^^^^^^^^
+
+Sample rate for the metric. Only valid for counters.
+
+**Optional:** no
+
+**Type:** :ref:`schema-Float64`
+
+
+
+^^^^^^^^^
+timestamp
+^^^^^^^^^
+
+Timestamp for the metric.
+
+**Optional:** yes
+
+**Type:** :ref:`schema-Int64`
+
+
 

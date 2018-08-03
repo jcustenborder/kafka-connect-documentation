@@ -8,7 +8,7 @@ Install
     :target: https://github.com/jcustenborder/kafka-connect-statsd/releases
 
 .. image:: https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-statsd.svg
-    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-statsd%7C0.1.20%7Cjar
+    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-statsd%7C0.1.21%7Cjar
 
 ^^^^^^^^^^^^^^^^
 RPM Installation
@@ -41,7 +41,7 @@ Maven Installation
     <dependency>
         <groupId>com.github.jcustenborder.kafka.connect</groupId>
         <artifactId>kafka-connect-statsd</artifactId>
-        <version>0.1.20</version>
+        <version>0.1.21</version>
     </dependency>
 
 
