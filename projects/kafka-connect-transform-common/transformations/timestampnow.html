@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Install &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>TimestampNow &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -143,13 +143,13 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-      <li>Install</li>
+      <li>TimestampNow</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-transform-common/info/install.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-transform-common/transformations/timestampnow.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -162,32 +162,56 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="install">
-<h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
-<img alt="https://img.shields.io/github/license/jcustenborder/kafka-connect-transform-common.svg" src="https://img.shields.io/github/license/jcustenborder/kafka-connect-transform-common.svg" /><a class="reference external image-reference" href="https://github.com/jcustenborder/kafka-connect-transform-common/releases"><img alt="https://img.shields.io/github/release/jcustenborder/kafka-connect-transform-common.svg" src="https://img.shields.io/github/release/jcustenborder/kafka-connect-transform-common.svg" /></a>
-<a class="reference external image-reference" href="https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-transform-common%7C0.1.0.17%7Cjar"><img alt="https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-transform-common.svg" src="https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-transform-common.svg" /></a>
-<div class="section" id="rpm-installation">
-<h2>RPM Installation<a class="headerlink" href="#rpm-installation" title="Permalink to this headline">¶</a></h2>
-<p>Before starting the RPM installation you must configure the <a class="reference internal" href="../../../installation.html#yum-repository"><span class="std std-ref">YUM Repository</span></a> first.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo yum install kafka-connect-transform-common
+  <div class="section" id="timestampnow">
+<h1>TimestampNow<a class="headerlink" href="#timestampnow" title="Permalink to this headline">¶</a></h1>
+<p>This transformation is used to override the timestamp of the incoming record to the time the record is being processed.</p>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="property-based-example">
+<h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
+<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">Connector1</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">org.apache.kafka.some.SourceConnector</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="na">transforms</span><span class="o">=</span><span class="s">tran</span>
+<span class="na">transforms.tran.type</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.transform.common.TimestampNow</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="deb-installation">
-<h2>DEB Installation<a class="headerlink" href="#deb-installation" title="Permalink to this headline">¶</a></h2>
-<p>Before starting the RPM installation you must configure the <a class="reference internal" href="../../../installation.html#apt-repository"><span class="std std-ref">APT Repository</span></a> first.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install kafka-connect-transform-common
+<div class="section" id="rest-based-example">
+<h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
+Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
+<div class="literal-block-wrapper docutils container" id="connector-json">
+<div class="code-block-caption"><span class="caption-text">Connect Distributed REST example</span><a class="headerlink" href="#connector-json" title="Permalink to this code">¶</a></div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Connector1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.some.SourceConnector&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;transforms&quot;</span> <span class="p">:</span> <span class="s2">&quot;tran&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;transforms.tran.type&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.transform.common.TimestampNow&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="maven-installation">
-<h2>Maven Installation<a class="headerlink" href="#maven-installation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>com.github.jcustenborder.kafka.connect<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>kafka-connect-transform-common<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>0.1.0.17<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
+<p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
+one of your Kafka Connect worker(s).</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
 </pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/TimestampNow1/config
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>

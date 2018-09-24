@@ -1,47 +1,14 @@
-=================
-ChangeCase(Value)
-=================
+============
+TimestampNow
+============
 
-This transformation is used to change the case of fields in an input struct.
+This transformation is used to override the timestamp of the incoming record to the time the record is being processed.
 
 
 
 -------------
 Configuration
 -------------
-
--------
-General
--------
-
-
-^^^^
-from
-^^^^
-
-The format to move from 
-
-**Importance:** High
-
-**Type:** String
-
-**Validator:** Matches: ``LOWER_HYPHEN``, ``LOWER_UNDERSCORE``, ``LOWER_CAMEL``, ``UPPER_CAMEL``, ``UPPER_UNDERSCORE``
-
-
-
-^^
-to
-^^
-
-
-
-**Importance:** High
-
-**Type:** String
-
-**Validator:** Matches: ``LOWER_HYPHEN``, ``LOWER_UNDERSCORE``, ``LOWER_CAMEL``, ``UPPER_CAMEL``, ``UPPER_UNDERSCORE``
-
-
 
 
 
@@ -60,15 +27,12 @@ This configuration is used typically along with `standalone mode
 
 .. code-block:: properties
     :name: connector.properties
-    :emphasize-lines: 6,7
 
     name=Connector1
     connector.class=org.apache.kafka.some.SourceConnector
     tasks.max=1
     transforms=tran
-    transforms.tran.type=com.github.jcustenborder.kafka.connect.transform.common.ChangeCase$Value
-    transforms.tran.from=< Required Configuration >
-    transforms.tran.to=< Required Configuration >
+    transforms.tran.type=com.github.jcustenborder.kafka.connect.transform.common.TimestampNow
 
 
 
@@ -87,15 +51,12 @@ post the configuration to one the distributed connect worker(s). Check here for 
 .. code-block:: json
     :caption: Connect Distributed REST example
     :name: connector.json
-    :emphasize-lines: 6,7
 
     {
       "name" : "Connector1",
       "connector.class" : "org.apache.kafka.some.SourceConnector",
       "transforms" : "tran",
-      "transforms.tran.type" : "com.github.jcustenborder.kafka.connect.transform.common.ChangeCase$Value",
-      "transforms.tran.from" : "< Required Configuration >",
-      "transforms.tran.to" : "< Required Configuration >"
+      "transforms.tran.type" : "com.github.jcustenborder.kafka.connect.transform.common.TimestampNow"
     }
 
 
@@ -112,7 +73,7 @@ one of your Kafka Connect worker(s).
 .. code-block:: bash
     :caption: Update an existing connector
 
-    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/Value1/config
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/TimestampNow1/config
 
 
 
