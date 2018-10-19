@@ -8,6 +8,22 @@ Changelog
 .. csv-table::
     :header: "Date","Commit","Author","Message"
 
+    "2018-10-19 06:49:59","`9e1e8480d9d0bc5 <https://github.com/jcustenborder/kafka-connect-transform-xml/commit/9e1e8480d9d0bc5>`_","Jeremy Custenborder","Issue 5 (#9)
+
+* Changed the XSDCompiler to assume that Connectable is not part of the classpath. fixes #5.
+
+* Change Jaxb to load from the dynamic classloader instead of the system class loader.
+
+* Don't cleanup
+
+* Checkstyle."
+    "2018-10-19 06:47:53","`e1d52d2298b601c <https://github.com/jcustenborder/kafka-connect-transform-xml/commit/e1d52d2298b601c>`_","Jeremy Custenborder","Issue 5 (#8)
+
+* Changed the XSDCompiler to assume that Connectable is not part of the classpath. fixes #5.
+
+* Change Jaxb to load from the dynamic classloader instead of the system class loader.
+
+* Don't cleanup"
     "2018-10-19 06:08:24","`e1f5d073c84553c <https://github.com/jcustenborder/kafka-connect-transform-xml/commit/e1f5d073c84553c>`_","Jeremy Custenborder","Issue 5 (#7)
 
 * Changed the XSDCompiler to assume that Connectable is not part of the classpath. fixes #5.
