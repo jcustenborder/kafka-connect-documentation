@@ -166,6 +166,13 @@
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <p><strong>Unreleased</strong></p>
 <ul class="simple">
+<li>Corrected state to use packageName. Fixes #11.</li>
+<li><dl class="first docutils">
+<dt>Removed unused import. Fixes #11.”</dt>
+<dd>“2018-10-19 15:20:13”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-xml/commit/0f4ff9029685969">0f4ff9029685969</a>”,”Jeremy Custenborder”,”Invalid cast was due to JAXB loading using the system class loader vs the isolated class loader. After changing this to use the UrlClass loader it caused more issues where each class loader had their own Connectable class. Changed the Url class loader that is loading the xjc classes to include class loader the connector is using as the parent. This ensures that the Connectable class will be loaded from the parent class loader and only once. Fixes #4. (#10)”
+“2018-10-19 06:49:59”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-xml/commit/9e1e8480d9d0bc5">9e1e8480d9d0bc5</a>”,”Jeremy Custenborder”,”Issue 5 (#9)</dd>
+</dl>
+</li>
 <li>Changed the XSDCompiler to assume that Connectable is not part of the classpath. fixes #5.</li>
 <li>Change Jaxb to load from the dynamic classloader instead of the system class loader.</li>
 <li>Don’t cleanup</li>
