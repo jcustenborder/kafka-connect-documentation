@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RedisSinkConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Com.github.jcustenborder.kafka.connect.redis Connectors" href="../connectors.html"/>
+        <link rel="next" title="Simulator Connector" href="../../kafka-connect-simulator/connectors.html"/>
+        <link rel="prev" title="Com.github.jcustenborder.kafka.connect.redis Connectors" href="../connectors.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Kafka Connect Connectors
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/connectors.html">Memcached Connectors</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Com.github.jcustenborder.kafka.connect.redis Connectors</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">RedisSinkConnector</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/connectors.html">Simulator Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-snmp/connectors.html">SNMP Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/connectors.html">Apache Solr Connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/connectors.html">Splunk Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/connectors.html">File Input Connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/connectors.html">Com.github.jcustenborder.kafka.connect.statsd Connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/connectors.html">Twitter Connectors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../schemas.html">Schemas</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../configdef.type.html">ConfigDef.Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../schema.type.html">Schema Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Kafka Connect Connectors</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
+        
+          <li><a href="../connectors.html">Com.github.jcustenborder.kafka.connect.redis Connectors</a> &raquo;</li>
+        
+      <li>RedisSinkConnector</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/projects/kafka-connect-redis/sinks/RedisSinkConnector.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="redissinkconnector">
+<h1>RedisSinkConnector<a class="headerlink" href="#redissinkconnector" title="Permalink to this headline">¶</a></h1>
+<p>Sink connector for writing data to Redis</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">This connector expects to received data with a key of bytes and a values of bytes. If your data is structured you need to use a Transformation to convert this data from structured data like a Struct to an array of bytes for the key and value.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This connector supports deletes. It will issue a delete to the Redis cluster for any key that does not have a corresponding value. In Kafka a record that contains a key and a null value is considered a delete.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="redis-hosts">
+<h3>redis.hosts<a class="headerlink" href="#redis-hosts" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> High</p>
+<p><strong>Type:</strong> List</p>
+<p><strong>Default Value:</strong> [localhost:6379]</p>
+</div>
+<div class="section" id="redis-client-mode">
+<h3>redis.client.mode<a class="headerlink" href="#redis-client-mode" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> Standalone</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">Standalone</span></code>, <code class="docutils literal"><span class="pre">Cluster</span></code></p>
+</div>
+<div class="section" id="redis-database">
+<h3>redis.database<a class="headerlink" href="#redis-database" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 1</p>
+</div>
+<div class="section" id="redis-operation-timeout-ms">
+<h3>redis.operation.timeout.ms<a class="headerlink" href="#redis-operation-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<p>redis.operation.timeout.ms</p>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Long</p>
+<p><strong>Default Value:</strong> 10000</p>
+<p><strong>Validator:</strong> [100,…]</p>
+</div>
+<div class="section" id="redis-password">
+<h3>redis.password<a class="headerlink" href="#redis-password" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Password</p>
+<p><strong>Default Value:</strong> [hidden]</p>
+</div>
+<div class="section" id="redis-ssl-enabled">
+<h3>redis.ssl.enabled<a class="headerlink" href="#redis-ssl-enabled" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+</div>
+<div class="section" id="redis-ssl-keystore-password">
+<h3>redis.ssl.keystore.password<a class="headerlink" href="#redis-ssl-keystore-password" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Password</p>
+<p><strong>Default Value:</strong> [hidden]</p>
+</div>
+<div class="section" id="redis-ssl-keystore-path">
+<h3>redis.ssl.keystore.path<a class="headerlink" href="#redis-ssl-keystore-path" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> String</p>
+</div>
+<div class="section" id="redis-ssl-truststore-password">
+<h3>redis.ssl.truststore.password<a class="headerlink" href="#redis-ssl-truststore-password" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> Password</p>
+<p><strong>Default Value:</strong> [hidden]</p>
+</div>
+<div class="section" id="redis-ssl-truststore-path">
+<h3>redis.ssl.truststore.path<a class="headerlink" href="#redis-ssl-truststore-path" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Medium</p>
+<p><strong>Type:</strong> String</p>
+</div>
+<div class="section" id="redis-auto-reconnect-enabled">
+<h3>redis.auto.reconnect.enabled<a class="headerlink" href="#redis-auto-reconnect-enabled" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+</div>
+<div class="section" id="redis-request-queue-size">
+<h3>redis.request.queue.size<a class="headerlink" href="#redis-request-queue-size" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 2147483647</p>
+</div>
+<div class="section" id="redis-socket-connect-timeout-ms">
+<h3>redis.socket.connect.timeout.ms<a class="headerlink" href="#redis-socket-connect-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Int</p>
+<p><strong>Default Value:</strong> 10000</p>
+</div>
+<div class="section" id="redis-socket-keep-alive-enabled">
+<h3>redis.socket.keep.alive.enabled<a class="headerlink" href="#redis-socket-keep-alive-enabled" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+</div>
+<div class="section" id="redis-socket-tcp-no-delay-enabled">
+<h3>redis.socket.tcp.no.delay.enabled<a class="headerlink" href="#redis-socket-tcp-no-delay-enabled" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> true</p>
+</div>
+<div class="section" id="redis-ssl-provider">
+<h3>redis.ssl.provider<a class="headerlink" href="#redis-ssl-provider" title="Permalink to this headline">¶</a></h3>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> String</p>
+<p><strong>Default Value:</strong> JDK</p>
+<p><strong>Validator:</strong> <code class="docutils literal"><span class="pre">OPENSSL</span></code>, <code class="docutils literal"><span class="pre">JDK</span></code></p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="property-based-example">
+<h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
+<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">RedisSinkConnector1</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.redis.RedisSinkConnector</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="hll"><span class="na">topics</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="rest-based-example">
+<h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
+Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
+<div class="literal-block-wrapper docutils container" id="connector-json">
+<div class="code-block-caption"><span class="caption-text">Connect Distributed REST example</span><a class="headerlink" href="#connector-json" title="Permalink to this code">¶</a></div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;RedisSinkConnector1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.redis.RedisSinkConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
+one of your Kafka Connect worker(s).</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/RedisSinkConnector1/config
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../kafka-connect-simulator/connectors.html" class="btn btn-neutral float-right" title="Simulator Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../connectors.html" class="btn btn-neutral" title="Com.github.jcustenborder.kafka.connect.redis Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Jeremy Custenborder.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-10128000-10', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

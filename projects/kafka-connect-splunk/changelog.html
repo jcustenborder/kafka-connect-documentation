@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Changelog &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Additional Information" href="info.html"/>
+        <link rel="next" title="File Input Connectors" href="../kafka-connect-spooldir/connectors.html"/>
+        <link rel="prev" title="Source" href="info/source.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Kafka Connect Connectors
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../connectors.html">Connectors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-memcached/connectors.html">Memcached Connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-redis/connectors.html">Com.github.jcustenborder.kafka.connect.redis Connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-simulator/connectors.html">Simulator Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-snmp/connectors.html">SNMP Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-solr/connectors.html">Apache Solr Connectors</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="connectors.html">Splunk Connector</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sources/SplunkHttpSourceConnector.html">SplunkHttpSourceConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sinks/SplunkHttpSinkConnector.html">SplunkHttpSinkConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="info.html">Additional Information</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="info/install.html">Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="info/support.html">Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="info/contributors.html">Contributors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="info/license.html">License</a></li>
+<li class="toctree-l4"><a class="reference internal" href="info/source.html">Source</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/connectors.html">File Input Connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-statsd/connectors.html">Com.github.jcustenborder.kafka.connect.statsd Connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/connectors.html">Twitter Connectors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../transformations.html">Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schemas.html">Schemas</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../configdef.type.html">ConfigDef.Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schema.type.html">Schema Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Kafka Connect Connectors</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../connectors.html">Connectors</a> &raquo;</li>
+        
+          <li><a href="connectors.html">Splunk Connector</a> &raquo;</li>
+        
+          <li><a href="info.html">Additional Information</a> &raquo;</li>
+        
+      <li>Changelog</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/projects/kafka-connect-splunk/changelog.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<p><strong>Unreleased</strong></p>
+<ul class="simple">
+<li>Changed the version to 1.0.0</li>
+<li><dl class="first docutils">
+<dt>Added plugin.path”</dt>
+<dd>“2017-07-18 21:58:49”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/17933491982a28a">17933491982a28a</a>”,”Jeremy Custenborder”,”Changed the version to 0.10.2.1-cp2.”
+“2017-07-03 01:16:05”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/e8b4a3ba256bf01">e8b4a3ba256bf01</a>”,”Jeremy Custenborder”,”Corrected links.”
+“2017-07-03 00:52:06”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/c4970af6b69913f">c4970af6b69913f</a>”,”Jeremy Custenborder”,”Bump the version and add documentation.”
+“2017-04-21 04:16:30”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/9c7a992969bf604">9c7a992969bf604</a>”,”Jeremy Custenborder”,”Cleanup and bump to the latest version of Kafka. (#10)”
+“2017-02-11 07:36:11”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/b4123c0e49cf1c6">b4123c0e49cf1c6</a>”,”Jeremy Custenborder”,”corrected refrences to connect-utils.”
+“2017-01-24 23:58:12”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/8f908f7d124703d">8f908f7d124703d</a>”,”Jeremy Custenborder”,”Parent refactor (#6)</dd>
+</dl>
+</li>
+<li>Removed the groupId so we use the parent group id.</li>
+<li>Added license header.</li>
+<li><dl class="first docutils">
+<dt>corrected urls”</dt>
+<dd>“2017-01-22 23:32:17”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/08f8e041875abb7">08f8e041875abb7</a>”,”Jeremy Custenborder”,”Moved to common debug script. Updated docker-compose to the latest images. Updated documentation.”
+“2017-01-22 23:25:14”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/372f6ca84c00c25">372f6ca84c00c25</a>”,”Jeremy Custenborder”,”Refactored to use the common parent pom.”
+“2017-01-20 05:50:23”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/031d7f2884bca77">031d7f2884bca77</a>”,”Jeremy Custenborder”,”Added full license file.”
+“2017-01-20 05:40:11”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/5089a113c9b037b">5089a113c9b037b</a>”,”Jeremy Custenborder”,”General cleanup around the json handling. Move to using a single ObjectMapper across the whole application. Added serializers for Struct and SourceRecord.”
+“2017-01-19 23:33:38”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/0618a26caec2f58">0618a26caec2f58</a>”,”Jeremy Custenborder”,”Repro of issue-3.”
+“2016-09-02 07:17:26”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/74183a08d90345d">74183a08d90345d</a>”,”Jeremy Custenborder”,”Changed message queue to batch and pull at the configured values.”
+“2016-09-02 07:10:36”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/d626cf80e26dd4f">d626cf80e26dd4f</a>”,”Jeremy Custenborder”,”Corrected license headers for all files.”
+“2016-09-02 07:08:08”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/060878e2929c91f">060878e2929c91f</a>”,”Jeremy Custenborder”,”Corrected test. For some odd reason it doesn’t work on jenkins but works on my mac.”
+“2016-09-02 07:04:23”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/8bdfd40586cc359">8bdfd40586cc359</a>”,”Jeremy Custenborder”,”Set the time of the message to the time on the server if it is not in the data.”
+“2016-09-02 07:01:00”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/f9650c7ea47da5c">f9650c7ea47da5c</a>”,”Jeremy Custenborder”,”Added support for a SplunkHttpSource allowing users to post data directly to Kafka using an interface that is compatible with the Splunk HEC endpoint. Added lots of logging and error handling for the sink writing data to Splunk.”
+“2016-08-28 04:41:03”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/455370e57d8d7a3">455370e57d8d7a3</a>”,”Jeremy Custenborder”,”Added build logic to create and upload releases to github”
+“2016-08-27 19:13:30”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-splunk/commit/a4c3d3334a9f036">a4c3d3334a9f036</a>”,”Jeremy Custenborder”,”First successful end to end. Receiving data from syslog, writing to Kafka, reading from Kafka, writing to Splunk.”</dd>
+</dl>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../kafka-connect-spooldir/connectors.html" class="btn btn-neutral float-right" title="File Input Connectors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="info/source.html" class="btn btn-neutral" title="Source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Jeremy Custenborder.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-10128000-10', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>
