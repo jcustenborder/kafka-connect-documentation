@@ -4,7 +4,7 @@ properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '30')),
     disableConcurrentBuilds(),
     pipelineTriggers([
-        upstream(threshold: 'SUCCESS', upstreamProjects: connectors.values().join(','))
+        upstream(threshold: 'SUCCESS', upstreamProjects: projects.connectors.values().join(','))
     ])
 ])
 
