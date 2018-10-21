@@ -49,7 +49,7 @@ redis.client.mode
 
 **Default Value:** Standalone
 
-**Validator:** ``Standalone``, ``Cluster``
+**Validator:** Matches: ``Standalone``, ``Cluster``
 
 
 
@@ -245,7 +245,7 @@ redis.ssl.provider
 
 **Default Value:** JDK
 
-**Validator:** ``OPENSSL``, ``JDK``
+**Validator:** Matches: ``OPENSSL``, ``JDK``
 
 
 
