@@ -1,51 +1,18 @@
-====================
-PatternFilter(Value)
-====================
+==============
+SetNull(Value)
+==============
 
-This transformation is used to filter records based on a regular expression.
+This transformation will will set the value and valueSchema of a message to null.
 
 
 .. TIP::
-    This transformation is used to filter records based on fields in the Value of the record.
+    This transformation is used to manipulate the Value of the record.
 
 
 
 -------------
 Configuration
 -------------
-
--------
-General
--------
-
-
-^^^^^^^
-pattern
-^^^^^^^
-
-The regex to test the message with. 
-
-**Importance:** High
-
-**Type:** String
-
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.PatternValidator@59509393
-
-
-
-^^^^^^
-fields
-^^^^^^
-
-The fields to transform.
-
-**Importance:** High
-
-**Type:** List
-
-**Default Value:** []
-
-
 
 
 
@@ -64,14 +31,12 @@ This configuration is used typically along with `standalone mode
 
 .. code-block:: properties
     :name: connector.properties
-    :emphasize-lines: 6
 
     name=Connector1
     connector.class=org.apache.kafka.some.SourceConnector
     tasks.max=1
     transforms=tran
-    transforms.tran.type=com.github.jcustenborder.kafka.connect.transform.common.PatternFilter$Value
-    transforms.tran.pattern=< Required Configuration >
+    transforms.tran.type=com.github.jcustenborder.kafka.connect.transform.common.SetNull$Value
 
 
 
@@ -90,14 +55,12 @@ post the configuration to one the distributed connect worker(s). Check here for 
 .. code-block:: json
     :caption: Connect Distributed REST example
     :name: connector.json
-    :emphasize-lines: 6
 
     {
       "name" : "Connector1",
       "connector.class" : "org.apache.kafka.some.SourceConnector",
       "transforms" : "tran",
-      "transforms.tran.type" : "com.github.jcustenborder.kafka.connect.transform.common.PatternFilter$Value",
-      "transforms.tran.pattern" : "< Required Configuration >"
+      "transforms.tran.type" : "com.github.jcustenborder.kafka.connect.transform.common.SetNull$Value"
     }
 
 
