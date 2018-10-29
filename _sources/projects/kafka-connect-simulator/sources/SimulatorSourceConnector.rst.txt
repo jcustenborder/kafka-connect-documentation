@@ -2,9 +2,6 @@
 SimulatorSourceConnector
 ========================
 
-.. image:: SimulatorSourceConnector.svg
-
-
 The SimulatorSourceConnector is used to write data to a topic at the configured rate.
 
 
@@ -13,18 +10,111 @@ The SimulatorSourceConnector is used to write data to a topic at the configured 
 Configuration
 -------------
 
-.. csv-table:: Configuration
-    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
-    :widths: auto
+-------
+General
+-------
 
-    "key.schema.fields","List","High","","","Fields for the key schema."
-    "topic","String","High","","","Kafka Topic to write to."
-    "value.schema.fields","List","High","","","Fields for the value schema."
-    "batch.size","Int","Medium","100","[1,...]","Number of records to be written per batch."
-    "key.schema.name","String","Medium","com.github.jcustenborder.kafka.connect.simulator.PersonKey","","Name for the key schema."
-    "rate.limit","Double","Medium","100.0","","Rate to write items to kafka."
-    "value.schema.name","String","Medium","com.github.jcustenborder.kafka.connect.simulator.Person","","Name for the value schema."
 
+^^^^^^^^^^^^^^^^^
+key.schema.fields
+^^^^^^^^^^^^^^^^^
+
+Fields for the key schema.
+
+**Importance:** High
+
+**Type:** List
+
+
+
+^^^^^
+topic
+^^^^^
+
+Kafka Topic to write to.
+
+**Importance:** High
+
+**Type:** String
+
+
+
+^^^^^^^^^^^^^^^^^^^
+value.schema.fields
+^^^^^^^^^^^^^^^^^^^
+
+Fields for the value schema.
+
+**Importance:** High
+
+**Type:** List
+
+
+
+^^^^^^^^^^
+batch.size
+^^^^^^^^^^
+
+Number of records to be written per batch.
+
+**Importance:** Medium
+
+**Type:** Int
+
+**Default Value:** 100
+
+**Validator:** [1,...]
+
+
+
+^^^^^^^^^^^^^^^
+key.schema.name
+^^^^^^^^^^^^^^^
+
+Name for the key schema.
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** com.github.jcustenborder.kafka.connect.simulator.PersonKey
+
+
+
+^^^^^^^^^^
+rate.limit
+^^^^^^^^^^
+
+Rate to write items to kafka.
+
+**Importance:** Medium
+
+**Type:** Double
+
+**Default Value:** 100.0
+
+
+
+^^^^^^^^^^^^^^^^^
+value.schema.name
+^^^^^^^^^^^^^^^^^
+
+Name for the value schema.
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** com.github.jcustenborder.kafka.connect.simulator.Person
+
+
+
+
+
+
+--------
+Examples
+--------
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Property based example
@@ -35,14 +125,16 @@ This configuration is used typically along with `standalone mode
 <http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
 .. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 4,5,6
 
-    name=connector1
-    tasks.max=1
+    name=SimulatorSourceConnector1
     connector.class=com.github.jcustenborder.kafka.connect.simulator.SimulatorSourceConnector
-    # The following values must be configured.
-    key.schema.fields=
-    topic=
-    value.schema.fields=
+    tasks.max=1
+    key.schema.fields=< Required Configuration >
+    topic=< Required Configuration >
+    value.schema.fields=< Required Configuration >
+
 
 
 
@@ -54,26 +146,40 @@ Rest based example
 This configuration is used typically along with `distributed mode
 <http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
 Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :caption: Connect Distributed REST example
+    :name: connector.json
+    :emphasize-lines: 6,7,8
 
     {
-        "name": "connector1",
-        "config": {
-            "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSourceConnector",
-            "key.schema.fields":"",
-            "topic":"",
-            "value.schema.fields":"",
-        }
+      "config" : {
+        "name" : "SimulatorSourceConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.simulator.SimulatorSourceConnector",
+        "tasks.max" : "1",
+        "key.schema.fields" : "< Required Configuration >",
+        "topic" : "< Required Configuration >",
+        "value.schema.fields" : "< Required Configuration >"
+      }
     }
+
+
 
 Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
 one of your Kafka Connect worker(s).
 
 .. code-block:: bash
+    :caption: Create a new connector
 
     curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/SimulatorSourceConnector1/config
 
 
 

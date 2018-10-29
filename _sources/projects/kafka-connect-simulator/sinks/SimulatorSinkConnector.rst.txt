@@ -2,9 +2,6 @@
 SimulatorSinkConnector
 ======================
 
-.. image:: SimulatorSinkConnector.svg
-
-
 The SimulatorSinkConnector is used to read data from a topic at the configured rate.
 
 
@@ -13,13 +10,45 @@ The SimulatorSinkConnector is used to read data from a topic at the configured r
 Configuration
 -------------
 
-.. csv-table:: Configuration
-    :header: "Name", "Type", "Importance", "Default Value", "Validator", "Documentation"
-    :widths: auto
+-------
+General
+-------
 
-    "log.entries","Boolean","Medium","false","","Flag to determine if "
-    "rate.limit","Double","Medium","100.0","","Rate to write items to kafka."
 
+^^^^^^^^^^^
+log.entries
+^^^^^^^^^^^
+
+Flag to determine if 
+
+**Importance:** Medium
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+
+^^^^^^^^^^
+rate.limit
+^^^^^^^^^^
+
+Rate to write items to kafka.
+
+**Importance:** Medium
+
+**Type:** Double
+
+**Default Value:** 100.0
+
+
+
+
+
+
+--------
+Examples
+--------
 
 ^^^^^^^^^^^^^^^^^^^^^^
 Property based example
@@ -30,11 +59,14 @@ This configuration is used typically along with `standalone mode
 <http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
 .. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 4
 
-    name=connector1
-    tasks.max=1
+    name=SimulatorSinkConnector1
     connector.class=com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector
-    # The following values must be configured.
+    tasks.max=1
+    topics=< Required Configuration >
+
 
 
 
@@ -46,23 +78,38 @@ Rest based example
 This configuration is used typically along with `distributed mode
 <http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
 Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s).
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
 
 .. code-block:: json
+    :caption: Connect Distributed REST example
+    :name: connector.json
+    :emphasize-lines: 6
 
     {
-        "name": "connector1",
-        "config": {
-            "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
-        }
+      "config" : {
+        "name" : "SimulatorSinkConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
+        "tasks.max" : "1",
+        "topics" : "< Required Configuration >"
+      }
     }
+
+
 
 Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
 one of your Kafka Connect worker(s).
 
 .. code-block:: bash
+    :caption: Create a new connector
 
     curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/SimulatorSinkConnector1/config
 
 
 
