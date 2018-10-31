@@ -31,7 +31,7 @@ Memcached hosts to connnect to.
 
 **Default Value:** [localhost:11211]
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@3e3bf77b
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@7a74672
 
 
 
@@ -72,7 +72,7 @@ Set the failure mode.
 
 **Default Value:** Retry
 
-**Validator:** ``Redistribute``, ``Retry``, ``Cancel``
+**Validator:** Matches: ``Redistribute``, ``Retry``, ``Cancel``
 
 
 
@@ -97,7 +97,7 @@ The locator type.
 
 **Default Value:** ARRAY_MOD
 
-**Validator:** ``ARRAY_MOD``, ``CONSISTENT``, ``VBUCKET``
+**Validator:** Matches: ``ARRAY_MOD``, ``CONSISTENT``, ``VBUCKET``
 
 
 
@@ -163,7 +163,7 @@ Specify the protocol to use.+==========+================================+
 
 **Default Value:** BINARY
 
-**Validator:** ``TEXT``, ``BINARY``
+**Validator:** Matches: ``TEXT``, ``BINARY``
 
 
 
