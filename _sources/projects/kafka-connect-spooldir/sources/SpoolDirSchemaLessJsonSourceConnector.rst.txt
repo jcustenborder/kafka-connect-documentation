@@ -1,8 +1,12 @@
-=====================
-Json Source Connector
-=====================
+=================================
+Schema Less Json Source Connector
+=================================
 
 This connector is used to `stream <https://en.wikipedia.org/wiki/JSON_Streaming>` JSON files from a directory while converting the data based on the schema supplied in the configuration.
+
+
+.. IMPORTANT::
+    This connector does not try to convert the json records to a schema. The recommended converter to use is the StringConverter. Example: `value.converter=org.apache.kafka.connect.storage.StringConverter`
 
 
 
@@ -129,111 +133,9 @@ Before a file is processed, it is renamed to indicate that it is currently being
 
 
 
-------
-Schema
-------
-
-
-^^^^^^^^^^
-key.schema
-^^^^^^^^^^
-
-The schema for the key written to Kafka.
-
-**Importance:** High
-
-**Type:** String
-
-
-
-^^^^^^^^^^^^
-value.schema
-^^^^^^^^^^^^
-
-The schema for the value written to Kafka.
-
-**Importance:** High
-
-**Type:** String
-
-
-
------------------
-Schema Generation
------------------
-
-
-^^^^^^^^^^^^^^^^^^^^^^^^^
-schema.generation.enabled
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Flag to determine if schemas should be dynamically generated. If set  to true, `key.schema` and `value.schema` can be omitted, but `schema.generation.key.name` and `schema.generation.value.name` must be set.
-
-**Importance:** Medium
-
-**Type:** Boolean
-
-**Default Value:** false
-
-
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-schema.generation.key.fields
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The field(s) to use to build a key schema. This is only used during schema generation.
-
-**Importance:** Medium
-
-**Type:** List
-
-**Default Value:** []
-
-
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-schema.generation.key.name
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The name of the generated key schema.
-
-**Importance:** Medium
-
-**Type:** String
-
-**Default Value:** com.github.jcustenborder.kafka.connect.model.Key
-
-
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-schema.generation.value.name
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The name of the generated value schema.
-
-**Importance:** Medium
-
-**Type:** String
-
-**Default Value:** com.github.jcustenborder.kafka.connect.model.Value
-
-
-
 ----------
 Timestamps
 ----------
-
-
-^^^^^^^^^^^^^^^
-timestamp.field
-^^^^^^^^^^^^^^^
-
-The field in the value schema that will contain the parsed timestamp for the record. This field cannot be marked as optional and must be a [Timestamp](https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/data/Schema.html)
-
-**Importance:** Medium
-
-**Type:** String
-
 
 
 ^^^^^^^^^^^^^^
@@ -249,34 +151,6 @@ Determines how the connector will set the timestamp for the [ConnectRecord](http
 **Default Value:** PROCESS_TIME
 
 **Validator:** Matches: ``FIELD``, ``FILE_TIME``, ``PROCESS_TIME``
-
-
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-parser.timestamp.date.formats
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The date formats that are expected in the file. This is a list of strings that will be used to parse the date fields in order. The most accurate date format should be the first in the list. Take a look at the Java documentation for more info. https://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html
-
-**Importance:** Low
-
-**Type:** List
-
-**Default Value:** [yyyy-MM-dd'T'HH:mm:ss, yyyy-MM-dd' 'HH:mm:ss]
-
-
-
-^^^^^^^^^^^^^^^^^^^^^^^^^
-parser.timestamp.timezone
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The timezone that all of the dates will be parsed with.
-
-**Importance:** Low
-
-**Type:** String
-
-**Default Value:** UTC
 
 
 
@@ -334,30 +208,72 @@ The amount of time to wait if a poll returns an empty list of records.
 Examples
 --------
 
-^^^^
-Json
-^^^^
-
-This example will read json from the input directory.
+^^^^^^^^^^^^^^^^^^^^^^
+Property based example
+^^^^^^^^^^^^^^^^^^^^^^
 
 
+This configuration is used typically along with `standalone mode
+<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
 
-Select one of the following configuration methods based on how you have deployed Kafka Connect.
-Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
-example.
+.. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 4,5,6,7
+
+    name=SpoolDirSchemaLessJsonSourceConnector1
+    connector.class=com.github.jcustenborder.kafka.connect.spooldir.SpoolDirSchemaLessJsonSourceConnector
+    tasks.max=1
+    error.path=< Required Configuration >
+    input.file.pattern=< Required Configuration >
+    input.path=< Required Configuration >
+    topic=< Required Configuration >
 
 
-**Distributed Mode Json**
-
-.. literalinclude:: SpoolDirJsonSourceConnector.test.example.json
-    :language: JSON
 
 
-**Standalone Mode Properties**
+^^^^^^^^^^^^^^^^^^
+Rest based example
+^^^^^^^^^^^^^^^^^^
 
-.. literalinclude:: SpoolDirJsonSourceConnector.test.example.properties
-    :language: properties
 
+This configuration is used typically along with `distributed mode
+<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
+Write the following json to `connector.json`, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
+
+.. code-block:: json
+    :caption: Connect Distributed REST example
+    :name: connector.json
+    :emphasize-lines: 6,7,8,9
+
+    {
+      "config" : {
+        "name" : "SpoolDirSchemaLessJsonSourceConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.spooldir.SpoolDirSchemaLessJsonSourceConnector",
+        "tasks.max" : "1",
+        "error.path" : "< Required Configuration >",
+        "input.file.pattern" : "< Required Configuration >",
+        "input.path" : "< Required Configuration >",
+        "topic" : "< Required Configuration >"
+      }
+    }
+
+
+
+Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
+one of your Kafka Connect worker(s).
+
+.. code-block:: bash
+    :caption: Create a new connector
+
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/SpoolDirSchemaLessJsonSourceConnector1/config
 
 
 

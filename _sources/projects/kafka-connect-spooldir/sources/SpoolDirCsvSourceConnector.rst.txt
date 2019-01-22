@@ -2,9 +2,6 @@
 CSV Source Connector
 ====================
 
-.. image:: SpoolDirCsvSourceConnector.svg
-
-
 The SpoolDirCsvSourceConnector will monitor the directory specified in `input.path` for files and read them as a CSV converting each of the records to the strongly typed equivalent specified in `key.schema` and `value.schema`.
 
 
@@ -116,7 +113,7 @@ Indicator to determine how the CSV Reader can determine if a field is null. Vali
 
 **Default Value:** NEITHER
 
-**Validator:** ValidEnum{enum=CSVReaderNullFieldIndicator, allowed=[EMPTY_SEPARATORS, EMPTY_QUOTES, BOTH, NEITHER]}
+**Validator:** Matches: ``EMPTY_SEPARATORS``, ``EMPTY_QUOTES``, ``BOTH``, ``NEITHER``
 
 
 
@@ -205,7 +202,7 @@ The directory to place files in which have error(s). This directory must exist a
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@49442e03
+**Validator:** Absolute path to a directory that exists and is writable.
 
 
 
@@ -231,7 +228,7 @@ The directory to read files that will be processed. This directory must exist an
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@5bad04d1
+**Validator:** Absolute path to a directory that exists and is writable.
 
 
 
@@ -273,7 +270,7 @@ Determines how the connector should cleanup the files that have been successfull
 
 **Default Value:** MOVE
 
-**Validator:** ValidEnum{enum=CleanupPolicy, allowed=[NONE, DELETE, MOVE]}
+**Validator:** Matches: ``NONE``, ``DELETE``, ``MOVE``
 
 
 
@@ -305,7 +302,7 @@ Before a file is processed, it is renamed to indicate that it is currently being
 
 **Default Value:** .PROCESSING
 
-**Validator:** ValidPattern{pattern=^.*\..+$}
+**Validator:** Matches regex( ^.*\..+$ )
 
 
 
@@ -428,7 +425,7 @@ Determines how the connector will set the timestamp for the [ConnectRecord](http
 
 **Default Value:** PROCESS_TIME
 
-**Validator:** ValidEnum{enum=TimestampMode, allowed=[FIELD, FILE_TIME, PROCESS_TIME]}
+**Validator:** Matches: ``FIELD``, ``FILE_TIME``, ``PROCESS_TIME``
 
 
 

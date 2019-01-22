@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="File Input Connectors" href="../connectors.html"/>
-        <link rel="next" title="Com.github.jcustenborder.kafka.connect.statsd Connectors" href="../../kafka-connect-statsd/connectors.html"/>
+        <link rel="next" title="Schema Less Json Source Connector" href="SpoolDirSchemaLessJsonSourceConnector.html"/>
         <link rel="prev" title="Extended Log File Format Source Connector" href="SpoolDirELFSourceConnector.html"/> 
 
   
@@ -114,6 +114,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="SpoolDirSchemaLessJsonSourceConnector.html">Schema Less Json Source Connector</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/connectors.html">Com.github.jcustenborder.kafka.connect.statsd Connectors</a></li>
@@ -196,7 +197,7 @@
             
   <div class="section" id="json-source-connector">
 <h1>Json Source Connector<a class="headerlink" href="#json-source-connector" title="Permalink to this headline">¶</a></h1>
-<img alt="../../../_images/SpoolDirJsonSourceConnector.svg" src="../../../_images/SpoolDirJsonSourceConnector.svg" /><p>This connector is used to <cite>stream &lt;https://en.wikipedia.org/wiki/JSON_Streaming&gt;</cite> JSON files from a directory while converting the data based on the schema supplied in the configuration.</p>
+<p>This connector is used to <cite>stream &lt;https://en.wikipedia.org/wiki/JSON_Streaming&gt;</cite> JSON files from a directory while converting the data based on the schema supplied in the configuration.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -207,7 +208,7 @@
 <p>The directory to place files in which have error(s). This directory must exist and be writable by the user running Kafka Connect.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;utils&#46;config&#46;validators&#46;filesystem&#46;ValidDirectoryWritable&#37;&#52;&#48;22fb60f3">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>utils<span>&#46;</span>config<span>&#46;</span>validators<span>&#46;</span>filesystem<span>&#46;</span>ValidDirectoryWritable<span>&#64;</span>22fb60f3</a></p>
+<p><strong>Validator:</strong> Absolute path to a directory that exists and is writable.</p>
 </div>
 <div class="section" id="input-file-pattern">
 <h3>input.file.pattern<a class="headerlink" href="#input-file-pattern" title="Permalink to this headline">¶</a></h3>
@@ -220,7 +221,7 @@
 <p>The directory to read files that will be processed. This directory must exist and be writable by the user running Kafka Connect.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;utils&#46;config&#46;validators&#46;filesystem&#46;ValidDirectoryWritable&#37;&#52;&#48;dd3d0a6">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>utils<span>&#46;</span>config<span>&#46;</span>validators<span>&#46;</span>filesystem<span>&#46;</span>ValidDirectoryWritable<span>&#64;</span>dd3d0a6</a></p>
+<p><strong>Validator:</strong> Absolute path to a directory that exists and is writable.</p>
 </div>
 <div class="section" id="finished-path">
 <h3>finished.path<a class="headerlink" href="#finished-path" title="Permalink to this headline">¶</a></h3>
@@ -241,7 +242,7 @@
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> MOVE</p>
-<p><strong>Validator:</strong> ValidEnum{enum=CleanupPolicy, allowed=[NONE, DELETE, MOVE]}</p>
+<p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">NONE</span></code>, <code class="docutils literal"><span class="pre">DELETE</span></code>, <code class="docutils literal"><span class="pre">MOVE</span></code></p>
 </div>
 <div class="section" id="file-minimum-age-ms">
 <h3>file.minimum.age.ms<a class="headerlink" href="#file-minimum-age-ms" title="Permalink to this headline">¶</a></h3>
@@ -257,7 +258,7 @@
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> .PROCESSING</p>
-<p><strong>Validator:</strong> ValidPattern{pattern=^.*..+$}</p>
+<p><strong>Validator:</strong> Matches regex( ^.*..+$ )</p>
 </div>
 </div>
 <div class="section" id="schema">
@@ -320,7 +321,7 @@
 <p><strong>Importance:</strong> Medium</p>
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> PROCESS_TIME</p>
-<p><strong>Validator:</strong> ValidEnum{enum=TimestampMode, allowed=[FIELD, FILE_TIME, PROCESS_TIME]}</p>
+<p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">FIELD</span></code>, <code class="docutils literal"><span class="pre">FILE_TIME</span></code>, <code class="docutils literal"><span class="pre">PROCESS_TIME</span></code></p>
 </div>
 <div class="section" id="parser-timestamp-date-formats">
 <h3>parser.timestamp.date.formats<a class="headerlink" href="#parser-timestamp-date-formats" title="Permalink to this headline">¶</a></h3>
@@ -385,15 +386,13 @@ example.</p>
 </pre></div>
 </div>
 <p><strong>Standalone Mode Properties</strong></p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="c">#</span>
-<span class="c">#Wed May 09 20:56:05 UTC 2018</span>
-<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.spooldir.SpoolDirJsonSourceConnector</span>
-<span class="na">topic</span><span class="o">=</span><span class="s">users</span>
-<span class="na">input.file.pattern</span><span class="o">=</span><span class="s">^users\\d+\\.json$</span>
-<span class="na">error.path</span><span class="o">=</span><span class="s">/tmp</span>
-<span class="na">input.path</span><span class="o">=</span><span class="s">/tmp</span>
+<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.spooldir.SpoolDirJsonSourceConnector</span>
 <span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
 <span class="na">finished.path</span><span class="o">=</span><span class="s">/tmp</span>
+<span class="na">input.path</span><span class="o">=</span><span class="s">/tmp</span>
+<span class="na">error.path</span><span class="o">=</span><span class="s">/tmp</span>
+<span class="na">input.file.pattern</span><span class="o">=</span><span class="s">^users\d+\.json$</span>
+<span class="na">topic</span><span class="o">=</span><span class="s">users</span>
 </pre></div>
 </div>
 </div>
@@ -410,7 +409,7 @@ example.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../kafka-connect-statsd/connectors.html" class="btn btn-neutral float-right" title="Com.github.jcustenborder.kafka.connect.statsd Connectors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="SpoolDirSchemaLessJsonSourceConnector.html" class="btn btn-neutral float-right" title="Schema Less Json Source Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="SpoolDirELFSourceConnector.html" class="btn btn-neutral" title="Extended Log File Format Source Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

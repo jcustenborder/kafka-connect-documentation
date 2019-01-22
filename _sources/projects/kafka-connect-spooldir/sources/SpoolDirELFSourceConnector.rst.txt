@@ -2,9 +2,6 @@
 Extended Log File Format Source Connector
 =========================================
 
-.. image:: SpoolDirELFSourceConnector.svg
-
-
 This connector is used to stream `Extended Log File Format <https://www.w3.org/TR/WD-logfile.html>` files from a directory while converting the data to a strongly typed schema.
 
 
@@ -28,7 +25,7 @@ The directory to place files in which have error(s). This directory must exist a
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@5abfb698
+**Validator:** Absolute path to a directory that exists and is writable.
 
 
 
@@ -54,7 +51,7 @@ The directory to read files that will be processed. This directory must exist an
 
 **Type:** String
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable@61ce2d47
+**Validator:** Absolute path to a directory that exists and is writable.
 
 
 
@@ -96,7 +93,7 @@ Determines how the connector should cleanup the files that have been successfull
 
 **Default Value:** MOVE
 
-**Validator:** ValidEnum{enum=CleanupPolicy, allowed=[NONE, DELETE, MOVE]}
+**Validator:** Matches: ``NONE``, ``DELETE``, ``MOVE``
 
 
 
@@ -128,7 +125,7 @@ Before a file is processed, it is renamed to indicate that it is currently being
 
 **Default Value:** .PROCESSING
 
-**Validator:** ValidPattern{pattern=^.*\..+$}
+**Validator:** Matches regex( ^.*\..+$ )
 
 
 
@@ -251,7 +248,7 @@ Determines how the connector will set the timestamp for the [ConnectRecord](http
 
 **Default Value:** PROCESS_TIME
 
-**Validator:** ValidEnum{enum=TimestampMode, allowed=[FIELD, FILE_TIME, PROCESS_TIME]}
+**Validator:** Matches: ``FIELD``, ``FILE_TIME``, ``PROCESS_TIME``
 
 
 
