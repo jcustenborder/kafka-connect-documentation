@@ -2,7 +2,7 @@
 Schema Less Json Source Connector
 =================================
 
-This connector is used to `stream <https://en.wikipedia.org/wiki/JSON_Streaming>` JSON files from a directory while converting the data based on the schema supplied in the configuration.
+This connector is used to `stream <https://en.wikipedia.org/wiki/JSON_Streaming>_` JSON files from a directory while converting the data based on the schema supplied in the configuration.
 
 
 .. IMPORTANT::
