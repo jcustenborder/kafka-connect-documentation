@@ -1,12 +1,8 @@
-====================
-PatternFilter(Value)
-====================
+=======================
+TopicNameToField(Value)
+=======================
 
-This transformation is used to filter records based on a regular expression.
-
-
-.. TIP::
-    This transformation is used to filter records based on fields in the Value of the record.
+This transformation is used to add the topic as a field.
 
 
 
@@ -19,31 +15,15 @@ General
 -------
 
 
-^^^^^^^
-pattern
-^^^^^^^
+^^^^^
+field
+^^^^^
 
-The regex to test the message with. 
+The field to insert the topic name.
 
 **Importance:** High
 
 **Type:** String
-
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.PatternValidator@7b6b8cea
-
-
-
-^^^^^^
-fields
-^^^^^^
-
-The fields to transform.
-
-**Importance:** High
-
-**Type:** List
-
-**Default Value:** []
 
 
 
@@ -70,8 +50,8 @@ This configuration is used typically along with `standalone mode
     connector.class=org.apache.kafka.some.SourceConnector
     tasks.max=1
     transforms=tran
-    transforms.tran.type=com.github.jcustenborder.kafka.connect.transform.common.PatternFilter$Value
-    transforms.tran.pattern=< Required Configuration >
+    transforms.tran.type=com.github.jcustenborder.kafka.connect.transform.common.TopicNameToField$Value
+    transforms.tran.field=< Required Configuration >
 
 
 
@@ -96,8 +76,8 @@ post the configuration to one the distributed connect worker(s). Check here for 
       "name" : "Connector1",
       "connector.class" : "org.apache.kafka.some.SourceConnector",
       "transforms" : "tran",
-      "transforms.tran.type" : "com.github.jcustenborder.kafka.connect.transform.common.PatternFilter$Value",
-      "transforms.tran.pattern" : "< Required Configuration >"
+      "transforms.tran.type" : "com.github.jcustenborder.kafka.connect.transform.common.TopicNameToField$Value",
+      "transforms.tran.field" : "< Required Configuration >"
     }
 
 

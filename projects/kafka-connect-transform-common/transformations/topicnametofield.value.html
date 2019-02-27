@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>PatternFilter(Key) &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>TopicNameToField(Value) &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -143,13 +143,13 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-      <li>PatternFilter(Key)</li>
+      <li>TopicNameToField(Value)</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-transform-common/transformations/patternfilter.key.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-transform-common/transformations/topicnametofield.value.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -162,31 +162,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="patternfilter-key">
-<h1>PatternFilter(Key)<a class="headerlink" href="#patternfilter-key" title="Permalink to this headline">¶</a></h1>
-<p>This transformation is used to filter records based on a regular expression.</p>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">This transformation is used to filter records based on fields in the Key of the record.</p>
-</div>
+  <div class="section" id="topicnametofield-value">
+<h1>TopicNameToField(Value)<a class="headerlink" href="#topicnametofield-value" title="Permalink to this headline">¶</a></h1>
+<p>This transformation is used to add the topic as a field.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="general">
 <h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="pattern">
-<h3>pattern<a class="headerlink" href="#pattern" title="Permalink to this headline">¶</a></h3>
-<p>The regex to test the message with.</p>
+<div class="section" id="field">
+<h3>field<a class="headerlink" href="#field" title="Permalink to this headline">¶</a></h3>
+<p>The field to insert the topic name.</p>
 <p><strong>Importance:</strong> High</p>
 <p><strong>Type:</strong> String</p>
-<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;utils&#46;config&#46;validators&#46;PatternValidator&#37;&#52;&#48;b867869">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>utils<span>&#46;</span>config<span>&#46;</span>validators<span>&#46;</span>PatternValidator<span>&#64;</span>b867869</a></p>
-</div>
-<div class="section" id="fields">
-<h3>fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h3>
-<p>The fields to transform.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> List</p>
-<p><strong>Default Value:</strong> []</p>
 </div>
 </div>
 <div class="section" id="examples">
@@ -198,8 +186,8 @@
 <span class="na">connector.class</span><span class="o">=</span><span class="s">org.apache.kafka.some.SourceConnector</span>
 <span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
 <span class="na">transforms</span><span class="o">=</span><span class="s">tran</span>
-<span class="na">transforms.tran.type</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.transform.common.PatternFilter$Key</span>
-<span class="hll"><span class="na">transforms.tran.pattern</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+<span class="na">transforms.tran.type</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.transform.common.TopicNameToField$Value</span>
+<span class="hll"><span class="na">transforms.tran.field</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
 </span></pre></div>
 </div>
 </div>
@@ -215,8 +203,8 @@ post the configuration to one the distributed connect worker(s). Check here for 
   <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Connector1&quot;</span><span class="p">,</span>
   <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.some.SourceConnector&quot;</span><span class="p">,</span>
   <span class="nt">&quot;transforms&quot;</span> <span class="p">:</span> <span class="s2">&quot;tran&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;transforms.tran.type&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.transform.common.PatternFilter$Key&quot;</span><span class="p">,</span>
-<span class="hll">  <span class="nt">&quot;transforms.tran.pattern&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
+  <span class="nt">&quot;transforms.tran.type&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.transform.common.TopicNameToField$Value&quot;</span><span class="p">,</span>
+<span class="hll">  <span class="nt">&quot;transforms.tran.field&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
 </span><span class="p">}</span>
 </pre></div>
 </div>
@@ -231,7 +219,7 @@ one of your Kafka Connect worker(s).</p>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/Key1/config
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/Value1/config
 </pre></div>
 </div>
 </div>
