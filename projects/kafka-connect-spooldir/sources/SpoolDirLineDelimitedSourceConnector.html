@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Json Source Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Line Delimited Source Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Spool Dir Connectors" href="../connectors.html"/>
-        <link rel="next" title="Line Delimited Source Connector" href="SpoolDirLineDelimitedSourceConnector.html"/>
-        <link rel="prev" title="Extended Log File Format Source Connector" href="SpoolDirELFSourceConnector.html"/> 
+        <link rel="next" title="Schema Less Json Source Connector" href="SpoolDirSchemaLessJsonSourceConnector.html"/>
+        <link rel="prev" title="Json Source Connector" href="SpoolDirJsonSourceConnector.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -104,17 +104,15 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Spool Dir Connectors</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirCsvSourceConnector.html">CSV Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirELFSourceConnector.html">Extended Log File Format Source Connector</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Json Source Connector</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SpoolDirJsonSourceConnector.html">Json Source Connector</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Line Delimited Source Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#file-system">File System</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#schema">Schema</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#schema-generation">Schema Generation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#timestamps">Timestamps</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="SpoolDirLineDelimitedSourceConnector.html">Line Delimited Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirSchemaLessJsonSourceConnector.html">Schema Less Json Source Connector</a></li>
 </ul>
 </li>
@@ -177,13 +175,13 @@
         
           <li><a href="../connectors.html">Spool Dir Connectors</a> &raquo;</li>
         
-      <li>Json Source Connector</li>
+      <li>Line Delimited Source Connector</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-spooldir/sources/SpoolDirJsonSourceConnector.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-spooldir/sources/SpoolDirLineDelimitedSourceConnector.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -196,9 +194,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="json-source-connector">
-<h1>Json Source Connector<a class="headerlink" href="#json-source-connector" title="Permalink to this headline">¶</a></h1>
-<p>This connector is used to <cite>stream &lt;https://en.wikipedia.org/wiki/JSON_Streaming&gt;</cite> JSON files from a directory while converting the data based on the schema supplied in the configuration.</p>
+  <div class="section" id="line-delimited-source-connector">
+<h1>Line Delimited Source Connector<a class="headerlink" href="#line-delimited-source-connector" title="Permalink to this headline">¶</a></h1>
+<p>This connector is used to read a file line by line and write the data to Kafka.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">The recommended converter to use is the StringConverter. Example: <cite>value.converter=org.apache.kafka.connect.storage.StringConverter</cite></p>
+</div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -262,60 +264,8 @@
 <p><strong>Validator:</strong> Matches regex( ^.*..+$ )</p>
 </div>
 </div>
-<div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="key-schema">
-<h3>key.schema<a class="headerlink" href="#key-schema" title="Permalink to this headline">¶</a></h3>
-<p>The schema for the key written to Kafka.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> String</p>
-</div>
-<div class="section" id="value-schema">
-<h3>value.schema<a class="headerlink" href="#value-schema" title="Permalink to this headline">¶</a></h3>
-<p>The schema for the value written to Kafka.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> String</p>
-</div>
-</div>
-<div class="section" id="schema-generation">
-<h2>Schema Generation<a class="headerlink" href="#schema-generation" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="schema-generation-enabled">
-<h3>schema.generation.enabled<a class="headerlink" href="#schema-generation-enabled" title="Permalink to this headline">¶</a></h3>
-<p>Flag to determine if schemas should be dynamically generated. If set  to true, <cite>key.schema</cite> and <cite>value.schema</cite> can be omitted, but <cite>schema.generation.key.name</cite> and <cite>schema.generation.value.name</cite> must be set.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Boolean</p>
-<p><strong>Default Value:</strong> false</p>
-</div>
-<div class="section" id="schema-generation-key-fields">
-<h3>schema.generation.key.fields<a class="headerlink" href="#schema-generation-key-fields" title="Permalink to this headline">¶</a></h3>
-<p>The field(s) to use to build a key schema. This is only used during schema generation.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> List</p>
-<p><strong>Default Value:</strong> []</p>
-</div>
-<div class="section" id="schema-generation-key-name">
-<h3>schema.generation.key.name<a class="headerlink" href="#schema-generation-key-name" title="Permalink to this headline">¶</a></h3>
-<p>The name of the generated key schema.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> String</p>
-<p><strong>Default Value:</strong> com.github.jcustenborder.kafka.connect.model.Key</p>
-</div>
-<div class="section" id="schema-generation-value-name">
-<h3>schema.generation.value.name<a class="headerlink" href="#schema-generation-value-name" title="Permalink to this headline">¶</a></h3>
-<p>The name of the generated value schema.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> String</p>
-<p><strong>Default Value:</strong> com.github.jcustenborder.kafka.connect.model.Value</p>
-</div>
-</div>
 <div class="section" id="timestamps">
 <h2>Timestamps<a class="headerlink" href="#timestamps" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="timestamp-field">
-<h3>timestamp.field<a class="headerlink" href="#timestamp-field" title="Permalink to this headline">¶</a></h3>
-<p>The field in the value schema that will contain the parsed timestamp for the record. This field cannot be marked as optional and must be a [Timestamp](<a class="reference external" href="https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/data/Schema.html">https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/data/Schema.html</a>)</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> String</p>
-</div>
 <div class="section" id="timestamp-mode">
 <h3>timestamp.mode<a class="headerlink" href="#timestamp-mode" title="Permalink to this headline">¶</a></h3>
 <p>Determines how the connector will set the timestamp for the [ConnectRecord](<a class="reference external" href="https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/connector/ConnectRecord">https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/connector/ConnectRecord</a>.html#timestamp()). If set to <cite>Field</cite> then the timestamp will be read from a field in the value. This field cannot be optional and must be a [Timestamp](<a class="reference external" href="https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/data/Schema.html">https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/data/Schema.html</a>). Specify the field  in <cite>timestamp.field</cite>. If set to <cite>FILE_TIME</cite> then the last modified time of the file will be used. If set to <cite>PROCESS_TIME</cite> the time the record is read will be used.</p>
@@ -323,20 +273,6 @@
 <p><strong>Type:</strong> String</p>
 <p><strong>Default Value:</strong> PROCESS_TIME</p>
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">FIELD</span></code>, <code class="docutils literal"><span class="pre">FILE_TIME</span></code>, <code class="docutils literal"><span class="pre">PROCESS_TIME</span></code></p>
-</div>
-<div class="section" id="parser-timestamp-date-formats">
-<h3>parser.timestamp.date.formats<a class="headerlink" href="#parser-timestamp-date-formats" title="Permalink to this headline">¶</a></h3>
-<p>The date formats that are expected in the file. This is a list of strings that will be used to parse the date fields in order. The most accurate date format should be the first in the list. Take a look at the Java documentation for more info. <a class="reference external" href="https://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html">https://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html</a></p>
-<p><strong>Importance:</strong> Low</p>
-<p><strong>Type:</strong> List</p>
-<p><strong>Default Value:</strong> [yyyy-MM-dd’T’HH:mm:ss, yyyy-MM-dd’ ‘HH:mm:ss]</p>
-</div>
-<div class="section" id="parser-timestamp-timezone">
-<h3>parser.timestamp.timezone<a class="headerlink" href="#parser-timestamp-timezone" title="Permalink to this headline">¶</a></h3>
-<p>The timezone that all of the dates will be parsed with.</p>
-<p><strong>Importance:</strong> Low</p>
-<p><strong>Type:</strong> String</p>
-<p><strong>Default Value:</strong> UTC</p>
 </div>
 </div>
 <div class="section" id="general">
@@ -365,36 +301,54 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="json">
-<h3>Json<a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h3>
-<p>This example will read json from the input directory.</p>
-<p>Select one of the following configuration methods based on how you have deployed Kafka Connect.
-Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
-example.</p>
-<p><strong>Distributed Mode Json</strong></p>
-<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;spoolDirJsonSourceConnector1&quot;</span><span class="p">,</span>
+<div class="section" id="property-based-example">
+<h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
+<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">SpoolDirLineDelimitedSourceConnector1</span>
+<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.spooldir.SpoolDirLineDelimitedSourceConnector</span>
+<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
+<span class="hll"><span class="na">error.path</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">input.file.pattern</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">input.path</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span><span class="hll"><span class="na">topic</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="rest-based-example">
+<h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
+Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
+<div class="literal-block-wrapper docutils container" id="connector-json">
+<div class="code-block-caption"><span class="caption-text">Connect Distributed REST example</span><a class="headerlink" href="#connector-json" title="Permalink to this code">¶</a></div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.spooldir.SpoolDirJsonSourceConnector&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;SpoolDirLineDelimitedSourceConnector1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.spooldir.SpoolDirLineDelimitedSourceConnector&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;finished.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;input.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;error.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;input.file.pattern&quot;</span> <span class="p">:</span> <span class="s2">&quot;^users\\d+\\.json$&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;topic&quot;</span> <span class="p">:</span> <span class="s2">&quot;users&quot;</span>
-  <span class="p">}</span>
+<span class="hll">    <span class="nt">&quot;error.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;input.file.pattern&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;input.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;topic&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
+</span>  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>Standalone Mode Properties</strong></p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.spooldir.SpoolDirJsonSourceConnector</span>
-<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
-<span class="na">finished.path</span><span class="o">=</span><span class="s">/tmp</span>
-<span class="na">input.path</span><span class="o">=</span><span class="s">/tmp</span>
-<span class="na">error.path</span><span class="o">=</span><span class="s">/tmp</span>
-<span class="na">input.file.pattern</span><span class="o">=</span><span class="s">^users\d+\.json$</span>
-<span class="na">topic</span><span class="o">=</span><span class="s">users</span>
+</div>
+<p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
+one of your Kafka Connect worker(s).</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
 </pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/SpoolDirLineDelimitedSourceConnector1/config
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -410,10 +364,10 @@ example.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="SpoolDirLineDelimitedSourceConnector.html" class="btn btn-neutral float-right" title="Line Delimited Source Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="SpoolDirSchemaLessJsonSourceConnector.html" class="btn btn-neutral float-right" title="Schema Less Json Source Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="SpoolDirELFSourceConnector.html" class="btn btn-neutral" title="Extended Log File Format Source Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="SpoolDirJsonSourceConnector.html" class="btn btn-neutral" title="Json Source Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

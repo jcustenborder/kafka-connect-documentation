@@ -135,7 +135,7 @@ The character that is used to quote a field. This typically happens when the csv
 csv.separator.char
 ^^^^^^^^^^^^^^^^^^
 
-The character that separates each field in the form of an integer. Typically in a CSV this is a ,(44) character. A TSV would use a tab(9) character.
+The character that separates each field in the form of an integer. Typically in a CSV this is a ,(44) character. A TSV would use a tab(9) character. If `csv.separator.char` is defined as a null(0), then the RFC 4180 parser must be utilized by default. This is the equivalent of `csv.rfc.4180.parser.enabled = true`.
 
 **Importance:** Low
 
@@ -493,6 +493,20 @@ csv.case.sensitive.field.names
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Flag to determine if the field names in the header row should be treated as case sensitive.
+
+**Importance:** Low
+
+**Type:** Boolean
+
+**Default Value:** false
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+csv.rfc.4180.parser.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the RFC 4180 parser should be used instead of the default parser.
 
 **Importance:** Low
 

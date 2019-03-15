@@ -1,6 +1,6 @@
-=====================
-File Input Connectors
-=====================
+====================
+Spool Dir Connectors
+====================
 
 .. toctree::
     :maxdepth: 1

@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="File Input Connectors" href="../connectors.html"/>
+        <link rel="up" title="Spool Dir Connectors" href="../connectors.html"/>
         <link rel="next" title="Extended Log File Format Source Connector" href="SpoolDirELFSourceConnector.html"/>
-        <link rel="prev" title="File Input Connectors" href="../connectors.html"/> 
+        <link rel="prev" title="Spool Dir Connectors" href="../connectors.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -101,7 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-snmp/connectors.html">SNMP Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/connectors.html">Apache Solr Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/connectors.html">Splunk Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">File Input Connectors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Spool Dir Connectors</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">CSV Source Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#csv-parsing">CSV Parsing</a></li>
@@ -115,6 +115,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirELFSourceConnector.html">Extended Log File Format Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirJsonSourceConnector.html">Json Source Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpoolDirLineDelimitedSourceConnector.html">Line Delimited Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirSchemaLessJsonSourceConnector.html">Schema Less Json Source Connector</a></li>
 </ul>
 </li>
@@ -175,7 +176,7 @@
         
           <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
         
-          <li><a href="../connectors.html">File Input Connectors</a> &raquo;</li>
+          <li><a href="../connectors.html">Spool Dir Connectors</a> &raquo;</li>
         
       <li>CSV Source Connector</li>
     
@@ -264,7 +265,7 @@
 </div>
 <div class="section" id="csv-separator-char">
 <h3>csv.separator.char<a class="headerlink" href="#csv-separator-char" title="Permalink to this headline">¶</a></h3>
-<p>The character that separates each field in the form of an integer. Typically in a CSV this is a ,(44) character. A TSV would use a tab(9) character.</p>
+<p>The character that separates each field in the form of an integer. Typically in a CSV this is a ,(44) character. A TSV would use a tab(9) character. If <cite>csv.separator.char</cite> is defined as a null(0), then the RFC 4180 parser must be utilized by default. This is the equivalent of <cite>csv.rfc.4180.parser.enabled = true</cite>.</p>
 <p><strong>Importance:</strong> Low</p>
 <p><strong>Type:</strong> Int</p>
 <p><strong>Default Value:</strong> 44</p>
@@ -450,6 +451,13 @@
 <p><strong>Type:</strong> Boolean</p>
 <p><strong>Default Value:</strong> false</p>
 </div>
+<div class="section" id="csv-rfc-4180-parser-enabled">
+<h3>csv.rfc.4180.parser.enabled<a class="headerlink" href="#csv-rfc-4180-parser-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Flag to determine if the RFC 4180 parser should be used instead of the default parser.</p>
+<p><strong>Importance:</strong> Low</p>
+<p><strong>Type:</strong> Boolean</p>
+<p><strong>Default Value:</strong> false</p>
+</div>
 <div class="section" id="empty-poll-wait-ms">
 <h3>empty.poll.wait.ms<a class="headerlink" href="#empty-poll-wait-ms" title="Permalink to this headline">¶</a></h3>
 <p>The amount of time to wait if a poll returns an empty list of records.</p>
@@ -511,7 +519,7 @@ example.</p>
         <a href="SpoolDirELFSourceConnector.html" class="btn btn-neutral float-right" title="Extended Log File Format Source Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="File Input Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../connectors.html" class="btn btn-neutral" title="Spool Dir Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

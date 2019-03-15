@@ -1,0 +1,279 @@
+===============================
+Line Delimited Source Connector
+===============================
+
+This connector is used to read a file line by line and write the data to Kafka.
+
+
+.. IMPORTANT::
+    The recommended converter to use is the StringConverter. Example: `value.converter=org.apache.kafka.connect.storage.StringConverter`
+
+
+
+-------------
+Configuration
+-------------
+
+-----------
+File System
+-----------
+
+
+^^^^^^^^^^
+error.path
+^^^^^^^^^^
+
+The directory to place files in which have error(s). This directory must exist and be writable by the user running Kafka Connect.
+
+**Importance:** High
+
+**Type:** String
+
+**Validator:** Absolute path to a directory that exists and is writable.
+
+
+
+^^^^^^^^^^^^^^^^^^
+input.file.pattern
+^^^^^^^^^^^^^^^^^^
+
+Regular expression to check input file names against. This expression must match the entire filename. The equivalent of Matcher.matches().
+
+**Importance:** High
+
+**Type:** String
+
+
+
+^^^^^^^^^^
+input.path
+^^^^^^^^^^
+
+The directory to read files that will be processed. This directory must exist and be writable by the user running Kafka Connect.
+
+**Importance:** High
+
+**Type:** String
+
+**Validator:** Absolute path to a directory that exists and is writable.
+
+
+
+^^^^^^^^^^^^^
+finished.path
+^^^^^^^^^^^^^
+
+The directory to place files that have been successfully processed. This directory must exist and be writable by the user running Kafka Connect.
+
+**Importance:** High
+
+**Type:** String
+
+
+
+^^^^^^^^^^^^^
+halt.on.error
+^^^^^^^^^^^^^
+
+Should the task halt when it encounters an error or continue to the next file.
+
+**Importance:** High
+
+**Type:** Boolean
+
+**Default Value:** true
+
+
+
+^^^^^^^^^^^^^^
+cleanup.policy
+^^^^^^^^^^^^^^
+
+Determines how the connector should cleanup the files that have been successfully processed. NONE leaves the files in place which could cause them to be reprocessed if the connector is restarted. DELETE removes the file from the filesystem. MOVE will move the file to a finished directory.
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** MOVE
+
+**Validator:** Matches: ``NONE``, ``DELETE``, ``MOVE``
+
+
+
+^^^^^^^^^^^^^^^^^^^
+file.minimum.age.ms
+^^^^^^^^^^^^^^^^^^^
+
+The amount of time in milliseconds after the file was last written to before the file can be processed.
+
+**Importance:** Low
+
+**Type:** Long
+
+**Default Value:** 0
+
+**Validator:** [0,...]
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^
+processing.file.extension
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Before a file is processed, it is renamed to indicate that it is currently being processed. This setting is appended to the end of the file.
+
+**Importance:** Low
+
+**Type:** String
+
+**Default Value:** .PROCESSING
+
+**Validator:** Matches regex( ^.*\..+$ )
+
+
+
+----------
+Timestamps
+----------
+
+
+^^^^^^^^^^^^^^
+timestamp.mode
+^^^^^^^^^^^^^^
+
+Determines how the connector will set the timestamp for the [ConnectRecord](https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/connector/ConnectRecord.html#timestamp()). If set to `Field` then the timestamp will be read from a field in the value. This field cannot be optional and must be a [Timestamp](https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/data/Schema.html). Specify the field  in `timestamp.field`. If set to `FILE_TIME` then the last modified time of the file will be used. If set to `PROCESS_TIME` the time the record is read will be used.
+
+**Importance:** Medium
+
+**Type:** String
+
+**Default Value:** PROCESS_TIME
+
+**Validator:** Matches: ``FIELD``, ``FILE_TIME``, ``PROCESS_TIME``
+
+
+
+-------
+General
+-------
+
+
+^^^^^
+topic
+^^^^^
+
+The Kafka topic to write the data to.
+
+**Importance:** High
+
+**Type:** String
+
+
+
+^^^^^^^^^^
+batch.size
+^^^^^^^^^^
+
+The number of records that should be returned with each batch.
+
+**Importance:** Low
+
+**Type:** Int
+
+**Default Value:** 1000
+
+
+
+^^^^^^^^^^^^^^^^^^
+empty.poll.wait.ms
+^^^^^^^^^^^^^^^^^^
+
+The amount of time to wait if a poll returns an empty list of records.
+
+**Importance:** Low
+
+**Type:** Long
+
+**Default Value:** 250
+
+**Validator:** [1,...,9223372036854775807]
+
+
+
+
+
+
+--------
+Examples
+--------
+
+^^^^^^^^^^^^^^^^^^^^^^
+Property based example
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `standalone mode
+<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
+
+.. code-block:: properties
+    :name: connector.properties
+    :emphasize-lines: 4,5,6,7
+
+    name=SpoolDirLineDelimitedSourceConnector1
+    connector.class=com.github.jcustenborder.kafka.connect.spooldir.SpoolDirLineDelimitedSourceConnector
+    tasks.max=1
+    error.path=< Required Configuration >
+    input.file.pattern=< Required Configuration >
+    input.path=< Required Configuration >
+    topic=< Required Configuration >
+
+
+
+
+^^^^^^^^^^^^^^^^^^
+Rest based example
+^^^^^^^^^^^^^^^^^^
+
+
+This configuration is used typically along with `distributed mode
+<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
+Write the following json to `connector.json`, configure all of the required values, and use the command below to
+post the configuration to one the distributed connect worker(s). Check here for more information about the
+`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
+
+.. code-block:: json
+    :caption: Connect Distributed REST example
+    :name: connector.json
+    :emphasize-lines: 6,7,8,9
+
+    {
+      "config" : {
+        "name" : "SpoolDirLineDelimitedSourceConnector1",
+        "connector.class" : "com.github.jcustenborder.kafka.connect.spooldir.SpoolDirLineDelimitedSourceConnector",
+        "tasks.max" : "1",
+        "error.path" : "< Required Configuration >",
+        "input.file.pattern" : "< Required Configuration >",
+        "input.path" : "< Required Configuration >",
+        "topic" : "< Required Configuration >"
+      }
+    }
+
+
+
+Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
+one of your Kafka Connect worker(s).
+
+.. code-block:: bash
+    :caption: Create a new connector
+
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
+
+
+.. code-block:: bash
+    :caption: Update an existing connector
+
+    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/SpoolDirLineDelimitedSourceConnector1/config
+
+
+
