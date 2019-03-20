@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Kafka Connect Connectors's documentation!
-====================================================
+Welcome to Kafka Connect documentation!
+=======================================
 
 `Kafka Connect <https://kafka.apache.org/documentation/#introduction>`_ is a fault tolerant framework for running
 connectors and tasks to pull data into and out of a Kafka Cluster. It is essentially the
@@ -19,6 +19,7 @@ This project is a collection of connectors and transforms that can be leveraged 
    :caption: Contents:
 
    installation
+   projects
    connectors
    transformations
    schemas
