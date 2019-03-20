@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Apache Solr Connectors &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Spool Dir &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="Connectors" href="../../connectors.html"/>
-        <link rel="next" title="Cloud Solr" href="sinks/CloudSolrSinkConnector.html"/>
-        <link rel="prev" title="Changelog" href="../kafka-connect-snmp/changelog.html"/> 
+        <link rel="up" title="Projects" href="../../projects.html"/>
+        <link rel="next" title="CSV Source Connector" href="sources/SpoolDirCsvSourceConnector.html"/>
+        <link rel="prev" title="Projects" href="../../projects.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -94,23 +94,19 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../projects.html">Projects</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-memcached/connectors.html">Memcached Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-redis/connectors.html">Redis Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-simulator/connectors.html">Com.github.jcustenborder.kafka.connect.simulator Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-snmp/connectors.html">SNMP Connector</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Apache Solr Connectors</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sinks/CloudSolrSinkConnector.html">Cloud Solr</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sinks/HttpSolrSinkConnector.html">Standard Solr</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../projects.html">Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Spool Dir</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sources/SpoolDirCsvSourceConnector.html">CSV Source Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sources/SpoolDirELFSourceConnector.html">Extended Log File Format Source Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sources/SpoolDirJsonSourceConnector.html">Json Source Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sources/SpoolDirLineDelimitedSourceConnector.html">Line Delimited Source Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sources/SpoolDirSchemaLessJsonSourceConnector.html">Schema Less Json Source Connector</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-splunk/connectors.html">Splunk Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/connectors.html">Spool Dir</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-statsd/connectors.html">Com.github.jcustenborder.kafka.connect.statsd Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/connectors.html">Twitter Connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../connectors.html">Connectors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../transformations.html">Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schemas.html">Schemas</a></li>
 </ul>
@@ -162,15 +158,15 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../connectors.html">Connectors</a> &raquo;</li>
+          <li><a href="../../projects.html">Projects</a> &raquo;</li>
         
-      <li>Apache Solr Connectors</li>
+      <li>Spool Dir</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/projects/kafka-connect-solr/connectors.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/projects/kafka-connect-spooldir/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -183,9 +179,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="apache-solr-connectors">
-<h1>Apache Solr Connectors<a class="headerlink" href="#apache-solr-connectors" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="spool-dir">
+<h1>Spool Dir<a class="headerlink" href="#spool-dir" title="Permalink to this headline">¶</a></h1>
+<p>Installation through the <a class="reference external" href="https://docs.confluent.io/current/connect/managing/confluent-hub/client.html">Confluent Hub Client</a>.</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span>confluent-hub install jcustenborder/kafka-connect-spooldir:latest
+</pre></div>
+</div>
+<p>This Kafka Connect connector provides the capability to watch a directory for files and read the data as new files are written to the input directory. Each of the records in the input file will be converted based on the user supplied schema.</p>
+<p>The CSVRecordProcessor supports reading CSV or TSV files. It can convert a CSV on the fly to the strongly typed Kafka Connect data types. It currently has support for all of the schema types and logical types that are supported in Kafka Connect. If you couple this with the Avro converter and Schema Registry by Confluent, you will be able to process CSV, Json, or TSV files to strongly typed Avro data in real time.</p>
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Connectors:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sources/SpoolDirCsvSourceConnector.html">CSV Source Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sources/SpoolDirELFSourceConnector.html">Extended Log File Format Source Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sources/SpoolDirJsonSourceConnector.html">Json Source Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sources/SpoolDirLineDelimitedSourceConnector.html">Line Delimited Source Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sources/SpoolDirSchemaLessJsonSourceConnector.html">Schema Less Json Source Connector</a></li>
+</ul>
 </div>
 </div>
 
@@ -199,10 +209,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sinks/CloudSolrSinkConnector.html" class="btn btn-neutral float-right" title="Cloud Solr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sources/SpoolDirCsvSourceConnector.html" class="btn btn-neutral float-right" title="CSV Source Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../kafka-connect-snmp/changelog.html" class="btn btn-neutral" title="Changelog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../projects.html" class="btn btn-neutral" title="Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

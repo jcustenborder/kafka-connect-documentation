@@ -1,0 +1,2813 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FIX encoded lines &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Line Delimited Source Connector" href="../SpoolDirLineDelimitedSourceConnector.html"/>
+        <link rel="next" title="Schema Less Json Source Connector" href="../SpoolDirSchemaLessJsonSourceConnector.html"/>
+        <link rel="prev" title="Line Delimited Source Connector" href="../SpoolDirLineDelimitedSourceConnector.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Kafka Connect Connectors
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../projects.html">Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Spool Dir</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../SpoolDirCsvSourceConnector.html">CSV Source Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SpoolDirELFSourceConnector.html">Extended Log File Format Source Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SpoolDirJsonSourceConnector.html">Json Source Connector</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../SpoolDirLineDelimitedSourceConnector.html">Line Delimited Source Connector</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">FIX encoded lines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SpoolDirLineDelimitedSourceConnector.html#file-system">File System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SpoolDirLineDelimitedSourceConnector.html#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SpoolDirLineDelimitedSourceConnector.html#timestamps">Timestamps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../SpoolDirSchemaLessJsonSourceConnector.html">Schema Less Json Source Connector</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../connectors.html">Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../transformations.html">Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../schemas.html">Schemas</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configdef.type.html">ConfigDef.Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../schema.type.html">Schema Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Kafka Connect Connectors</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../projects.html">Projects</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Spool Dir</a> &raquo;</li>
+        
+          <li><a href="../SpoolDirLineDelimitedSourceConnector.html">Line Delimited Source Connector</a> &raquo;</li>
+        
+      <li>FIX encoded lines</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/projects/kafka-connect-spooldir/sources/examples/SpoolDirLineDelimitedSourceConnector.fix.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fix-encoded-lines">
+<h1>FIX encoded lines<a class="headerlink" href="#fix-encoded-lines" title="Permalink to this headline">¶</a></h1>
+<p>This example will read files in a directory line by line and parse them using kafka-connect-transform-fix to a FIX representation of the data.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.spooldir.SpoolDirLineDelimitedSourceConnector&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;topic&quot;</span> <span class="p">:</span> <span class="s2">&quot;fix&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;input.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;input.file.pattern&quot;</span> <span class="p">:</span> <span class="s2">&quot;^.+\\.fix$&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;error.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;finished.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;transforms.fromFix.type&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.transform.fix.FromFIX$Value&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Data similar to the following will be emitted by this connector.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Output</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-json"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<dl class="docutils">
+<dt>{</dt>
+<dd><p class="first">“sourcePartition” : { },
+“sourceOffset” : { },
+“topic” : “fix”,
+“kafkaPartition” : 0,
+“valueSchema” : {</p>
+<blockquote>
+<div><p>“name” : “fix42.NewOrderSingle”,
+“type” : “STRUCT”,
+“isOptional” : false,
+“fieldSchemas” : {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>“Account” <span class="classifier-delimiter">:</span> <span class="classifier">{</span></dt>
+<dd><p class="first">“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “1”</div></blockquote>
+<p class="last">},
+“isOptional” : true</p>
+</dd>
+</dl>
+<p>},
+“CashOrderQty” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “152”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“CheckSum” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “10”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ClOrdID” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “11”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ClearingAccount” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “440”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ClearingFirm” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “439”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ClientID” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “109”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“CommType” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “13”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Commission” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “12”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ComplianceID” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “376”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ContractMultiplier” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “231”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“CouponRate” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “223”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“CoveredOrUncovered” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “203”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Currency” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “15”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“CustomerOrFirm” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “204”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“DiscretionInst” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “388”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“DiscretionOffset” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “389”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EffectiveTime” : {</p>
+<blockquote>
+<div><p>“name” : “org.apache.kafka.connect.data.Timestamp”,
+“type” : “INT64”,
+“version” : 1,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “168”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EncodedIssuer” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “349”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EncodedIssuerLen” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “348”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EncodedSecurityDesc” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “351”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EncodedSecurityDescLen” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “350”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EncodedText” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “355”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EncodedTextLen” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “354”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ExDestination” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “100”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ExecBroker” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “76”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ExecInst” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “18”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ExpireDate” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “432”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ExpireTime” : {</p>
+<blockquote>
+<div><p>“name” : “org.apache.kafka.connect.data.Timestamp”,
+“type” : “INT64”,
+“version” : 1,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “126”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ForexReq” : {</p>
+<blockquote>
+<div><p>“type” : “BOOLEAN”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “121”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“FutSettDate” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “64”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“FutSettDate2” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “193”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“GTBookingInst” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “427”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“HandlInst” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “21”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“IDSource” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “22”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“IOIID” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “23”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Issuer” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “106”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“LocateReqd” : {</p>
+<blockquote>
+<div><p>“type” : “BOOLEAN”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “114”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“MaturityDay” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “205”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“MaturityMonthYear” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “200”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“MaxFloor” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “111”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“MaxShow” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “210”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“MinQty” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “110”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“NoAllocs” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “78”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“NoTradingSessions” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “386”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“OpenClose” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “77”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“OptAttribute” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “206”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“OrdType” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “40”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“OrderQty” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “38”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“OrderQty2” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “192”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“PegDifference” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “211”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“PrevClosePx” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “140”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Price” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “44”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ProcessCode” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “81”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“PutOrCall” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “201”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“QuoteID” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “117”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Rule80A” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “47”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SecurityDesc” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “107”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SecurityExchange” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “207”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SecurityID” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “48”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SecurityType” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “167”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SettlCurrency” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “120”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SettlmntTyp” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “63”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Side” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “54”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Signature” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “89”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SignatureLength” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “93”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SolicitedFlag” : {</p>
+<blockquote>
+<div><p>“type” : “BOOLEAN”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “377”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“StopPx” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “99”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“StrikePrice” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “202”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Symbol” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “55”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SymbolSfx” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “65”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Text” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “58”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“TimeInForce” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “59”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“TransactTime” : {</p>
+<blockquote>
+<div><p>“name” : “org.apache.kafka.connect.data.Timestamp”,
+“type” : “INT64”,
+“version” : 1,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “60”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+“value” : {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>“schema” <span class="classifier-delimiter">:</span> <span class="classifier">{</span></dt>
+<dd><p class="first">“name” : “fix42.NewOrderSingle”,
+“type” : “STRUCT”,
+“isOptional” : false,
+“fieldSchemas” : {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>“Account” <span class="classifier-delimiter">:</span> <span class="classifier">{</span></dt>
+<dd><p class="first">“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “1”</div></blockquote>
+<p class="last">},
+“isOptional” : true</p>
+</dd>
+</dl>
+<p>},
+“CashOrderQty” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “152”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“CheckSum” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “10”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ClOrdID” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “11”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ClearingAccount” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “440”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ClearingFirm” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “439”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ClientID” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “109”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“CommType” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “13”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Commission” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “12”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ComplianceID” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “376”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ContractMultiplier” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “231”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“CouponRate” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “223”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“CoveredOrUncovered” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “203”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Currency” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “15”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“CustomerOrFirm” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “204”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“DiscretionInst” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “388”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“DiscretionOffset” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “389”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EffectiveTime” : {</p>
+<blockquote>
+<div><p>“name” : “org.apache.kafka.connect.data.Timestamp”,
+“type” : “INT64”,
+“version” : 1,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “168”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EncodedIssuer” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “349”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EncodedIssuerLen” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “348”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EncodedSecurityDesc” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “351”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EncodedSecurityDescLen” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “350”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EncodedText” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “355”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“EncodedTextLen” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “354”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ExDestination” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “100”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ExecBroker” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “76”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ExecInst” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “18”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ExpireDate” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “432”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ExpireTime” : {</p>
+<blockquote>
+<div><p>“name” : “org.apache.kafka.connect.data.Timestamp”,
+“type” : “INT64”,
+“version” : 1,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “126”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ForexReq” : {</p>
+<blockquote>
+<div><p>“type” : “BOOLEAN”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “121”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“FutSettDate” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “64”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“FutSettDate2” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “193”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“GTBookingInst” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “427”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“HandlInst” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “21”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“IDSource” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “22”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“IOIID” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “23”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Issuer” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “106”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“LocateReqd” : {</p>
+<blockquote>
+<div><p>“type” : “BOOLEAN”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “114”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“MaturityDay” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “205”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“MaturityMonthYear” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “200”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“MaxFloor” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “111”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“MaxShow” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “210”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“MinQty” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “110”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“NoAllocs” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “78”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“NoTradingSessions” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “386”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“OpenClose” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “77”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“OptAttribute” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “206”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“OrdType” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “40”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“OrderQty” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “38”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“OrderQty2” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “192”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“PegDifference” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “211”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“PrevClosePx” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “140”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Price” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “44”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“ProcessCode” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “81”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“PutOrCall” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “201”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“QuoteID” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “117”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Rule80A” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “47”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SecurityDesc” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “107”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SecurityExchange” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “207”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SecurityID” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “48”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SecurityType” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “167”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SettlCurrency” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “120”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SettlmntTyp” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “63”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Side” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “54”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Signature” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “89”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SignatureLength” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “93”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SolicitedFlag” : {</p>
+<blockquote>
+<div><p>“type” : “BOOLEAN”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “377”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“StopPx” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “99”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“StrikePrice” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “202”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Symbol” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “55”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“SymbolSfx” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “65”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“Text” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “58”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“TimeInForce” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “59”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>},
+“TransactTime” : {</p>
+<blockquote>
+<div><p>“name” : “org.apache.kafka.connect.data.Timestamp”,
+“type” : “INT64”,
+“version” : 1,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “60”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>},
+“fieldValues” : [ {</p>
+<blockquote>
+<div><p>“name” : “Account”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “1”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>}, {</dt>
+<dd><p class="first">“name” : “CashOrderQty”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “152”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “CheckSum”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “10”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “ClOrdID”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “11”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">},
+“storage” : “NF 0542/03232009”</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “ClearingAccount”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “440”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “ClearingFirm”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “439”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “ClientID”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “109”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “CommType”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “13”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “Commission”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “12”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “ComplianceID”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “376”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “ContractMultiplier”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “231”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “CouponRate”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “223”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “CoveredOrUncovered”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “203”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “Currency”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “15”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “CustomerOrFirm”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “204”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “DiscretionInst”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “388”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “DiscretionOffset”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “389”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “EffectiveTime”,
+“schema” : {</p>
+<blockquote>
+<div><p>“name” : “org.apache.kafka.connect.data.Timestamp”,
+“type” : “INT64”,
+“version” : 1,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “168”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “EncodedIssuer”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “349”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “EncodedIssuerLen”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “348”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “EncodedSecurityDesc”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “351”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “EncodedSecurityDescLen”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “350”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “EncodedText”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “355”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “EncodedTextLen”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “354”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “ExDestination”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “100”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “ExecBroker”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “76”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “ExecInst”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “18”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “ExpireDate”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “432”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “ExpireTime”,
+“schema” : {</p>
+<blockquote>
+<div><p>“name” : “org.apache.kafka.connect.data.Timestamp”,
+“type” : “INT64”,
+“version” : 1,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “126”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “ForexReq”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “BOOLEAN”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “121”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “FutSettDate”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “64”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “FutSettDate2”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “193”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “GTBookingInst”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “427”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “HandlInst”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “21”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">},
+“storage” : “1”</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “IDSource”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “22”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “IOIID”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “23”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “Issuer”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “106”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “LocateReqd”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “BOOLEAN”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “114”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “MaturityDay”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “205”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “MaturityMonthYear”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “200”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “MaxFloor”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “111”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “MaxShow”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “210”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “MinQty”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “110”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “NoAllocs”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “78”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “NoTradingSessions”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “386”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “OpenClose”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “77”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “OptAttribute”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “206”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “OrdType”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “40”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">},
+“storage” : “1”</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “OrderQty”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “38”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">},
+“storage” : 100.0</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “OrderQty2”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “192”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “PegDifference”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “211”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “PrevClosePx”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “140”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “Price”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “44”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “ProcessCode”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “81”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “PutOrCall”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “201”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “QuoteID”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “117”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “Rule80A”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “47”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">},
+“storage” : “A”</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “SecurityDesc”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “107”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “SecurityExchange”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “207”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">},
+“storage” : “N”</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “SecurityID”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “48”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “SecurityType”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “167”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “SettlCurrency”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “120”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “SettlmntTyp”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “63”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “Side”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “54”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">},
+“storage” : “1”</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “Signature”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “89”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “SignatureLength”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “INT32”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “93”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “SolicitedFlag”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “BOOLEAN”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “377”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “StopPx”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “99”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “StrikePrice”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “FLOAT64”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “202”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “Symbol”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “55”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">},
+“storage” : “CVS”</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “SymbolSfx”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “65”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “Text”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “58”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">}</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “TimeInForce”,
+“schema” : {</p>
+<blockquote>
+<div><p>“type” : “STRING”,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “59”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">},
+“storage” : “0”</p>
+</dd>
+<dt>}, {</dt>
+<dd><p class="first">“name” : “TransactTime”,
+“schema” : {</p>
+<blockquote>
+<div><p>“name” : “org.apache.kafka.connect.data.Timestamp”,
+“type” : “INT64”,
+“version” : 1,
+“parameters” : {</p>
+<blockquote>
+<div>“fix.field” : “60”</div></blockquote>
+<p>},
+“isOptional” : true</p>
+</div></blockquote>
+<p class="last">},
+“storage” : 1237822829000</p>
+</dd>
+</dl>
+<p>} ]</p>
+</div></blockquote>
+<p class="last">},
+“headers” : [ ]</p>
+</dd>
+</dl>
+<p>}</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../SpoolDirSchemaLessJsonSourceConnector.html" class="btn btn-neutral float-right" title="Schema Less Json Source Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../SpoolDirLineDelimitedSourceConnector.html" class="btn btn-neutral" title="Line Delimited Source Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Jeremy Custenborder.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-10128000-10', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

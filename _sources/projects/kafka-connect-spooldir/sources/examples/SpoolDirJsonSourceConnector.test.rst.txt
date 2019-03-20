@@ -1,0 +1,21 @@
+====
+Json
+====
+
+This example will read json from the input directory.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "connector.class" : "com.github.jcustenborder.kafka.connect.spooldir.SpoolDirJsonSourceConnector",
+      "finished.path" : "/tmp",
+      "input.path" : "/tmp",
+      "error.path" : "/tmp",
+      "input.file.pattern" : "^users\\d+\\.json$",
+      "topic" : "users"
+    }
+
+

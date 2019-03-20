@@ -1,0 +1,22 @@
+==============
+TSV input file
+==============
+
+This example will read a tab separated file. This method is very similar to reading a standard CSV file.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "connector.class" : "com.github.jcustenborder.kafka.connect.spooldir.SpoolDirCsvSourceConnector",
+      "finished.path" : "/tmp",
+      "input.path" : "/tmp",
+      "error.path" : "/tmp",
+      "input.file.pattern" : "^users\\d+\\.tsv",
+      "topic" : "users",
+      "csv.separator.char" : "11"
+    }
+
+

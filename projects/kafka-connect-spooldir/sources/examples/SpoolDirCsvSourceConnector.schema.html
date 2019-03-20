@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CSV with schema &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../../index.html"/>
+        <link rel="up" title="CSV Source Connector" href="../SpoolDirCsvSourceConnector.html"/>
+        <link rel="next" title="TSV input file" href="SpoolDirCsvSourceConnector.tsv.html"/>
+        <link rel="prev" title="CSV Source Connector" href="../SpoolDirCsvSourceConnector.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Kafka Connect Connectors
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../projects.html">Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Spool Dir</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../SpoolDirCsvSourceConnector.html">CSV Source Connector</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">CSV with schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpoolDirCsvSourceConnector.tsv.html">TSV input file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SpoolDirCsvSourceConnector.html#file-system">File System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SpoolDirCsvSourceConnector.html#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SpoolDirCsvSourceConnector.html#schema">Schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SpoolDirCsvSourceConnector.html#csv-parsing">CSV Parsing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SpoolDirCsvSourceConnector.html#schema-generation">Schema Generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SpoolDirCsvSourceConnector.html#timestamps">Timestamps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../SpoolDirELFSourceConnector.html">Extended Log File Format Source Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SpoolDirJsonSourceConnector.html">Json Source Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SpoolDirLineDelimitedSourceConnector.html">Line Delimited Source Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SpoolDirSchemaLessJsonSourceConnector.html">Schema Less Json Source Connector</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../connectors.html">Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../transformations.html">Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../schemas.html">Schemas</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configdef.type.html">ConfigDef.Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../schema.type.html">Schema Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Kafka Connect Connectors</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../projects.html">Projects</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Spool Dir</a> &raquo;</li>
+        
+          <li><a href="../SpoolDirCsvSourceConnector.html">CSV Source Connector</a> &raquo;</li>
+        
+      <li>CSV with schema</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/projects/kafka-connect-spooldir/sources/examples/SpoolDirCsvSourceConnector.schema.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="csv-with-schema">
+<h1>CSV with schema<a class="headerlink" href="#csv-with-schema" title="Permalink to this headline">¶</a></h1>
+<p>This example will read csv files and write them to Kafka parsing them to the
+schema specified in <code class="docutils literal"><span class="pre">key.schema</span></code> and <code class="docutils literal"><span class="pre">value.schema</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The data for the following example is formatted as such.</p>
+</div>
+<p>id,first_name,last_name,email,gender,ip_address,last_login,account_balance,country,favorite_color
+1,Jack,Garcia,jgarcia0&#64;shop-pro.jp,Male,196.56.44.185,2015-09-30T15:29:03Z,347.77,IT,#4a2313</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.spooldir.SpoolDirCsvSourceConnector&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;finished.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;input.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;error.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;input.file.pattern&quot;</span> <span class="p">:</span> <span class="s2">&quot;^users\\d+\\.csv&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;topic&quot;</span> <span class="p">:</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;key.schema&quot;</span> <span class="p">:</span> <span class="s2">&quot;{\n  \&quot;name\&quot; : \&quot;com.example.users.UserKey\&quot;,\n  \&quot;type\&quot; : \&quot;STRUCT\&quot;,\n  \&quot;isOptional\&quot; : false,\n  \&quot;fieldSchemas\&quot; : {\n    \&quot;id\&quot; : {\n      \&quot;type\&quot; : \&quot;INT64\&quot;,\n      \&quot;isOptional\&quot; : false\n    }\n  }\n}\n&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;value.schema&quot;</span> <span class="p">:</span> <span class="s2">&quot;{\n  \&quot;name\&quot; : \&quot;com.example.users.User\&quot;,\n  \&quot;type\&quot; : \&quot;STRUCT\&quot;,\n  \&quot;isOptional\&quot; : false,\n  \&quot;fieldSchemas\&quot; : {\n    \&quot;id\&quot; : {\n      \&quot;type\&quot; : \&quot;INT64\&quot;,\n      \&quot;isOptional\&quot; : false\n    },\n    \&quot;first_name\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;last_name\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;email\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;gender\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;ip_address\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;last_login\&quot; : {\n      \&quot;name\&quot; : \&quot;org.apache.kafka.connect.data.Timestamp\&quot;,\n      \&quot;type\&quot; : \&quot;INT64\&quot;,\n      \&quot;version\&quot; : 1,\n      \&quot;isOptional\&quot; : false\n    },\n    \&quot;account_balance\&quot; : {\n      \&quot;name\&quot; : \&quot;org.apache.kafka.connect.data.Decimal\&quot;,\n      \&quot;type\&quot; : \&quot;BYTES\&quot;,\n      \&quot;version\&quot; : 1,\n      \&quot;parameters\&quot; : {\n        \&quot;scale\&quot; : \&quot;2\&quot;\n      },\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;country\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;favorite_color\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    }\n  }\n}\n&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SpoolDirCsvSourceConnector.tsv.html" class="btn btn-neutral float-right" title="TSV input file" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../SpoolDirCsvSourceConnector.html" class="btn btn-neutral" title="CSV Source Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Jeremy Custenborder.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-10128000-10', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>
