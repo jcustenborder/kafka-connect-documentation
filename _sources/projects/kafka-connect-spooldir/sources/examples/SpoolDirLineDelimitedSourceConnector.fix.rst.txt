@@ -16,6 +16,7 @@ This example will read files in a directory line by line and parse them using ka
       "input.file.pattern" : "^.+\\.fix$",
       "error.path" : "/tmp",
       "finished.path" : "/tmp",
+      "transforms" : "fromFix",
       "transforms.fromFix.type" : "com.github.jcustenborder.kafka.connect.transform.fix.FromFIX$Value"
     }
 

@@ -202,7 +202,11 @@
 <p class="first admonition-title">Tip</p>
 <p class="last">To get a starting point for a schema you can use the following command to generate an all String schema. This will give you the basic structure of a schema. From there you can changes the types to match what you expect.</p>
 </div>
-<p><code class="docutils literal"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">package;export</span> <span class="pre">CLASSPATH=&quot;$(find</span> <span class="pre">target/kafka-connect-target/usr/share/kafka-connect/kafka-connect-spooldir</span> <span class="pre">-type</span> <span class="pre">f</span> <span class="pre">-name</span> <span class="pre">'*.jar'</span> <span class="pre">|</span> <span class="pre">tr</span> <span class="pre">'\n'</span> <span class="pre">':')&quot;;kafka-run-class</span> <span class="pre">com.github.jcustenborder.kafka.connect.spooldir.SchemaGenerator</span> <span class="pre">-t</span> <span class="pre">csv</span> <span class="pre">-f</span> <span class="pre">src/test/resources/com/github/jcustenborder/kafka/connect/spooldir/csv/FieldsMatch.data</span> <span class="pre">-c</span> <span class="pre">config/CSVExample.properties</span> <span class="pre">-i</span> <span class="pre">id</span></code></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>mvn clean package
+<span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>find target/kafka-connect-target/usr/share/kafka-connect/kafka-connect-spooldir -type f -name <span class="s1">&#39;*.jar&#39;</span> <span class="p">|</span> tr <span class="s1">&#39;\n&#39;</span> <span class="s1">&#39;:&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
+kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.SchemaGenerator -t csv -f src/test/resources/com/github/jcustenborder/kafka/connect/spooldir/csv/FieldsMatch.data -c config/CSVExample.properties -i id
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
