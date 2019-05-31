@@ -1,0 +1,46 @@
+===================
+SetMaximumPrecision
+===================
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.SetMaximumPrecision$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.SetMaximumPrecision$Value
+
+
+This transformation is used to ensure that all decimal fields in a struct are below the maximum precision specified.
+
+
+.. NOTE::
+    The Confluent AvroConverter uses a default precision of 64 which can be too large for some database systems.
+
+
+
+
+-------
+General
+-------
+
+
+^^^^^^^^^^^^^
+precision.max
+^^^^^^^^^^^^^
+
+The maximum precision allowed.
+
+**Importance:** HIGH
+
+**Type:** INT
+
+**Validator:** [1,...,64]
+
+
+
+
+

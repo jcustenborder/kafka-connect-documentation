@@ -1,0 +1,53 @@
+=============
+BytesToString
+=============
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.BytesToString$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.BytesToString$Value
+
+
+
+
+
+
+-------
+General
+-------
+
+
+^^^^^^^
+charset
+^^^^^^^
+
+The charset to use when creating the output string.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** UTF-8
+
+
+
+^^^^^^
+fields
+^^^^^^
+
+The fields to transform.
+
+**Importance:** HIGH
+
+**Type:** LIST
+
+
+
+
+

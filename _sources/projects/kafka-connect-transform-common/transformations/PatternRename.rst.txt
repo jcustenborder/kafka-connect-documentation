@@ -1,0 +1,67 @@
+=============
+PatternRename
+=============
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.PatternRename$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.PatternRename$Value
+
+
+
+
+
+
+-------
+General
+-------
+
+
+^^^^^^^^^^^^^
+field.pattern
+^^^^^^^^^^^^^
+
+
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+^^^^^^^^^^^^^^^^^
+field.replacement
+^^^^^^^^^^^^^^^^^
+
+
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+^^^^^^^^^^^^^^^^^^^
+field.pattern.flags
+^^^^^^^^^^^^^^^^^^^
+
+
+
+**Importance:** LOW
+
+**Type:** LIST
+
+**Default Value:** [CASE_INSENSITIVE]
+
+**Validator:** [UNICODE_CHARACTER_CLASS, CANON_EQ, UNICODE_CASE, DOTALL, LITERAL, MULTILINE, COMMENTS, CASE_INSENSITIVE, UNIX_LINES]
+
+
+
+
+

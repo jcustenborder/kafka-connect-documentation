@@ -1,0 +1,22 @@
+=======
+SetNull
+=======
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.SetNull$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.SetNull$Value
+
+
+
+
+
+
+
+

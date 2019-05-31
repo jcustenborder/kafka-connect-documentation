@@ -1,0 +1,40 @@
+================
+ExtractTimestamp
+================
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.ExtractTimestamp$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.ExtractTimestamp$Value
+
+
+This transformation is used to use a field from the input data to override the timestamp for the record.
+
+
+
+
+-------
+General
+-------
+
+
+^^^^^^^^^^
+field.name
+^^^^^^^^^^
+
+The field to pull the timestamp from. This must be an int64 or a timestamp.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+
+

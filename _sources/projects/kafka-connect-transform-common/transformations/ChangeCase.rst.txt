@@ -1,0 +1,55 @@
+==========
+ChangeCase
+==========
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.ChangeCase$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.ChangeCase$Value
+
+
+
+
+
+
+-------
+General
+-------
+
+
+^^^^
+from
+^^^^
+
+The format to move from 
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Validator:** Matches: ``LOWER_HYPHEN``, ``LOWER_UNDERSCORE``, ``LOWER_CAMEL``, ``UPPER_CAMEL``, ``UPPER_UNDERSCORE``
+
+
+
+^^
+to
+^^
+
+
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Validator:** Matches: ``LOWER_HYPHEN``, ``LOWER_UNDERSCORE``, ``LOWER_CAMEL``, ``UPPER_CAMEL``, ``UPPER_UNDERSCORE``
+
+
+
+
+

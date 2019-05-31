@@ -1,0 +1,16 @@
+============
+TimestampNow
+============
+
+.. code-block:: text
+
+    com.github.jcustenborder.kafka.connect.transform.common.TimestampNow
+
+
+This transformation is used to override the timestamp of the incoming record to the time the record is being processed.
+
+
+
+
+
+

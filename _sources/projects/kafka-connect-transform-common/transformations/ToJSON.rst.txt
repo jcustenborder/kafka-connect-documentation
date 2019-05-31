@@ -1,0 +1,55 @@
+======
+ToJSON
+======
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.ToJSON$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.ToJSON$Value
+
+
+
+
+
+
+-------
+General
+-------
+
+
+^^^^^^^^^^^^^^^^^^
+output.schema.type
+^^^^^^^^^^^^^^^^^^
+
+The connect schema type to output the converted JSON as.
+
+**Importance:** MEDIUM
+
+**Type:** STRING
+
+**Default Value:** STRING
+
+**Validator:** [STRING, BYTES]
+
+
+
+^^^^^^^^^^^^^^
+schemas.enable
+^^^^^^^^^^^^^^
+
+Flag to determine if the JSON data should include the schema.
+
+**Importance:** MEDIUM
+
+**Type:** BOOLEAN
+
+
+
+
+

@@ -1,0 +1,63 @@
+==================
+ExtractNestedField
+==================
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.ExtractNestedField$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.ExtractNestedField$Value
+
+
+
+
+
+
+-------
+General
+-------
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+input.inner.field.name
+^^^^^^^^^^^^^^^^^^^^^^
+
+The field on the child struct containing the field to be extracted. For example if you wanted the extract `address.state` you would use `state`.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+input.outer.field.name
+^^^^^^^^^^^^^^^^^^^^^^
+
+The field on the parent struct containing the child struct. For example if you wanted the extract `address.state` you would use `address`.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+^^^^^^^^^^^^^^^^^
+output.field.name
+^^^^^^^^^^^^^^^^^
+
+The field to place the extracted value into.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+
+
