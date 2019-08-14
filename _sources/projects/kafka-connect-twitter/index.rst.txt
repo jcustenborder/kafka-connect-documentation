@@ -1,0 +1,24 @@
+=======
+Twitter
+=======
+
+Installation through the `Confluent Hub Client <https://docs.confluent.io/current/connect/managing/confluent-hub/client.html>`_.
+
+.. code-block:: bash
+
+    confluent-hub install jcustenborder/kafka-connect-twitter:latest
+
+The Twitter plugin is used to pull data from Twitter and write it to Kafka.
+
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Connectors:
+    :glob:
+
+    
+    sources/*
+
+
