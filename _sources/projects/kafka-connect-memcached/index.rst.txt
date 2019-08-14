@@ -1,0 +1,24 @@
+=========
+Memcached
+=========
+
+Installation through the `Confluent Hub Client <https://docs.confluent.io/current/connect/managing/confluent-hub/client.html>`_.
+
+.. code-block:: bash
+
+    confluent-hub install jcustenborder/kafka-connect-memcached:latest
+
+The memcached plugin is a mechanism for writing data to a memcached cluster.
+
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Connectors:
+    :glob:
+
+    sinks/*
+    
+
+

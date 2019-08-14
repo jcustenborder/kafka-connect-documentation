@@ -2,6 +2,10 @@
 Memcached Sink
 ==============
 
+.. code-block:: text
+
+    com.github.jcustenborder.kafka.connect.memcached.MemcachedSinkConnector
+
 The Memcached Sink provides a :term:`Sink Connector` that can write data in real time to a memcached environment.
 
 
@@ -10,9 +14,6 @@ The Memcached Sink provides a :term:`Sink Connector` that can write data in real
 
 
 
--------------
-Configuration
--------------
 
 ----------
 Connection
@@ -25,13 +26,13 @@ memcached.hosts
 
 Memcached hosts to connnect to.
 
-**Importance:** High
+**Importance:** HIGH
 
-**Type:** List
+**Type:** LIST
 
 **Default Value:** [localhost:11211]
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@7a74672
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@40949bb0
 
 
 
@@ -41,9 +42,9 @@ memcached.default.expiration.secs
 
 The default expiration in seconds.
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** Int
+**Type:** INT
 
 **Default Value:** 0
 
@@ -66,9 +67,9 @@ Set the failure mode.
 | Retry        | Continue to retry a failing node until it comes back up.           |
 +--------------+--------------------------------------------------------------------+
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** String
+**Type:** STRING
 
 **Default Value:** Retry
 
@@ -91,9 +92,9 @@ The locator type.
 | VBUCKET    | VBucket support.                                     |
 +------------+------------------------------------------------------+
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** String
+**Type:** STRING
 
 **Default Value:** ARRAY_MOD
 
@@ -107,11 +108,9 @@ memcached.nagle.algorithm.enabled
 
 Enables the Nagle algorithm.
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** Boolean
-
-**Default Value:** false
+**Type:** BOOLEAN
 
 
 
@@ -121,9 +120,9 @@ memcached.op.time.timeout.msecs
 
 The default operation timeout in milliseconds.
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** Long
+**Type:** LONG
 
 **Default Value:** 30000
 
@@ -137,9 +136,9 @@ memcached.optimize.enable
 
 Set to false if the default operation optimization is not desirable.
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** Boolean
+**Type:** BOOLEAN
 
 **Default Value:** true
 
@@ -157,9 +156,9 @@ Specify the protocol to use.+==========+================================+
 | TEXT     | Use the text (ascii) protocol. |
 +----------+--------------------------------+
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** String
+**Type:** STRING
 
 **Default Value:** BINARY
 
@@ -173,9 +172,9 @@ memcached.read.buffer.bytes
 
 memcached.read.buffer.bytes
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** Int
+**Type:** INT
 
 **Default Value:** -1
 
@@ -189,83 +188,15 @@ memcached.reconnect.delay.max.secs
 
 The maximum reconnect delay.
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** Long
+**Type:** LONG
 
 **Default Value:** 30
 
 **Validator:** [1,...]
 
 
-
-
-
-
---------
-Examples
---------
-
-^^^^^^^^^^^^^^^^^^^^^^
-Property based example
-^^^^^^^^^^^^^^^^^^^^^^
-
-
-This configuration is used typically along with `standalone mode
-<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
-
-.. code-block:: properties
-    :name: connector.properties
-    :emphasize-lines: 4
-
-    name=MemcachedSinkConnector1
-    connector.class=com.github.jcustenborder.kafka.connect.memcached.MemcachedSinkConnector
-    tasks.max=1
-    topics=< Required Configuration >
-
-
-
-
-^^^^^^^^^^^^^^^^^^
-Rest based example
-^^^^^^^^^^^^^^^^^^
-
-
-This configuration is used typically along with `distributed mode
-<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
-Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s). Check here for more information about the
-`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
-
-.. code-block:: json
-    :caption: Connect Distributed REST example
-    :name: connector.json
-    :emphasize-lines: 6
-
-    {
-      "config" : {
-        "name" : "MemcachedSinkConnector1",
-        "connector.class" : "com.github.jcustenborder.kafka.connect.memcached.MemcachedSinkConnector",
-        "tasks.max" : "1",
-        "topics" : "< Required Configuration >"
-      }
-    }
-
-
-
-Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
-one of your Kafka Connect worker(s).
-
-.. code-block:: bash
-    :caption: Create a new connector
-
-    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
-
-
-.. code-block:: bash
-    :caption: Update an existing connector
-
-    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/MemcachedSinkConnector1/config
 
 
 

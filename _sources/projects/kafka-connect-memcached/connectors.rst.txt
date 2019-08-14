@@ -1,6 +1,11 @@
-====================
-Memcached Connectors
-====================
+=========
+Memcached
+=========
+
+The memcached plugin is a mechanism for writing data to a memcached cluster.
+
+
+
 
 
 .. toctree::

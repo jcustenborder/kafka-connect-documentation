@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Redis Connectors &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Memcached &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="Connectors" href="../../connectors.html"/>
-        <link rel="next" title="Redis Sink Connector" href="sinks/RedisSinkConnector.html"/>
-        <link rel="prev" title="Memcached" href="../kafka-connect-memcached/connectors.html"/> 
+        <link rel="up" title="Projects" href="../../projects.html"/>
+        <link rel="next" title="Memcached Sink" href="sinks/MemcachedSinkConnector.html"/>
+        <link rel="prev" title="Projects" href="../../projects.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -94,22 +94,19 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../projects.html">Projects</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-memcached/connectors.html">Memcached</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Redis Connectors</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sinks/RedisSinkConnector.html">Redis Sink Connector</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../projects.html">Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Memcached</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sinks/MemcachedSinkConnector.html">Memcached Sink</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-simulator/connectors.html">Com.github.jcustenborder.kafka.connect.simulator Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-snmp/connectors.html">SNMP Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-solr/connectors.html">Apache Solr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-splunk/connectors.html">Splunk Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/connectors.html">Spool Dir</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-statsd/connectors.html">Com.github.jcustenborder.kafka.connect.statsd Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/connectors.html">Twitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-solr/index.html">Apache Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/index.html">Spool Dir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-common/index.html">Common Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/index.html">Twitter</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../connectors.html">Connectors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../transformations.html">Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schemas.html">Schemas</a></li>
 </ul>
@@ -161,15 +158,15 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../connectors.html">Connectors</a> &raquo;</li>
+          <li><a href="../../projects.html">Projects</a> &raquo;</li>
         
-      <li>Redis Connectors</li>
+      <li>Memcached</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/projects/kafka-connect-redis/connectors.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/projects/kafka-connect-memcached/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -182,9 +179,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="redis-connectors">
-<h1>Redis Connectors<a class="headerlink" href="#redis-connectors" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="memcached">
+<h1>Memcached<a class="headerlink" href="#memcached" title="Permalink to this headline">¶</a></h1>
+<p>Installation through the <a class="reference external" href="https://docs.confluent.io/current/connect/managing/confluent-hub/client.html">Confluent Hub Client</a>.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>confluent-hub install jcustenborder/kafka-connect-memcached:latest
+</pre></div>
+</div>
+<p>The memcached plugin is a mechanism for writing data to a memcached cluster.</p>
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Connectors:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sinks/MemcachedSinkConnector.html">Memcached Sink</a></li>
+</ul>
 </div>
 </div>
 
@@ -198,10 +204,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sinks/RedisSinkConnector.html" class="btn btn-neutral float-right" title="Redis Sink Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sinks/MemcachedSinkConnector.html" class="btn btn-neutral float-right" title="Memcached Sink" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../kafka-connect-memcached/connectors.html" class="btn btn-neutral" title="Memcached" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../projects.html" class="btn btn-neutral" title="Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
