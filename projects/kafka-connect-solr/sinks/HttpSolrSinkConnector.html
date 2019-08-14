@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Apache Solr Connectors" href="../connectors.html"/>
-        <link rel="next" title="Splunk Connector" href="../../kafka-connect-splunk/connectors.html"/>
-        <link rel="prev" title="Cloud Solr" href="CloudSolrSinkConnector.html"/> 
+        <link rel="up" title="Apache Solr" href="../index.html"/>
+        <link rel="next" title="Basic Authentication" href="examples/HttpSolrSinkConnector.authentication.html"/>
+        <link rel="prev" title="Drop Topic prefix" href="examples/CloudSolrSinkConnector.strip-prefix.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -94,30 +94,25 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../projects.html">Projects</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/connectors.html">Memcached Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-redis/connectors.html">Redis Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/connectors.html">Com.github.jcustenborder.kafka.connect.simulator Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-snmp/connectors.html">SNMP Connector</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Apache Solr Connectors</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../projects.html">Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Apache Solr</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="CloudSolrSinkConnector.html">Cloud Solr</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Standard Solr</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#authentication">Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/HttpSolrSinkConnector.authentication.html">Basic Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/HttpSolrSinkConnector.example.html">Standard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#connection">Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authentication">Authentication</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#indexing">Indexing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/connectors.html">Splunk Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/connectors.html">Spool Dir</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/connectors.html">Com.github.jcustenborder.kafka.connect.statsd Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/connectors.html">Twitter Connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/index.html">Spool Dir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-common/index.html">Common Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../schemas.html">Schemas</a></li>
 </ul>
@@ -169,9 +164,9 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
+          <li><a href="../../../projects.html">Projects</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Apache Solr Connectors</a> &raquo;</li>
+          <li><a href="../index.html">Apache Solr</a> &raquo;</li>
         
       <li>Standard Solr</li>
     
@@ -194,37 +189,44 @@
             
   <div class="section" id="standard-solr">
 <h1>Standard Solr<a class="headerlink" href="#standard-solr" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.solr.HttpSolrSinkConnector
+</pre></div>
+</div>
 <p>This connector is used to connect to write directly to a Solr core.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">The target collection for this connector is selected by the topic name. <a class="reference external" href="https://kafka.apache.org/documentation/#connect_transforms">Transformations</a> like the RegexRouter transformation can be used to change the topic name before it is sent to Solr.</p>
 </div>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="authentication">
-<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="solr-password">
-<h3>solr.password<a class="headerlink" href="#solr-password" title="Permalink to this headline">¶</a></h3>
-<p>The password to use for basic authentication.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> Password</p>
-<p><strong>Default Value:</strong> [hidden]</p>
-</div>
-<div class="section" id="solr-username">
-<h3>solr.username<a class="headerlink" href="#solr-username" title="Permalink to this headline">¶</a></h3>
-<p>The username to use for basic authentication.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> String</p>
-</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/HttpSolrSinkConnector.authentication.html">Basic Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/HttpSolrSinkConnector.example.html">Standard</a></li>
+</ul>
 </div>
 <div class="section" id="connection">
 <h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="solr-url">
 <h3>solr.url<a class="headerlink" href="#solr-url" title="Permalink to this headline">¶</a></h3>
 <p>Url to connect to solr with.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> String</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> STRING</p>
+</div>
+</div>
+<div class="section" id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="solr-password">
+<h3>solr.password<a class="headerlink" href="#solr-password" title="Permalink to this headline">¶</a></h3>
+<p>The password to use for basic authentication.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> PASSWORD</p>
+<p><strong>Default Value:</strong> [hidden]</p>
+</div>
+<div class="section" id="solr-username">
+<h3>solr.username<a class="headerlink" href="#solr-username" title="Permalink to this headline">¶</a></h3>
+<p>The username to use for basic authentication.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> STRING</p>
 </div>
 </div>
 <div class="section" id="indexing">
@@ -232,89 +234,30 @@
 <div class="section" id="solr-queue-size">
 <h3>solr.queue.size<a class="headerlink" href="#solr-queue-size" title="Permalink to this headline">¶</a></h3>
 <p>The number of documents to batch together before sending to Solr. See <a class="reference external" href="https://lucene.apache.org/solr/6_3_0/solr-solrj/org/apache/solr/client/solrj/impl/ConcurrentUpdateSolrClient.Builder.html#withQueueSize-int-">ConcurrentUpdateSolrClient.Builder.withQueueSize(int)</a></p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> Int</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> INT</p>
 <p><strong>Default Value:</strong> 100</p>
 </div>
 <div class="section" id="solr-delete-documents-enabled">
 <h3>solr.delete.documents.enabled<a class="headerlink" href="#solr-delete-documents-enabled" title="Permalink to this headline">¶</a></h3>
 <p>Flag to determine if the connector should delete documents. General practice in Kafka is to treat a record that contains a key with a null value as a delete.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Boolean</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> BOOLEAN</p>
 <p><strong>Default Value:</strong> true</p>
 </div>
 <div class="section" id="solr-thread-count">
 <h3>solr.thread.count<a class="headerlink" href="#solr-thread-count" title="Permalink to this headline">¶</a></h3>
 <p>The number of threads used to empty ConcurrentUpdateSolrClients queue. See <a class="reference external" href="https://lucene.apache.org/solr/6_3_0/solr-solrj/org/apache/solr/client/solrj/impl/ConcurrentUpdateSolrClient.Builder.html#withThreadCount-int-">ConcurrentUpdateSolrClient.Builder.withThreadCount(int)</a></p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Int</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> INT</p>
 <p><strong>Default Value:</strong> 1</p>
 </div>
 <div class="section" id="solr-commit-within">
 <h3>solr.commit.within<a class="headerlink" href="#solr-commit-within" title="Permalink to this headline">¶</a></h3>
 <p>Configures Solr UpdaterRequest for a commit within the requested number of milliseconds. -1 disables the commit within setting and relies on the standard Solr commit setting.</p>
-<p><strong>Importance:</strong> Low</p>
-<p><strong>Type:</strong> Int</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> INT</p>
 <p><strong>Default Value:</strong> -1</p>
-</div>
-</div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="standard">
-<h3>Standard<a class="headerlink" href="#standard" title="Permalink to this headline">¶</a></h3>
-<p>This example will connect to a Solr Cloud cluster without authentication.</p>
-<p>Select one of the following configuration methods based on how you have deployed Kafka Connect.
-Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
-example.</p>
-<p><strong>Distributed Mode Json</strong></p>
-<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;httpSolrSinkConnector1&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.solr.HttpSolrSinkConnector&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;topic1,topic2,topic3&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;solr.url&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://solr.example.com:8993/&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><strong>Standalone Mode Properties</strong></p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.solr.HttpSolrSinkConnector</span>
-<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
-<span class="na">topics</span><span class="o">=</span><span class="s">topic1,topic2,topic3</span>
-<span class="na">solr.url</span><span class="o">=</span><span class="s">http://solr.example.com:8993/</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="basic-authentication">
-<h3>Basic Authentication<a class="headerlink" href="#basic-authentication" title="Permalink to this headline">¶</a></h3>
-<p>This example will connect to a Solr Cloud cluster using basic authentication.</p>
-<p>Select one of the following configuration methods based on how you have deployed Kafka Connect.
-Distributed Mode will the the JSON / REST examples. Standalone mode will use the properties based
-example.</p>
-<p><strong>Distributed Mode Json</strong></p>
-<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;httpSolrSinkConnector1&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.solr.HttpSolrSinkConnector&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;topic1,topic2,topic3&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;solr.url&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://solr.example.com:8993/&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;solr.username&quot;</span> <span class="p">:</span> <span class="s2">&quot;freddy&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;solr.password&quot;</span> <span class="p">:</span> <span class="s2">&quot;password12345&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><strong>Standalone Mode Properties</strong></p>
-<div class="highlight-properties"><div class="highlight"><pre><span></span><span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.solr.HttpSolrSinkConnector</span>
-<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
-<span class="na">topics</span><span class="o">=</span><span class="s">topic1,topic2,topic3</span>
-<span class="na">solr.url</span><span class="o">=</span><span class="s">http://solr.example.com:8993/</span>
-<span class="na">solr.username</span><span class="o">=</span><span class="s">freddy</span>
-<span class="na">solr.password</span><span class="o">=</span><span class="s">password12345</span>
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -329,10 +272,10 @@ example.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../kafka-connect-splunk/connectors.html" class="btn btn-neutral float-right" title="Splunk Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="examples/HttpSolrSinkConnector.authentication.html" class="btn btn-neutral float-right" title="Basic Authentication" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="CloudSolrSinkConnector.html" class="btn btn-neutral" title="Cloud Solr" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="examples/CloudSolrSinkConnector.strip-prefix.html" class="btn btn-neutral" title="Drop Topic prefix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

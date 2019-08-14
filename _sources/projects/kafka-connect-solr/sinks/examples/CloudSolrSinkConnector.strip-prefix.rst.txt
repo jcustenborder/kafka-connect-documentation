@@ -1,0 +1,25 @@
+=================
+Drop Topic prefix
+=================
+
+In this example each record has an incoming topic name prefixed with `solr-`. Assuming that our topic is `solr-customer` the following example will strip the prefix of `solr-` allowing us to write to the collection named `customer`. This is accomplished by using the RegexRouter transformation that is bundled with Apache Kafka.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "connector.class" : "com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector",
+      "topic" : "<required setting>",
+      "solr.zookeeper.hosts" : "zookeeper.example.com:2181",
+      "solr.username" : "freddy",
+      "solr.password" : "password12345",
+      "transforms" : "dropPrefix",
+      "transforms.dropPrefix.type" : "org.apache.kafka.connect.transforms.RegexRouter",
+      "transforms.dropPrefix.regex" : "solr-(.*)",
+      "transforms.dropPrefix.replacement" : "$1"
+    }
+
+
+

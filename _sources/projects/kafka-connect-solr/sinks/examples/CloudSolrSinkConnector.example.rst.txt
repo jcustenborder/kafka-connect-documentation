@@ -1,0 +1,19 @@
+========
+Standard
+========
+
+This example will connect to a Solr Cloud cluster without authentication.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "connector.class" : "com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector",
+      "topic" : "<required setting>",
+      "solr.zookeeper.hosts" : "zookeeper.example.com:2181"
+    }
+
+
+

@@ -1,0 +1,28 @@
+===========
+Apache Solr
+===========
+
+Installation through the `Confluent Hub Client <https://docs.confluent.io/current/connect/managing/confluent-hub/client.html>`_.
+
+.. code-block:: bash
+
+    confluent-hub install jcustenborder/kafka-connect-solr:latest
+
+The SOLR connector is a high speed mechanism for writing data to `Apache Solr <http://lucene.apache.org/solr/>`_.
+
+
+.. TIP::
+    If you are seeing error messages such as `Invalid version (expected 2, but 60) or the data in not in 'javabin' format` compare the version of the Solr Server against the version of solrj the connector is compiled with. This error message is most likely due to a version mismatch between the server and solrj. To address this try replacing the solr-solrj-*.jar packaged with the connector with the version that matches the Solr server you are connecting to.
+
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Connectors:
+    :glob:
+
+    sinks/*
+    
+
+

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Apache Solr Connectors &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Apache Solr &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
         <link rel="up" title="Connectors" href="../../connectors.html"/>
-        <link rel="next" title="Cloud Solr" href="sinks/CloudSolrSinkConnector.html"/>
+        <link rel="next" title="Splunk Connector" href="../kafka-connect-splunk/connectors.html"/>
         <link rel="prev" title="Changelog" href="../kafka-connect-snmp/changelog.html"/> 
 
   
@@ -100,7 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-redis/connectors.html">Redis Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-simulator/connectors.html">Com.github.jcustenborder.kafka.connect.simulator Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-snmp/connectors.html">SNMP Connector</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Apache Solr Connectors</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Apache Solr</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sinks/CloudSolrSinkConnector.html">Cloud Solr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sinks/HttpSolrSinkConnector.html">Standard Solr</a></li>
 </ul>
@@ -164,7 +164,7 @@
         
           <li><a href="../../connectors.html">Connectors</a> &raquo;</li>
         
-      <li>Apache Solr Connectors</li>
+      <li>Apache Solr</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -183,8 +183,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="apache-solr-connectors">
-<h1>Apache Solr Connectors<a class="headerlink" href="#apache-solr-connectors" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="apache-solr">
+<h1>Apache Solr<a class="headerlink" href="#apache-solr" title="Permalink to this headline">¶</a></h1>
+<p>The SOLR connector is a high speed mechanism for writing data to <a class="reference external" href="http://lucene.apache.org/solr/">Apache Solr</a>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you are seeing error messages such as <cite>Invalid version (expected 2, but 60) or the data in not in ‘javabin’ format</cite> compare the version of the Solr Server against the version of solrj the connector is compiled with. This error message is most likely due to a version mismatch between the server and solrj. To address this try replacing the solr-solrj-<a href="#id2"><span class="problematic" id="id3">*</span></a>.jar packaged with the connector with the version that matches the Solr server you are connecting to.</p>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -199,7 +204,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sinks/CloudSolrSinkConnector.html" class="btn btn-neutral float-right" title="Cloud Solr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../kafka-connect-splunk/connectors.html" class="btn btn-neutral float-right" title="Splunk Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../kafka-connect-snmp/changelog.html" class="btn btn-neutral" title="Changelog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
