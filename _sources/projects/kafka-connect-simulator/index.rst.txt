@@ -1,0 +1,24 @@
+=========
+Simulator
+=========
+
+Installation through the `Confluent Hub Client <https://docs.confluent.io/current/connect/managing/confluent-hub/client.html>`_.
+
+.. code-block:: bash
+
+    confluent-hub install jcustenborder/kafka-connect-simulator:latest
+
+This plugin is used to simulate data written to Kafka or read from Kafka persisted to another system.
+
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Connectors:
+    :glob:
+
+    sinks/*
+    sources/*
+
+

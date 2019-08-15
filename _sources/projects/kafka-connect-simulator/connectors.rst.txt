@@ -1,6 +1,11 @@
-===========================================================
-Com.github.jcustenborder.kafka.connect.simulator Connectors
-===========================================================
+=========
+Simulator
+=========
+
+This plugin is used to simulate data written to Kafka or read from Kafka persisted to another system.
+
+
+
 
 .. toctree::
     :maxdepth: 1

@@ -2,13 +2,14 @@
 SimulatorSinkConnector
 ======================
 
+.. code-block:: text
+
+    com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector
+
 The SimulatorSinkConnector is used to read data from a topic at the configured rate.
 
 
 
--------------
-Configuration
--------------
 
 -------
 General
@@ -21,11 +22,9 @@ log.entries
 
 Flag to determine if 
 
-**Importance:** Medium
+**Importance:** MEDIUM
 
-**Type:** Boolean
-
-**Default Value:** false
+**Type:** BOOLEAN
 
 
 
@@ -35,81 +34,13 @@ rate.limit
 
 Rate to write items to kafka.
 
-**Importance:** Medium
+**Importance:** MEDIUM
 
-**Type:** Double
+**Type:** DOUBLE
 
-**Default Value:** 100.0
-
-
+**Default Value:** 100
 
 
-
-
---------
-Examples
---------
-
-^^^^^^^^^^^^^^^^^^^^^^
-Property based example
-^^^^^^^^^^^^^^^^^^^^^^
-
-
-This configuration is used typically along with `standalone mode
-<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
-
-.. code-block:: properties
-    :name: connector.properties
-    :emphasize-lines: 4
-
-    name=SimulatorSinkConnector1
-    connector.class=com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector
-    tasks.max=1
-    topics=< Required Configuration >
-
-
-
-
-^^^^^^^^^^^^^^^^^^
-Rest based example
-^^^^^^^^^^^^^^^^^^
-
-
-This configuration is used typically along with `distributed mode
-<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
-Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s). Check here for more information about the
-`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
-
-.. code-block:: json
-    :caption: Connect Distributed REST example
-    :name: connector.json
-    :emphasize-lines: 6
-
-    {
-      "config" : {
-        "name" : "SimulatorSinkConnector1",
-        "connector.class" : "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
-        "tasks.max" : "1",
-        "topics" : "< Required Configuration >"
-      }
-    }
-
-
-
-Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
-one of your Kafka Connect worker(s).
-
-.. code-block:: bash
-    :caption: Create a new connector
-
-    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
-
-
-.. code-block:: bash
-    :caption: Update an existing connector
-
-    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/SimulatorSinkConnector1/config
 
 
 

@@ -8,7 +8,7 @@ Install
     :target: https://github.com/jcustenborder/kafka-connect-simulator/releases
 
 .. image:: https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-simulator.svg
-    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-simulator%7C0.1.119%7Cjar
+    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-simulator%7C0.1.120%7Cjar
 
 ^^^^^^^^^^^^^^^^
 RPM Installation
@@ -41,7 +41,7 @@ Maven Installation
     <dependency>
         <groupId>com.github.jcustenborder.kafka.connect</groupId>
         <artifactId>kafka-connect-simulator</artifactId>
-        <version>0.1.119</version>
+        <version>0.1.120</version>
     </dependency>
 
 

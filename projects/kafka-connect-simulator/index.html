@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Splunk Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Simulator &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="Connectors" href="../../connectors.html"/>
-        <link rel="next" title="SplunkHttpSourceConnector" href="sources/SplunkHttpSourceConnector.html"/>
-        <link rel="prev" title="Apache Solr" href="../kafka-connect-solr/connectors.html"/> 
+        <link rel="up" title="Projects" href="../../projects.html"/>
+        <link rel="next" title="SimulatorSinkConnector" href="sinks/SimulatorSinkConnector.html"/>
+        <link rel="prev" title="Memcached Sink" href="../kafka-connect-memcached/sinks/MemcachedSinkConnector.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -94,25 +94,21 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../projects.html">Projects</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-memcached/connectors.html">Memcached</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-redis/connectors.html">Redis Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-simulator/connectors.html">Simulator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-snmp/connectors.html">SNMP Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-solr/connectors.html">Apache Solr</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Splunk Connector</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sources/SplunkHttpSourceConnector.html">SplunkHttpSourceConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sinks/SplunkHttpSinkConnector.html">SplunkHttpSinkConnector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schemas.html">Schemas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="info.html">Additional Information</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../projects.html">Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-memcached/index.html">Memcached</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Simulator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sinks/SimulatorSinkConnector.html">SimulatorSinkConnector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sources/SimulatorSourceConnector.html">SimulatorSourceConnector</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/connectors.html">Spool Dir</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-statsd/connectors.html">Com.github.jcustenborder.kafka.connect.statsd Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/connectors.html">Twitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-solr/index.html">Apache Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/index.html">Spool Dir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-common/index.html">Common Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/index.html">Twitter</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../connectors.html">Connectors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../transformations.html">Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schemas.html">Schemas</a></li>
 </ul>
@@ -164,15 +160,15 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../connectors.html">Connectors</a> &raquo;</li>
+          <li><a href="../../projects.html">Projects</a> &raquo;</li>
         
-      <li>Splunk Connector</li>
+      <li>Simulator</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/projects/kafka-connect-splunk/connectors.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/projects/kafka-connect-simulator/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -185,15 +181,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="splunk-connector">
-<h1>Splunk Connector<a class="headerlink" href="#splunk-connector" title="Permalink to this headline">¶</a></h1>
-<p>The Splunk Connector provides a <a class="reference internal" href="../../glossary.html#term-source-connector"><span class="xref std std-term">Source Connector</span></a> that emulates a Splunk HEC endpoint and a <a class="reference internal" href="../../glossary.html#term-source-connector"><span class="xref std std-term">Source Connector</span></a>
-that can be used to write data to a Splunk HEC endpoint.</p>
-<div class="toctree-wrapper compound">
+  <div class="section" id="simulator">
+<h1>Simulator<a class="headerlink" href="#simulator" title="Permalink to this headline">¶</a></h1>
+<p>Installation through the <a class="reference external" href="https://docs.confluent.io/current/connect/managing/confluent-hub/client.html">Confluent Hub Client</a>.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>confluent-hub install jcustenborder/kafka-connect-simulator:latest
+</pre></div>
 </div>
+<p>This plugin is used to simulate data written to Kafka or read from Kafka persisted to another system.</p>
 <div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Connectors:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sinks/SimulatorSinkConnector.html">SimulatorSinkConnector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sources/SimulatorSourceConnector.html">SimulatorSourceConnector</a></li>
+</ul>
 </div>
 </div>
 
@@ -207,10 +207,10 @@ that can be used to write data to a Splunk HEC endpoint.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sources/SplunkHttpSourceConnector.html" class="btn btn-neutral float-right" title="SplunkHttpSourceConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sinks/SimulatorSinkConnector.html" class="btn btn-neutral float-right" title="SimulatorSinkConnector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../kafka-connect-solr/connectors.html" class="btn btn-neutral" title="Apache Solr" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../kafka-connect-memcached/sinks/MemcachedSinkConnector.html" class="btn btn-neutral" title="Memcached Sink" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
