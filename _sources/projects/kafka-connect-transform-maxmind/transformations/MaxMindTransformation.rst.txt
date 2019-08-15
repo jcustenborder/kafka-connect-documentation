@@ -1,0 +1,171 @@
+=====================
+MaxMindTransformation
+=====================
+
+.. code-block:: text
+
+    com.github.jcustenborder.kafka.connect.transform.maxmind.MaxMindTransformation
+
+
+This transformation is used to lookup data from a `MaxMind database <http://dev.maxmind.com/geoip/geoip2/geolite2/#Downloads>`_ and append the data to an existing struct.
+
+
+
+
+-------
+General
+-------
+
+
+^^^^^^^^^^^
+field.input
+^^^^^^^^^^^
+
+The field in the value() of the connect record to read the ip address from.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+^^^^^^^^^^^^
+field.output
+^^^^^^^^^^^^
+
+The field in the value() to write the GeoIp Data to. The schema will be appended.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+^^^^^^^^^^^^^^^^^^^^^
+maxmind.database.path
+^^^^^^^^^^^^^^^^^^^^^
+
+The path of the database on the local file system.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+maxmind.enable.anonymousip
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the ip should be checked if it's used for anonymous internet access.
+
+**Importance:** MEDIUM
+
+**Type:** BOOLEAN
+
+
+
+^^^^^^^^^^^^^^^^^^
+maxmind.enable.asn
+^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the ip should be checked if ASN information should be included.
+
+**Importance:** MEDIUM
+
+**Type:** BOOLEAN
+
+
+
+^^^^^^^^^^^^^^^^^^^
+maxmind.enable.city
+^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the ip should be checked if city information should be included.
+
+**Importance:** MEDIUM
+
+**Type:** BOOLEAN
+
+**Default Value:** true
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+maxmind.enable.connectiontype
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the ip should be checked if connection information should be included.
+
+**Importance:** MEDIUM
+
+**Type:** BOOLEAN
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+maxmind.enable.country
+^^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the ip should be checked if country information should be included.
+
+**Importance:** MEDIUM
+
+**Type:** BOOLEAN
+
+
+
+^^^^^^^^^^^^^^^^^^^^^
+maxmind.enable.domain
+^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the ip should be checked if domain information should be included.
+
+**Importance:** MEDIUM
+
+**Type:** BOOLEAN
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^
+maxmind.enable.enterprise
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the ip should be checked if enterprise information should be included.
+
+**Importance:** MEDIUM
+
+**Type:** BOOLEAN
+
+
+
+^^^^^^^^^^^^^^^^^^
+maxmind.enable.isp
+^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the ip should be checked if ISP information should be included.
+
+**Importance:** MEDIUM
+
+**Type:** BOOLEAN
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+maxmind.database.file.mode
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The mode in which to open the database.
+
+**Importance:** LOW
+
+**Type:** STRING
+
+**Default Value:** MEMORY_MAPPED
+
+**Validator:** Matches: ``MEMORY_MAPPED``, ``MEMORY``
+
+
+
+
+
