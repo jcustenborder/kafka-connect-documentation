@@ -1,0 +1,24 @@
+=====
+Redis
+=====
+
+Installation through the `Confluent Hub Client <https://docs.confluent.io/current/connect/managing/confluent-hub/client.html>`_.
+
+.. code-block:: bash
+
+    confluent-hub install jcustenborder/kafka-connect-redis:latest
+
+The Redis plugin is a collection of connectors that are used to interact with a Redis cluster.
+
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Connectors:
+    :glob:
+
+    sinks/*
+    
+
+

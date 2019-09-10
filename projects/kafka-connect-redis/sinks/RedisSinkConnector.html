@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Redis Connectors" href="../connectors.html"/>
-        <link rel="next" title="Simulator" href="../../kafka-connect-simulator/connectors.html"/>
-        <link rel="prev" title="Redis Connectors" href="../connectors.html"/> 
+        <link rel="up" title="Redis" href="../index.html"/>
+        <link rel="next" title="Simulator" href="../../kafka-connect-simulator/index.html"/>
+        <link rel="prev" title="Redis" href="../index.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -94,27 +94,25 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../projects.html">Projects</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../connectors.html">Connectors</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/connectors.html">Memcached</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../connectors.html">Redis Connectors</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../projects.html">Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/index.html">Memcached</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Redis</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Redis Sink Connector</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/connectors.html">Simulator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-snmp/connectors.html">SNMP Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/connectors.html">Apache Solr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-splunk/connectors.html">Splunk Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/connectors.html">Spool Dir</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-statsd/connectors.html">Com.github.jcustenborder.kafka.connect.statsd Connectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/connectors.html">Twitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/index.html">Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/index.html">Apache Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/index.html">Spool Dir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-common/index.html">Common Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/index.html">Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/index.html">Twitter</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connectors.html">Connectors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../transformations.html">Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../schemas.html">Schemas</a></li>
 </ul>
@@ -166,9 +164,9 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../connectors.html">Connectors</a> &raquo;</li>
+          <li><a href="../../../projects.html">Projects</a> &raquo;</li>
         
-          <li><a href="../connectors.html">Redis Connectors</a> &raquo;</li>
+          <li><a href="../index.html">Redis</a> &raquo;</li>
         
       <li>Redis Sink Connector</li>
     
@@ -191,6 +189,9 @@
             
   <div class="section" id="redis-sink-connector">
 <h1>Redis Sink Connector<a class="headerlink" href="#redis-sink-connector" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.redis.RedisSinkConnector
+</pre></div>
+</div>
 <p>The Redis Sink Connector is used to write data from Kafka to a Redis cache.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
@@ -200,178 +201,126 @@
 <p class="first admonition-title">Note</p>
 <p class="last">This connector supports deletes. If the record stored in Kafka has a null value, this connector will send a delete with the corresponding key to Redis.</p>
 </div>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-</div>
 <div class="section" id="general">
 <h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="redis-hosts">
 <h3>redis.hosts<a class="headerlink" href="#redis-hosts" title="Permalink to this headline">¶</a></h3>
 <p>The Redis hosts to connect to.</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> List</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> LIST</p>
 <p><strong>Default Value:</strong> [localhost:6379]</p>
 </div>
 <div class="section" id="redis-client-mode">
 <h3>redis.client.mode<a class="headerlink" href="#redis-client-mode" title="Permalink to this headline">¶</a></h3>
 <p>The client mode to use when interacting with the Redis cluster.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> String</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> Standalone</p>
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">Standalone</span></code>, <code class="docutils literal"><span class="pre">Cluster</span></code></p>
 </div>
 <div class="section" id="redis-database">
 <h3>redis.database<a class="headerlink" href="#redis-database" title="Permalink to this headline">¶</a></h3>
 <p>Redis database to connect to.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Int</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> INT</p>
 <p><strong>Default Value:</strong> 1</p>
 </div>
 <div class="section" id="redis-operation-timeout-ms">
 <h3>redis.operation.timeout.ms<a class="headerlink" href="#redis-operation-timeout-ms" title="Permalink to this headline">¶</a></h3>
 <p>The amount of time in milliseconds before an operation is marked as timed out.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Long</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> LONG</p>
 <p><strong>Default Value:</strong> 10000</p>
 <p><strong>Validator:</strong> [100,…]</p>
 </div>
 <div class="section" id="redis-password">
 <h3>redis.password<a class="headerlink" href="#redis-password" title="Permalink to this headline">¶</a></h3>
 <p>Password used to connect to Redis.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Password</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> PASSWORD</p>
 <p><strong>Default Value:</strong> [hidden]</p>
 </div>
 <div class="section" id="redis-ssl-enabled">
 <h3>redis.ssl.enabled<a class="headerlink" href="#redis-ssl-enabled" title="Permalink to this headline">¶</a></h3>
 <p>Flag to determine if SSL is enabled.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Boolean</p>
-<p><strong>Default Value:</strong> false</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> BOOLEAN</p>
 </div>
 <div class="section" id="redis-ssl-keystore-password">
 <h3>redis.ssl.keystore.password<a class="headerlink" href="#redis-ssl-keystore-password" title="Permalink to this headline">¶</a></h3>
 <p>The password for the SSL keystore.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Password</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> PASSWORD</p>
 <p><strong>Default Value:</strong> [hidden]</p>
 </div>
 <div class="section" id="redis-ssl-keystore-path">
 <h3>redis.ssl.keystore.path<a class="headerlink" href="#redis-ssl-keystore-path" title="Permalink to this headline">¶</a></h3>
 <p>The path to the SSL keystore.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> String</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> STRING</p>
 </div>
 <div class="section" id="redis-ssl-truststore-password">
 <h3>redis.ssl.truststore.password<a class="headerlink" href="#redis-ssl-truststore-password" title="Permalink to this headline">¶</a></h3>
 <p>The password for the SSL truststore.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> Password</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> PASSWORD</p>
 <p><strong>Default Value:</strong> [hidden]</p>
 </div>
 <div class="section" id="redis-ssl-truststore-path">
 <h3>redis.ssl.truststore.path<a class="headerlink" href="#redis-ssl-truststore-path" title="Permalink to this headline">¶</a></h3>
 <p>The path to the SSL truststore.</p>
-<p><strong>Importance:</strong> Medium</p>
-<p><strong>Type:</strong> String</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> STRING</p>
 </div>
 <div class="section" id="redis-auto-reconnect-enabled">
 <h3>redis.auto.reconnect.enabled<a class="headerlink" href="#redis-auto-reconnect-enabled" title="Permalink to this headline">¶</a></h3>
 <p>Flag to determine if the Redis client should automatically reconnect.</p>
-<p><strong>Importance:</strong> Low</p>
-<p><strong>Type:</strong> Boolean</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> BOOLEAN</p>
 <p><strong>Default Value:</strong> true</p>
 </div>
 <div class="section" id="redis-charset">
 <h3>redis.charset<a class="headerlink" href="#redis-charset" title="Permalink to this headline">¶</a></h3>
 <p>The character set to use for String key and values.</p>
-<p><strong>Importance:</strong> Low</p>
-<p><strong>Type:</strong> String</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> UTF-8</p>
 <p><strong>Validator:</strong> Valid values: ‘Big5’, ‘Big5-HKSCS’, ‘CESU-8’, ‘EUC-JP’, ‘EUC-KR’, ‘GB18030’, ‘GB2312’, ‘GBK’, ‘IBM-Thai’, ‘IBM00858’, ‘IBM01140’, ‘IBM01141’, ‘IBM01142’, ‘IBM01143’, ‘IBM01144’, ‘IBM01145’, ‘IBM01146’, ‘IBM01147’, ‘IBM01148’, ‘IBM01149’, ‘IBM037’, ‘IBM1026’, ‘IBM1047’, ‘IBM273’, ‘IBM277’, ‘IBM278’, ‘IBM280’, ‘IBM284’, ‘IBM285’, ‘IBM290’, ‘IBM297’, ‘IBM420’, ‘IBM424’, ‘IBM437’, ‘IBM500’, ‘IBM775’, ‘IBM850’, ‘IBM852’, ‘IBM855’, ‘IBM857’, ‘IBM860’, ‘IBM861’, ‘IBM862’, ‘IBM863’, ‘IBM864’, ‘IBM865’, ‘IBM866’, ‘IBM868’, ‘IBM869’, ‘IBM870’, ‘IBM871’, ‘IBM918’, ‘ISO-2022-CN’, ‘ISO-2022-JP’, ‘ISO-2022-JP-2’, ‘ISO-2022-KR’, ‘ISO-8859-1’, ‘ISO-8859-13’, ‘ISO-8859-15’, ‘ISO-8859-2’, ‘ISO-8859-3’, ‘ISO-8859-4’, ‘ISO-8859-5’, ‘ISO-8859-6’, ‘ISO-8859-7’, ‘ISO-8859-8’, ‘ISO-8859-9’, ‘JIS_X0201’, ‘JIS_X0212-1990’, ‘KOI8-R’, ‘KOI8-U’, ‘Shift_JIS’, ‘TIS-620’, ‘US-ASCII’, ‘UTF-16’, ‘UTF-16BE’, ‘UTF-16LE’, ‘UTF-32’, ‘UTF-32BE’, ‘UTF-32LE’, ‘UTF-8’, ‘X-UTF-32BE-BOM’, ‘X-UTF-32LE-BOM’, ‘windows-1250’, ‘windows-1251’, ‘windows-1252’, ‘windows-1253’, ‘windows-1254’, ‘windows-1255’, ‘windows-1256’, ‘windows-1257’, ‘windows-1258’, ‘windows-31j’, ‘x-Big5-HKSCS-2001’, ‘x-Big5-Solaris’, ‘x-COMPOUND_TEXT’, ‘x-EUC-TW’, ‘x-IBM1006’, ‘x-IBM1025’, ‘x-IBM1046’, ‘x-IBM1097’, ‘x-IBM1098’, ‘x-IBM1112’, ‘x-IBM1122’, ‘x-IBM1123’, ‘x-IBM1124’, ‘x-IBM1166’, ‘x-IBM1364’, ‘x-IBM1381’, ‘x-IBM1383’, ‘x-IBM300’, ‘x-IBM33722’, ‘x-IBM737’, ‘x-IBM833’, ‘x-IBM834’, ‘x-IBM856’, ‘x-IBM874’, ‘x-IBM875’, ‘x-IBM921’, ‘x-IBM922’, ‘x-IBM930’, ‘x-IBM933’, ‘x-IBM935’, ‘x-IBM937’, ‘x-IBM939’, ‘x-IBM942’, ‘x-IBM942C’, ‘x-IBM943’, ‘x-IBM943C’, ‘x-IBM948’, ‘x-IBM949’, ‘x-IBM949C’, ‘x-IBM950’, ‘x-IBM964’, ‘x-IBM970’, ‘x-ISCII91’, ‘x-ISO-2022-CN-CNS’, ‘x-ISO-2022-CN-GB’, ‘x-JIS0208’, ‘x-JISAutoDetect’, ‘x-Johab’, ‘x-MS932_0213’, ‘x-MS950-HKSCS’, ‘x-MS950-HKSCS-XP’, ‘x-MacArabic’, ‘x-MacCentralEurope’, ‘x-MacCroatian’, ‘x-MacCyrillic’, ‘x-MacDingbat’, ‘x-MacGreek’, ‘x-MacHebrew’, ‘x-MacIceland’, ‘x-MacRoman’, ‘x-MacRomania’, ‘x-MacSymbol’, ‘x-MacThai’, ‘x-MacTurkish’, ‘x-MacUkraine’, ‘x-PCK’, ‘x-SJIS_0213’, ‘x-UTF-16LE-BOM’, ‘x-euc-jp-linux’, ‘x-eucJP-Open’, ‘x-iso-8859-11’, ‘x-mswin-936’, ‘x-windows-50220’, ‘x-windows-50221’, ‘x-windows-874’, ‘x-windows-949’, ‘x-windows-950’, ‘x-windows-iso2022jp’</p>
 </div>
 <div class="section" id="redis-request-queue-size">
 <h3>redis.request.queue.size<a class="headerlink" href="#redis-request-queue-size" title="Permalink to this headline">¶</a></h3>
 <p>The maximum number of queued requests to Redis.</p>
-<p><strong>Importance:</strong> Low</p>
-<p><strong>Type:</strong> Int</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> INT</p>
 <p><strong>Default Value:</strong> 2147483647</p>
 </div>
 <div class="section" id="redis-socket-connect-timeout-ms">
 <h3>redis.socket.connect.timeout.ms<a class="headerlink" href="#redis-socket-connect-timeout-ms" title="Permalink to this headline">¶</a></h3>
 <p>The amount of time in milliseconds to wait before timing out a socket when connecting.</p>
-<p><strong>Importance:</strong> Low</p>
-<p><strong>Type:</strong> Int</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> INT</p>
 <p><strong>Default Value:</strong> 10000</p>
 </div>
 <div class="section" id="redis-socket-keep-alive-enabled">
 <h3>redis.socket.keep.alive.enabled<a class="headerlink" href="#redis-socket-keep-alive-enabled" title="Permalink to this headline">¶</a></h3>
 <p>Flag to enable a keepalive to Redis.</p>
-<p><strong>Importance:</strong> Low</p>
-<p><strong>Type:</strong> Boolean</p>
-<p><strong>Default Value:</strong> false</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> BOOLEAN</p>
 </div>
 <div class="section" id="redis-socket-tcp-no-delay-enabled">
 <h3>redis.socket.tcp.no.delay.enabled<a class="headerlink" href="#redis-socket-tcp-no-delay-enabled" title="Permalink to this headline">¶</a></h3>
 <p>Flag to enable TCP no delay should be used.</p>
-<p><strong>Importance:</strong> Low</p>
-<p><strong>Type:</strong> Boolean</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> BOOLEAN</p>
 <p><strong>Default Value:</strong> true</p>
 </div>
 <div class="section" id="redis-ssl-provider">
 <h3>redis.ssl.provider<a class="headerlink" href="#redis-ssl-provider" title="Permalink to this headline">¶</a></h3>
 <p>The SSL provider to use.</p>
-<p><strong>Importance:</strong> Low</p>
-<p><strong>Type:</strong> String</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> JDK</p>
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">OPENSSL</span></code>, <code class="docutils literal"><span class="pre">JDK</span></code></p>
-</div>
-</div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="property-based-example">
-<h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
-<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
-<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">RedisSinkConnector1</span>
-<span class="na">connector.class</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.redis.RedisSinkConnector</span>
-<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
-<span class="hll"><span class="na">topics</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
-</span></pre></div>
-</div>
-</div>
-<div class="section" id="rest-based-example">
-<h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
-<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
-Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s). Check here for more information about the
-<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
-<div class="literal-block-wrapper docutils container" id="connector-json">
-<div class="code-block-caption"><span class="caption-text">Connect Distributed REST example</span><a class="headerlink" href="#connector-json" title="Permalink to this code">¶</a></div>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;config&quot;</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;RedisSinkConnector1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.redis.RedisSinkConnector&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;tasks.max&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-<span class="hll">    <span class="nt">&quot;topics&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
-</span>  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
-one of your Kafka Connect worker(s).</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/RedisSinkConnector1/config
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -386,10 +335,10 @@ one of your Kafka Connect worker(s).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../kafka-connect-simulator/connectors.html" class="btn btn-neutral float-right" title="Simulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../kafka-connect-simulator/index.html" class="btn btn-neutral float-right" title="Simulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../connectors.html" class="btn btn-neutral" title="Redis Connectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="Redis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

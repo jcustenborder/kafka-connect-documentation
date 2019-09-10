@@ -2,6 +2,10 @@
 Redis Sink Connector
 ====================
 
+.. code-block:: text
+
+    com.github.jcustenborder.kafka.connect.redis.RedisSinkConnector
+
 The Redis Sink Connector is used to write data from Kafka to a Redis cache.
 
 
@@ -14,9 +18,6 @@ The Redis Sink Connector is used to write data from Kafka to a Redis cache.
 
 
 
--------------
-Configuration
--------------
 
 -------
 General
@@ -29,9 +30,9 @@ redis.hosts
 
 The Redis hosts to connect to.
 
-**Importance:** High
+**Importance:** HIGH
 
-**Type:** List
+**Type:** LIST
 
 **Default Value:** [localhost:6379]
 
@@ -43,9 +44,9 @@ redis.client.mode
 
 The client mode to use when interacting with the Redis cluster.
 
-**Importance:** Medium
+**Importance:** MEDIUM
 
-**Type:** String
+**Type:** STRING
 
 **Default Value:** Standalone
 
@@ -59,9 +60,9 @@ redis.database
 
 Redis database to connect to.
 
-**Importance:** Medium
+**Importance:** MEDIUM
 
-**Type:** Int
+**Type:** INT
 
 **Default Value:** 1
 
@@ -73,9 +74,9 @@ redis.operation.timeout.ms
 
 The amount of time in milliseconds before an operation is marked as timed out.
 
-**Importance:** Medium
+**Importance:** MEDIUM
 
-**Type:** Long
+**Type:** LONG
 
 **Default Value:** 10000
 
@@ -89,9 +90,9 @@ redis.password
 
 Password used to connect to Redis.
 
-**Importance:** Medium
+**Importance:** MEDIUM
 
-**Type:** Password
+**Type:** PASSWORD
 
 **Default Value:** [hidden]
 
@@ -103,11 +104,9 @@ redis.ssl.enabled
 
 Flag to determine if SSL is enabled.
 
-**Importance:** Medium
+**Importance:** MEDIUM
 
-**Type:** Boolean
-
-**Default Value:** false
+**Type:** BOOLEAN
 
 
 
@@ -117,9 +116,9 @@ redis.ssl.keystore.password
 
 The password for the SSL keystore.
 
-**Importance:** Medium
+**Importance:** MEDIUM
 
-**Type:** Password
+**Type:** PASSWORD
 
 **Default Value:** [hidden]
 
@@ -131,9 +130,9 @@ redis.ssl.keystore.path
 
 The path to the SSL keystore.
 
-**Importance:** Medium
+**Importance:** MEDIUM
 
-**Type:** String
+**Type:** STRING
 
 
 
@@ -143,9 +142,9 @@ redis.ssl.truststore.password
 
 The password for the SSL truststore.
 
-**Importance:** Medium
+**Importance:** MEDIUM
 
-**Type:** Password
+**Type:** PASSWORD
 
 **Default Value:** [hidden]
 
@@ -157,9 +156,9 @@ redis.ssl.truststore.path
 
 The path to the SSL truststore.
 
-**Importance:** Medium
+**Importance:** MEDIUM
 
-**Type:** String
+**Type:** STRING
 
 
 
@@ -169,9 +168,9 @@ redis.auto.reconnect.enabled
 
 Flag to determine if the Redis client should automatically reconnect.
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** Boolean
+**Type:** BOOLEAN
 
 **Default Value:** true
 
@@ -183,9 +182,9 @@ redis.charset
 
 The character set to use for String key and values.
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** String
+**Type:** STRING
 
 **Default Value:** UTF-8
 
@@ -199,9 +198,9 @@ redis.request.queue.size
 
 The maximum number of queued requests to Redis.
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** Int
+**Type:** INT
 
 **Default Value:** 2147483647
 
@@ -213,9 +212,9 @@ redis.socket.connect.timeout.ms
 
 The amount of time in milliseconds to wait before timing out a socket when connecting.
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** Int
+**Type:** INT
 
 **Default Value:** 10000
 
@@ -227,11 +226,9 @@ redis.socket.keep.alive.enabled
 
 Flag to enable a keepalive to Redis.
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** Boolean
-
-**Default Value:** false
+**Type:** BOOLEAN
 
 
 
@@ -241,9 +238,9 @@ redis.socket.tcp.no.delay.enabled
 
 Flag to enable TCP no delay should be used.
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** Boolean
+**Type:** BOOLEAN
 
 **Default Value:** true
 
@@ -255,83 +252,15 @@ redis.ssl.provider
 
 The SSL provider to use.
 
-**Importance:** Low
+**Importance:** LOW
 
-**Type:** String
+**Type:** STRING
 
 **Default Value:** JDK
 
 **Validator:** Matches: ``OPENSSL``, ``JDK``
 
 
-
-
-
-
---------
-Examples
---------
-
-^^^^^^^^^^^^^^^^^^^^^^
-Property based example
-^^^^^^^^^^^^^^^^^^^^^^
-
-
-This configuration is used typically along with `standalone mode
-<http://docs.confluent.io/current/connect/concepts.html#standalone-workers>`_.
-
-.. code-block:: properties
-    :name: connector.properties
-    :emphasize-lines: 4
-
-    name=RedisSinkConnector1
-    connector.class=com.github.jcustenborder.kafka.connect.redis.RedisSinkConnector
-    tasks.max=1
-    topics=< Required Configuration >
-
-
-
-
-^^^^^^^^^^^^^^^^^^
-Rest based example
-^^^^^^^^^^^^^^^^^^
-
-
-This configuration is used typically along with `distributed mode
-<http://docs.confluent.io/current/connect/concepts.html#distributed-workers>`_.
-Write the following json to `connector.json`, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s). Check here for more information about the
-`Kafka Connect REST Interface. <https://docs.confluent.io/current/connect/restapi.html>`_
-
-.. code-block:: json
-    :caption: Connect Distributed REST example
-    :name: connector.json
-    :emphasize-lines: 6
-
-    {
-      "config" : {
-        "name" : "RedisSinkConnector1",
-        "connector.class" : "com.github.jcustenborder.kafka.connect.redis.RedisSinkConnector",
-        "tasks.max" : "1",
-        "topics" : "< Required Configuration >"
-      }
-    }
-
-
-
-Use curl to post the configuration to one of the Kafka Connect Workers. Change `http://localhost:8083/` the the endpoint of
-one of your Kafka Connect worker(s).
-
-.. code-block:: bash
-    :caption: Create a new connector
-
-    curl -s -X POST -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors
-
-
-.. code-block:: bash
-    :caption: Update an existing connector
-
-    curl -s -X PUT -H 'Content-Type: application/json' --data @connector.json http://localhost:8083/connectors/RedisSinkConnector1/config
 
 
 
