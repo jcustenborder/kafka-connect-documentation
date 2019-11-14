@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ExtractNestedField &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>SchemaNameToTopic &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Common Transformations" href="../index.html"/>
-        <link rel="next" title="ExtractTimestamp" href="ExtractTimestamp.html"/>
-        <link rel="prev" title="ChangeTopicCase" href="ChangeTopicCase.html"/> 
+        <link rel="next" title="SetMaximumPrecision" href="SetMaximumPrecision.html"/>
+        <link rel="prev" title="PatternRename" href="PatternRename.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -103,15 +103,12 @@
 <li class="toctree-l3"><a class="reference internal" href="BytesToString.html">BytesToString</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ChangeCase.html">ChangeCase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ChangeTopicCase.html">ChangeTopicCase</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">ExtractNestedField</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="ExtractNestedField.html">ExtractNestedField</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ExtractTimestamp.html">ExtractTimestamp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="NormalizeSchema.html">NormalizeSchema</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PatternFilter.html">PatternFilter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PatternRename.html">PatternRename</a></li>
-<li class="toctree-l3"><a class="reference internal" href="SchemaNameToTopic.html">SchemaNameToTopic</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SchemaNameToTopic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SetMaximumPrecision.html">SetMaximumPrecision</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SetNull.html">SetNull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TimestampNow.html">TimestampNow</a></li>
@@ -179,13 +176,13 @@
         
           <li><a href="../index.html">Common Transformations</a> &raquo;</li>
         
-      <li>ExtractNestedField</li>
+      <li>SchemaNameToTopic</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-transform-common/transformations/ExtractNestedField.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-transform-common/transformations/SchemaNameToTopic.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -198,41 +195,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="extractnestedfield">
-<h1>ExtractNestedField<a class="headerlink" href="#extractnestedfield" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="schemanametotopic">
+<h1>SchemaNameToTopic<a class="headerlink" href="#schemanametotopic" title="Permalink to this headline">¶</a></h1>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Manipulates the key of the message.</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.ExtractNestedField$Key
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.SchemaNameToTopic$Key
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Manipulates the value of the message.</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
-<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.ExtractNestedField$Value
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.SchemaNameToTopic$Value
 </pre></div>
 </div>
 </div>
-<div class="section" id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="input-inner-field-name">
-<h3>input.inner.field.name<a class="headerlink" href="#input-inner-field-name" title="Permalink to this headline">¶</a></h3>
-<p>The field on the child struct containing the field to be extracted. For example if you wanted the extract <cite>address.state</cite> you would use <cite>state</cite>.</p>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> STRING</p>
-</div>
-<div class="section" id="input-outer-field-name">
-<h3>input.outer.field.name<a class="headerlink" href="#input-outer-field-name" title="Permalink to this headline">¶</a></h3>
-<p>The field on the parent struct containing the child struct. For example if you wanted the extract <cite>address.state</cite> you would use <cite>address</cite>.</p>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> STRING</p>
-</div>
-<div class="section" id="output-field-name">
-<h3>output.field.name<a class="headerlink" href="#output-field-name" title="Permalink to this headline">¶</a></h3>
-<p>The field to place the extracted value into.</p>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> STRING</p>
-</div>
-</div>
+<p>This transformation is used to take the name from the schema for the key or value and replace the topic with this value.</p>
 </div>
 
 
@@ -245,10 +222,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ExtractTimestamp.html" class="btn btn-neutral float-right" title="ExtractTimestamp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="SetMaximumPrecision.html" class="btn btn-neutral float-right" title="SetMaximumPrecision" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ChangeTopicCase.html" class="btn btn-neutral" title="ChangeTopicCase" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="PatternRename.html" class="btn btn-neutral" title="PatternRename" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -1,0 +1,23 @@
+===============
+NormalizeSchema
+===============
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.NormalizeSchema$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.NormalizeSchema$Value
+
+
+This transformation is used to convert older schema versions to the latest schema version. This works by keying all of the schemas that are coming into the transformation by their schema name and comparing the version() of the schema. The latest version of a schema will be used. Schemas are discovered as the flow through the transformation. The latest version of a schema is what is used.
+
+
+
+
+
+

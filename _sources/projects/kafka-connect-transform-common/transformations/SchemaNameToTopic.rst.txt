@@ -1,0 +1,23 @@
+=================
+SchemaNameToTopic
+=================
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.SchemaNameToTopic$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.SchemaNameToTopic$Value
+
+
+This transformation is used to take the name from the schema for the key or value and replace the topic with this value.
+
+
+
+
+
+
