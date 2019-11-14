@@ -1,0 +1,138 @@
+=======
+Example
+=======
+
+This example takes fields that are prefixed with `prefixed` and removes the prefix.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "transforms" : "patternRename",
+      "transforms.patternRename.type" : "com.github.jcustenborder.kafka.connect.transform.common.PatternRename$Value",
+      "transforms.patternRename.field.pattern" : "^prefixed",
+      "transforms.patternRename.field.replacement" : ""
+    }
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "test",
+      "kafkaPartition" : 1,
+      "valueSchema" : {
+        "name" : "testing",
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "prefixedfirstname" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "prefixedlastname" : {
+            "type" : "STRING",
+            "isOptional" : false
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "name" : "testing",
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "prefixedfirstname" : {
+              "type" : "STRING",
+              "isOptional" : false
+            },
+            "prefixedlastname" : {
+              "type" : "STRING",
+              "isOptional" : false
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "prefixedfirstname",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "example"
+        }, {
+          "name" : "prefixedlastname",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "user"
+        } ]
+      },
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1234,
+      "headers" : [ ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 9, 13, 25, 29, 36, 43
+
+    {
+      "topic" : "test",
+      "kafkaPartition" : 1,
+      "valueSchema" : {
+        "name" : "testing",
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "firstname" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "lastname" : {
+            "type" : "STRING",
+            "isOptional" : false
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "name" : "testing",
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "firstname" : {
+              "type" : "STRING",
+              "isOptional" : false
+            },
+            "lastname" : {
+              "type" : "STRING",
+              "isOptional" : false
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "firstname",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "example"
+        }, {
+          "name" : "lastname",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "user"
+        } ]
+      },
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1234,
+      "headers" : [ ]
+    }
+

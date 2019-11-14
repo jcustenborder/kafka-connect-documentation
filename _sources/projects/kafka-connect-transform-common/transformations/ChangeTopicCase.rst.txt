@@ -15,6 +15,12 @@ This transformation is used to change the case of a topic.
 
 
 
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/ChangeTopicCase.*
 
 -------
 General

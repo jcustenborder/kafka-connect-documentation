@@ -1,0 +1,41 @@
+=======
+Example
+=======
+
+This example replaces the timestamp on a record with the current timestamp.
+
+
+
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "test",
+      "kafkaPartition" : 1,
+      "key" : "",
+      "value" : "",
+      "timestamp" : 12341312,
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1234123,
+      "headers" : [ ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 6
+
+    {
+      "topic" : "test",
+      "kafkaPartition" : 1,
+      "key" : "",
+      "value" : "",
+      "timestamp" : 1573709956862,
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1234123,
+      "headers" : [ ]
+    }
+

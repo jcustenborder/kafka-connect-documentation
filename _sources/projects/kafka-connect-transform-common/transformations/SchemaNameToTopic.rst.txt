@@ -18,6 +18,12 @@ This transformation is used to take the name from the schema for the key or valu
 
 
 
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/SchemaNameToTopic.*
 
 
 

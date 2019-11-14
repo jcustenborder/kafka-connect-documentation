@@ -1,0 +1,44 @@
+===============================
+UPPER_UNDERSCORE to LOWER_CAMEL
+===============================
+
+This example will convert the field names of a schema from upper underscore to lower underscore.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "transforms" : "changeTopicCase",
+      "transforms.changeTopicCase.type" : "com.github.jcustenborder.kafka.connect.transform.common.ChangeTopicCase",
+      "transforms.changeTopicCase.from" : "UPPER_UNDERSCORE",
+      "transforms.changeTopicCase.to" : "LOWER_CAMEL"
+    }
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "TOPIC_NAME",
+      "kafkaPartition" : 1,
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 12345,
+      "headers" : [ ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 2
+
+    {
+      "topic" : "topicName",
+      "kafkaPartition" : 1,
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 12345,
+      "headers" : [ ]
+    }
+

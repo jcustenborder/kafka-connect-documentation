@@ -1,0 +1,50 @@
+=======
+Example
+=======
+
+This example takes the value of the `timestamp` field and uses it for the record timestamp.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "transforms" : "extractTimestamp",
+      "transforms.extractTimestamp.type" : "com.github.jcustenborder.kafka.connect.transform.common.ExtractTimestamp$Value",
+      "transforms.extractTimestamp.field.name" : "timestamp"
+    }
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "topic",
+      "kafkaPartition" : 1,
+      "value" : {
+        "timestamp" : 1512164613123
+      },
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1,
+      "headers" : [ ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 7
+
+    {
+      "topic" : "topic",
+      "kafkaPartition" : 1,
+      "value" : {
+        "timestamp" : 1512164613123
+      },
+      "timestamp" : 1512164613123,
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1,
+      "headers" : [ ]
+    }
+

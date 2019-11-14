@@ -1,0 +1,218 @@
+=======
+Example
+=======
+
+This example takes the `value` field and converts it to a long.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "transforms" : "toLong",
+      "transforms.toLong.type" : "com.github.jcustenborder.kafka.connect.transform.common.ToLong$Value",
+      "transforms.toLong.fields" : "value"
+    }
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "test",
+      "kafkaPartition" : 1,
+      "keySchema" : {
+        "name" : "key",
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "id" : {
+            "type" : "INT64",
+            "isOptional" : false
+          }
+        }
+      },
+      "key" : {
+        "schema" : {
+          "name" : "key",
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "id" : {
+              "type" : "INT64",
+              "isOptional" : false
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "id",
+          "schema" : {
+            "type" : "INT64",
+            "isOptional" : false
+          },
+          "storage" : 1234
+        } ]
+      },
+      "valueSchema" : {
+        "name" : "value",
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "name" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "value" : {
+            "name" : "org.apache.kafka.connect.data.Decimal",
+            "type" : "BYTES",
+            "version" : 1,
+            "parameters" : {
+              "scale" : "2"
+            },
+            "isOptional" : false
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "name" : "value",
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "name" : {
+              "type" : "STRING",
+              "isOptional" : false
+            },
+            "value" : {
+              "name" : "org.apache.kafka.connect.data.Decimal",
+              "type" : "BYTES",
+              "version" : 1,
+              "parameters" : {
+                "scale" : "2"
+              },
+              "isOptional" : false
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "name",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "testing"
+        }, {
+          "name" : "value",
+          "schema" : {
+            "name" : "org.apache.kafka.connect.data.Decimal",
+            "type" : "BYTES",
+            "version" : 1,
+            "parameters" : {
+              "scale" : "2"
+            },
+            "isOptional" : false
+          },
+          "storage" : 12342.31
+        } ]
+      },
+      "timestamp" : 1530286549123,
+      "timestampType" : "CREATE_TIME",
+      "offset" : 91283741,
+      "headers" : [ ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 46, 62, 77, 80
+
+    {
+      "topic" : "test",
+      "kafkaPartition" : 1,
+      "keySchema" : {
+        "name" : "key",
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "id" : {
+            "type" : "INT64",
+            "isOptional" : false
+          }
+        }
+      },
+      "key" : {
+        "schema" : {
+          "name" : "key",
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "id" : {
+              "type" : "INT64",
+              "isOptional" : false
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "id",
+          "schema" : {
+            "type" : "INT64",
+            "isOptional" : false
+          },
+          "storage" : 1234
+        } ]
+      },
+      "valueSchema" : {
+        "name" : "value",
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "name" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "value" : {
+            "type" : "INT64",
+            "isOptional" : false
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "name" : "value",
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "name" : {
+              "type" : "STRING",
+              "isOptional" : false
+            },
+            "value" : {
+              "type" : "INT64",
+              "isOptional" : false
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "name",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "testing"
+        }, {
+          "name" : "value",
+          "schema" : {
+            "type" : "INT64",
+            "isOptional" : false
+          },
+          "storage" : 12342
+        } ]
+      },
+      "timestamp" : 1530286549123,
+      "timestampType" : "CREATE_TIME",
+      "offset" : 91283741,
+      "headers" : [ ]
+    }
+

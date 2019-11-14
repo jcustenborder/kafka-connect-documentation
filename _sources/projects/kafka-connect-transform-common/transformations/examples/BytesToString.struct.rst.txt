@@ -1,0 +1,103 @@
+======
+Struct
+======
+
+This example converts the `bytes` field from a byte array to a string.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "transforms" : "bytesToString",
+      "transforms.bytesToString.type" : "com.github.jcustenborder.kafka.connect.transform.common.BytesToString$Value",
+      "transforms.bytesToString.fields" : "bytes"
+    }
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "topic",
+      "kafkaPartition" : 1,
+      "valueSchema" : {
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "bytes" : {
+            "type" : "BYTES",
+            "isOptional" : false
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "bytes" : {
+              "type" : "BYTES",
+              "isOptional" : false
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "bytes",
+          "schema" : {
+            "type" : "BYTES",
+            "isOptional" : false
+          },
+          "storage" : "dGhpcyBpcyBhIHRlc3Q="
+        } ]
+      },
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1,
+      "headers" : [ ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 9, 20, 28, 31
+
+    {
+      "topic" : "topic",
+      "kafkaPartition" : 1,
+      "valueSchema" : {
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "bytes" : {
+            "type" : "STRING",
+            "isOptional" : false
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "bytes" : {
+              "type" : "STRING",
+              "isOptional" : false
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "bytes",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "this is a test"
+        } ]
+      },
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1,
+      "headers" : [ ]
+    }
+

@@ -17,6 +17,12 @@ PatternRename
 
 
 
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/PatternRename.*
 
 -------
 General

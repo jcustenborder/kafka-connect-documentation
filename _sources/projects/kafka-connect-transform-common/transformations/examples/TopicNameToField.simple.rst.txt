@@ -1,0 +1,133 @@
+=======
+Example
+=======
+
+This example takes the topic and adds it to the `topicName` field of the value.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "transforms" : "topicNameToField",
+      "transforms.topicNameToField.type" : "com.github.jcustenborder.kafka.connect.transform.common.TopicNameToField$Value",
+      "transforms.topicNameToField.field" : "topicName"
+    }
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "testing",
+      "kafkaPartition" : 1,
+      "keySchema" : {
+        "type" : "STRING",
+        "isOptional" : false
+      },
+      "key" : "foo",
+      "valueSchema" : {
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "test" : {
+            "type" : "STRING",
+            "isOptional" : false
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "test" : {
+              "type" : "STRING",
+              "isOptional" : false
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "test",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "test"
+        } ]
+      },
+      "timestamp" : 1530286549123,
+      "timestampType" : "CREATE_TIME",
+      "offset" : 91283741,
+      "headers" : [ ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 16, 17, 18, 19, 20, 32, 33, 34, 35, 36, 47, 48, 49, 50, 51, 52, 53, 54
+
+    {
+      "topic" : "testing",
+      "kafkaPartition" : 1,
+      "keySchema" : {
+        "type" : "STRING",
+        "isOptional" : false
+      },
+      "key" : "foo",
+      "valueSchema" : {
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "test" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "topicName" : {
+            "doc" : "Topic name",
+            "type" : "STRING",
+            "isOptional" : false
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "test" : {
+              "type" : "STRING",
+              "isOptional" : false
+            },
+            "topicName" : {
+              "doc" : "Topic name",
+              "type" : "STRING",
+              "isOptional" : false
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "test",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "test"
+        }, {
+          "name" : "topicName",
+          "schema" : {
+            "doc" : "Topic name",
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "testing"
+        } ]
+      },
+      "timestamp" : 1530286549123,
+      "timestampType" : "CREATE_TIME",
+      "offset" : 91283741,
+      "headers" : [ ]
+    }
+

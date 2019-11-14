@@ -1,0 +1,308 @@
+=======
+Example
+=======
+
+This example takes the value of `address.state` and copies it to a field on the `state` field.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "transforms" : "extractNestedField",
+      "transforms.extractNestedField.type" : "com.github.jcustenborder.kafka.connect.transform.common.ExtractNestedField$Value",
+      "transforms.extractNestedField.input.inner.field.name" : "state",
+      "transforms.extractNestedField.input.outer.field.name" : "address",
+      "transforms.extractNestedField.output.field.name" : "state"
+    }
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "topic",
+      "kafkaPartition" : 1,
+      "valueSchema" : {
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "first_name" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "last_name" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "address" : {
+            "name" : "Address",
+            "type" : "STRUCT",
+            "isOptional" : false,
+            "fieldSchemas" : {
+              "city" : {
+                "type" : "STRING",
+                "isOptional" : false
+              },
+              "state" : {
+                "type" : "STRING",
+                "isOptional" : false
+              }
+            }
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "first_name" : {
+              "type" : "STRING",
+              "isOptional" : false
+            },
+            "last_name" : {
+              "type" : "STRING",
+              "isOptional" : false
+            },
+            "address" : {
+              "name" : "Address",
+              "type" : "STRUCT",
+              "isOptional" : false,
+              "fieldSchemas" : {
+                "city" : {
+                  "type" : "STRING",
+                  "isOptional" : false
+                },
+                "state" : {
+                  "type" : "STRING",
+                  "isOptional" : false
+                }
+              }
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "first_name",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "test"
+        }, {
+          "name" : "last_name",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "developer"
+        }, {
+          "name" : "address",
+          "schema" : {
+            "name" : "Address",
+            "type" : "STRUCT",
+            "isOptional" : false,
+            "fieldSchemas" : {
+              "city" : {
+                "type" : "STRING",
+                "isOptional" : false
+              },
+              "state" : {
+                "type" : "STRING",
+                "isOptional" : false
+              }
+            }
+          },
+          "struct" : {
+            "schema" : {
+              "name" : "Address",
+              "type" : "STRUCT",
+              "isOptional" : false,
+              "fieldSchemas" : {
+                "city" : {
+                  "type" : "STRING",
+                  "isOptional" : false
+                },
+                "state" : {
+                  "type" : "STRING",
+                  "isOptional" : false
+                }
+              }
+            },
+            "fieldValues" : [ {
+              "name" : "city",
+              "schema" : {
+                "type" : "STRING",
+                "isOptional" : false
+              },
+              "storage" : "Austin"
+            }, {
+              "name" : "state",
+              "schema" : {
+                "type" : "STRING",
+                "isOptional" : false
+              },
+              "storage" : "tx"
+            } ]
+          }
+        } ]
+      },
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1,
+      "headers" : [ ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 30, 31, 32, 33, 64, 65, 66, 67, 134, 135, 136, 137, 138, 139, 140
+
+    {
+      "topic" : "topic",
+      "kafkaPartition" : 1,
+      "valueSchema" : {
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "first_name" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "last_name" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "address" : {
+            "name" : "Address",
+            "type" : "STRUCT",
+            "isOptional" : false,
+            "fieldSchemas" : {
+              "city" : {
+                "type" : "STRING",
+                "isOptional" : false
+              },
+              "state" : {
+                "type" : "STRING",
+                "isOptional" : false
+              }
+            }
+          },
+          "state" : {
+            "type" : "STRING",
+            "isOptional" : false
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "first_name" : {
+              "type" : "STRING",
+              "isOptional" : false
+            },
+            "last_name" : {
+              "type" : "STRING",
+              "isOptional" : false
+            },
+            "address" : {
+              "name" : "Address",
+              "type" : "STRUCT",
+              "isOptional" : false,
+              "fieldSchemas" : {
+                "city" : {
+                  "type" : "STRING",
+                  "isOptional" : false
+                },
+                "state" : {
+                  "type" : "STRING",
+                  "isOptional" : false
+                }
+              }
+            },
+            "state" : {
+              "type" : "STRING",
+              "isOptional" : false
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "first_name",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "test"
+        }, {
+          "name" : "last_name",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "developer"
+        }, {
+          "name" : "address",
+          "schema" : {
+            "name" : "Address",
+            "type" : "STRUCT",
+            "isOptional" : false,
+            "fieldSchemas" : {
+              "city" : {
+                "type" : "STRING",
+                "isOptional" : false
+              },
+              "state" : {
+                "type" : "STRING",
+                "isOptional" : false
+              }
+            }
+          },
+          "struct" : {
+            "schema" : {
+              "name" : "Address",
+              "type" : "STRUCT",
+              "isOptional" : false,
+              "fieldSchemas" : {
+                "city" : {
+                  "type" : "STRING",
+                  "isOptional" : false
+                },
+                "state" : {
+                  "type" : "STRING",
+                  "isOptional" : false
+                }
+              }
+            },
+            "fieldValues" : [ {
+              "name" : "city",
+              "schema" : {
+                "type" : "STRING",
+                "isOptional" : false
+              },
+              "storage" : "Austin"
+            }, {
+              "name" : "state",
+              "schema" : {
+                "type" : "STRING",
+                "isOptional" : false
+              },
+              "storage" : "tx"
+            } ]
+          }
+        }, {
+          "name" : "state",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "tx"
+        } ]
+      },
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1,
+      "headers" : [ ]
+    }
+

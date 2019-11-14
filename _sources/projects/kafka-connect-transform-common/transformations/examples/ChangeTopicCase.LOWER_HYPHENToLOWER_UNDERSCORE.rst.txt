@@ -1,0 +1,44 @@
+================================
+LOWER_HYPHEN to LOWER_UNDERSCORE
+================================
+
+This example will convert the field names of a schema from upper underscore to lower underscore.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "transforms" : "changeTopicCase",
+      "transforms.changeTopicCase.type" : "com.github.jcustenborder.kafka.connect.transform.common.ChangeTopicCase",
+      "transforms.changeTopicCase.from" : "LOWER_HYPHEN",
+      "transforms.changeTopicCase.to" : "LOWER_UNDERSCORE"
+    }
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "topic-name",
+      "kafkaPartition" : 1,
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 12345,
+      "headers" : [ ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 2
+
+    {
+      "topic" : "topic_name",
+      "kafkaPartition" : 1,
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 12345,
+      "headers" : [ ]
+    }
+

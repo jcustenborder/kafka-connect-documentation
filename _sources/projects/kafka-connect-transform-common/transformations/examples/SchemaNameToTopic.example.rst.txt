@@ -1,0 +1,99 @@
+======
+Simple
+======
+
+This example copies the schema name from the value of the record and replaces the topic with the name of the schema.
+
+
+
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "test",
+      "kafkaPartition" : 0,
+      "valueSchema" : {
+        "name" : "com.foo.bar.whatever.ASDF",
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "firstName" : {
+            "type" : "STRING",
+            "isOptional" : true
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "name" : "com.foo.bar.whatever.ASDF",
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "firstName" : {
+              "type" : "STRING",
+              "isOptional" : true
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "firstName",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "storage" : "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        } ]
+      },
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1234,
+      "headers" : [ ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 2
+
+    {
+      "topic" : "com.foo.bar.whatever.ASDF",
+      "kafkaPartition" : 0,
+      "valueSchema" : {
+        "name" : "com.foo.bar.whatever.ASDF",
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "firstName" : {
+            "type" : "STRING",
+            "isOptional" : true
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "name" : "com.foo.bar.whatever.ASDF",
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "firstName" : {
+              "type" : "STRING",
+              "isOptional" : true
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "firstName",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "storage" : "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        } ]
+      },
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1234,
+      "headers" : [ ]
+    }
+
