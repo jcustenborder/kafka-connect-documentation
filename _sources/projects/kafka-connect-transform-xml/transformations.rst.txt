@@ -1,9 +1,6 @@
-===================
-Xml Transformations
-===================
-
-This project has transformations that help with the conversion from XML to structured data that can be
-consumed by Kafka Connect.
+===================================
+Xml Transformations Transformations
+===================================
 
 .. toctree::
     :maxdepth: 1
@@ -12,4 +9,3 @@ consumed by Kafka Connect.
     :glob:
 
     transformations/*
-

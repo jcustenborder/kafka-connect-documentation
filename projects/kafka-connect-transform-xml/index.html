@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Xml Transformations &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Projects" href="../../projects.html"/>
+        <link rel="next" title="FromXML" href="transformations/FromXml.html"/>
+        <link rel="prev" title="MaxMindTransformation" href="../kafka-connect-transform-maxmind/transformations/MaxMindTransformation.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -89,9 +92,24 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../projects.html">Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../projects.html">Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-memcached/index.html">Memcached</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-redis/index.html">Redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-simulator/index.html">Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-solr/index.html">Apache Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-spooldir/index.html">Spool Dir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-common/index.html">Common Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-maxmind/index.html">Maxmind Transformations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Xml Transformations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations/FromXml.html">FromXML</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kafka-connect-twitter/index.html">Twitter</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../schemas.html">Schemas</a></li>
 </ul>
 <ul>
@@ -142,13 +160,15 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>Changelog</li>
+          <li><a href="../../projects.html">Projects</a> &raquo;</li>
+        
+      <li>Xml Transformations</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/projects/kafka-connect-transform-xml/changelog.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/projects/kafka-connect-transform-xml/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,45 +181,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="changelog">
-<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
-<p><strong>Unreleased</strong></p>
-<ul class="simple">
-<li>Corrected state to use packageName. Fixes #11.</li>
-<li><dl class="first docutils">
-<dt>Removed unused import. Fixes #11.”</dt>
-<dd>“2018-10-19 15:20:13”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-xml/commit/0f4ff9029685969">0f4ff9029685969</a>”,”Jeremy Custenborder”,”Invalid cast was due to JAXB loading using the system class loader vs the isolated class loader. After changing this to use the UrlClass loader it caused more issues where each class loader had their own Connectable class. Changed the Url class loader that is loading the xjc classes to include class loader the connector is using as the parent. This ensures that the Connectable class will be loaded from the parent class loader and only once. Fixes #4. (#10)”
-“2018-10-19 06:49:59”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-xml/commit/9e1e8480d9d0bc5">9e1e8480d9d0bc5</a>”,”Jeremy Custenborder”,”Issue 5 (#9)</dd>
-</dl>
-</li>
-<li>Changed the XSDCompiler to assume that Connectable is not part of the classpath. fixes #5.</li>
-<li>Change Jaxb to load from the dynamic classloader instead of the system class loader.</li>
-<li>Don’t cleanup</li>
-<li><dl class="first docutils">
-<dt>Checkstyle.”</dt>
-<dd>“2018-10-19 06:47:53”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-xml/commit/e1d52d2298b601c">e1d52d2298b601c</a>”,”Jeremy Custenborder”,”Issue 5 (#8)</dd>
-</dl>
-</li>
-<li>Changed the XSDCompiler to assume that Connectable is not part of the classpath. fixes #5.</li>
-<li>Change Jaxb to load from the dynamic classloader instead of the system class loader.</li>
-<li><dl class="first docutils">
-<dt>Don’t cleanup”</dt>
-<dd>“2018-10-19 06:08:24”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-xml/commit/e1f5d073c84553c">e1f5d073c84553c</a>”,”Jeremy Custenborder”,”Issue 5 (#7)</dd>
-</dl>
-</li>
-<li>Changed the XSDCompiler to assume that Connectable is not part of the classpath. fixes #5.</li>
-<li><dl class="first docutils">
-<dt>Change Jaxb to load from the dynamic classloader instead of the system class loader.”</dt>
-<dd>“2018-10-18 17:16:36”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-xml/commit/c53e4f3a5d4a763">c53e4f3a5d4a763</a>”,”Jeremy Custenborder”,”Changed the XSDCompiler to assume that Connectable is not part of the classpath. fixes #5. (#6)”
-“2018-04-03 18:41:42”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-xml/commit/2eab8064064a9de">2eab8064064a9de</a>”,”Jeremy Custenborder”,”Corrected name.”
-“2018-04-03 16:30:59”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-xml/commit/a8f42ec8b24e22b">a8f42ec8b24e22b</a>”,”Jeremy Custenborder”,”Added connector hub support. Fixes #2. (#3)”
-“2018-03-27 12:42:07”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-xml/commit/20adf6ce2d31960">20adf6ce2d31960</a>”,”Jeremy Custenborder”,”Added documentation test”
-“2018-03-23 21:33:02”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-xml/commit/5448ff87c96f86a">5448ff87c96f86a</a>”,”Jeremy Custenborder”,”Added readme.”
-“2018-03-23 21:23:23”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-xml/commit/0ee93bd55dca430">0ee93bd55dca430</a>”,”Jeremy Custenborder”,”Added examples and documentation.”
-“2018-03-23 21:16:29”,”<a class="reference external" href="https://github.com/jcustenborder/kafka-connect-transform-xml/commit/0ba6719866a4f57">0ba6719866a4f57</a>”,”Jeremy Custenborder”,”Initial commit.”</dd>
-</dl>
-</li>
+  <div class="section" id="xml-transformations">
+<h1>Xml Transformations<a class="headerlink" href="#xml-transformations" title="Permalink to this headline">¶</a></h1>
+<p>Installation through the <a class="reference external" href="https://docs.confluent.io/current/connect/managing/confluent-hub/client.html">Confluent Hub Client</a>.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>confluent-hub install jcustenborder/kafka-connect-transform-xml:latest
+</pre></div>
+</div>
+<p>This project contains common transformations for every day use cases with Kafka Connect.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Transformations:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="transformations/FromXml.html">FromXML</a></li>
 </ul>
+</div>
 </div>
 
 
@@ -209,6 +203,15 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="transformations/FromXml.html" class="btn btn-neutral float-right" title="FromXML" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../kafka-connect-transform-maxmind/transformations/MaxMindTransformation.html" class="btn btn-neutral" title="MaxMindTransformation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

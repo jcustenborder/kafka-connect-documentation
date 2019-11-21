@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>FromXML(value) &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>FromXML &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Xml Transformations" href="../index.html"/>
+        <link rel="next" title="Twitter" href="../../kafka-connect-twitter/index.html"/>
+        <link rel="prev" title="Xml Transformations" href="../index.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -142,13 +145,17 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-      <li>FromXML(value)</li>
+          <li><a href="../../../projects.html">Projects</a> &raquo;</li>
+        
+          <li><a href="../index.html">Xml Transformations</a> &raquo;</li>
+        
+      <li>FromXML</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-transform-xml/transformations/fromxml.value.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-transform-xml/transformations/FromXml.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,78 +168,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="fromxml-value">
-<h1>FromXML(value)<a class="headerlink" href="#fromxml-value" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="fromxml">
+<h1>FromXML<a class="headerlink" href="#fromxml" title="Permalink to this headline">¶</a></h1>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Manipulates the key of the message.</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.xml.FromXml$Key
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Manipulates the value of the message.</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.xml.FromXml$Value
+</pre></div>
+</div>
+</div>
 <p>This transformation is used to rename fields in the key of an input struct based on a regular expression and a replacement string.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">This transformation is used to manipulate fields in the Key of the record.</p>
-</div>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="general">
 <h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="schema-path">
 <h3>schema.path<a class="headerlink" href="#schema-path" title="Permalink to this headline">¶</a></h3>
 <p>Urls to the schemas to load. http and https paths are supported</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> List</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> LIST</p>
+<p><strong>Validator:</strong></p>
 </div>
 <div class="section" id="package">
 <h3>package<a class="headerlink" href="#package" title="Permalink to this headline">¶</a></h3>
 <p>The java package xjc will use to generate the source code in. This name will be applied to the resulting schema</p>
-<p><strong>Importance:</strong> High</p>
-<p><strong>Type:</strong> String</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> com.github.jcustenborder.kafka.connect.transform.xml.model</p>
 </div>
+<div class="section" id="xjc-options-automatic-name-conflict-resolution-enabled">
+<h3>xjc.options.automatic.name.conflict.resolution.enabled<a class="headerlink" href="#xjc-options-automatic-name-conflict-resolution-enabled" title="Permalink to this headline">¶</a></h3>
+<p>xjc.options.automatic.name.conflict.resolution.enabled</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> BOOLEAN</p>
 </div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="property-based-example">
-<h3>Property based example<a class="headerlink" href="#property-based-example" title="Permalink to this headline">¶</a></h3>
-<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#standalone-workers">standalone mode</a>.</p>
-<div class="highlight-properties" id="connector-properties"><div class="highlight"><pre><span></span><span class="na">name</span><span class="o">=</span><span class="s">Connector1</span>
-<span class="na">connector.class</span><span class="o">=</span><span class="s">org.apache.kafka.some.SourceConnector</span>
-<span class="na">tasks.max</span><span class="o">=</span><span class="s">1</span>
-<span class="na">transforms</span><span class="o">=</span><span class="s">tran</span>
-<span class="na">transforms.tran.type</span><span class="o">=</span><span class="s">com.github.jcustenborder.kafka.connect.transform.xml.FromXml$Value</span>
-<span class="hll"><span class="na">transforms.tran.schema.path</span><span class="o">=</span><span class="s">&lt; Required Configuration &gt;</span>
-</span></pre></div>
+<div class="section" id="xjc-options-strict-check-enabled">
+<h3>xjc.options.strict.check.enabled<a class="headerlink" href="#xjc-options-strict-check-enabled" title="Permalink to this headline">¶</a></h3>
+<p>xjc.options.strict.check.enabled</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> BOOLEAN</p>
+<p><strong>Default Value:</strong> true</p>
 </div>
-</div>
-<div class="section" id="rest-based-example">
-<h3>Rest based example<a class="headerlink" href="#rest-based-example" title="Permalink to this headline">¶</a></h3>
-<p>This configuration is used typically along with <a class="reference external" href="http://docs.confluent.io/current/connect/concepts.html#distributed-workers">distributed mode</a>.
-Write the following json to <cite>connector.json</cite>, configure all of the required values, and use the command below to
-post the configuration to one the distributed connect worker(s). Check here for more information about the
-<a class="reference external" href="https://docs.confluent.io/current/connect/restapi.html">Kafka Connect REST Interface.</a></p>
-<div class="literal-block-wrapper docutils container" id="connector-json">
-<div class="code-block-caption"><span class="caption-text">Connect Distributed REST example</span><a class="headerlink" href="#connector-json" title="Permalink to this code">¶</a></div>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Connector1&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.some.SourceConnector&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;transforms&quot;</span> <span class="p">:</span> <span class="s2">&quot;tran&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;transforms.tran.type&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.transform.xml.FromXml$Value&quot;</span><span class="p">,</span>
-<span class="hll">  <span class="nt">&quot;transforms.tran.schema.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;&lt; Required Configuration &gt;&quot;</span>
-</span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<p>Use curl to post the configuration to one of the Kafka Connect Workers. Change <cite>http://localhost:8083/</cite> the the endpoint of
-one of your Kafka Connect worker(s).</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Create a new connector</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X POST -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Update an existing connector</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -s -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data @connector.json http://localhost:8083/connectors/Value1/config
-</pre></div>
-</div>
-</div>
+<div class="section" id="xjc-options-verbose-enabled">
+<h3>xjc.options.verbose.enabled<a class="headerlink" href="#xjc-options-verbose-enabled" title="Permalink to this headline">¶</a></h3>
+<p>xjc.options.verbose.enabled</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> BOOLEAN</p>
 </div>
 </div>
 </div>
@@ -244,6 +232,15 @@ one of your Kafka Connect worker(s).</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../kafka-connect-twitter/index.html" class="btn btn-neutral float-right" title="Twitter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Xml Transformations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

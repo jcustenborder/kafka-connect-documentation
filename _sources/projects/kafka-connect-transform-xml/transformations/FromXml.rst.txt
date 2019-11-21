@@ -1,0 +1,98 @@
+=======
+FromXML
+=======
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.xml.FromXml$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.xml.FromXml$Value
+
+
+This transformation is used to rename fields in the key of an input struct based on a regular expression and a replacement string.
+
+
+.. TIP::
+    This transformation is used to manipulate fields in the Key of the record.
+
+
+
+
+-------
+General
+-------
+
+
+^^^^^^^^^^^
+schema.path
+^^^^^^^^^^^
+
+Urls to the schemas to load. http and https paths are supported
+
+**Importance:** HIGH
+
+**Type:** LIST
+
+**Validator:** 
+
+
+
+^^^^^^^
+package
+^^^^^^^
+
+The java package xjc will use to generate the source code in. This name will be applied to the resulting schema
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** com.github.jcustenborder.kafka.connect.transform.xml.model
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+xjc.options.automatic.name.conflict.resolution.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+xjc.options.automatic.name.conflict.resolution.enabled
+
+**Importance:** LOW
+
+**Type:** BOOLEAN
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+xjc.options.strict.check.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+xjc.options.strict.check.enabled
+
+**Importance:** LOW
+
+**Type:** BOOLEAN
+
+**Default Value:** true
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+xjc.options.verbose.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+xjc.options.verbose.enabled
+
+**Importance:** LOW
+
+**Type:** BOOLEAN
+
+
+
+
+
