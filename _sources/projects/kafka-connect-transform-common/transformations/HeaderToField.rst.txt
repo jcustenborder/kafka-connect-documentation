@@ -1,0 +1,45 @@
+=============
+HeaderToField
+=============
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.HeaderToField$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.HeaderToField$Value
+
+
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/HeaderToField.*
+
+-------
+General
+-------
+
+
+^^^^^^^^^^^^^^^
+header.mappings
+^^^^^^^^^^^^^^^
+
+The mapping of the header to the field in the message.
+
+**Importance:** HIGH
+
+**Type:** LIST
+
+
+
+
+
