@@ -50,48 +50,6 @@ Chroot within solr for the zookeeper configuration.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-solr.zookeeper.client.timeout.ms
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Set the timeout to the zookeeper ensemble in ms.
-
-**Importance:** LOW
-
-**Type:** INT
-
-**Default Value:** 45000
-
-
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-solr.zookeeper.connect.timeout.ms
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Set the connect timeout to the zookeeper ensemble in ms.
-
-**Importance:** LOW
-
-**Type:** INT
-
-**Default Value:** 15000
-
-
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-solr.zookeeper.retry.expiry.time.ms
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This is the time to wait to refetch the state after getting the same state version from ZK in ms.
-
-**Importance:** LOW
-
-**Type:** INT
-
-**Default Value:** 3000
-
-
-
 --------------
 Authentication
 --------------
