@@ -1,0 +1,164 @@
+===============
+Header to field
+===============
+
+The following example takes the value from the `applicationId` header and appends it as a new field to the value of the message.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "transforms" : "headerToField",
+      "transforms.headerToField.type" : "com.github.jcustenborder.kafka.connect.transform.common.HeaderToField$Value",
+      "transforms.headerToField.header.mappings" : "applicationId:STRING"
+    }
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "testing",
+      "kafkaPartition" : 1,
+      "valueSchema" : {
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "firstName" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "lastName" : {
+            "type" : "STRING",
+            "isOptional" : true
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "firstName" : {
+              "type" : "STRING",
+              "isOptional" : true
+            },
+            "lastName" : {
+              "type" : "STRING",
+              "isOptional" : true
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "firstName",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "storage" : "example"
+        }, {
+          "name" : "lastName",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "storage" : "user"
+        } ]
+      },
+      "timestamp" : 123412351,
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 12345,
+      "headers" : [ {
+        "name" : "applicationId",
+        "schema" : {
+          "type" : "STRING",
+          "isOptional" : false
+        },
+        "storage" : "testing"
+      } ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 15, 16, 17, 18, 34, 35, 36, 37, 55, 56, 57, 58, 59, 60, 61
+
+    {
+      "topic" : "testing",
+      "kafkaPartition" : 1,
+      "valueSchema" : {
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "firstName" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "lastName" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "applicationId" : {
+            "type" : "STRING",
+            "isOptional" : true
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "firstName" : {
+              "type" : "STRING",
+              "isOptional" : true
+            },
+            "lastName" : {
+              "type" : "STRING",
+              "isOptional" : true
+            },
+            "applicationId" : {
+              "type" : "STRING",
+              "isOptional" : true
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "firstName",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "storage" : "example"
+        }, {
+          "name" : "lastName",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "storage" : "user"
+        }, {
+          "name" : "applicationId",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "storage" : "testing"
+        } ]
+      },
+      "timestamp" : 123412351,
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 12345,
+      "headers" : [ {
+        "name" : "applicationId",
+        "schema" : {
+          "type" : "STRING",
+          "isOptional" : false
+        },
+        "storage" : "testing"
+      } ]
+    }
+

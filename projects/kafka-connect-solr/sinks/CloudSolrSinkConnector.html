@@ -95,6 +95,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../projects.html">Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-aerospike/index.html">Aerospike Connectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/index.html">Memcached</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-redis/index.html">Redis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/index.html">Simulator</a></li>
@@ -225,6 +226,27 @@
 <p>Chroot within solr for the zookeeper configuration.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
+</div>
+<div class="section" id="solr-zookeeper-client-timeout-ms">
+<h3>solr.zookeeper.client.timeout.ms<a class="headerlink" href="#solr-zookeeper-client-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<p>Set the timeout to the zookeeper ensemble in ms.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> INT</p>
+<p><strong>Default Value:</strong> 45000</p>
+</div>
+<div class="section" id="solr-zookeeper-connect-timeout-ms">
+<h3>solr.zookeeper.connect.timeout.ms<a class="headerlink" href="#solr-zookeeper-connect-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<p>Set the connect timeout to the zookeeper ensemble in ms.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> INT</p>
+<p><strong>Default Value:</strong> 15000</p>
+</div>
+<div class="section" id="solr-zookeeper-retry-expiry-time-ms">
+<h3>solr.zookeeper.retry.expiry.time.ms<a class="headerlink" href="#solr-zookeeper-retry-expiry-time-ms" title="Permalink to this headline">¶</a></h3>
+<p>This is the time to wait to refetch the state after getting the same state version from ZK in ms.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> INT</p>
+<p><strong>Default Value:</strong> 3000</p>
 </div>
 </div>
 <div class="section" id="authentication">

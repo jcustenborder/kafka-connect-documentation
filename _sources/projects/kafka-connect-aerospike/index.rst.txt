@@ -1,0 +1,24 @@
+====================
+Aerospike Connectors
+====================
+
+Installation through the `Confluent Hub Client <https://docs.confluent.io/current/connect/managing/confluent-hub/client.html>`_.
+
+.. code-block:: bash
+
+    confluent-hub install jcustenborder/kafka-connect-aerospike:latest
+
+This plugin provides a mechanism to write data from Kafka to an Aerospike cluster.
+
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Connectors:
+    :glob:
+
+    sinks/*
+    
+
+

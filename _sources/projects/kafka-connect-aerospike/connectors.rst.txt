@@ -1,0 +1,17 @@
+====================
+Aerospike Connectors
+====================
+
+This plugin provides a mechanism to write data from Kafka to an Aerospike cluster.
+
+
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Sink Connectors:
+    :hidden:
+    :glob:
+
+    sinks/*

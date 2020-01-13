@@ -1,0 +1,307 @@
+======================
+AerospikeSinkConnector
+======================
+
+.. code-block:: text
+
+    com.github.jcustenborder.kafka.connect.aerospike.AerospikeSinkConnector
+
+The Aerospike sink connector is used to write data to an Aerospike cluster.
+
+
+.. NOTE::
+    Aerospike does not support complex keys. This means that all keys presented to this connector must be a string, bytes, int, long, double, or float. If the data in your key is a struct, use a Single Message transformation to change the format of the incoming data.
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/AerospikeSinkConnector.*
+
+----------
+Connection
+----------
+
+
+^^^^^
+hosts
+^^^^^
+
+Hostnames are parsed from the standard Aerospike format. Ex `hostname1[:tlsname1][:port1],...`
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+^^^^^^^^^^^^^^^^^^^^
+connection.auth.mode
+^^^^^^^^^^^^^^^^^^^^
+
+Authentication mode used when user/password is defined. `EXTERNAL` - Use external authentication (like LDAP). `EXTERNAL_INSECURE` - Use external authentication (like LDAP). `INTERNAL` - Use internal authentication only.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** INTERNAL
+
+**Validator:** Matches: ``INTERNAL``, ``EXTERNAL``, ``EXTERNAL_INSECURE``
+
+
+
+^^^^^^^^^^^^^^^^^^^
+connection.password
+^^^^^^^^^^^^^^^^^^^
+
+Password authentication to cluster. The password will be stored by the client and sent to server in hashed format. Leave null for clusters running without restricted access.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+^^^^^^^^^^^^^^^^^^^
+connection.username
+^^^^^^^^^^^^^^^^^^^
+
+User authentication to cluster. Leave null for clusters running without restricted access.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+^^^^^^^^^^^^^^^^^^
+hosts.default.port
+^^^^^^^^^^^^^^^^^^
+
+The default port to use to connect to Aerospike.
+
+**Importance:** HIGH
+
+**Type:** INT
+
+**Default Value:** 3000
+
+**Validator:** ValidPort{start=1025, end=65535}
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+connection.cluster.name
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected cluster name. If not null, server nodes must return this cluster name in order to join the client's view of the cluster. Should only be set when connecting to servers that support `the cluster-name` info command.
+
+**Importance:** MEDIUM
+
+**Type:** STRING
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+connection.login.timeout.ms
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Login timeout in milliseconds.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 5000
+
+**Validator:** [1000,...]
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+connection.per.node.max
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Maximum number of connections allowed per server node.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 300
+
+**Validator:** [1,...]
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^
+connection.pools.per.node
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Number of synchronous connection pools used for each node.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 1
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+connection.rack.aware.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Flag to determine if the client should track server rack data.
+
+**Importance:** LOW
+
+**Type:** BOOLEAN
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^
+connection.rack.aware.id
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Rack where this client instance resides.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 0
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+connection.socket.idle.timeout.ms
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Maximum socket idle in milliseconds.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 300000
+
+**Validator:** [1000,...]
+
+
+
+---------
+Namespace
+---------
+
+
+^^^^^^^^^
+namespace
+^^^^^^^^^
+
+
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^
+connect.offset.set.name
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The set name in the namespace that is used to store the offsets that have been successfully written to Aerospike.
+
+**Importance:** LOW
+
+**Type:** STRING
+
+**Default Value:** _connect_offsets
+
+
+
+--------
+Batching
+--------
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+batch.concurrent.threads.max
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Maximum number of concurrent synchronous batch request threads to server nodes at any point in time.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 1
+
+
+
+^^^^^^^^^^^^^^^^^^^^
+batch.inline.enabled
+^^^^^^^^^^^^^^^^^^^^
+
+Allow batch to be processed immediately in the server's receiving thread when the server deems it to be appropriate.
+
+**Importance:** LOW
+
+**Type:** BOOLEAN
+
+**Default Value:** true
+
+
+
+------
+Writes
+------
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^
+write.policy.commit.level
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Desired consistency guarantee when committing a transaction on the server. `COMMIT_ALL` - Server should wait until successfully committing master and all replicas. `COMMIT_MASTER` - Server should wait until successfully committing master only.
+
+**Importance:** LOW
+
+**Type:** STRING
+
+**Default Value:** COMMIT_ALL
+
+**Validator:** Matches: ``COMMIT_ALL``, ``COMMIT_MASTER``
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+write.policy.durable.delete.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the transaction results in a record deletion, leave a tombstone for the record.
+
+**Importance:** LOW
+
+**Type:** BOOLEAN
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+write.policy.send.key.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Send user defined key in addition to hash digest on both reads and writes.
+
+**Importance:** LOW
+
+**Type:** BOOLEAN
+
+
+
+
+

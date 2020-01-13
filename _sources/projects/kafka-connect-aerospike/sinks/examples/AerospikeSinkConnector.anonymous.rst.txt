@@ -1,0 +1,72 @@
+=========
+Anonymous
+=========
+
+This example connects to an AeroSpike instance without authentication.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "connector.class" : "com.github.jcustenborder.kafka.connect.aerospike.AerospikeSinkConnector",
+      "topic" : "<required setting>",
+      "namespace" : "test",
+      "hosts" : "127.0.0.1:3000"
+    }
+
+.. code-block:: json
+    :caption: Example record from Kafka.
+
+    {
+      "topic" : "dataTypeBOOLEANnull",
+      "kafkaPartition" : 0,
+      "keySchema" : {
+        "type" : "STRING",
+        "isOptional" : false
+      },
+      "key" : "key-dataTypeBOOLEANnull",
+      "valueSchema" : {
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "testField" : {
+            "type" : "BOOLEAN",
+            "isOptional" : false
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "testField" : {
+              "type" : "BOOLEAN",
+              "isOptional" : false
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "testField",
+          "schema" : {
+            "type" : "BOOLEAN",
+            "isOptional" : false
+          },
+          "storage" : true
+        } ]
+      },
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 0,
+      "headers" : [ ]
+    }
+
+The following data is written to the target.
+
+
+.. code-block:: json
+    :caption: Output
+
+    "put('dataTypeBOOLEANnull', {'testField':true})"
+
