@@ -1,6 +1,6 @@
-====================
-Aerospike Connectors
-====================
+=========
+Aerospike
+=========
 
 This plugin provides a mechanism to write data from Kafka to an Aerospike cluster.
 
