@@ -10,7 +10,8 @@ def connectors = [
         'kafka-connect-spooldir':'jcustenborder/kafka-connect-spooldir/master',
         
         'kafka-connect-twitter':'jcustenborder/kafka-connect-twitter/master',
-
+        'kafka-connect-aerospike':'jcustenborder/kafka-connect-aerospike/master',
+        
         'kafka-connect-transform-archive':'jcustenborder/kafka-connect-transform-archive/master',
         'kafka-connect-transform-cef':'jcustenborder/kafka-connect-transform-cef/master',
         'kafka-connect-transform-common':'jcustenborder/kafka-connect-transform-common/master',
