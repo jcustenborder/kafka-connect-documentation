@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>NormalizeSchema &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>HeaderToField &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Common Transformations" href="../index.html"/>
-        <link rel="next" title="PatternFilter" href="PatternFilter.html"/>
-        <link rel="prev" title="Header to field" href="examples/HeaderToField.headertofield.html"/> 
+        <link rel="next" title="Header to field" href="examples/HeaderToField.headertofield.html"/>
+        <link rel="prev" title="Example" href="examples/ExtractTimestamp.simple.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -149,13 +149,13 @@
         
           <li><a href="../index.html">Common Transformations</a> &raquo;</li>
         
-      <li>NormalizeSchema</li>
+      <li>HeaderToField</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-transform-common/transformations/NormalizeSchema.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-transform-common/transformations/HeaderToField.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,21 +168,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="normalizeschema">
-<h1>NormalizeSchema<a class="headerlink" href="#normalizeschema" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="headertofield">
+<h1>HeaderToField<a class="headerlink" href="#headertofield" title="Permalink to this headline">¶</a></h1>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Manipulates the key of the message.</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.NormalizeSchema$Key
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.HeaderToField$Key
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Manipulates the value of the message.</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
-<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.NormalizeSchema$Value
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.HeaderToField$Value
 </pre></div>
 </div>
 </div>
-<p>This transformation is used to convert older schema versions to the latest schema version. This works by keying all of the schemas that are coming into the transformation by their schema name and comparing the version() of the schema. The latest version of a schema will be used. Schemas are discovered as the flow through the transformation. The latest version of a schema is what is used.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/HeaderToField.headertofield.html">Header to field</a></li>
+</ul>
+</div>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="header-mappings">
+<h3>header.mappings<a class="headerlink" href="#header-mappings" title="Permalink to this headline">¶</a></h3>
+<p>The mapping of the header to the field in the message.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> LIST</p>
+</div>
+</div>
 </div>
 
 
@@ -195,10 +209,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="PatternFilter.html" class="btn btn-neutral float-right" title="PatternFilter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="examples/HeaderToField.headertofield.html" class="btn btn-neutral float-right" title="Header to field" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="examples/HeaderToField.headertofield.html" class="btn btn-neutral" title="Header to field" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="examples/ExtractTimestamp.simple.html" class="btn btn-neutral" title="Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
