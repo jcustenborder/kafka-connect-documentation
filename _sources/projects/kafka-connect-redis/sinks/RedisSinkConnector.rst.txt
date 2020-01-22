@@ -54,6 +54,38 @@ The client mode to use when interacting with the Redis cluster.
 
 
 
+^^^^^^^^^^^^^^^^^^^^^^^^^
+redis.connection.attempts
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The number of attempt when connecting to redis.
+
+**Importance:** MEDIUM
+
+**Type:** INT
+
+**Default Value:** 3
+
+**Validator:** [1,...]
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+redis.connection.retry.delay.ms
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The amount of milliseconds to wait between redis connection attempts.
+
+**Importance:** MEDIUM
+
+**Type:** INT
+
+**Default Value:** 2000
+
+**Validator:** [100,...]
+
+
+
 ^^^^^^^^^^^^^^
 redis.database
 ^^^^^^^^^^^^^^
