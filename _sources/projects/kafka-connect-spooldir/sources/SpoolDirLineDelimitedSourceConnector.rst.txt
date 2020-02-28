@@ -96,7 +96,7 @@ Should the task halt when it encounters an error or continue to the next file.
 cleanup.policy
 ^^^^^^^^^^^^^^
 
-Determines how the connector should cleanup the files that have been successfully processed. NONE leaves the files in place which could cause them to be reprocessed if the connector is restarted. DELETE removes the file from the filesystem. MOVE will move the file to a finished directory.
+Determines how the connector should cleanup the files that have been successfully processed. NONE leaves the files in place which could cause them to be reprocessed if the connector is restarted. DELETE removes the file from the filesystem. MOVE will move the file to a finished directory. MOVEBYDATE will move the file to a finished directory with subdirectories by date
 
 **Importance:** MEDIUM
 
@@ -104,7 +104,39 @@ Determines how the connector should cleanup the files that have been successfull
 
 **Default Value:** MOVE
 
-**Validator:** Matches: ``NONE``, ``DELETE``, ``MOVE``
+**Validator:** Matches: ``NONE``, ``DELETE``, ``MOVE``, ``MOVEBYDATE``
+
+
+
+^^^^^^^^^^^^^^^^
+task.partitioner
+^^^^^^^^^^^^^^^^
+
+The task partitioner implementation is used when the connector is configured to use more than one task. This is used by each task to identify which files will be processed by that task. This ensures that each file is only assigned to one task.
+
+**Importance:** MEDIUM
+
+**Type:** STRING
+
+**Default Value:** ByName
+
+**Validator:** Matches: ``ByName``
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^
+file.buffer.size.bytes
+^^^^^^^^^^^^^^^^^^^^^^
+
+The size of buffer for the BufferedInputStream that will be used to interact with the file system.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 131072
+
+**Validator:** [1,...]
 
 
 
@@ -121,6 +153,22 @@ The amount of time in milliseconds after the file was last written to before the
 **Default Value:** 0
 
 **Validator:** [0,...]
+
+
+
+^^^^^^^^^^^^^^^^^^^^^
+files.sort.attributes
+^^^^^^^^^^^^^^^^^^^^^
+
+The attributes each file will use to determine the sort order. `Name` is name of the file. `Length` is the length of the file preferring larger files first. `LastModified` is the LastModified attribute of the file preferring older files first.
+
+**Importance:** LOW
+
+**Type:** LIST
+
+**Default Value:** [NameAsc]
+
+**Validator:** Matches: ``NameAsc``, ``NameDesc``, ``LengthAsc``, ``LengthDesc``, ``LastModifiedAsc``, ``LastModifiedDesc``
 
 
 
@@ -181,9 +229,41 @@ The amount of time to wait if a poll returns an empty list of records.
 
 **Type:** LONG
 
-**Default Value:** 250
+**Default Value:** 500
 
 **Validator:** [1,...,9223372036854775807]
+
+
+
+^^^^^^^^^^
+task.count
+^^^^^^^^^^
+
+Internal setting to the connector used to instruct a task on which files to select. The connector will override this setting.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 1
+
+**Validator:** [1,...]
+
+
+
+^^^^^^^^^^
+task.index
+^^^^^^^^^^
+
+Internal setting to the connector used to instruct a task on which files to select. The connector will override this setting.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 0
+
+**Validator:** [0,...]
 
 
 
@@ -205,6 +285,41 @@ Determines how the connector will set the timestamp for the [ConnectRecord](http
 **Default Value:** PROCESS_TIME
 
 **Validator:** Matches: ``FIELD``, ``FILE_TIME``, ``PROCESS_TIME``
+
+
+
+--------
+Metadata
+--------
+
+
+^^^^^^^^^^^^^^
+metadata.field
+^^^^^^^^^^^^^^
+
+The name of the field in the value where the metadata will be stored.
+
+**Importance:** LOW
+
+**Type:** STRING
+
+**Default Value:** metadata
+
+
+
+^^^^^^^^^^^^^^^^^
+metadata.location
+^^^^^^^^^^^^^^^^^
+
+Location that metadata about the input file will be stored. `FIELD` - Metadata about the file will be stored in a field in the value of the record. `HEADERS` - Metadata about the input file will be stored as headers on the record. `NONE` - no metadata about the input file will be stored.
+
+**Importance:** LOW
+
+**Type:** STRING
+
+**Default Value:** HEADERS
+
+**Validator:** Matches: ``NONE``, ``HEADERS``, ``FIELD``
 
 
 

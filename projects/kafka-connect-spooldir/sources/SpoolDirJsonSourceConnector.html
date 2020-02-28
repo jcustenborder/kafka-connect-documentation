@@ -38,7 +38,7 @@
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Spool Dir" href="../index.html"/>
         <link rel="next" title="Json" href="examples/SpoolDirJsonSourceConnector.test.html"/>
-        <link rel="prev" title="Extended Log File Format Source Connector" href="SpoolDirELFSourceConnector.html"/> 
+        <link rel="prev" title="Standard" href="examples/SpoolDirELFSourceConnector.example.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -110,6 +110,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#schema">Schema</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#schema-generation">Schema Generation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#timestamps">Timestamps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metadata">Metadata</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirLineDelimitedSourceConnector.html">Line Delimited Source Connector</a></li>
@@ -208,7 +209,7 @@
 </div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>mvn clean package
 <span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>find target/kafka-connect-target/usr/share/kafka-connect/kafka-connect-spooldir -type f -name <span class="s1">&#39;*.jar&#39;</span> <span class="p">|</span> tr <span class="s1">&#39;\n&#39;</span> <span class="s1">&#39;:&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
-kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.SchemaGenerator -t json -f src/test/resources/com/github/jcustenborder/kafka/connect/spooldir/json/FieldsMatch.data -c config/JsonExample.properties -i id
+kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGenerator -t json -f src/test/resources/com/github/jcustenborder/kafka/connect/spooldir/json/FieldsMatch.data -c config/JsonExample.properties -i id
 </pre></div>
 </div>
 <div class="toctree-wrapper compound">
@@ -254,11 +255,27 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.SchemaGenerator 
 </div>
 <div class="section" id="cleanup-policy">
 <h3>cleanup.policy<a class="headerlink" href="#cleanup-policy" title="Permalink to this headline">¶</a></h3>
-<p>Determines how the connector should cleanup the files that have been successfully processed. NONE leaves the files in place which could cause them to be reprocessed if the connector is restarted. DELETE removes the file from the filesystem. MOVE will move the file to a finished directory.</p>
+<p>Determines how the connector should cleanup the files that have been successfully processed. NONE leaves the files in place which could cause them to be reprocessed if the connector is restarted. DELETE removes the file from the filesystem. MOVE will move the file to a finished directory. MOVEBYDATE will move the file to a finished directory with subdirectories by date</p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> MOVE</p>
-<p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">NONE</span></code>, <code class="docutils literal"><span class="pre">DELETE</span></code>, <code class="docutils literal"><span class="pre">MOVE</span></code></p>
+<p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">NONE</span></code>, <code class="docutils literal"><span class="pre">DELETE</span></code>, <code class="docutils literal"><span class="pre">MOVE</span></code>, <code class="docutils literal"><span class="pre">MOVEBYDATE</span></code></p>
+</div>
+<div class="section" id="task-partitioner">
+<h3>task.partitioner<a class="headerlink" href="#task-partitioner" title="Permalink to this headline">¶</a></h3>
+<p>The task partitioner implementation is used when the connector is configured to use more than one task. This is used by each task to identify which files will be processed by that task. This ensures that each file is only assigned to one task.</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> STRING</p>
+<p><strong>Default Value:</strong> ByName</p>
+<p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">ByName</span></code></p>
+</div>
+<div class="section" id="file-buffer-size-bytes">
+<h3>file.buffer.size.bytes<a class="headerlink" href="#file-buffer-size-bytes" title="Permalink to this headline">¶</a></h3>
+<p>The size of buffer for the BufferedInputStream that will be used to interact with the file system.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> INT</p>
+<p><strong>Default Value:</strong> 131072</p>
+<p><strong>Validator:</strong> [1,…]</p>
 </div>
 <div class="section" id="file-minimum-age-ms">
 <h3>file.minimum.age.ms<a class="headerlink" href="#file-minimum-age-ms" title="Permalink to this headline">¶</a></h3>
@@ -267,6 +284,14 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.SchemaGenerator 
 <p><strong>Type:</strong> LONG</p>
 <p><strong>Default Value:</strong> 0</p>
 <p><strong>Validator:</strong> [0,…]</p>
+</div>
+<div class="section" id="files-sort-attributes">
+<h3>files.sort.attributes<a class="headerlink" href="#files-sort-attributes" title="Permalink to this headline">¶</a></h3>
+<p>The attributes each file will use to determine the sort order. <cite>Name</cite> is name of the file. <cite>Length</cite> is the length of the file preferring larger files first. <cite>LastModified</cite> is the LastModified attribute of the file preferring older files first.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> LIST</p>
+<p><strong>Default Value:</strong> [NameAsc]</p>
+<p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">NameAsc</span></code>, <code class="docutils literal"><span class="pre">NameDesc</span></code>, <code class="docutils literal"><span class="pre">LengthAsc</span></code>, <code class="docutils literal"><span class="pre">LengthDesc</span></code>, <code class="docutils literal"><span class="pre">LastModifiedAsc</span></code>, <code class="docutils literal"><span class="pre">LastModifiedDesc</span></code></p>
 </div>
 <div class="section" id="processing-file-extension">
 <h3>processing.file.extension<a class="headerlink" href="#processing-file-extension" title="Permalink to this headline">¶</a></h3>
@@ -297,8 +322,24 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.SchemaGenerator 
 <p>The amount of time to wait if a poll returns an empty list of records.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> LONG</p>
-<p><strong>Default Value:</strong> 250</p>
+<p><strong>Default Value:</strong> 500</p>
 <p><strong>Validator:</strong> [1,…,9223372036854775807]</p>
+</div>
+<div class="section" id="task-count">
+<h3>task.count<a class="headerlink" href="#task-count" title="Permalink to this headline">¶</a></h3>
+<p>Internal setting to the connector used to instruct a task on which files to select. The connector will override this setting.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> INT</p>
+<p><strong>Default Value:</strong> 1</p>
+<p><strong>Validator:</strong> [1,…]</p>
+</div>
+<div class="section" id="task-index">
+<h3>task.index<a class="headerlink" href="#task-index" title="Permalink to this headline">¶</a></h3>
+<p>Internal setting to the connector used to instruct a task on which files to select. The connector will override this setting.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> INT</p>
+<p><strong>Default Value:</strong> 0</p>
+<p><strong>Validator:</strong> [0,…]</p>
 </div>
 </div>
 <div class="section" id="schema">
@@ -376,6 +417,24 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.SchemaGenerator 
 <p><strong>Default Value:</strong> UTC</p>
 </div>
 </div>
+<div class="section" id="metadata">
+<h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="metadata-field">
+<h3>metadata.field<a class="headerlink" href="#metadata-field" title="Permalink to this headline">¶</a></h3>
+<p>The name of the field in the value where the metadata will be stored.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> STRING</p>
+<p><strong>Default Value:</strong> metadata</p>
+</div>
+<div class="section" id="metadata-location">
+<h3>metadata.location<a class="headerlink" href="#metadata-location" title="Permalink to this headline">¶</a></h3>
+<p>Location that metadata about the input file will be stored. <cite>FIELD</cite> - Metadata about the file will be stored in a field in the value of the record. <cite>HEADERS</cite> - Metadata about the input file will be stored as headers on the record. <cite>NONE</cite> - no metadata about the input file will be stored.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> STRING</p>
+<p><strong>Default Value:</strong> HEADERS</p>
+<p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">NONE</span></code>, <code class="docutils literal"><span class="pre">HEADERS</span></code>, <code class="docutils literal"><span class="pre">FIELD</span></code></p>
+</div>
+</div>
 </div>
 
 
@@ -391,7 +450,7 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.SchemaGenerator 
         <a href="examples/SpoolDirJsonSourceConnector.test.html" class="btn btn-neutral float-right" title="Json" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="SpoolDirELFSourceConnector.html" class="btn btn-neutral" title="Extended Log File Format Source Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="examples/SpoolDirELFSourceConnector.example.html" class="btn btn-neutral" title="Standard" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
