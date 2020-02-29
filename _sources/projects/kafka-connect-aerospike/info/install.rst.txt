@@ -8,7 +8,7 @@ Install
     :target: https://github.com/jcustenborder/kafka-connect-aerospike/releases
 
 .. image:: https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-aerospike.svg
-    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-aerospike%7C0.2.4%7Cjar
+    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-aerospike%7C0.2.3%7Cjar
 
 ^^^^^^^^^^^^^^^^
 RPM Installation
@@ -41,7 +41,7 @@ Maven Installation
     <dependency>
         <groupId>com.github.jcustenborder.kafka.connect</groupId>
         <artifactId>kafka-connect-aerospike</artifactId>
-        <version>0.2.4</version>
+        <version>0.2.3</version>
     </dependency>
 
 
