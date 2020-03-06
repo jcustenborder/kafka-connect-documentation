@@ -96,6 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../projects.html">Projects</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-aerospike/index.html">Aerospike</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-json-schema/index.html">Json Schema</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/index.html">Memcached</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Redis</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Redis Sink Connector</a><ul>
@@ -217,6 +218,22 @@
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> Standalone</p>
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">Standalone</span></code>, <code class="docutils literal"><span class="pre">Cluster</span></code></p>
+</div>
+<div class="section" id="redis-connection-attempts">
+<h3>redis.connection.attempts<a class="headerlink" href="#redis-connection-attempts" title="Permalink to this headline">¶</a></h3>
+<p>The number of attempt when connecting to redis.</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> INT</p>
+<p><strong>Default Value:</strong> 3</p>
+<p><strong>Validator:</strong> [1,…]</p>
+</div>
+<div class="section" id="redis-connection-retry-delay-ms">
+<h3>redis.connection.retry.delay.ms<a class="headerlink" href="#redis-connection-retry-delay-ms" title="Permalink to this headline">¶</a></h3>
+<p>The amount of milliseconds to wait between redis connection attempts.</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> INT</p>
+<p><strong>Default Value:</strong> 2000</p>
+<p><strong>Validator:</strong> [100,…]</p>
 </div>
 <div class="section" id="redis-database">
 <h3>redis.database<a class="headerlink" href="#redis-database" title="Permalink to this headline">¶</a></h3>

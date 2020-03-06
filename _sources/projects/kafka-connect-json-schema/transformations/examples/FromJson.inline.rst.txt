@@ -1,0 +1,132 @@
+=============
+Inline Config
+=============
+
+This example takes an input value that is a byte array and reads this value based on the supplied schema to a Kafka Connect value. The result is data that is based on the schema
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "transforms" : "fromJson",
+      "transforms.fromJson.type" : "com.github.jcustenborder.kafka.connect.json.FromJson$Value",
+      "transforms.fromJson.json.schema.location" : "Inline",
+      "transforms.fromJson.json.schema.inline" : "{\n  \"$id\": \"https://example.com/person.schema.json\",\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"title\": \"Person\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"firstName\": {\n      \"type\": \"string\",\n      \"description\": \"The person's first name.\"\n    },\n    \"lastName\": {\n      \"type\": \"string\",\n      \"description\": \"The person's last name.\"\n    },\n    \"age\": {\n      \"description\": \"Age in years which must be equal to or greater than zero.\",\n      \"type\": \"integer\",\n      \"minimum\": 0\n    }\n  }\n}"
+    }
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "foo",
+      "kafkaPartition" : 1,
+      "keySchema" : {
+        "type" : "STRING",
+        "isOptional" : false
+      },
+      "key" : "foo",
+      "valueSchema" : {
+        "type" : "BYTES",
+        "isOptional" : false
+      },
+      "value" : "ewogICJmaXJzdE5hbWUiOiAiSm9obiIsCiAgImxhc3ROYW1lIjogIkRvZSIsCiAgImFnZSI6IDIxCn0=",
+      "timestamp" : 1530286549123,
+      "timestampType" : "CREATE_TIME",
+      "offset" : 91283741,
+      "headers" : [ ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79
+
+    {
+      "topic" : "foo",
+      "kafkaPartition" : 1,
+      "keySchema" : {
+        "type" : "STRING",
+        "isOptional" : false
+      },
+      "key" : "foo",
+      "valueSchema" : {
+        "name" : "Person",
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "age" : {
+            "doc" : "Age in years which must be equal to or greater than zero.",
+            "type" : "INT64",
+            "isOptional" : true
+          },
+          "firstName" : {
+            "doc" : "The person's first name.",
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "lastName" : {
+            "doc" : "The person's last name.",
+            "type" : "STRING",
+            "isOptional" : true
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "name" : "Person",
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "age" : {
+              "doc" : "Age in years which must be equal to or greater than zero.",
+              "type" : "INT64",
+              "isOptional" : true
+            },
+            "firstName" : {
+              "doc" : "The person's first name.",
+              "type" : "STRING",
+              "isOptional" : true
+            },
+            "lastName" : {
+              "doc" : "The person's last name.",
+              "type" : "STRING",
+              "isOptional" : true
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "age",
+          "schema" : {
+            "doc" : "Age in years which must be equal to or greater than zero.",
+            "type" : "INT64",
+            "isOptional" : true
+          },
+          "storage" : 21
+        }, {
+          "name" : "firstName",
+          "schema" : {
+            "doc" : "The person's first name.",
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "storage" : "John"
+        }, {
+          "name" : "lastName",
+          "schema" : {
+            "doc" : "The person's last name.",
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "storage" : "Doe"
+        } ]
+      },
+      "timestamp" : 1530286549123,
+      "timestampType" : "CREATE_TIME",
+      "offset" : 91283741,
+      "headers" : [ ]
+    }
+

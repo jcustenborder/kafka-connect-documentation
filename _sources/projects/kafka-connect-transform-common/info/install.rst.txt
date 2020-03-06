@@ -8,7 +8,7 @@ Install
     :target: https://github.com/jcustenborder/kafka-connect-transform-common/releases
 
 .. image:: https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-transform-common.svg
-    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-transform-common%7C0.1.0.33%7Cjar
+    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-transform-common%7C0.1.0.34%7Cjar
 
 ^^^^^^^^^^^^^^^^
 RPM Installation
@@ -41,7 +41,7 @@ Maven Installation
     <dependency>
         <groupId>com.github.jcustenborder.kafka.connect</groupId>
         <artifactId>kafka-connect-transform-common</artifactId>
-        <version>0.1.0.33</version>
+        <version>0.1.0.34</version>
     </dependency>
 
 

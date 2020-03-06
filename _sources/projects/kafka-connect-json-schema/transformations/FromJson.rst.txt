@@ -1,0 +1,78 @@
+========================
+From Json transformation
+========================
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.json.FromJson$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.json.FromJson$Value
+
+
+The FromJson will read JSON data that is in string on byte form and parse the data to a connect structure based on the JSON schema provided.
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/FromJson.*
+
+-------
+General
+-------
+
+
+^^^^^^^^^^^^^^^^^^
+json.schema.inline
+^^^^^^^^^^^^^^^^^^
+
+The JSON schema to use as an escaped string.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+^^^^^^^^^^^^^^^^^^^^
+json.schema.location
+^^^^^^^^^^^^^^^^^^^^
+
+Location to retrieve the schema from. `Url` is used to retrieve the schema from a url. `Inline` is used to read the schema from the `json.schema.inline` configuration value.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** Url
+
+**Validator:** Matches: ``Url``, ``Inline``
+
+
+
+^^^^^^^^^^^^^^^
+json.schema.url
+^^^^^^^^^^^^^^^
+
+Url to retrieve the schema from.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** File:///doesNotExist
+
+**Validator:** 
+
+
+
+
+
