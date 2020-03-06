@@ -13,7 +13,7 @@ def connectors = [
         'kafka-connect-aerospike':'jcustenborder/kafka-connect-aerospike/master',
         
         'kafka-connect-transform-archive':'jcustenborder/kafka-connect-transform-archive/master',
-        'kafka-connect-transform-json-schema':'jcustenborder/kafka-connect-transform-json-schema/master',
+        'kafka-connect-json-schema':'jcustenborder/kafka-connect-json-schema/master',
         'kafka-connect-transform-cef':'jcustenborder/kafka-connect-transform-cef/master',
         'kafka-connect-transform-common':'jcustenborder/kafka-connect-transform-common/master',
         'kafka-connect-transform-fix':'jcustenborder/kafka-connect-transform-fix/master',
