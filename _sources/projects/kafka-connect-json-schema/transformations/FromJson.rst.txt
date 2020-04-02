@@ -17,6 +17,10 @@ From Json transformation
 The FromJson will read JSON data that is in string on byte form and parse the data to a connect structure based on the JSON schema provided.
 
 
+.. TIP::
+    This transformation expects data to be in either String or Byte format. You are most likely going to use the ByteArrayConverter or the StringConverter.
+
+
 
 .. toctree::
     :maxdepth: 1
@@ -25,14 +29,17 @@ The FromJson will read JSON data that is in string on byte form and parse the da
 
     examples/FromJson.*
 
--------
+-------------
+Configuration
+-------------
+^^^^^^^
 General
--------
+^^^^^^^
 
 
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 json.schema.inline
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
 The JSON schema to use as an escaped string.
 
@@ -42,11 +49,11 @@ The JSON schema to use as an escaped string.
 
 
 
-^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""
 json.schema.location
-^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""
 
-Location to retrieve the schema from. `Url` is used to retrieve the schema from a url. `Inline` is used to read the schema from the `json.schema.inline` configuration value.
+Location to retrieve the schema from. `Inline` - Loads the schema from `json.schema.inline` as an inline string., `Url` - Loads the schema from the url specified in `json.schema.url`.
 
 **Importance:** HIGH
 
@@ -58,11 +65,11 @@ Location to retrieve the schema from. `Url` is used to retrieve the schema from 
 
 
 
-^^^^^^^^^^^^^^^
+"""""""""""""""
 json.schema.url
-^^^^^^^^^^^^^^^
+"""""""""""""""
 
-Url to retrieve the schema from.
+Url to retrieve the schema from. Urls can be anything that is supported by URL.openStream(). For example the local filesystem file:///schemas/something.json. A web address https://www.schemas.com/something.json
 
 **Importance:** HIGH
 
@@ -71,6 +78,18 @@ Url to retrieve the schema from.
 **Default Value:** File:///doesNotExist
 
 **Validator:** 
+
+
+
+""""""""""""""""""""""""""""""
+json.schema.validation.enabled
+""""""""""""""""""""""""""""""
+
+Flag to determine if the JSON should be validated against the schema.
+
+**Importance:** MEDIUM
+
+**Type:** BOOLEAN
 
 
 

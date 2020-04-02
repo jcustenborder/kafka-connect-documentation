@@ -92,9 +92,31 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../projects.html">Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../projects.html">Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-aerospike/index.html">Aerospike</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Json Schema</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">From Json transformation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/FromJson.inline.html">Inline Config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/index.html">Memcached</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-redis/index.html">Redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/index.html">Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/index.html">Apache Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/index.html">Spool Dir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-common/index.html">Common Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/index.html">Maxmind Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-xml/index.html">Xml Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/index.html">Twitter</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../schemas.html">Schemas</a></li>
 </ul>
 <ul>
@@ -183,35 +205,48 @@
 </div>
 </div>
 <p>The FromJson will read JSON data that is in string on byte form and parse the data to a connect structure based on the JSON schema provided.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">This transformation expects data to be in either String or Byte format. You are most likely going to use the ByteArrayConverter or the StringConverter.</p>
+</div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/FromJson.inline.html">Inline Config</a></li>
 </ul>
 </div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="json-schema-inline">
-<h3>json.schema.inline<a class="headerlink" href="#json-schema-inline" title="Permalink to this headline">¶</a></h3>
+<h4>json.schema.inline<a class="headerlink" href="#json-schema-inline" title="Permalink to this headline">¶</a></h4>
 <p>The JSON schema to use as an escaped string.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 </div>
 <div class="section" id="json-schema-location">
-<h3>json.schema.location<a class="headerlink" href="#json-schema-location" title="Permalink to this headline">¶</a></h3>
-<p>Location to retrieve the schema from. <cite>Url</cite> is used to retrieve the schema from a url. <cite>Inline</cite> is used to read the schema from the <cite>json.schema.inline</cite> configuration value.</p>
+<h4>json.schema.location<a class="headerlink" href="#json-schema-location" title="Permalink to this headline">¶</a></h4>
+<p>Location to retrieve the schema from. <cite>Inline</cite> - Loads the schema from <cite>json.schema.inline</cite> as an inline string., <cite>Url</cite> - Loads the schema from the url specified in <cite>json.schema.url</cite>.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> Url</p>
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">Url</span></code>, <code class="docutils literal"><span class="pre">Inline</span></code></p>
 </div>
 <div class="section" id="json-schema-url">
-<h3>json.schema.url<a class="headerlink" href="#json-schema-url" title="Permalink to this headline">¶</a></h3>
-<p>Url to retrieve the schema from.</p>
+<h4>json.schema.url<a class="headerlink" href="#json-schema-url" title="Permalink to this headline">¶</a></h4>
+<p>Url to retrieve the schema from. Urls can be anything that is supported by URL.openStream(). For example the local filesystem <a class="reference external" href="file:///schemas/something.json">file:///schemas/something.json</a>. A web address <a class="reference external" href="https://www.schemas.com/something.json">https://www.schemas.com/something.json</a></p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> <a class="reference external" href="File:///doesNotExist">File:///doesNotExist</a></p>
 <p><strong>Validator:</strong></p>
+</div>
+<div class="section" id="json-schema-validation-enabled">
+<h4>json.schema.validation.enabled<a class="headerlink" href="#json-schema-validation-enabled" title="Permalink to this headline">¶</a></h4>
+<p>Flag to determine if the JSON should be validated against the schema.</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> BOOLEAN</p>
+</div>
 </div>
 </div>
 </div>
