@@ -15,16 +15,19 @@ The Memcached Sink provides a :term:`Sink Connector` that can write data in real
 
 
 
-----------
+-------------
+Configuration
+-------------
+^^^^^^^^^^
 Connection
-----------
+^^^^^^^^^^
 
 
-^^^^^^^^^^^^^^^
+"""""""""""""""
 memcached.hosts
-^^^^^^^^^^^^^^^
+"""""""""""""""
 
-Memcached hosts to connnect to.
+Memcached hosts to connect to.
 
 **Importance:** HIGH
 
@@ -32,13 +35,13 @@ Memcached hosts to connnect to.
 
 **Default Value:** [localhost:11211]
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@40949bb0
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@20e43235
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""
 memcached.default.expiration.secs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""
 
 The default expiration in seconds.
 
@@ -52,20 +55,11 @@ The default expiration in seconds.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 memcached.failure.mode
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 
-Set the failure mode.
-+==============+====================================================================+
-| Mode         | Description                                                        |
-+==============+====================================================================+
-| Cancel       | Automatically cancel all operations heading towards a downed node. |
-+--------------+--------------------------------------------------------------------+
-| Redistribute | Move on to functional nodes when nodes fail.                       |
-+--------------+--------------------------------------------------------------------+
-| Retry        | Continue to retry a failing node until it comes back up.           |
-+--------------+--------------------------------------------------------------------+
+Set the failure mode. `Cancel` - Automatically cancel all operations heading towards a downed node., `Redistribute` - Move on to functional nodes when nodes fail., `Retry` - Continue to retry a failing node until it comes back up.
 
 **Importance:** LOW
 
@@ -77,20 +71,11 @@ Set the failure mode.
 
 
 
-^^^^^^^^^^^^^^^^^
+"""""""""""""""""
 memcached.locator
-^^^^^^^^^^^^^^^^^
+"""""""""""""""""
 
-The locator type.
-+============+======================================================+
-| Locator    | Description                                          |
-+============+======================================================+
-| ARRAY_MOD  | Array modulus - the classic node location algorithm. |
-+------------+------------------------------------------------------+
-| CONSISTENT | Consistent hash algorithm.                           |
-+------------+------------------------------------------------------+
-| VBUCKET    | VBucket support.                                     |
-+------------+------------------------------------------------------+
+The locator type. `ARRAY_MOD` - The classic node location algorithm., `CONSISTENT` - Consistent hash algorithm., `VBUCKET` - VBucket support.
 
 **Importance:** LOW
 
@@ -102,9 +87,9 @@ The locator type.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""
 memcached.nagle.algorithm.enabled
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""
 
 Enables the Nagle algorithm.
 
@@ -114,9 +99,9 @@ Enables the Nagle algorithm.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""
 memcached.op.time.timeout.msecs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""
 
 The default operation timeout in milliseconds.
 
@@ -130,9 +115,9 @@ The default operation timeout in milliseconds.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 memcached.optimize.enable
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 
 Set to false if the default operation optimization is not desirable.
 
@@ -144,17 +129,11 @@ Set to false if the default operation optimization is not desirable.
 
 
 
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 memcached.protocol
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
-Specify the protocol to use.+==========+================================+
-| Protocol | Description                    |
-+==========+================================+
-| BINARY   | Use the binary protocol.       |
-+----------+--------------------------------+
-| TEXT     | Use the text (ascii) protocol. |
-+----------+--------------------------------+
+Specify the protocol to use. `BINARY` - Use the binary protocol., `TEXT` - Use the text (ascii) protocol.
 
 **Importance:** LOW
 
@@ -166,9 +145,9 @@ Specify the protocol to use.+==========+================================+
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""
 memcached.read.buffer.bytes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""
 
 memcached.read.buffer.bytes
 
@@ -182,9 +161,9 @@ memcached.read.buffer.bytes
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""""""
 memcached.reconnect.delay.max.secs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""""""
 
 The maximum reconnect delay.
 

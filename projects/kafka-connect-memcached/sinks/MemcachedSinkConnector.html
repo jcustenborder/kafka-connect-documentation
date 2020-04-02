@@ -35,10 +35,7 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Memcached" href="../index.html"/>
-        <link rel="next" title="Redis" href="../../kafka-connect-redis/index.html"/>
-        <link rel="prev" title="Memcached" href="../index.html"/> 
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -92,29 +89,9 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../projects.html">Projects</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-aerospike/index.html">Aerospike</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-json-schema/index.html">Json Schema</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Memcached</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Memcached Sink</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#connection">Connection</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-redis/index.html">Redis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/index.html">Simulator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/index.html">Apache Solr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/index.html">Spool Dir</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-common/index.html">Common Transformations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/index.html">Maxmind Transformations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-xml/index.html">Xml Transformations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/index.html">Twitter</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects.html">Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../schemas.html">Schemas</a></li>
 </ul>
 <ul>
@@ -165,10 +142,6 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../projects.html">Projects</a> &raquo;</li>
-        
-          <li><a href="../index.html">Memcached</a> &raquo;</li>
-        
       <li>Memcached Sink</li>
     
     
@@ -198,18 +171,20 @@
 <p class="first admonition-title">Note</p>
 <p class="last">This connector expects that the key will be a string and the value will be a byte representation of the message. Your data might not be formatted like this. Take a look at transformations to apply the convert the data to the proper format.</p>
 </div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="connection">
-<h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
+<h3>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="memcached-hosts">
-<h3>memcached.hosts<a class="headerlink" href="#memcached-hosts" title="Permalink to this headline">¶</a></h3>
-<p>Memcached hosts to connnect to.</p>
+<h4>memcached.hosts<a class="headerlink" href="#memcached-hosts" title="Permalink to this headline">¶</a></h4>
+<p>Memcached hosts to connect to.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> LIST</p>
 <p><strong>Default Value:</strong> [localhost:11211]</p>
-<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;utils&#46;config&#46;ValidHostnameAndPort&#37;&#52;&#48;40949bb0">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>utils<span>&#46;</span>config<span>&#46;</span>ValidHostnameAndPort<span>&#64;</span>40949bb0</a></p>
+<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;utils&#46;config&#46;ValidHostnameAndPort&#37;&#52;&#48;20e43235">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>utils<span>&#46;</span>config<span>&#46;</span>ValidHostnameAndPort<span>&#64;</span>20e43235</a></p>
 </div>
 <div class="section" id="memcached-default-expiration-secs">
-<h3>memcached.default.expiration.secs<a class="headerlink" href="#memcached-default-expiration-secs" title="Permalink to this headline">¶</a></h3>
+<h4>memcached.default.expiration.secs<a class="headerlink" href="#memcached-default-expiration-secs" title="Permalink to this headline">¶</a></h4>
 <p>The default expiration in seconds.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> INT</p>
@@ -217,47 +192,29 @@
 <p><strong>Validator:</strong> [0,…]</p>
 </div>
 <div class="section" id="memcached-failure-mode">
-<h3>memcached.failure.mode<a class="headerlink" href="#memcached-failure-mode" title="Permalink to this headline">¶</a></h3>
-<p>Set the failure mode.
-+==============+====================================================================+
-| Mode         | Description                                                        |
-+==============+====================================================================+
-| Cancel       | Automatically cancel all operations heading towards a downed node. |
-+————–+——————————————————————–+
-| Redistribute | Move on to functional nodes when nodes fail.                       |
-+————–+——————————————————————–+
-| Retry        | Continue to retry a failing node until it comes back up.           |
-+————–+——————————————————————–+</p>
+<h4>memcached.failure.mode<a class="headerlink" href="#memcached-failure-mode" title="Permalink to this headline">¶</a></h4>
+<p>Set the failure mode. <cite>Cancel</cite> - Automatically cancel all operations heading towards a downed node., <cite>Redistribute</cite> - Move on to functional nodes when nodes fail., <cite>Retry</cite> - Continue to retry a failing node until it comes back up.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> Retry</p>
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">Redistribute</span></code>, <code class="docutils literal"><span class="pre">Retry</span></code>, <code class="docutils literal"><span class="pre">Cancel</span></code></p>
 </div>
 <div class="section" id="memcached-locator">
-<h3>memcached.locator<a class="headerlink" href="#memcached-locator" title="Permalink to this headline">¶</a></h3>
-<p>The locator type.
-+============+======================================================+
-| Locator    | Description                                          |
-+============+======================================================+
-| ARRAY_MOD  | Array modulus - the classic node location algorithm. |
-+————+——————————————————+
-| CONSISTENT | Consistent hash algorithm.                           |
-+————+——————————————————+
-| VBUCKET    | VBucket support.                                     |
-+————+——————————————————+</p>
+<h4>memcached.locator<a class="headerlink" href="#memcached-locator" title="Permalink to this headline">¶</a></h4>
+<p>The locator type. <cite>ARRAY_MOD</cite> - The classic node location algorithm., <cite>CONSISTENT</cite> - Consistent hash algorithm., <cite>VBUCKET</cite> - VBucket support.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> ARRAY_MOD</p>
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">ARRAY_MOD</span></code>, <code class="docutils literal"><span class="pre">CONSISTENT</span></code>, <code class="docutils literal"><span class="pre">VBUCKET</span></code></p>
 </div>
 <div class="section" id="memcached-nagle-algorithm-enabled">
-<h3>memcached.nagle.algorithm.enabled<a class="headerlink" href="#memcached-nagle-algorithm-enabled" title="Permalink to this headline">¶</a></h3>
+<h4>memcached.nagle.algorithm.enabled<a class="headerlink" href="#memcached-nagle-algorithm-enabled" title="Permalink to this headline">¶</a></h4>
 <p>Enables the Nagle algorithm.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> BOOLEAN</p>
 </div>
 <div class="section" id="memcached-op-time-timeout-msecs">
-<h3>memcached.op.time.timeout.msecs<a class="headerlink" href="#memcached-op-time-timeout-msecs" title="Permalink to this headline">¶</a></h3>
+<h4>memcached.op.time.timeout.msecs<a class="headerlink" href="#memcached-op-time-timeout-msecs" title="Permalink to this headline">¶</a></h4>
 <p>The default operation timeout in milliseconds.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> LONG</p>
@@ -265,28 +222,22 @@
 <p><strong>Validator:</strong> [-1,…]</p>
 </div>
 <div class="section" id="memcached-optimize-enable">
-<h3>memcached.optimize.enable<a class="headerlink" href="#memcached-optimize-enable" title="Permalink to this headline">¶</a></h3>
+<h4>memcached.optimize.enable<a class="headerlink" href="#memcached-optimize-enable" title="Permalink to this headline">¶</a></h4>
 <p>Set to false if the default operation optimization is not desirable.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> BOOLEAN</p>
 <p><strong>Default Value:</strong> true</p>
 </div>
 <div class="section" id="memcached-protocol">
-<h3>memcached.protocol<a class="headerlink" href="#memcached-protocol" title="Permalink to this headline">¶</a></h3>
-<p>Specify the protocol to use.+==========+================================+
-| Protocol | Description                    |
-+==========+================================+
-| BINARY   | Use the binary protocol.       |
-+———-+——————————–+
-| TEXT     | Use the text (ascii) protocol. |
-+———-+——————————–+</p>
+<h4>memcached.protocol<a class="headerlink" href="#memcached-protocol" title="Permalink to this headline">¶</a></h4>
+<p>Specify the protocol to use. <cite>BINARY</cite> - Use the binary protocol., <cite>TEXT</cite> - Use the text (ascii) protocol.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> BINARY</p>
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">TEXT</span></code>, <code class="docutils literal"><span class="pre">BINARY</span></code></p>
 </div>
 <div class="section" id="memcached-read-buffer-bytes">
-<h3>memcached.read.buffer.bytes<a class="headerlink" href="#memcached-read-buffer-bytes" title="Permalink to this headline">¶</a></h3>
+<h4>memcached.read.buffer.bytes<a class="headerlink" href="#memcached-read-buffer-bytes" title="Permalink to this headline">¶</a></h4>
 <p>memcached.read.buffer.bytes</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> INT</p>
@@ -294,12 +245,13 @@
 <p><strong>Validator:</strong> [-1,…]</p>
 </div>
 <div class="section" id="memcached-reconnect-delay-max-secs">
-<h3>memcached.reconnect.delay.max.secs<a class="headerlink" href="#memcached-reconnect-delay-max-secs" title="Permalink to this headline">¶</a></h3>
+<h4>memcached.reconnect.delay.max.secs<a class="headerlink" href="#memcached-reconnect-delay-max-secs" title="Permalink to this headline">¶</a></h4>
 <p>The maximum reconnect delay.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> LONG</p>
 <p><strong>Default Value:</strong> 30</p>
 <p><strong>Validator:</strong> [1,…]</p>
+</div>
 </div>
 </div>
 </div>
@@ -311,15 +263,6 @@
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../kafka-connect-redis/index.html" class="btn btn-neutral float-right" title="Redis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../index.html" class="btn btn-neutral" title="Memcached" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
