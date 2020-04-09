@@ -1,0 +1,180 @@
+========================
+FlumeAvroSourceConnector
+========================
+
+.. code-block:: text
+
+    com.github.jcustenborder.kafka.connect.flume.FlumeAvroSourceConnector
+
+Connector is used to emulate a `Flume Avro Source <https://flume.apache.org/FlumeUserGuide.html#avro-source>`_ to allow Flume Agents to forward events to a Kafka Connect pipeline.
+
+
+.. IMPORTANT::
+    This connector listens on a network port. Running more than one task or running in distributed mode can cause some undesired effects if another task already has the port open. It is recommended that you run this connector in :term:`Standalone Mode`.
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/FlumeAvroSourceConnector.*
+
+-------------
+Configuration
+-------------
+^^^^^^^
+General
+^^^^^^^
+
+
+"""""
+topic
+"""""
+
+Topic to write the data to.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+""""
+bind
+""""
+
+IP Address or hostname to bind to.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** 0.0.0.0
+
+
+
+""""
+port
+""""
+
+Port to bind to.
+
+**Importance:** HIGH
+
+**Type:** INT
+
+**Default Value:** 4545
+
+**Validator:** ValidPort{start=1025, end=65535}
+
+
+
+"""""""""""
+compression
+"""""""""""
+
+The compression type. This must match on both flume agent and the connector. `DEFLATE` - Compress messages with the deflate algorithm., `NONE` - No compression
+
+**Importance:** LOW
+
+**Type:** STRING
+
+**Default Value:** NONE
+
+**Validator:** Matches: ``DEFLATE``, ``NONE``
+
+
+
+"""""""""""""""
+ip.filter.rules
+"""""""""""""""
+
+ip.filter.rules
+
+**Importance:** LOW
+
+**Type:** LIST
+
+
+
+""""""""""""""
+worker.threads
+""""""""""""""
+
+The number of worker threads to spawn.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 10
+
+**Validator:** [1,...,1000]
+
+
+
+^^^
+SSL
+^^^
+
+
+"""""""""""
+ssl.enabled
+"""""""""""
+
+Flag to determine if ssl should be configured for the connection.
+
+**Importance:** MEDIUM
+
+**Type:** BOOLEAN
+
+
+
+"""""""""""""""""""""
+ssl.keystore.password
+"""""""""""""""""""""
+
+The password for the java keystore containing the certificate.
+
+**Importance:** MEDIUM
+
+**Type:** PASSWORD
+
+**Default Value:** [hidden]
+
+
+
+"""""""""""""""""
+ssl.keystore.path
+"""""""""""""""""
+
+The path to the keystore on the local file system.
+
+**Importance:** MEDIUM
+
+**Type:** STRING
+
+**Validator:** Empty String or Absolute path to a file that exists.
+
+
+
+"""""""""""""""""
+ssl.keystore.type
+"""""""""""""""""
+
+The type of keystore.
+
+**Importance:** MEDIUM
+
+**Type:** STRING
+
+**Default Value:** PKCS12
+
+**Validator:** [PKCS12, JKS]
+
+
+
+
+

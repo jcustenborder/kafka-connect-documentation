@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FlumeAvroSourceConnector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Kafka Connect Connectors
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects.html">Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../schemas.html">Schemas</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../configdef.type.html">ConfigDef.Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../schema.type.html">Schema Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Kafka Connect Connectors</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>FlumeAvroSourceConnector</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/projects/kafka-connect-flume-avro/sources/FlumeAvroSourceConnector.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flumeavrosourceconnector">
+<h1>FlumeAvroSourceConnector<a class="headerlink" href="#flumeavrosourceconnector" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.flume.FlumeAvroSourceConnector
+</pre></div>
+</div>
+<p>Connector is used to emulate a <a class="reference external" href="https://flume.apache.org/FlumeUserGuide.html#avro-source">Flume Avro Source</a> to allow Flume Agents to forward events to a Kafka Connect pipeline.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">This connector listens on a network port. Running more than one task or running in distributed mode can cause some undesired effects if another task already has the port open. It is recommended that you run this connector in <a class="reference internal" href="../../../glossary.html#term-standalone-mode"><span class="xref std std-term">Standalone Mode</span></a>.</p>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/FlumeAvroSourceConnector.inline-transformation.html">inline-transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/FlumeAvroSourceConnector.network-restrictions.html">network-restrictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/FlumeAvroSourceConnector.standard.html">standard</a></li>
+</ul>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general">
+<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="topic">
+<h4>topic<a class="headerlink" href="#topic" title="Permalink to this headline">¶</a></h4>
+<p>Topic to write the data to.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> STRING</p>
+</div>
+<div class="section" id="bind">
+<h4>bind<a class="headerlink" href="#bind" title="Permalink to this headline">¶</a></h4>
+<p>IP Address or hostname to bind to.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> STRING</p>
+<p><strong>Default Value:</strong> 0.0.0.0</p>
+</div>
+<div class="section" id="port">
+<h4>port<a class="headerlink" href="#port" title="Permalink to this headline">¶</a></h4>
+<p>Port to bind to.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> INT</p>
+<p><strong>Default Value:</strong> 4545</p>
+<p><strong>Validator:</strong> ValidPort{start=1025, end=65535}</p>
+</div>
+<div class="section" id="compression">
+<h4>compression<a class="headerlink" href="#compression" title="Permalink to this headline">¶</a></h4>
+<p>The compression type. This must match on both flume agent and the connector. <cite>DEFLATE</cite> - Compress messages with the deflate algorithm., <cite>NONE</cite> - No compression</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> STRING</p>
+<p><strong>Default Value:</strong> NONE</p>
+<p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">DEFLATE</span></code>, <code class="docutils literal"><span class="pre">NONE</span></code></p>
+</div>
+<div class="section" id="ip-filter-rules">
+<h4>ip.filter.rules<a class="headerlink" href="#ip-filter-rules" title="Permalink to this headline">¶</a></h4>
+<p>ip.filter.rules</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> LIST</p>
+</div>
+<div class="section" id="worker-threads">
+<h4>worker.threads<a class="headerlink" href="#worker-threads" title="Permalink to this headline">¶</a></h4>
+<p>The number of worker threads to spawn.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> INT</p>
+<p><strong>Default Value:</strong> 10</p>
+<p><strong>Validator:</strong> [1,…,1000]</p>
+</div>
+</div>
+<div class="section" id="ssl">
+<h3>SSL<a class="headerlink" href="#ssl" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ssl-enabled">
+<h4>ssl.enabled<a class="headerlink" href="#ssl-enabled" title="Permalink to this headline">¶</a></h4>
+<p>Flag to determine if ssl should be configured for the connection.</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> BOOLEAN</p>
+</div>
+<div class="section" id="ssl-keystore-password">
+<h4>ssl.keystore.password<a class="headerlink" href="#ssl-keystore-password" title="Permalink to this headline">¶</a></h4>
+<p>The password for the java keystore containing the certificate.</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> PASSWORD</p>
+<p><strong>Default Value:</strong> [hidden]</p>
+</div>
+<div class="section" id="ssl-keystore-path">
+<h4>ssl.keystore.path<a class="headerlink" href="#ssl-keystore-path" title="Permalink to this headline">¶</a></h4>
+<p>The path to the keystore on the local file system.</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> STRING</p>
+<p><strong>Validator:</strong> Empty String or Absolute path to a file that exists.</p>
+</div>
+<div class="section" id="ssl-keystore-type">
+<h4>ssl.keystore.type<a class="headerlink" href="#ssl-keystore-type" title="Permalink to this headline">¶</a></h4>
+<p>The type of keystore.</p>
+<p><strong>Importance:</strong> MEDIUM</p>
+<p><strong>Type:</strong> STRING</p>
+<p><strong>Default Value:</strong> PKCS12</p>
+<p><strong>Validator:</strong> [PKCS12, JKS]</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Jeremy Custenborder.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-10128000-10', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>
