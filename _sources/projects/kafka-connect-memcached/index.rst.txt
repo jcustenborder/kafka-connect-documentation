@@ -8,8 +8,20 @@ The memcached plugin is a mechanism for writing data to a memcached cluster.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Connectors:
+    :caption: Source Connectors:
+    :hidden:
     :glob:
+
+    sources/*
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Sink Connectors:
+    :hidden:
+    :glob:
+
+    sinks/*
 
 
 .. toctree::

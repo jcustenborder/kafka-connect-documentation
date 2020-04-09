@@ -35,7 +35,7 @@ Memcached hosts to connect to.
 
 **Default Value:** [localhost:11211]
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@20e43235
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.ValidHostnameAndPort@1a120e41
 
 
 
