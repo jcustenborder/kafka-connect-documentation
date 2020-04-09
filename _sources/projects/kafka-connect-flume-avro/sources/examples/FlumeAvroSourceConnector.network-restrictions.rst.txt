@@ -21,23 +21,24 @@ Data similar to the following will be emitted by this connector.
     :caption: Output
     
 
-{
-  "sourcePartition" : { },
-  "sourceOffset" : { },
-  "topic" : "flume",
-  "valueSchema" : {
-    "type" : "BYTES",
-    "isOptional" : false
-  },
-  "value" : "Tm8gb25lIHdpbGwgcmVhZCB0aGlzIG1lc3NhZ2Uu",
-  "timestamp" : 1586461064991,
-  "headers" : [ {
-    "name" : "flume.header",
-    "schema" : {
-      "type" : "STRING",
-      "isOptional" : false
-    },
-    "storage" : "adsfasdf"
-  } ]
-}
+    {
+      "sourcePartition" : { },
+      "sourceOffset" : { },
+      "topic" : "flume",
+      "valueSchema" : {
+        "type" : "BYTES",
+        "isOptional" : false
+      },
+      "value" : "Tm8gb25lIHdpbGwgcmVhZCB0aGlzIG1lc3NhZ2Uu",
+      "timestamp" : 1586461064991,
+      "headers" : [ {
+        "name" : "flume.header",
+        "schema" : {
+          "type" : "STRING",
+          "isOptional" : false
+        },
+        "storage" : "adsfasdf"
+      } ]
+    }
+
 

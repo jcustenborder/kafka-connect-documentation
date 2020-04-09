@@ -8,8 +8,20 @@ The plugin provides a way for users to send data from Apache Flume to Kafka bypa
 
 .. toctree::
     :maxdepth: 1
-    :caption: Connectors:
+    :caption: Source Connectors:
+    :hidden:
     :glob:
+
+    sources/*
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Sink Connectors:
+    :hidden:
+    :glob:
+
+    sinks/*
 
 
 .. toctree::
