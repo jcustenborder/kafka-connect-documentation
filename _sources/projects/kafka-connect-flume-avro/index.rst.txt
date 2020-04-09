@@ -1,6 +1,6 @@
-============================================
-Com.github.jcustenborder.kafka.connect.flume
-============================================
+==========
+Flume Avro
+==========
 
 The plugin provides a way for users to send data from Apache Flume to Kafka bypassing a Flume Receiver.
 
