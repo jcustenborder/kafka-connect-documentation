@@ -1,0 +1,49 @@
+=================
+TimestampNowField
+=================
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.TimestampNowField$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.TimestampNowField$Value
+
+
+This transformation is used to set a field with the current timestamp of the system running the transformation.
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/TimestampNowField.*
+
+-------------
+Configuration
+-------------
+^^^^^^^
+General
+^^^^^^^
+
+
+""""""
+fields
+""""""
+
+The field(s) that will be inserted with the timestamp of the system.
+
+**Importance:** HIGH
+
+**Type:** LIST
+
+
+
+
+

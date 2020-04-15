@@ -24,14 +24,17 @@ HeaderToField
 
     examples/HeaderToField.*
 
--------
+-------------
+Configuration
+-------------
+^^^^^^^
 General
--------
+^^^^^^^
 
 
-^^^^^^^^^^^^^^^
+"""""""""""""""
 header.mappings
-^^^^^^^^^^^^^^^
+"""""""""""""""
 
 The mapping of the header to the field in the message.
 

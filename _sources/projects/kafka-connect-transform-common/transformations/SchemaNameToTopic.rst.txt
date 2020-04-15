@@ -25,5 +25,8 @@ This transformation is used to take the name from the schema for the key or valu
 
     examples/SchemaNameToTopic.*
 
+-------------
+Configuration
+-------------
 
 

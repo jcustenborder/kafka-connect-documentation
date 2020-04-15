@@ -24,14 +24,17 @@ ToJSON
 
     examples/ToJSON.*
 
--------
+-------------
+Configuration
+-------------
+^^^^^^^
 General
--------
+^^^^^^^
 
 
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 output.schema.type
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
 The connect schema type to output the converted JSON as.
 
@@ -45,9 +48,9 @@ The connect schema type to output the converted JSON as.
 
 
 
-^^^^^^^^^^^^^^
+""""""""""""""
 schemas.enable
-^^^^^^^^^^^^^^
+""""""""""""""
 
 Flag to determine if the JSON data should include the schema.
 

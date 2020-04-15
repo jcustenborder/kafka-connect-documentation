@@ -92,9 +92,48 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../projects.html">Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../projects.html">Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-aerospike/index.html">Aerospike</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/index.html">Flume Avro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-json-schema/index.html">Json Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/index.html">Memcached</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-redis/index.html">Redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/index.html">Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/index.html">Apache Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/index.html">Spool Dir</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Common Transformations</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="BytesToString.html">BytesToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ChangeCase.html">ChangeCase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ChangeTopicCase.html">ChangeTopicCase</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ExtractNestedField</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/ExtractNestedField.simple.html">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ExtractTimestamp.html">ExtractTimestamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeaderToField.html">HeaderToField</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NormalizeSchema.html">NormalizeSchema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PatternFilter.html">PatternFilter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PatternRename.html">PatternRename</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SchemaNameToTopic.html">SchemaNameToTopic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SetMaximumPrecision.html">SetMaximumPrecision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SetNull.html">SetNull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TimestampNow.html">TimestampNow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TimestampNowField.html">TimestampNowField</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ToJSON.html">ToJSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ToLong.html">ToLong</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TopicNameToField.html">TopicNameToField</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/index.html">Maxmind Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-xml/index.html">Xml Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/index.html">Twitter</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../schemas.html">Schemas</a></li>
 </ul>
 <ul>
@@ -188,25 +227,28 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/ExtractNestedField.simple.html">Example</a></li>
 </ul>
 </div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="input-inner-field-name">
-<h3>input.inner.field.name<a class="headerlink" href="#input-inner-field-name" title="Permalink to this headline">¶</a></h3>
+<h4>input.inner.field.name<a class="headerlink" href="#input-inner-field-name" title="Permalink to this headline">¶</a></h4>
 <p>The field on the child struct containing the field to be extracted. For example if you wanted the extract <cite>address.state</cite> you would use <cite>state</cite>.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 </div>
 <div class="section" id="input-outer-field-name">
-<h3>input.outer.field.name<a class="headerlink" href="#input-outer-field-name" title="Permalink to this headline">¶</a></h3>
+<h4>input.outer.field.name<a class="headerlink" href="#input-outer-field-name" title="Permalink to this headline">¶</a></h4>
 <p>The field on the parent struct containing the child struct. For example if you wanted the extract <cite>address.state</cite> you would use <cite>address</cite>.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 </div>
 <div class="section" id="output-field-name">
-<h3>output.field.name<a class="headerlink" href="#output-field-name" title="Permalink to this headline">¶</a></h3>
+<h4>output.field.name<a class="headerlink" href="#output-field-name" title="Permalink to this headline">¶</a></h4>
 <p>The field to place the extracted value into.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
+</div>
 </div>
 </div>
 </div>

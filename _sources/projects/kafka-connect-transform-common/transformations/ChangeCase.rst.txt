@@ -24,14 +24,17 @@ ChangeCase
 
     examples/ChangeCase.*
 
--------
+-------------
+Configuration
+-------------
+^^^^^^^
 General
--------
+^^^^^^^
 
 
-^^^^
+""""
 from
-^^^^
+""""
 
 The format to move from 
 
@@ -43,9 +46,9 @@ The format to move from
 
 
 
-^^
+""
 to
-^^
+""
 
 
 

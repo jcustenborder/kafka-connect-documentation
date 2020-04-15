@@ -24,14 +24,17 @@ BytesToString
 
     examples/BytesToString.*
 
--------
+-------------
+Configuration
+-------------
+^^^^^^^
 General
--------
-
-
 ^^^^^^^
+
+
+"""""""
 charset
-^^^^^^^
+"""""""
 
 The charset to use when creating the output string.
 
@@ -43,9 +46,9 @@ The charset to use when creating the output string.
 
 
 
-^^^^^^
+""""""
 fields
-^^^^^^
+""""""
 
 The fields to transform.
 

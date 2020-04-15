@@ -25,14 +25,17 @@ This transformation is used to use a field from the input data to override the t
 
     examples/ExtractTimestamp.*
 
--------
+-------------
+Configuration
+-------------
+^^^^^^^
 General
--------
+^^^^^^^
 
 
-^^^^^^^^^^
+""""""""""
 field.name
-^^^^^^^^^^
+""""""""""
 
 The field to pull the timestamp from. This must be an int64 or a timestamp.
 

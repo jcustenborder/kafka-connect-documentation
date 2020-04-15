@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Upper underscore to lower underscore &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Insert timestamp field &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../../index.html"/>
-        <link rel="up" title="ChangeCase" href="../ChangeCase.html"/>
-        <link rel="next" title="ChangeTopicCase" href="../ChangeTopicCase.html"/>
-        <link rel="prev" title="ChangeCase" href="../ChangeCase.html"/> 
+        <link rel="up" title="TimestampNowField" href="../TimestampNowField.html"/>
+        <link rel="next" title="ToJSON" href="../ToJSON.html"/>
+        <link rel="prev" title="TimestampNowField" href="../TimestampNowField.html"/> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
@@ -105,11 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../kafka-connect-spooldir/index.html">Spool Dir</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Common Transformations</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../BytesToString.html">BytesToString</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../ChangeCase.html">ChangeCase</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Upper underscore to lower underscore</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../ChangeCase.html#configuration">Configuration</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="../ChangeCase.html">ChangeCase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ChangeTopicCase.html">ChangeTopicCase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ExtractNestedField.html">ExtractNestedField</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ExtractTimestamp.html">ExtractTimestamp</a></li>
@@ -121,7 +117,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../SetMaximumPrecision.html">SetMaximumPrecision</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SetNull.html">SetNull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../TimestampNow.html">TimestampNow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../TimestampNowField.html">TimestampNowField</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../TimestampNowField.html">TimestampNowField</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Insert timestamp field</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../TimestampNowField.html#configuration">Configuration</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../ToJSON.html">ToJSON</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ToLong.html">ToLong</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../TopicNameToField.html">TopicNameToField</a></li>
@@ -188,15 +188,15 @@
         
           <li><a href="../../index.html">Common Transformations</a> &raquo;</li>
         
-          <li><a href="../ChangeCase.html">ChangeCase</a> &raquo;</li>
+          <li><a href="../TimestampNowField.html">TimestampNowField</a> &raquo;</li>
         
-      <li>Upper underscore to lower underscore</li>
+      <li>Insert timestamp field</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../../_sources/projects/kafka-connect-transform-common/transformations/examples/ChangeCase.simple.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/projects/kafka-connect-transform-common/transformations/examples/TimestampNowField.insertTimestamp.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -209,16 +209,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="upper-underscore-to-lower-underscore">
-<h1>Upper underscore to lower underscore<a class="headerlink" href="#upper-underscore-to-lower-underscore" title="Permalink to this headline">¶</a></h1>
-<p>This example will convert the field names of a schema from upper underscore to lower underscore.</p>
+  <div class="section" id="insert-timestamp-field">
+<h1>Insert timestamp field<a class="headerlink" href="#insert-timestamp-field" title="Permalink to this headline">¶</a></h1>
+<p>The following example will insert a field <cite>timestamp</cite> into the value of the record.</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;transforms&quot;</span> <span class="p">:</span> <span class="s2">&quot;changeCase&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;transforms.changeCase.type&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.transform.common.ChangeCase$Value&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;transforms.changeCase.from&quot;</span> <span class="p">:</span> <span class="s2">&quot;UPPER_UNDERSCORE&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;transforms.changeCase.to&quot;</span> <span class="p">:</span> <span class="s2">&quot;LOWER_UNDERSCORE&quot;</span>
+  <span class="nt">&quot;transforms&quot;</span> <span class="p">:</span> <span class="s2">&quot;timestampNowField&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;transforms.timestampNowField.type&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.transform.common.TimestampNowField$Value&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;transforms.timestampNowField.fields&quot;</span> <span class="p">:</span> <span class="s2">&quot;timestamp&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -226,19 +225,19 @@
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Input</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;topic&quot;</span> <span class="p">:</span> <span class="s2">&quot;topic&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;topic&quot;</span> <span class="p">:</span> <span class="s2">&quot;testing&quot;</span><span class="p">,</span>
   <span class="nt">&quot;kafkaPartition&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="nt">&quot;valueSchema&quot;</span> <span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRUCT&quot;</span><span class="p">,</span>
     <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;fieldSchemas&quot;</span> <span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;FIRST_NAME&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;firstName&quot;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
       <span class="p">},</span>
-      <span class="nt">&quot;LAST_NAME&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;lastName&quot;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">},</span>
@@ -247,34 +246,35 @@
       <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRUCT&quot;</span><span class="p">,</span>
       <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="nt">&quot;fieldSchemas&quot;</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;FIRST_NAME&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;firstName&quot;</span> <span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+          <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
         <span class="p">},</span>
-        <span class="nt">&quot;LAST_NAME&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;lastName&quot;</span> <span class="p">:</span> <span class="p">{</span>
           <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+          <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
         <span class="p">}</span>
       <span class="p">}</span>
     <span class="p">},</span>
     <span class="nt">&quot;fieldValues&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">{</span>
-      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;FIRST_NAME&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;firstName&quot;</span><span class="p">,</span>
       <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
       <span class="p">},</span>
-      <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;test&quot;</span>
+      <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;example&quot;</span>
     <span class="p">},</span> <span class="p">{</span>
-      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;LAST_NAME&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;lastName&quot;</span><span class="p">,</span>
       <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
       <span class="p">},</span>
       <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;user&quot;</span>
     <span class="p">}</span> <span class="p">]</span>
   <span class="p">},</span>
+  <span class="nt">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="mi">123412351</span><span class="p">,</span>
   <span class="nt">&quot;timestampType&quot;</span> <span class="p">:</span> <span class="s2">&quot;NO_TIMESTAMP_TYPE&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;offset&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;offset&quot;</span> <span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
   <span class="nt">&quot;headers&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
@@ -284,20 +284,26 @@
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">Output</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;topic&quot;</span> <span class="p">:</span> <span class="s2">&quot;topic&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;topic&quot;</span> <span class="p">:</span> <span class="s2">&quot;testing&quot;</span><span class="p">,</span>
   <span class="nt">&quot;kafkaPartition&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="nt">&quot;valueSchema&quot;</span> <span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRUCT&quot;</span><span class="p">,</span>
     <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;fieldSchemas&quot;</span> <span class="p">:</span> <span class="p">{</span>
-<span class="hll">      <span class="nt">&quot;first_name&quot;</span> <span class="p">:</span> <span class="p">{</span>
-</span>        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+      <span class="nt">&quot;firstName&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
       <span class="p">},</span>
-<span class="hll">      <span class="nt">&quot;last_name&quot;</span> <span class="p">:</span> <span class="p">{</span>
-</span>        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
-      <span class="p">}</span>
+      <span class="nt">&quot;lastName&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
+<span class="hll">      <span class="p">},</span>
+</span><span class="hll">      <span class="nt">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.connect.data.Timestamp&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;INT64&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+</span>      <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">},</span>
   <span class="nt">&quot;value&quot;</span> <span class="p">:</span> <span class="p">{</span>
@@ -305,34 +311,50 @@
       <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRUCT&quot;</span><span class="p">,</span>
       <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="nt">&quot;fieldSchemas&quot;</span> <span class="p">:</span> <span class="p">{</span>
-<span class="hll">        <span class="nt">&quot;first_name&quot;</span> <span class="p">:</span> <span class="p">{</span>
-</span>          <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+        <span class="nt">&quot;firstName&quot;</span> <span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
         <span class="p">},</span>
-<span class="hll">        <span class="nt">&quot;last_name&quot;</span> <span class="p">:</span> <span class="p">{</span>
-</span>          <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
-        <span class="p">}</span>
+        <span class="nt">&quot;lastName&quot;</span> <span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
+<span class="hll">        <span class="p">},</span>
+</span><span class="hll">        <span class="nt">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">          <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.connect.data.Timestamp&quot;</span><span class="p">,</span>
+</span><span class="hll">          <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;INT64&quot;</span><span class="p">,</span>
+</span><span class="hll">          <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class="hll">          <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+</span>        <span class="p">}</span>
       <span class="p">}</span>
     <span class="p">},</span>
     <span class="nt">&quot;fieldValues&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">{</span>
-<span class="hll">      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;first_name&quot;</span><span class="p">,</span>
-</span>      <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;firstName&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
       <span class="p">},</span>
-      <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;test&quot;</span>
+      <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;example&quot;</span>
     <span class="p">},</span> <span class="p">{</span>
-<span class="hll">      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;last_name&quot;</span><span class="p">,</span>
-</span>      <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;lastName&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
       <span class="p">},</span>
       <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;user&quot;</span>
-    <span class="p">}</span> <span class="p">]</span>
+<span class="hll">    <span class="p">},</span> <span class="p">{</span>
+</span><span class="hll">      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;timestamp&quot;</span><span class="p">,</span>
+</span><span class="hll">      <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.connect.data.Timestamp&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;INT64&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+</span><span class="hll">      <span class="p">},</span>
+</span><span class="hll">      <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="mi">1586966973256</span>
+</span>    <span class="p">}</span> <span class="p">]</span>
   <span class="p">},</span>
+  <span class="nt">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="mi">123412351</span><span class="p">,</span>
   <span class="nt">&quot;timestampType&quot;</span> <span class="p">:</span> <span class="s2">&quot;NO_TIMESTAMP_TYPE&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;offset&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;offset&quot;</span> <span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
   <span class="nt">&quot;headers&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
@@ -350,10 +372,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../ChangeTopicCase.html" class="btn btn-neutral float-right" title="ChangeTopicCase" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../ToJSON.html" class="btn btn-neutral float-right" title="ToJSON" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../ChangeCase.html" class="btn btn-neutral" title="ChangeCase" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../TimestampNowField.html" class="btn btn-neutral" title="TimestampNowField" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

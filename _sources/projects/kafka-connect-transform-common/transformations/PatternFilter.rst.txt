@@ -18,14 +18,17 @@ PatternFilter
 
 
 
--------
+-------------
+Configuration
+-------------
+^^^^^^^
 General
--------
-
-
 ^^^^^^^
+
+
+"""""""
 pattern
-^^^^^^^
+"""""""
 
 The regex to test the message with. 
 
@@ -33,13 +36,13 @@ The regex to test the message with.
 
 **Type:** STRING
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.PatternValidator@6ab56a77
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.PatternValidator@6c152246
 
 
 
-^^^^^^
+""""""
 fields
-^^^^^^
+""""""
 
 The fields to transform.
 

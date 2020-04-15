@@ -24,14 +24,17 @@ ExtractNestedField
 
     examples/ExtractNestedField.*
 
--------
+-------------
+Configuration
+-------------
+^^^^^^^
 General
--------
+^^^^^^^
 
 
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 input.inner.field.name
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 
 The field on the child struct containing the field to be extracted. For example if you wanted the extract `address.state` you would use `state`.
 
@@ -41,9 +44,9 @@ The field on the child struct containing the field to be extracted. For example 
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 input.outer.field.name
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 
 The field on the parent struct containing the child struct. For example if you wanted the extract `address.state` you would use `address`.
 
@@ -53,9 +56,9 @@ The field on the parent struct containing the child struct. For example if you w
 
 
 
-^^^^^^^^^^^^^^^^^
+"""""""""""""""""
 output.field.name
-^^^^^^^^^^^^^^^^^
+"""""""""""""""""
 
 The field to place the extracted value into.
 

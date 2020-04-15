@@ -38,7 +38,7 @@
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Common Transformations" href="../index.html"/>
         <link rel="next" title="Example" href="examples/ToJSON.simple.html"/>
-        <link rel="prev" title="Example" href="examples/TimestampNow.example.html"/> 
+        <link rel="prev" title="Insert timestamp field" href="examples/TimestampNowField.insertTimestamp.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -92,9 +92,48 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../projects.html">Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../projects.html">Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-aerospike/index.html">Aerospike</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/index.html">Flume Avro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-json-schema/index.html">Json Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/index.html">Memcached</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-redis/index.html">Redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/index.html">Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/index.html">Apache Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/index.html">Spool Dir</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Common Transformations</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="BytesToString.html">BytesToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ChangeCase.html">ChangeCase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ChangeTopicCase.html">ChangeTopicCase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtractNestedField.html">ExtractNestedField</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtractTimestamp.html">ExtractTimestamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeaderToField.html">HeaderToField</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NormalizeSchema.html">NormalizeSchema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PatternFilter.html">PatternFilter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PatternRename.html">PatternRename</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SchemaNameToTopic.html">SchemaNameToTopic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SetMaximumPrecision.html">SetMaximumPrecision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SetNull.html">SetNull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TimestampNow.html">TimestampNow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TimestampNowField.html">TimestampNowField</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ToJSON</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/ToJSON.simple.html">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ToLong.html">ToLong</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TopicNameToField.html">TopicNameToField</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/index.html">Maxmind Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-xml/index.html">Xml Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/index.html">Twitter</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../schemas.html">Schemas</a></li>
 </ul>
 <ul>
@@ -188,10 +227,12 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/ToJSON.simple.html">Example</a></li>
 </ul>
 </div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="output-schema-type">
-<h3>output.schema.type<a class="headerlink" href="#output-schema-type" title="Permalink to this headline">¶</a></h3>
+<h4>output.schema.type<a class="headerlink" href="#output-schema-type" title="Permalink to this headline">¶</a></h4>
 <p>The connect schema type to output the converted JSON as.</p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> STRING</p>
@@ -199,10 +240,11 @@
 <p><strong>Validator:</strong> [STRING, BYTES]</p>
 </div>
 <div class="section" id="schemas-enable">
-<h3>schemas.enable<a class="headerlink" href="#schemas-enable" title="Permalink to this headline">¶</a></h3>
+<h4>schemas.enable<a class="headerlink" href="#schemas-enable" title="Permalink to this headline">¶</a></h4>
 <p>Flag to determine if the JSON data should include the schema.</p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> BOOLEAN</p>
+</div>
 </div>
 </div>
 </div>
@@ -220,7 +262,7 @@
         <a href="examples/ToJSON.simple.html" class="btn btn-neutral float-right" title="Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="examples/TimestampNow.example.html" class="btn btn-neutral" title="Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="examples/TimestampNowField.insertTimestamp.html" class="btn btn-neutral" title="Insert timestamp field" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

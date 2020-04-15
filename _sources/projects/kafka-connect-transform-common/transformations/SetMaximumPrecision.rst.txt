@@ -23,14 +23,17 @@ This transformation is used to ensure that all decimal fields in a struct are be
 
 
 
--------
+-------------
+Configuration
+-------------
+^^^^^^^
 General
--------
+^^^^^^^
 
 
-^^^^^^^^^^^^^
+"""""""""""""
 precision.max
-^^^^^^^^^^^^^
+"""""""""""""
 
 The maximum precision allowed.
 

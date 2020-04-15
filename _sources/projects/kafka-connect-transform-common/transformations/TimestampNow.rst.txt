@@ -18,5 +18,8 @@ This transformation is used to override the timestamp of the incoming record to 
 
     examples/TimestampNow.*
 
+-------------
+Configuration
+-------------
 
 

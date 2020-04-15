@@ -24,14 +24,17 @@ TopicNameToField
 
     examples/TopicNameToField.*
 
--------
+-------------
+Configuration
+-------------
+^^^^^^^
 General
--------
+^^^^^^^
 
 
-^^^^^
+"""""
 field
-^^^^^
+"""""
 
 The field to insert the topic name.
 

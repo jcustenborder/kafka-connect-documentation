@@ -24,14 +24,17 @@ ToLong
 
     examples/ToLong.*
 
--------
+-------------
+Configuration
+-------------
+^^^^^^^
 General
--------
+^^^^^^^
 
 
-^^^^^^
+""""""
 fields
-^^^^^^
+""""""
 
 The fields to transform.
 
