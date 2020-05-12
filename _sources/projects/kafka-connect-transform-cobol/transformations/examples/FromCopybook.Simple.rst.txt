@@ -1,0 +1,107 @@
+======
+Simple
+======
+
+This example takes a simple copy book and converts the incoming string data based on it.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "transforms" : "fromCopybook",
+      "transforms.fromCopybook.type" : "com.github.jcustenborder.kafka.connect.cobol.FromCopybook$Value",
+      "transforms.fromCopybook.cobol.context.type" : "Ascii",
+      "transforms.fromCopybook.cobol.copybook" : "01 AWL-RECORD-SPAD.  05  DUMMY-SERIAL-NO-AWL                   PIC X(8)."
+    }
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "test",
+      "kafkaPartition" : 1,
+      "valueSchema" : {
+        "type" : "STRING",
+        "isOptional" : false
+      },
+      "value" : "ABCDEFGH",
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1574310211719,
+      "headers" : [ ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61
+
+    {
+      "topic" : "test",
+      "kafkaPartition" : 1,
+      "valueSchema" : {
+        "name" : "AwlRecordSpad",
+        "type" : "STRUCT",
+        "parameters" : {
+          "copybook.name" : "AWL-RECORD-SPAD",
+          "copybook.source.line" : "1"
+        },
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "dummySerialNoAwl" : {
+            "type" : "STRING",
+            "parameters" : {
+              "copybook.field.level.number" : "5",
+              "copybook.field.name" : "DUMMY-SERIAL-NO-AWL",
+              "copybook.source.line" : "1",
+              "copybook.field.length" : "8"
+            },
+            "isOptional" : true
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "name" : "AwlRecordSpad",
+          "type" : "STRUCT",
+          "parameters" : {
+            "copybook.name" : "AWL-RECORD-SPAD",
+            "copybook.source.line" : "1"
+          },
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "dummySerialNoAwl" : {
+              "type" : "STRING",
+              "parameters" : {
+                "copybook.field.level.number" : "5",
+                "copybook.field.name" : "DUMMY-SERIAL-NO-AWL",
+                "copybook.source.line" : "1",
+                "copybook.field.length" : "8"
+              },
+              "isOptional" : true
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "dummySerialNoAwl",
+          "schema" : {
+            "type" : "STRING",
+            "parameters" : {
+              "copybook.field.level.number" : "5",
+              "copybook.field.name" : "DUMMY-SERIAL-NO-AWL",
+              "copybook.source.line" : "1",
+              "copybook.field.length" : "8"
+            },
+            "isOptional" : true
+          },
+          "storage" : "ABCDEFGH"
+        } ]
+      },
+      "timestampType" : "NO_TIMESTAMP_TYPE",
+      "offset" : 1574310211719,
+      "headers" : [ ]
+    }
+
