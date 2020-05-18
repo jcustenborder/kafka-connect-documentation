@@ -93,5 +93,17 @@ Flag to determine if the JSON should be validated against the schema.
 
 
 
+""""""""""""""""""""""
+json.exclude.locations
+""""""""""""""""""""""
+
+Location(s) in the schema to exclude. This is primarily because connect cannot support those locations. For example types that would require a union type.
+
+**Importance:** LOW
+
+**Type:** LIST
+
+
+
 
 
