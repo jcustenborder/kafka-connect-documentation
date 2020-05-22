@@ -9,6 +9,7 @@ def connectors = [
         'kafka-connect-solr':'jcustenborder/kafka-connect-solr/master',
         'kafka-connect-splunk':'jcustenborder/kafka-connect-splunk/master',
         'kafka-connect-spooldir':'jcustenborder/kafka-connect-spooldir/master',
+        'kafka-connect-opentsdb':'jcustenborder/kafka-connect-opentsdb/master',
         
         'kafka-connect-twitter':'jcustenborder/kafka-connect-twitter/master',
         'kafka-connect-aerospike':'jcustenborder/kafka-connect-aerospike/master',
