@@ -1,0 +1,174 @@
+=======
+Example
+=======
+
+This data takes a string value and parses the data based on the OpenTSDB wire protocol.
+
+
+
+
+.. code-block:: json
+    :caption: Input
+    
+
+    {
+      "topic" : "foo",
+      "kafkaPartition" : 1,
+      "keySchema" : {
+        "type" : "STRING",
+        "isOptional" : false
+      },
+      "key" : "foo",
+      "valueSchema" : {
+        "type" : "STRING",
+        "isOptional" : false
+      },
+      "value" : "mysql.bytes_received 1287333217 327810227706 schema=foo host=db1",
+      "timestamp" : 1530286549123,
+      "timestampType" : "CREATE_TIME",
+      "offset" : 91283741,
+      "headers" : [ ]
+    }
+
+Change(s) in the output are emphasized if delta(s) are detected.
+
+.. code-block:: json
+    :caption: Output
+    :emphasize-lines: 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130
+
+    {
+      "topic" : "foo",
+      "kafkaPartition" : 1,
+      "keySchema" : {
+        "type" : "STRING",
+        "isOptional" : false
+      },
+      "key" : "foo",
+      "valueSchema" : {
+        "name" : "net.opentsdb.model.DataPoint",
+        "type" : "STRUCT",
+        "isOptional" : false,
+        "fieldSchemas" : {
+          "metricName" : {
+            "doc" : "",
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "timestamp" : {
+            "name" : "org.apache.kafka.connect.data.Timestamp",
+            "doc" : "",
+            "type" : "INT64",
+            "version" : 1,
+            "isOptional" : false
+          },
+          "value" : {
+            "doc" : "",
+            "type" : "FLOAT64",
+            "isOptional" : true
+          },
+          "tags" : {
+            "doc" : "",
+            "type" : "MAP",
+            "isOptional" : false,
+            "keySchema" : {
+              "type" : "STRING",
+              "isOptional" : false
+            },
+            "valueSchema" : {
+              "type" : "STRING",
+              "isOptional" : false
+            }
+          }
+        }
+      },
+      "value" : {
+        "schema" : {
+          "name" : "net.opentsdb.model.DataPoint",
+          "type" : "STRUCT",
+          "isOptional" : false,
+          "fieldSchemas" : {
+            "metricName" : {
+              "doc" : "",
+              "type" : "STRING",
+              "isOptional" : false
+            },
+            "timestamp" : {
+              "name" : "org.apache.kafka.connect.data.Timestamp",
+              "doc" : "",
+              "type" : "INT64",
+              "version" : 1,
+              "isOptional" : false
+            },
+            "value" : {
+              "doc" : "",
+              "type" : "FLOAT64",
+              "isOptional" : true
+            },
+            "tags" : {
+              "doc" : "",
+              "type" : "MAP",
+              "isOptional" : false,
+              "keySchema" : {
+                "type" : "STRING",
+                "isOptional" : false
+              },
+              "valueSchema" : {
+                "type" : "STRING",
+                "isOptional" : false
+              }
+            }
+          }
+        },
+        "fieldValues" : [ {
+          "name" : "metricName",
+          "schema" : {
+            "doc" : "",
+            "type" : "STRING",
+            "isOptional" : false
+          },
+          "storage" : "mysql.bytes_received"
+        }, {
+          "name" : "timestamp",
+          "schema" : {
+            "name" : "org.apache.kafka.connect.data.Timestamp",
+            "doc" : "",
+            "type" : "INT64",
+            "version" : 1,
+            "isOptional" : false
+          },
+          "storage" : 1287333217000
+        }, {
+          "name" : "value",
+          "schema" : {
+            "doc" : "",
+            "type" : "FLOAT64",
+            "isOptional" : true
+          },
+          "storage" : 3.27810227706E11
+        }, {
+          "name" : "tags",
+          "schema" : {
+            "doc" : "",
+            "type" : "MAP",
+            "isOptional" : false,
+            "keySchema" : {
+              "type" : "STRING",
+              "isOptional" : false
+            },
+            "valueSchema" : {
+              "type" : "STRING",
+              "isOptional" : false
+            }
+          },
+          "storage" : {
+            "schema" : "foo",
+            "host" : "db1"
+          }
+        } ]
+      },
+      "timestamp" : 1530286549123,
+      "timestampType" : "CREATE_TIME",
+      "offset" : 91283741,
+      "headers" : [ ]
+    }
+

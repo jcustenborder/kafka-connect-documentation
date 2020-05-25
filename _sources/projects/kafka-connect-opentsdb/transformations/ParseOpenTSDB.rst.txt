@@ -1,0 +1,36 @@
+=============================
+Parse OpenTSDB transformation
+=============================
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.opentsdb.ParseOpenTSDB$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.opentsdb.ParseOpenTSDB$Value
+
+
+The ParseOpenTSDB transformation will parse data that is formatted with the OpenTSDB wire protocol.
+
+
+.. TIP::
+    This transformation expects data to be a String. You are most likely going to use the StringConverter.
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/ParseOpenTSDB.*
+
+-------------
+Configuration
+-------------
+
+
