@@ -107,11 +107,10 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Standard Solr</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="examples/HttpSolrSinkConnector.authentication.html">Basic Authentication</a></li>
 <li class="toctree-l4"><a class="reference internal" href="examples/HttpSolrSinkConnector.example.html">Standard</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#connection">Connection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#authentication">Authentication</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#indexing">Indexing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#installation">Installation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/index.html">Spool Dir</a></li>
@@ -213,60 +212,63 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/HttpSolrSinkConnector.example.html">Standard</a></li>
 </ul>
 </div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="connection">
-<h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
+<h3>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="solr-url">
-<h3>solr.url<a class="headerlink" href="#solr-url" title="Permalink to this headline">¶</a></h3>
+<h4>solr.url<a class="headerlink" href="#solr-url" title="Permalink to this headline">¶</a></h4>
 <p>Url to connect to solr with.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 </div>
 </div>
 <div class="section" id="authentication">
-<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<h3>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="solr-password">
-<h3>solr.password<a class="headerlink" href="#solr-password" title="Permalink to this headline">¶</a></h3>
+<h4>solr.password<a class="headerlink" href="#solr-password" title="Permalink to this headline">¶</a></h4>
 <p>The password to use for basic authentication.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> PASSWORD</p>
 <p><strong>Default Value:</strong> [hidden]</p>
 </div>
 <div class="section" id="solr-username">
-<h3>solr.username<a class="headerlink" href="#solr-username" title="Permalink to this headline">¶</a></h3>
+<h4>solr.username<a class="headerlink" href="#solr-username" title="Permalink to this headline">¶</a></h4>
 <p>The username to use for basic authentication.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 </div>
 </div>
 <div class="section" id="indexing">
-<h2>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h2>
+<h3>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="solr-queue-size">
-<h3>solr.queue.size<a class="headerlink" href="#solr-queue-size" title="Permalink to this headline">¶</a></h3>
+<h4>solr.queue.size<a class="headerlink" href="#solr-queue-size" title="Permalink to this headline">¶</a></h4>
 <p>The number of documents to batch together before sending to Solr. See <a class="reference external" href="https://lucene.apache.org/solr/6_3_0/solr-solrj/org/apache/solr/client/solrj/impl/ConcurrentUpdateSolrClient.Builder.html#withQueueSize-int-">ConcurrentUpdateSolrClient.Builder.withQueueSize(int)</a></p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> INT</p>
 <p><strong>Default Value:</strong> 100</p>
 </div>
 <div class="section" id="solr-delete-documents-enabled">
-<h3>solr.delete.documents.enabled<a class="headerlink" href="#solr-delete-documents-enabled" title="Permalink to this headline">¶</a></h3>
+<h4>solr.delete.documents.enabled<a class="headerlink" href="#solr-delete-documents-enabled" title="Permalink to this headline">¶</a></h4>
 <p>Flag to determine if the connector should delete documents. General practice in Kafka is to treat a record that contains a key with a null value as a delete.</p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> BOOLEAN</p>
 <p><strong>Default Value:</strong> true</p>
 </div>
 <div class="section" id="solr-thread-count">
-<h3>solr.thread.count<a class="headerlink" href="#solr-thread-count" title="Permalink to this headline">¶</a></h3>
+<h4>solr.thread.count<a class="headerlink" href="#solr-thread-count" title="Permalink to this headline">¶</a></h4>
 <p>The number of threads used to empty ConcurrentUpdateSolrClients queue. See <a class="reference external" href="https://lucene.apache.org/solr/6_3_0/solr-solrj/org/apache/solr/client/solrj/impl/ConcurrentUpdateSolrClient.Builder.html#withThreadCount-int-">ConcurrentUpdateSolrClient.Builder.withThreadCount(int)</a></p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> INT</p>
 <p><strong>Default Value:</strong> 1</p>
 </div>
 <div class="section" id="solr-commit-within">
-<h3>solr.commit.within<a class="headerlink" href="#solr-commit-within" title="Permalink to this headline">¶</a></h3>
+<h4>solr.commit.within<a class="headerlink" href="#solr-commit-within" title="Permalink to this headline">¶</a></h4>
 <p>Configures Solr UpdaterRequest for a commit within the requested number of milliseconds. -1 disables the commit within setting and relies on the standard Solr commit setting.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> INT</p>
 <p><strong>Default Value:</strong> -1</p>
+</div>
 </div>
 </div>
 </div>

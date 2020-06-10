@@ -21,14 +21,17 @@ This connector is used to connect to `SolrCloud <https://cwiki.apache.org/conflu
 
     examples/CloudSolrSinkConnector.*
 
-----------
+-------------
+Configuration
+-------------
+^^^^^^^^^^
 Connection
-----------
+^^^^^^^^^^
 
 
-^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""
 solr.zookeeper.hosts
-^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""
 
 Zookeeper hosts that are used to store solr configuration.
 
@@ -38,9 +41,9 @@ Zookeeper hosts that are used to store solr configuration.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""
 solr.zookeeper.chroot
-^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""
 
 Chroot within solr for the zookeeper configuration.
 
@@ -50,9 +53,37 @@ Chroot within solr for the zookeeper configuration.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""
+solr.connect.timeout.ms
+"""""""""""""""""""""""
+
+Set the connect timeout to the solr in ms.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 15000
+
+
+
+""""""""""""""""""""""
+solr.socket.timeout.ms
+""""""""""""""""""""""
+
+Set the solr read timeout on all sockets in ms.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 120000
+
+
+
+""""""""""""""""""""""""""""""""
 solr.zookeeper.client.timeout.ms
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""""
 
 Set the timeout to the zookeeper ensemble in ms.
 
@@ -64,9 +95,9 @@ Set the timeout to the zookeeper ensemble in ms.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""
 solr.zookeeper.connect.timeout.ms
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""
 
 Set the connect timeout to the zookeeper ensemble in ms.
 
@@ -78,9 +109,9 @@ Set the connect timeout to the zookeeper ensemble in ms.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""""
 solr.zookeeper.retry.expiry.time.ms
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""""
 
 This is the time to wait to refetch the state after getting the same state version from ZK in ms.
 
@@ -92,14 +123,14 @@ This is the time to wait to refetch the state after getting the same state versi
 
 
 
---------------
+^^^^^^^^^^^^^^
 Authentication
---------------
+^^^^^^^^^^^^^^
 
 
-^^^^^^^^^^^^^
+"""""""""""""
 solr.password
-^^^^^^^^^^^^^
+"""""""""""""
 
 The password to use for basic authentication.
 
@@ -111,9 +142,9 @@ The password to use for basic authentication.
 
 
 
-^^^^^^^^^^^^^
+"""""""""""""
 solr.username
-^^^^^^^^^^^^^
+"""""""""""""
 
 The username to use for basic authentication.
 
@@ -123,14 +154,14 @@ The username to use for basic authentication.
 
 
 
---------
+^^^^^^^^
 Indexing
---------
+^^^^^^^^
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""
 solr.delete.documents.enabled
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""
 
 Flag to determine if the connector should delete documents. General practice in Kafka is to treat a record that contains a key with a null value as a delete.
 
@@ -142,9 +173,9 @@ Flag to determine if the connector should delete documents. General practice in 
 
 
 
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 solr.commit.within
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
 Configures Solr UpdaterRequest for a commit within the requested number of milliseconds. -1 disables the commit within setting and relies on the standard Solr commit setting.
 

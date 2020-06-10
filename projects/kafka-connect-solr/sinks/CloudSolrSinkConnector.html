@@ -108,12 +108,11 @@
 <li class="toctree-l4"><a class="reference internal" href="examples/CloudSolrSinkConnector.example.html">Standard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="examples/CloudSolrSinkConnector.force-collection.html">Force collection name</a></li>
 <li class="toctree-l4"><a class="reference internal" href="examples/CloudSolrSinkConnector.strip-prefix.html">Drop Topic prefix</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#connection">Connection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#authentication">Authentication</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#indexing">Indexing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="HttpSolrSinkConnector.html">Standard Solr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#installation">Installation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/index.html">Spool Dir</a></li>
@@ -217,36 +216,52 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/CloudSolrSinkConnector.strip-prefix.html">Drop Topic prefix</a></li>
 </ul>
 </div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="connection">
-<h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
+<h3>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="solr-zookeeper-hosts">
-<h3>solr.zookeeper.hosts<a class="headerlink" href="#solr-zookeeper-hosts" title="Permalink to this headline">¶</a></h3>
+<h4>solr.zookeeper.hosts<a class="headerlink" href="#solr-zookeeper-hosts" title="Permalink to this headline">¶</a></h4>
 <p>Zookeeper hosts that are used to store solr configuration.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> LIST</p>
 </div>
 <div class="section" id="solr-zookeeper-chroot">
-<h3>solr.zookeeper.chroot<a class="headerlink" href="#solr-zookeeper-chroot" title="Permalink to this headline">¶</a></h3>
+<h4>solr.zookeeper.chroot<a class="headerlink" href="#solr-zookeeper-chroot" title="Permalink to this headline">¶</a></h4>
 <p>Chroot within solr for the zookeeper configuration.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 </div>
+<div class="section" id="solr-connect-timeout-ms">
+<h4>solr.connect.timeout.ms<a class="headerlink" href="#solr-connect-timeout-ms" title="Permalink to this headline">¶</a></h4>
+<p>Set the connect timeout to the solr in ms.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> INT</p>
+<p><strong>Default Value:</strong> 15000</p>
+</div>
+<div class="section" id="solr-socket-timeout-ms">
+<h4>solr.socket.timeout.ms<a class="headerlink" href="#solr-socket-timeout-ms" title="Permalink to this headline">¶</a></h4>
+<p>Set the solr read timeout on all sockets in ms.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> INT</p>
+<p><strong>Default Value:</strong> 120000</p>
+</div>
 <div class="section" id="solr-zookeeper-client-timeout-ms">
-<h3>solr.zookeeper.client.timeout.ms<a class="headerlink" href="#solr-zookeeper-client-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<h4>solr.zookeeper.client.timeout.ms<a class="headerlink" href="#solr-zookeeper-client-timeout-ms" title="Permalink to this headline">¶</a></h4>
 <p>Set the timeout to the zookeeper ensemble in ms.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> INT</p>
 <p><strong>Default Value:</strong> 45000</p>
 </div>
 <div class="section" id="solr-zookeeper-connect-timeout-ms">
-<h3>solr.zookeeper.connect.timeout.ms<a class="headerlink" href="#solr-zookeeper-connect-timeout-ms" title="Permalink to this headline">¶</a></h3>
+<h4>solr.zookeeper.connect.timeout.ms<a class="headerlink" href="#solr-zookeeper-connect-timeout-ms" title="Permalink to this headline">¶</a></h4>
 <p>Set the connect timeout to the zookeeper ensemble in ms.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> INT</p>
 <p><strong>Default Value:</strong> 15000</p>
 </div>
 <div class="section" id="solr-zookeeper-retry-expiry-time-ms">
-<h3>solr.zookeeper.retry.expiry.time.ms<a class="headerlink" href="#solr-zookeeper-retry-expiry-time-ms" title="Permalink to this headline">¶</a></h3>
+<h4>solr.zookeeper.retry.expiry.time.ms<a class="headerlink" href="#solr-zookeeper-retry-expiry-time-ms" title="Permalink to this headline">¶</a></h4>
 <p>This is the time to wait to refetch the state after getting the same state version from ZK in ms.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> INT</p>
@@ -254,36 +269,37 @@
 </div>
 </div>
 <div class="section" id="authentication">
-<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<h3>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="solr-password">
-<h3>solr.password<a class="headerlink" href="#solr-password" title="Permalink to this headline">¶</a></h3>
+<h4>solr.password<a class="headerlink" href="#solr-password" title="Permalink to this headline">¶</a></h4>
 <p>The password to use for basic authentication.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> PASSWORD</p>
 <p><strong>Default Value:</strong> [hidden]</p>
 </div>
 <div class="section" id="solr-username">
-<h3>solr.username<a class="headerlink" href="#solr-username" title="Permalink to this headline">¶</a></h3>
+<h4>solr.username<a class="headerlink" href="#solr-username" title="Permalink to this headline">¶</a></h4>
 <p>The username to use for basic authentication.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 </div>
 </div>
 <div class="section" id="indexing">
-<h2>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h2>
+<h3>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="solr-delete-documents-enabled">
-<h3>solr.delete.documents.enabled<a class="headerlink" href="#solr-delete-documents-enabled" title="Permalink to this headline">¶</a></h3>
+<h4>solr.delete.documents.enabled<a class="headerlink" href="#solr-delete-documents-enabled" title="Permalink to this headline">¶</a></h4>
 <p>Flag to determine if the connector should delete documents. General practice in Kafka is to treat a record that contains a key with a null value as a delete.</p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> BOOLEAN</p>
 <p><strong>Default Value:</strong> true</p>
 </div>
 <div class="section" id="solr-commit-within">
-<h3>solr.commit.within<a class="headerlink" href="#solr-commit-within" title="Permalink to this headline">¶</a></h3>
+<h4>solr.commit.within<a class="headerlink" href="#solr-commit-within" title="Permalink to this headline">¶</a></h4>
 <p>Configures Solr UpdaterRequest for a commit within the requested number of milliseconds. -1 disables the commit within setting and relies on the standard Solr commit setting.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> INT</p>
 <p><strong>Default Value:</strong> -1</p>
+</div>
 </div>
 </div>
 </div>
