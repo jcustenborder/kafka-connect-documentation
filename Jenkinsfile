@@ -2,6 +2,7 @@
 
 def connectors = [
         'kafka-connect-memcached':'jcustenborder/kafka-connect-memcached/master',
+        'kafka-connect-email':'jcustenborder/kafka-connect-email/master',
         'kafka-connect-flume-avro':'jcustenborder/kafka-connect-flume-avro/master',        
         'kafka-connect-redis':'jcustenborder/kafka-connect-redis/master',
         'kafka-connect-simulator':'jcustenborder/kafka-connect-simulator/master',
