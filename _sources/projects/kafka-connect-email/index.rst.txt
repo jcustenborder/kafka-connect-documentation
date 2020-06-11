@@ -1,0 +1,68 @@
+=====
+Email
+=====
+
+This plugin provides connector(s) and transformation(s) to use when integrating with email systems.
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Source Connectors:
+    :hidden:
+    :glob:
+
+    sources/*
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Sink Connectors:
+    :hidden:
+    :glob:
+
+    sinks/*
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Transformations:
+    :glob:
+
+    transformations/*
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Converters:
+    :glob:
+
+    converters/*
+
+
+------------
+Installation
+------------
+
+The preferred method of installation is to utilize the `Confluent Hub Client <https://docs.confluent.io/current/connect/managing/confluent-hub/client.html>`_.
+
+^^^^^^^^^^^^^
+Confluent Hub
+^^^^^^^^^^^^^
+The plugin is hosted on the `Confluent Hub <https://www.confluent.io/hub/jcustenborder/kafka-connect-email>`_. Installation through the
+`Confluent Hub Client <https://docs.confluent.io/current/connect/managing/confluent-hub/client.html>`_ is simple. Use the following command line.
+
+
+.. code-block:: bash
+
+    confluent-hub install jcustenborder/kafka-connect-email:latest
+
+
+^^^^^^^^^^^^^^^^^^^
+Manual Installation
+^^^^^^^^^^^^^^^^^^^
+
+#. Compile the source code with `mvn clean package`
+#. Create a subdirectory called `kafka-connect-email` under the `plugin.path` on your connect worker.
+#. Extract the contents of the zip file from `target/components/packages/` to the directory you created in the previous step.
+#. Restart the connect worker.
