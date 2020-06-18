@@ -6,19 +6,5 @@ Installation
 
 Before starting your journey using Kafka Connect, you will need to install and configure Kafka and Kafka Connect. The
 easiest way to accomplish this is to use the `Confluent Platform <http://docs.confluent.io/current/installation.html>`_
-for the installation. Both rpm and deb packages are provided by Confluent and make the installation much easier.
-
-
-.. _yum_repository:
-
-^^^^^^^^^^^^^^
-YUM Repository
-^^^^^^^^^^^^^^
-
-
-.. _apt_repository:
-
-^^^^^^^^^^^^^^
-APT Repository
-^^^^^^^^^^^^^^
-
+for the installation. There are several different ways to install. Docker images, RPM, DEB, and a tar.gz based
+installation are provided for you.

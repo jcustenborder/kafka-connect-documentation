@@ -20,9 +20,6 @@ This project is a collection of connectors and transforms that can be leveraged 
 
    installation
    projects
-   connectors
-   transformations
-   schemas
 
 
 Indices and tables
