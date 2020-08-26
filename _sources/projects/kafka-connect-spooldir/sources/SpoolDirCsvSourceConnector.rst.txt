@@ -28,14 +28,17 @@ The SpoolDirCsvSourceConnector will monitor the directory specified in `input.pa
 
     examples/SpoolDirCsvSourceConnector.*
 
------------
+-------------
+Configuration
+-------------
+^^^^^^^^^^^
 File System
------------
+^^^^^^^^^^^
 
 
-^^^^^^^^^^
+""""""""""
 error.path
-^^^^^^^^^^
+""""""""""
 
 The directory to place files in which have error(s). This directory must exist and be writable by the user running Kafka Connect.
 
@@ -47,9 +50,9 @@ The directory to place files in which have error(s). This directory must exist a
 
 
 
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 input.file.pattern
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
 Regular expression to check input file names against. This expression must match the entire filename. The equivalent of Matcher.matches().
 
@@ -59,9 +62,9 @@ Regular expression to check input file names against. This expression must match
 
 
 
-^^^^^^^^^^
+""""""""""
 input.path
-^^^^^^^^^^
+""""""""""
 
 The directory to read files that will be processed. This directory must exist and be writable by the user running Kafka Connect.
 
@@ -73,9 +76,9 @@ The directory to read files that will be processed. This directory must exist an
 
 
 
-^^^^^^^^^^^^^
+"""""""""""""
 finished.path
-^^^^^^^^^^^^^
+"""""""""""""
 
 The directory to place files that have been successfully processed. This directory must exist and be writable by the user running Kafka Connect.
 
@@ -85,9 +88,9 @@ The directory to place files that have been successfully processed. This directo
 
 
 
-^^^^^^^^^^^^^
+"""""""""""""
 halt.on.error
-^^^^^^^^^^^^^
+"""""""""""""
 
 Should the task halt when it encounters an error or continue to the next file.
 
@@ -99,9 +102,9 @@ Should the task halt when it encounters an error or continue to the next file.
 
 
 
-^^^^^^^^^^^^^^
+""""""""""""""
 cleanup.policy
-^^^^^^^^^^^^^^
+""""""""""""""
 
 Determines how the connector should cleanup the files that have been successfully processed. NONE leaves the files in place which could cause them to be reprocessed if the connector is restarted. DELETE removes the file from the filesystem. MOVE will move the file to a finished directory. MOVEBYDATE will move the file to a finished directory with subdirectories by date
 
@@ -115,9 +118,9 @@ Determines how the connector should cleanup the files that have been successfull
 
 
 
-^^^^^^^^^^^^^^^^
+""""""""""""""""
 task.partitioner
-^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 The task partitioner implementation is used when the connector is configured to use more than one task. This is used by each task to identify which files will be processed by that task. This ensures that each file is only assigned to one task.
 
@@ -131,9 +134,9 @@ The task partitioner implementation is used when the connector is configured to 
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 file.buffer.size.bytes
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 
 The size of buffer for the BufferedInputStream that will be used to interact with the file system.
 
@@ -147,9 +150,9 @@ The size of buffer for the BufferedInputStream that will be used to interact wit
 
 
 
-^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""
 file.minimum.age.ms
-^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""
 
 The amount of time in milliseconds after the file was last written to before the file can be processed.
 
@@ -163,9 +166,9 @@ The amount of time in milliseconds after the file was last written to before the
 
 
 
-^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""
 files.sort.attributes
-^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""
 
 The attributes each file will use to determine the sort order. `Name` is name of the file. `Length` is the length of the file preferring larger files first. `LastModified` is the LastModified attribute of the file preferring older files first.
 
@@ -179,11 +182,11 @@ The attributes each file will use to determine the sort order. `Name` is name of
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 processing.file.extension
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 
-Before a file is processed, it is renamed to indicate that it is currently being processed. This setting is appended to the end of the file.
+Before a file is processed, a flag is created in its directory to indicate the file is being handled. The flag file has the same name as the file, but with this property appended as a suffix.
 
 **Importance:** LOW
 
@@ -195,14 +198,14 @@ Before a file is processed, it is renamed to indicate that it is currently being
 
 
 
--------
+^^^^^^^
 General
--------
+^^^^^^^
 
 
-^^^^^
+"""""
 topic
-^^^^^
+"""""
 
 The Kafka topic to write the data to.
 
@@ -212,9 +215,9 @@ The Kafka topic to write the data to.
 
 
 
-^^^^^^^^^^
+""""""""""
 batch.size
-^^^^^^^^^^
+""""""""""
 
 The number of records that should be returned with each batch.
 
@@ -226,9 +229,9 @@ The number of records that should be returned with each batch.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""
 csv.case.sensitive.field.names
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""
 
 Flag to determine if the field names in the header row should be treated as case sensitive.
 
@@ -238,9 +241,9 @@ Flag to determine if the field names in the header row should be treated as case
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""
 csv.rfc.4180.parser.enabled
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""
 
 Flag to determine if the RFC 4180 parser should be used instead of the default parser.
 
@@ -250,9 +253,9 @@ Flag to determine if the RFC 4180 parser should be used instead of the default p
 
 
 
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 empty.poll.wait.ms
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
 The amount of time to wait if a poll returns an empty list of records.
 
@@ -266,9 +269,9 @@ The amount of time to wait if a poll returns an empty list of records.
 
 
 
-^^^^^^^^^^
+""""""""""
 task.count
-^^^^^^^^^^
+""""""""""
 
 Internal setting to the connector used to instruct a task on which files to select. The connector will override this setting.
 
@@ -282,9 +285,9 @@ Internal setting to the connector used to instruct a task on which files to sele
 
 
 
-^^^^^^^^^^
+""""""""""
 task.index
-^^^^^^^^^^
+""""""""""
 
 Internal setting to the connector used to instruct a task on which files to select. The connector will override this setting.
 
@@ -298,14 +301,14 @@ Internal setting to the connector used to instruct a task on which files to sele
 
 
 
-------
+^^^^^^
 Schema
-------
+^^^^^^
 
 
-^^^^^^^^^^
+""""""""""
 key.schema
-^^^^^^^^^^
+""""""""""
 
 The schema for the key written to Kafka.
 
@@ -315,9 +318,9 @@ The schema for the key written to Kafka.
 
 
 
-^^^^^^^^^^^^
+""""""""""""
 value.schema
-^^^^^^^^^^^^
+""""""""""""
 
 The schema for the value written to Kafka.
 
@@ -327,14 +330,14 @@ The schema for the value written to Kafka.
 
 
 
------------
+^^^^^^^^^^^
 CSV Parsing
------------
+^^^^^^^^^^^
 
 
-^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""
 csv.first.row.as.header
-^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""
 
 Flag to indicate if the fist row of data contains the header of the file. If true the position of the columns will be determined by the first row to the CSV. The column position will be inferred from the position of the schema supplied in `value.schema`. If set to true the number of columns must be greater than or equal to the number of fields in the schema.
 
@@ -344,9 +347,9 @@ Flag to indicate if the fist row of data contains the header of the file. If tru
 
 
 
-^^^^^^^^^^^^^^^
+"""""""""""""""
 csv.escape.char
-^^^^^^^^^^^^^^^
+"""""""""""""""
 
 The character as an integer to use when a special character is encountered. The default escape character is typically a \(92)
 
@@ -358,9 +361,9 @@ The character as an integer to use when a special character is encountered. The 
 
 
 
-^^^^^^^^^^^^^^^^
+""""""""""""""""
 csv.file.charset
-^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 Character set to read wth file with.
 
@@ -374,9 +377,9 @@ Character set to read wth file with.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""
 csv.ignore.leading.whitespace
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""
 
 Sets the ignore leading whitespace setting - if true, white space in front of a quote in a field is ignored.
 
@@ -388,9 +391,9 @@ Sets the ignore leading whitespace setting - if true, white space in front of a 
 
 
 
-^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""
 csv.ignore.quotations
-^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""
 
 Sets the ignore quotations mode - if true, quotations are ignored.
 
@@ -400,9 +403,9 @@ Sets the ignore quotations mode - if true, quotations are ignored.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""
 csv.keep.carriage.return
-^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""
 
 Flag to determine if the carriage return at the end of the line should be maintained.
 
@@ -412,9 +415,9 @@ Flag to determine if the carriage return at the end of the line should be mainta
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""
 csv.null.field.indicator
-^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""
 
 Indicator to determine how the CSV Reader can determine if a field is null. Valid values are EMPTY_SEPARATORS, EMPTY_QUOTES, BOTH, NEITHER. For more information see http://opencsv.sourceforge.net/apidocs/com/opencsv/enums/CSVReaderNullFieldIndicator.html.
 
@@ -428,9 +431,9 @@ Indicator to determine how the CSV Reader can determine if a field is null. Vali
 
 
 
-^^^^^^^^^^^^^^
+""""""""""""""
 csv.quote.char
-^^^^^^^^^^^^^^
+""""""""""""""
 
 The character that is used to quote a field. This typically happens when the csv.separator.char character is within the data.
 
@@ -442,9 +445,9 @@ The character that is used to quote a field. This typically happens when the csv
 
 
 
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 csv.separator.char
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
 The character that separates each field in the form of an integer. Typically in a CSV this is a ,(44) character. A TSV would use a tab(9) character. If `csv.separator.char` is defined as a null(0), then the RFC 4180 parser must be utilized by default. This is the equivalent of `csv.rfc.4180.parser.enabled = true`.
 
@@ -456,9 +459,9 @@ The character that separates each field in the form of an integer. Typically in 
 
 
 
-^^^^^^^^^^^^^^
+""""""""""""""
 csv.skip.lines
-^^^^^^^^^^^^^^
+""""""""""""""
 
 Number of lines to skip in the beginning of the file.
 
@@ -470,9 +473,9 @@ Number of lines to skip in the beginning of the file.
 
 
 
-^^^^^^^^^^^^^^^^^
+"""""""""""""""""
 csv.strict.quotes
-^^^^^^^^^^^^^^^^^
+"""""""""""""""""
 
 Sets the strict quotes setting - if true, characters outside the quotes are ignored.
 
@@ -482,9 +485,9 @@ Sets the strict quotes setting - if true, characters outside the quotes are igno
 
 
 
-^^^^^^^^^^^^^^^^^
+"""""""""""""""""
 csv.verify.reader
-^^^^^^^^^^^^^^^^^
+"""""""""""""""""
 
 Flag to determine if the reader should be verified.
 
@@ -496,14 +499,14 @@ Flag to determine if the reader should be verified.
 
 
 
------------------
+^^^^^^^^^^^^^^^^^
 Schema Generation
------------------
+^^^^^^^^^^^^^^^^^
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 schema.generation.enabled
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 
 Flag to determine if schemas should be dynamically generated. If set  to true, `key.schema` and `value.schema` can be omitted, but `schema.generation.key.name` and `schema.generation.value.name` must be set.
 
@@ -513,9 +516,9 @@ Flag to determine if schemas should be dynamically generated. If set  to true, `
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""
 schema.generation.key.fields
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""
 
 The field(s) to use to build a key schema. This is only used during schema generation.
 
@@ -525,9 +528,9 @@ The field(s) to use to build a key schema. This is only used during schema gener
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""
 schema.generation.key.name
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""
 
 The name of the generated key schema.
 
@@ -539,9 +542,9 @@ The name of the generated key schema.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""
 schema.generation.value.name
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""
 
 The name of the generated value schema.
 
@@ -553,14 +556,14 @@ The name of the generated value schema.
 
 
 
-----------
+^^^^^^^^^^
 Timestamps
-----------
+^^^^^^^^^^
 
 
-^^^^^^^^^^^^^^^
+"""""""""""""""
 timestamp.field
-^^^^^^^^^^^^^^^
+"""""""""""""""
 
 The field in the value schema that will contain the parsed timestamp for the record. This field cannot be marked as optional and must be a [Timestamp](https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/data/Schema.html)
 
@@ -570,9 +573,9 @@ The field in the value schema that will contain the parsed timestamp for the rec
 
 
 
-^^^^^^^^^^^^^^
+""""""""""""""
 timestamp.mode
-^^^^^^^^^^^^^^
+""""""""""""""
 
 Determines how the connector will set the timestamp for the [ConnectRecord](https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/connector/ConnectRecord.html#timestamp()). If set to `Field` then the timestamp will be read from a field in the value. This field cannot be optional and must be a [Timestamp](https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/data/Schema.html). Specify the field  in `timestamp.field`. If set to `FILE_TIME` then the last modified time of the file will be used. If set to `PROCESS_TIME` the time the record is read will be used.
 
@@ -586,9 +589,9 @@ Determines how the connector will set the timestamp for the [ConnectRecord](http
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""
 parser.timestamp.date.formats
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""
 
 The date formats that are expected in the file. This is a list of strings that will be used to parse the date fields in order. The most accurate date format should be the first in the list. Take a look at the Java documentation for more info. https://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html
 
@@ -600,9 +603,9 @@ The date formats that are expected in the file. This is a list of strings that w
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 parser.timestamp.timezone
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 
 The timezone that all of the dates will be parsed with.
 
@@ -614,14 +617,14 @@ The timezone that all of the dates will be parsed with.
 
 
 
---------
+^^^^^^^^
 Metadata
---------
+^^^^^^^^
 
 
-^^^^^^^^^^^^^^
+""""""""""""""
 metadata.field
-^^^^^^^^^^^^^^
+""""""""""""""
 
 The name of the field in the value where the metadata will be stored.
 
@@ -633,9 +636,9 @@ The name of the field in the value where the metadata will be stored.
 
 
 
-^^^^^^^^^^^^^^^^^
+"""""""""""""""""
 metadata.location
-^^^^^^^^^^^^^^^^^
+"""""""""""""""""
 
 Location that metadata about the input file will be stored. `FIELD` - Metadata about the file will be stored in a field in the value of the record. `HEADERS` - Metadata about the input file will be stored as headers on the record. `NONE` - no metadata about the input file will be stored.
 

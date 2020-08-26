@@ -109,16 +109,12 @@
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirELFSourceConnector.html">Extended Log File Format Source Connector</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Json Source Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="examples/SpoolDirJsonSourceConnector.test.html">Json</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#file-system">File System</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#schema">Schema</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#schema-generation">Schema Generation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#timestamps">Timestamps</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metadata">Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirLineDelimitedSourceConnector.html">Line Delimited Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirSchemaLessJsonSourceConnector.html">Schema Less Json Source Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#installation">Installation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-cobol/index.html">Cobol Copybook Transformations</a></li>
@@ -222,43 +218,45 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 <li class="toctree-l1"><a class="reference internal" href="examples/SpoolDirJsonSourceConnector.test.html">Json</a></li>
 </ul>
 </div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="file-system">
-<h2>File System<a class="headerlink" href="#file-system" title="Permalink to this headline">¶</a></h2>
+<h3>File System<a class="headerlink" href="#file-system" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="error-path">
-<h3>error.path<a class="headerlink" href="#error-path" title="Permalink to this headline">¶</a></h3>
+<h4>error.path<a class="headerlink" href="#error-path" title="Permalink to this headline">¶</a></h4>
 <p>The directory to place files in which have error(s). This directory must exist and be writable by the user running Kafka Connect.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Validator:</strong> Absolute path to a directory that exists and is writable.</p>
 </div>
 <div class="section" id="input-file-pattern">
-<h3>input.file.pattern<a class="headerlink" href="#input-file-pattern" title="Permalink to this headline">¶</a></h3>
+<h4>input.file.pattern<a class="headerlink" href="#input-file-pattern" title="Permalink to this headline">¶</a></h4>
 <p>Regular expression to check input file names against. This expression must match the entire filename. The equivalent of Matcher.matches().</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 </div>
 <div class="section" id="input-path">
-<h3>input.path<a class="headerlink" href="#input-path" title="Permalink to this headline">¶</a></h3>
+<h4>input.path<a class="headerlink" href="#input-path" title="Permalink to this headline">¶</a></h4>
 <p>The directory to read files that will be processed. This directory must exist and be writable by the user running Kafka Connect.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Validator:</strong> Absolute path to a directory that exists and is writable.</p>
 </div>
 <div class="section" id="finished-path">
-<h3>finished.path<a class="headerlink" href="#finished-path" title="Permalink to this headline">¶</a></h3>
+<h4>finished.path<a class="headerlink" href="#finished-path" title="Permalink to this headline">¶</a></h4>
 <p>The directory to place files that have been successfully processed. This directory must exist and be writable by the user running Kafka Connect.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 </div>
 <div class="section" id="halt-on-error">
-<h3>halt.on.error<a class="headerlink" href="#halt-on-error" title="Permalink to this headline">¶</a></h3>
+<h4>halt.on.error<a class="headerlink" href="#halt-on-error" title="Permalink to this headline">¶</a></h4>
 <p>Should the task halt when it encounters an error or continue to the next file.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> BOOLEAN</p>
 <p><strong>Default Value:</strong> true</p>
 </div>
 <div class="section" id="cleanup-policy">
-<h3>cleanup.policy<a class="headerlink" href="#cleanup-policy" title="Permalink to this headline">¶</a></h3>
+<h4>cleanup.policy<a class="headerlink" href="#cleanup-policy" title="Permalink to this headline">¶</a></h4>
 <p>Determines how the connector should cleanup the files that have been successfully processed. NONE leaves the files in place which could cause them to be reprocessed if the connector is restarted. DELETE removes the file from the filesystem. MOVE will move the file to a finished directory. MOVEBYDATE will move the file to a finished directory with subdirectories by date</p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> STRING</p>
@@ -266,7 +264,7 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">NONE</span></code>, <code class="docutils literal"><span class="pre">DELETE</span></code>, <code class="docutils literal"><span class="pre">MOVE</span></code>, <code class="docutils literal"><span class="pre">MOVEBYDATE</span></code></p>
 </div>
 <div class="section" id="task-partitioner">
-<h3>task.partitioner<a class="headerlink" href="#task-partitioner" title="Permalink to this headline">¶</a></h3>
+<h4>task.partitioner<a class="headerlink" href="#task-partitioner" title="Permalink to this headline">¶</a></h4>
 <p>The task partitioner implementation is used when the connector is configured to use more than one task. This is used by each task to identify which files will be processed by that task. This ensures that each file is only assigned to one task.</p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> STRING</p>
@@ -274,7 +272,7 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">ByName</span></code></p>
 </div>
 <div class="section" id="file-buffer-size-bytes">
-<h3>file.buffer.size.bytes<a class="headerlink" href="#file-buffer-size-bytes" title="Permalink to this headline">¶</a></h3>
+<h4>file.buffer.size.bytes<a class="headerlink" href="#file-buffer-size-bytes" title="Permalink to this headline">¶</a></h4>
 <p>The size of buffer for the BufferedInputStream that will be used to interact with the file system.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> INT</p>
@@ -282,7 +280,7 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 <p><strong>Validator:</strong> [1,…]</p>
 </div>
 <div class="section" id="file-minimum-age-ms">
-<h3>file.minimum.age.ms<a class="headerlink" href="#file-minimum-age-ms" title="Permalink to this headline">¶</a></h3>
+<h4>file.minimum.age.ms<a class="headerlink" href="#file-minimum-age-ms" title="Permalink to this headline">¶</a></h4>
 <p>The amount of time in milliseconds after the file was last written to before the file can be processed.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> LONG</p>
@@ -290,7 +288,7 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 <p><strong>Validator:</strong> [0,…]</p>
 </div>
 <div class="section" id="files-sort-attributes">
-<h3>files.sort.attributes<a class="headerlink" href="#files-sort-attributes" title="Permalink to this headline">¶</a></h3>
+<h4>files.sort.attributes<a class="headerlink" href="#files-sort-attributes" title="Permalink to this headline">¶</a></h4>
 <p>The attributes each file will use to determine the sort order. <cite>Name</cite> is name of the file. <cite>Length</cite> is the length of the file preferring larger files first. <cite>LastModified</cite> is the LastModified attribute of the file preferring older files first.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> LIST</p>
@@ -298,8 +296,8 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">NameAsc</span></code>, <code class="docutils literal"><span class="pre">NameDesc</span></code>, <code class="docutils literal"><span class="pre">LengthAsc</span></code>, <code class="docutils literal"><span class="pre">LengthDesc</span></code>, <code class="docutils literal"><span class="pre">LastModifiedAsc</span></code>, <code class="docutils literal"><span class="pre">LastModifiedDesc</span></code></p>
 </div>
 <div class="section" id="processing-file-extension">
-<h3>processing.file.extension<a class="headerlink" href="#processing-file-extension" title="Permalink to this headline">¶</a></h3>
-<p>Before a file is processed, it is renamed to indicate that it is currently being processed. This setting is appended to the end of the file.</p>
+<h4>processing.file.extension<a class="headerlink" href="#processing-file-extension" title="Permalink to this headline">¶</a></h4>
+<p>Before a file is processed, a flag is created in its directory to indicate the file is being handled. The flag file has the same name as the file, but with this property appended as a suffix.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> .PROCESSING</p>
@@ -307,22 +305,22 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 </div>
 </div>
 <div class="section" id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="topic">
-<h3>topic<a class="headerlink" href="#topic" title="Permalink to this headline">¶</a></h3>
+<h4>topic<a class="headerlink" href="#topic" title="Permalink to this headline">¶</a></h4>
 <p>The Kafka topic to write the data to.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 </div>
 <div class="section" id="batch-size">
-<h3>batch.size<a class="headerlink" href="#batch-size" title="Permalink to this headline">¶</a></h3>
+<h4>batch.size<a class="headerlink" href="#batch-size" title="Permalink to this headline">¶</a></h4>
 <p>The number of records that should be returned with each batch.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> INT</p>
 <p><strong>Default Value:</strong> 1000</p>
 </div>
 <div class="section" id="empty-poll-wait-ms">
-<h3>empty.poll.wait.ms<a class="headerlink" href="#empty-poll-wait-ms" title="Permalink to this headline">¶</a></h3>
+<h4>empty.poll.wait.ms<a class="headerlink" href="#empty-poll-wait-ms" title="Permalink to this headline">¶</a></h4>
 <p>The amount of time to wait if a poll returns an empty list of records.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> LONG</p>
@@ -330,7 +328,7 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 <p><strong>Validator:</strong> [1,…,9223372036854775807]</p>
 </div>
 <div class="section" id="task-count">
-<h3>task.count<a class="headerlink" href="#task-count" title="Permalink to this headline">¶</a></h3>
+<h4>task.count<a class="headerlink" href="#task-count" title="Permalink to this headline">¶</a></h4>
 <p>Internal setting to the connector used to instruct a task on which files to select. The connector will override this setting.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> INT</p>
@@ -338,7 +336,7 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 <p><strong>Validator:</strong> [1,…]</p>
 </div>
 <div class="section" id="task-index">
-<h3>task.index<a class="headerlink" href="#task-index" title="Permalink to this headline">¶</a></h3>
+<h4>task.index<a class="headerlink" href="#task-index" title="Permalink to this headline">¶</a></h4>
 <p>Internal setting to the connector used to instruct a task on which files to select. The connector will override this setting.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> INT</p>
@@ -347,43 +345,43 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 </div>
 </div>
 <div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<h3>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="key-schema">
-<h3>key.schema<a class="headerlink" href="#key-schema" title="Permalink to this headline">¶</a></h3>
+<h4>key.schema<a class="headerlink" href="#key-schema" title="Permalink to this headline">¶</a></h4>
 <p>The schema for the key written to Kafka.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 </div>
 <div class="section" id="value-schema">
-<h3>value.schema<a class="headerlink" href="#value-schema" title="Permalink to this headline">¶</a></h3>
+<h4>value.schema<a class="headerlink" href="#value-schema" title="Permalink to this headline">¶</a></h4>
 <p>The schema for the value written to Kafka.</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
 </div>
 </div>
 <div class="section" id="schema-generation">
-<h2>Schema Generation<a class="headerlink" href="#schema-generation" title="Permalink to this headline">¶</a></h2>
+<h3>Schema Generation<a class="headerlink" href="#schema-generation" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="schema-generation-enabled">
-<h3>schema.generation.enabled<a class="headerlink" href="#schema-generation-enabled" title="Permalink to this headline">¶</a></h3>
+<h4>schema.generation.enabled<a class="headerlink" href="#schema-generation-enabled" title="Permalink to this headline">¶</a></h4>
 <p>Flag to determine if schemas should be dynamically generated. If set  to true, <cite>key.schema</cite> and <cite>value.schema</cite> can be omitted, but <cite>schema.generation.key.name</cite> and <cite>schema.generation.value.name</cite> must be set.</p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> BOOLEAN</p>
 </div>
 <div class="section" id="schema-generation-key-fields">
-<h3>schema.generation.key.fields<a class="headerlink" href="#schema-generation-key-fields" title="Permalink to this headline">¶</a></h3>
+<h4>schema.generation.key.fields<a class="headerlink" href="#schema-generation-key-fields" title="Permalink to this headline">¶</a></h4>
 <p>The field(s) to use to build a key schema. This is only used during schema generation.</p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> LIST</p>
 </div>
 <div class="section" id="schema-generation-key-name">
-<h3>schema.generation.key.name<a class="headerlink" href="#schema-generation-key-name" title="Permalink to this headline">¶</a></h3>
+<h4>schema.generation.key.name<a class="headerlink" href="#schema-generation-key-name" title="Permalink to this headline">¶</a></h4>
 <p>The name of the generated key schema.</p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> com.github.jcustenborder.kafka.connect.model.Key</p>
 </div>
 <div class="section" id="schema-generation-value-name">
-<h3>schema.generation.value.name<a class="headerlink" href="#schema-generation-value-name" title="Permalink to this headline">¶</a></h3>
+<h4>schema.generation.value.name<a class="headerlink" href="#schema-generation-value-name" title="Permalink to this headline">¶</a></h4>
 <p>The name of the generated value schema.</p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> STRING</p>
@@ -391,15 +389,15 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 </div>
 </div>
 <div class="section" id="timestamps">
-<h2>Timestamps<a class="headerlink" href="#timestamps" title="Permalink to this headline">¶</a></h2>
+<h3>Timestamps<a class="headerlink" href="#timestamps" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="timestamp-field">
-<h3>timestamp.field<a class="headerlink" href="#timestamp-field" title="Permalink to this headline">¶</a></h3>
+<h4>timestamp.field<a class="headerlink" href="#timestamp-field" title="Permalink to this headline">¶</a></h4>
 <p>The field in the value schema that will contain the parsed timestamp for the record. This field cannot be marked as optional and must be a [Timestamp](<a class="reference external" href="https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/data/Schema.html">https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/data/Schema.html</a>)</p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> STRING</p>
 </div>
 <div class="section" id="timestamp-mode">
-<h3>timestamp.mode<a class="headerlink" href="#timestamp-mode" title="Permalink to this headline">¶</a></h3>
+<h4>timestamp.mode<a class="headerlink" href="#timestamp-mode" title="Permalink to this headline">¶</a></h4>
 <p>Determines how the connector will set the timestamp for the [ConnectRecord](<a class="reference external" href="https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/connector/ConnectRecord">https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/connector/ConnectRecord</a>.html#timestamp()). If set to <cite>Field</cite> then the timestamp will be read from a field in the value. This field cannot be optional and must be a [Timestamp](<a class="reference external" href="https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/data/Schema.html">https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/data/Schema.html</a>). Specify the field  in <cite>timestamp.field</cite>. If set to <cite>FILE_TIME</cite> then the last modified time of the file will be used. If set to <cite>PROCESS_TIME</cite> the time the record is read will be used.</p>
 <p><strong>Importance:</strong> MEDIUM</p>
 <p><strong>Type:</strong> STRING</p>
@@ -407,14 +405,14 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">FIELD</span></code>, <code class="docutils literal"><span class="pre">FILE_TIME</span></code>, <code class="docutils literal"><span class="pre">PROCESS_TIME</span></code></p>
 </div>
 <div class="section" id="parser-timestamp-date-formats">
-<h3>parser.timestamp.date.formats<a class="headerlink" href="#parser-timestamp-date-formats" title="Permalink to this headline">¶</a></h3>
+<h4>parser.timestamp.date.formats<a class="headerlink" href="#parser-timestamp-date-formats" title="Permalink to this headline">¶</a></h4>
 <p>The date formats that are expected in the file. This is a list of strings that will be used to parse the date fields in order. The most accurate date format should be the first in the list. Take a look at the Java documentation for more info. <a class="reference external" href="https://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html">https://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html</a></p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> LIST</p>
 <p><strong>Default Value:</strong> [yyyy-MM-dd’T’HH:mm:ss, yyyy-MM-dd’ ‘HH:mm:ss]</p>
 </div>
 <div class="section" id="parser-timestamp-timezone">
-<h3>parser.timestamp.timezone<a class="headerlink" href="#parser-timestamp-timezone" title="Permalink to this headline">¶</a></h3>
+<h4>parser.timestamp.timezone<a class="headerlink" href="#parser-timestamp-timezone" title="Permalink to this headline">¶</a></h4>
 <p>The timezone that all of the dates will be parsed with.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> STRING</p>
@@ -422,21 +420,22 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 </div>
 </div>
 <div class="section" id="metadata">
-<h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
+<h3>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="metadata-field">
-<h3>metadata.field<a class="headerlink" href="#metadata-field" title="Permalink to this headline">¶</a></h3>
+<h4>metadata.field<a class="headerlink" href="#metadata-field" title="Permalink to this headline">¶</a></h4>
 <p>The name of the field in the value where the metadata will be stored.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> metadata</p>
 </div>
 <div class="section" id="metadata-location">
-<h3>metadata.location<a class="headerlink" href="#metadata-location" title="Permalink to this headline">¶</a></h3>
+<h4>metadata.location<a class="headerlink" href="#metadata-location" title="Permalink to this headline">¶</a></h4>
 <p>Location that metadata about the input file will be stored. <cite>FIELD</cite> - Metadata about the file will be stored in a field in the value of the record. <cite>HEADERS</cite> - Metadata about the input file will be stored as headers on the record. <cite>NONE</cite> - no metadata about the input file will be stored.</p>
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> HEADERS</p>
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">NONE</span></code>, <code class="docutils literal"><span class="pre">HEADERS</span></code>, <code class="docutils literal"><span class="pre">FIELD</span></code></p>
+</div>
 </div>
 </div>
 </div>

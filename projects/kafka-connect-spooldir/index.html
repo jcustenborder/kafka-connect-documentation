@@ -110,6 +110,11 @@
 <li class="toctree-l3"><a class="reference internal" href="sources/SpoolDirJsonSourceConnector.html">Json Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sources/SpoolDirLineDelimitedSourceConnector.html">Line Delimited Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sources/SpoolDirSchemaLessJsonSourceConnector.html">Schema Less Json Source Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#confluent-hub">Confluent Hub</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual-installation">Manual Installation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-cobol/index.html">Cobol Copybook Transformations</a></li>
@@ -192,10 +197,6 @@
             
   <div class="section" id="spool-dir">
 <h1>Spool Dir<a class="headerlink" href="#spool-dir" title="Permalink to this headline">¶</a></h1>
-<p>Installation through the <a class="reference external" href="https://docs.confluent.io/current/connect/managing/confluent-hub/client.html">Confluent Hub Client</a>.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>confluent-hub install jcustenborder/kafka-connect-spooldir:latest
-</pre></div>
-</div>
 <p>This Kafka Connect connector provides the capability to watch a directory for files and read the data as new files are written to the input directory. Each of the records in the input file will be converted based on the user supplied schema.</p>
 <p>The CSVRecordProcessor supports reading CSV or TSV files. It can convert a CSV on the fly to the strongly typed Kafka Connect data types. It currently has support for all of the schema types and logical types that are supported in Kafka Connect. If you couple this with the Avro converter and Schema Registry by Confluent, you will be able to process CSV, Json, or TSV files to strongly typed Avro data in real time.</p>
 <div class="admonition warning">
@@ -203,14 +204,35 @@
 <p class="last">Running these connectors with multiple tasks requires a shared volume across all of the Kafka Connect workers. Kafka Connect does not have a mechanism for synchronization of tasks. Because of this each task will select which file it will use the following algorithm <cite>hash(&lt;filename&gt;) % totalTasks == taskNumber</cite>. If you are not using a shared volume this could cause issues where files are not processed. Using more than one task could also affect the order that the data is written to Kafka.</p>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Connectors:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="sources/SpoolDirCsvSourceConnector.html">CSV Source Connector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sources/SpoolDirELFSourceConnector.html">Extended Log File Format Source Connector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sources/SpoolDirJsonSourceConnector.html">Json Source Connector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sources/SpoolDirLineDelimitedSourceConnector.html">Line Delimited Source Connector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sources/SpoolDirSchemaLessJsonSourceConnector.html">Schema Less Json Source Connector</a></li>
-</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The preferred method of installation is to utilize the <a class="reference external" href="https://docs.confluent.io/current/connect/managing/confluent-hub/client.html">Confluent Hub Client</a>.</p>
+<div class="section" id="confluent-hub">
+<h3>Confluent Hub<a class="headerlink" href="#confluent-hub" title="Permalink to this headline">¶</a></h3>
+<p>The plugin is hosted on the <a class="reference external" href="https://www.confluent.io/hub/jcustenborder/kafka-connect-spooldir">Confluent Hub</a>. Installation through the
+<a class="reference external" href="https://docs.confluent.io/current/connect/managing/confluent-hub/client.html">Confluent Hub Client</a> is simple. Use the following command line.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>confluent-hub install jcustenborder/kafka-connect-spooldir:latest
+</pre></div>
+</div>
+</div>
+<div class="section" id="manual-installation">
+<h3>Manual Installation<a class="headerlink" href="#manual-installation" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Compile the source code with <cite>mvn clean package</cite></li>
+<li>Create a subdirectory called <cite>kafka-connect-spooldir</cite> under the <cite>plugin.path</cite> on your connect worker.</li>
+<li>Extract the contents of the zip file from <cite>target/components/packages/</cite> to the directory you created in the previous step.</li>
+<li>Restart the connect worker.</li>
+</ol>
+</div>
 </div>
 </div>
 

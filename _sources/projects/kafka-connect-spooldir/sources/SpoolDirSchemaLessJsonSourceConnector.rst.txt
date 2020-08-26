@@ -15,14 +15,17 @@ This connector is used to `stream <https://en.wikipedia.org/wiki/JSON_Streaming>
 
 
 
------------
+-------------
+Configuration
+-------------
+^^^^^^^^^^^
 File System
------------
+^^^^^^^^^^^
 
 
-^^^^^^^^^^
+""""""""""
 error.path
-^^^^^^^^^^
+""""""""""
 
 The directory to place files in which have error(s). This directory must exist and be writable by the user running Kafka Connect.
 
@@ -34,9 +37,9 @@ The directory to place files in which have error(s). This directory must exist a
 
 
 
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 input.file.pattern
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
 Regular expression to check input file names against. This expression must match the entire filename. The equivalent of Matcher.matches().
 
@@ -46,9 +49,9 @@ Regular expression to check input file names against. This expression must match
 
 
 
-^^^^^^^^^^
+""""""""""
 input.path
-^^^^^^^^^^
+""""""""""
 
 The directory to read files that will be processed. This directory must exist and be writable by the user running Kafka Connect.
 
@@ -60,9 +63,9 @@ The directory to read files that will be processed. This directory must exist an
 
 
 
-^^^^^^^^^^^^^
+"""""""""""""
 finished.path
-^^^^^^^^^^^^^
+"""""""""""""
 
 The directory to place files that have been successfully processed. This directory must exist and be writable by the user running Kafka Connect.
 
@@ -72,9 +75,9 @@ The directory to place files that have been successfully processed. This directo
 
 
 
-^^^^^^^^^^^^^
+"""""""""""""
 halt.on.error
-^^^^^^^^^^^^^
+"""""""""""""
 
 Should the task halt when it encounters an error or continue to the next file.
 
@@ -86,9 +89,9 @@ Should the task halt when it encounters an error or continue to the next file.
 
 
 
-^^^^^^^^^^^^^^
+""""""""""""""
 cleanup.policy
-^^^^^^^^^^^^^^
+""""""""""""""
 
 Determines how the connector should cleanup the files that have been successfully processed. NONE leaves the files in place which could cause them to be reprocessed if the connector is restarted. DELETE removes the file from the filesystem. MOVE will move the file to a finished directory. MOVEBYDATE will move the file to a finished directory with subdirectories by date
 
@@ -102,9 +105,9 @@ Determines how the connector should cleanup the files that have been successfull
 
 
 
-^^^^^^^^^^^^^^^^
+""""""""""""""""
 task.partitioner
-^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 The task partitioner implementation is used when the connector is configured to use more than one task. This is used by each task to identify which files will be processed by that task. This ensures that each file is only assigned to one task.
 
@@ -118,9 +121,9 @@ The task partitioner implementation is used when the connector is configured to 
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 file.buffer.size.bytes
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 
 The size of buffer for the BufferedInputStream that will be used to interact with the file system.
 
@@ -134,9 +137,9 @@ The size of buffer for the BufferedInputStream that will be used to interact wit
 
 
 
-^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""
 file.minimum.age.ms
-^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""
 
 The amount of time in milliseconds after the file was last written to before the file can be processed.
 
@@ -150,9 +153,9 @@ The amount of time in milliseconds after the file was last written to before the
 
 
 
-^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""
 files.sort.attributes
-^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""
 
 The attributes each file will use to determine the sort order. `Name` is name of the file. `Length` is the length of the file preferring larger files first. `LastModified` is the LastModified attribute of the file preferring older files first.
 
@@ -166,11 +169,11 @@ The attributes each file will use to determine the sort order. `Name` is name of
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 processing.file.extension
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 
-Before a file is processed, it is renamed to indicate that it is currently being processed. This setting is appended to the end of the file.
+Before a file is processed, a flag is created in its directory to indicate the file is being handled. The flag file has the same name as the file, but with this property appended as a suffix.
 
 **Importance:** LOW
 
@@ -182,14 +185,14 @@ Before a file is processed, it is renamed to indicate that it is currently being
 
 
 
--------
+^^^^^^^
 General
--------
+^^^^^^^
 
 
-^^^^^
+"""""
 topic
-^^^^^
+"""""
 
 The Kafka topic to write the data to.
 
@@ -199,9 +202,9 @@ The Kafka topic to write the data to.
 
 
 
-^^^^^^^^^^
+""""""""""
 batch.size
-^^^^^^^^^^
+""""""""""
 
 The number of records that should be returned with each batch.
 
@@ -213,9 +216,9 @@ The number of records that should be returned with each batch.
 
 
 
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 empty.poll.wait.ms
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
 The amount of time to wait if a poll returns an empty list of records.
 
@@ -229,9 +232,9 @@ The amount of time to wait if a poll returns an empty list of records.
 
 
 
-^^^^^^^^^^
+""""""""""
 task.count
-^^^^^^^^^^
+""""""""""
 
 Internal setting to the connector used to instruct a task on which files to select. The connector will override this setting.
 
@@ -245,9 +248,9 @@ Internal setting to the connector used to instruct a task on which files to sele
 
 
 
-^^^^^^^^^^
+""""""""""
 task.index
-^^^^^^^^^^
+""""""""""
 
 Internal setting to the connector used to instruct a task on which files to select. The connector will override this setting.
 
@@ -261,14 +264,14 @@ Internal setting to the connector used to instruct a task on which files to sele
 
 
 
-----------
+^^^^^^^^^^
 Timestamps
-----------
+^^^^^^^^^^
 
 
-^^^^^^^^^^^^^^
+""""""""""""""
 timestamp.mode
-^^^^^^^^^^^^^^
+""""""""""""""
 
 Determines how the connector will set the timestamp for the [ConnectRecord](https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/connector/ConnectRecord.html#timestamp()). If set to `Field` then the timestamp will be read from a field in the value. This field cannot be optional and must be a [Timestamp](https://kafka.apache.org/0102/javadoc/org/apache/kafka/connect/data/Schema.html). Specify the field  in `timestamp.field`. If set to `FILE_TIME` then the last modified time of the file will be used. If set to `PROCESS_TIME` the time the record is read will be used.
 
@@ -282,14 +285,14 @@ Determines how the connector will set the timestamp for the [ConnectRecord](http
 
 
 
---------
+^^^^^^^^
 Metadata
---------
+^^^^^^^^
 
 
-^^^^^^^^^^^^^^
+""""""""""""""
 metadata.field
-^^^^^^^^^^^^^^
+""""""""""""""
 
 The name of the field in the value where the metadata will be stored.
 
@@ -301,9 +304,9 @@ The name of the field in the value where the metadata will be stored.
 
 
 
-^^^^^^^^^^^^^^^^^
+"""""""""""""""""
 metadata.location
-^^^^^^^^^^^^^^^^^
+"""""""""""""""""
 
 Location that metadata about the input file will be stored. `FIELD` - Metadata about the file will be stored in a field in the value of the record. `HEADERS` - Metadata about the input file will be stored as headers on the record. `NONE` - no metadata about the input file will be stored.
 
