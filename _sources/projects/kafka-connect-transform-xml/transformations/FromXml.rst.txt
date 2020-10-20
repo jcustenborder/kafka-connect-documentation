@@ -3,13 +3,105 @@ FromXML
 =======
 
 .. code-block:: text
+    :caption: Manipulates the key of the message.
 
-com.github.jcustenborder.kafka.connect.transform.xml.FromXml
+    com.github.jcustenborder.kafka.connect.transform.xml.FromXml$Key
 
-    This transformation is used to read XML data stored as bytes or a string and convert the XML to a structure that is strongly typed in connect. This allows data to be converted from XML and stored as AVRO in a topic for example. 
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.xml.FromXml$Value
+
+
+This transformation is used to read XML data stored as bytes or a string and convert the XML to a structure that is strongly typed in connect. This allows data to be converted from XML and stored as AVRO in a topic for example. 
 
 
 .. TIP::
     XML schemas can be much more complex that what can be expressed in a Kafka Connect struct. Elements that can be expressed as an anyType or something similar cannot easily be used to infer type information.
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/FromXml.*
+
+-------------
+Configuration
+-------------
+^^^^^^^
+General
+^^^^^^^
+
+
+"""""""""""
+schema.path
+"""""""""""
+
+Urls to the schemas to load. http and https paths are supported
+
+**Importance:** HIGH
+
+**Type:** LIST
+
+**Validator:** 
+
+
+
+"""""""
+package
+"""""""
+
+The java package xjc will use to generate the source code in. This name will be applied to the resulting schema
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** com.github.jcustenborder.kafka.connect.transform.xml.model
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+xjc.options.automatic.name.conflict.resolution.enabled
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+xjc.options.automatic.name.conflict.resolution.enabled
+
+**Importance:** LOW
+
+**Type:** BOOLEAN
+
+
+
+""""""""""""""""""""""""""""""""
+xjc.options.strict.check.enabled
+""""""""""""""""""""""""""""""""
+
+xjc.options.strict.check.enabled
+
+**Importance:** LOW
+
+**Type:** BOOLEAN
+
+**Default Value:** true
+
+
+
+"""""""""""""""""""""""""""
+xjc.options.verbose.enabled
+"""""""""""""""""""""""""""
+
+xjc.options.verbose.enabled
+
+**Importance:** LOW
+
+**Type:** BOOLEAN
+
+
+
 
 

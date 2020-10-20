@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Xml Transformations" href="../index.html"/>
-        <link rel="next" title="Twitter" href="../../kafka-connect-twitter/index.html"/>
+        <link rel="next" title="Books" href="examples/FromXml.books.html"/>
         <link rel="prev" title="Xml Transformations" href="../index.html"/> 
 
   
@@ -110,7 +110,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/index.html">Maxmind Transformations</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Xml Transformations</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">FromXML</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">FromXML</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/FromXml.books.html">Books</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#installation">Installation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/index.html">Twitter</a></li>
@@ -190,15 +195,67 @@
             
   <div class="section" id="fromxml">
 <h1>FromXML<a class="headerlink" href="#fromxml" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-text"><div class="highlight"><pre><span></span>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Manipulates the key of the message.</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.xml.FromXml$Key
 </pre></div>
 </div>
-<p>com.github.jcustenborder.kafka.connect.transform.xml.FromXml</p>
-<blockquote>
-<div>This transformation is used to read XML data stored as bytes or a string and convert the XML to a structure that is strongly typed in connect. This allows data to be converted from XML and stored as AVRO in a topic for example.</div></blockquote>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Manipulates the value of the message.</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.xml.FromXml$Value
+</pre></div>
+</div>
+</div>
+<p>This transformation is used to read XML data stored as bytes or a string and convert the XML to a structure that is strongly typed in connect. This allows data to be converted from XML and stored as AVRO in a topic for example.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">XML schemas can be much more complex that what can be expressed in a Kafka Connect struct. Elements that can be expressed as an anyType or something similar cannot easily be used to infer type information.</p>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/FromXml.books.html">Books</a></li>
+</ul>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general">
+<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="schema-path">
+<h4>schema.path<a class="headerlink" href="#schema-path" title="Permalink to this headline">¶</a></h4>
+<p>Urls to the schemas to load. http and https paths are supported</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> LIST</p>
+<p><strong>Validator:</strong></p>
+</div>
+<div class="section" id="package">
+<h4>package<a class="headerlink" href="#package" title="Permalink to this headline">¶</a></h4>
+<p>The java package xjc will use to generate the source code in. This name will be applied to the resulting schema</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> STRING</p>
+<p><strong>Default Value:</strong> com.github.jcustenborder.kafka.connect.transform.xml.model</p>
+</div>
+<div class="section" id="xjc-options-automatic-name-conflict-resolution-enabled">
+<h4>xjc.options.automatic.name.conflict.resolution.enabled<a class="headerlink" href="#xjc-options-automatic-name-conflict-resolution-enabled" title="Permalink to this headline">¶</a></h4>
+<p>xjc.options.automatic.name.conflict.resolution.enabled</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> BOOLEAN</p>
+</div>
+<div class="section" id="xjc-options-strict-check-enabled">
+<h4>xjc.options.strict.check.enabled<a class="headerlink" href="#xjc-options-strict-check-enabled" title="Permalink to this headline">¶</a></h4>
+<p>xjc.options.strict.check.enabled</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> BOOLEAN</p>
+<p><strong>Default Value:</strong> true</p>
+</div>
+<div class="section" id="xjc-options-verbose-enabled">
+<h4>xjc.options.verbose.enabled<a class="headerlink" href="#xjc-options-verbose-enabled" title="Permalink to this headline">¶</a></h4>
+<p>xjc.options.verbose.enabled</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> BOOLEAN</p>
+</div>
+</div>
 </div>
 </div>
 
@@ -212,7 +269,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../kafka-connect-twitter/index.html" class="btn btn-neutral float-right" title="Twitter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="examples/FromXml.books.html" class="btn btn-neutral float-right" title="Books" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral" title="Xml Transformations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
