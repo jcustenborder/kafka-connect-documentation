@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Extended Log File Format Source Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Binary File Source Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Spool Dir" href="../index.html"/>
-        <link rel="next" title="Standard" href="examples/SpoolDirELFSourceConnector.example.html"/>
-        <link rel="prev" title="TSV input file" href="examples/SpoolDirCsvSourceConnector.tsv.html"/> 
+        <link rel="next" title="CSV Source Connector" href="SpoolDirCsvSourceConnector.html"/>
+        <link rel="prev" title="Spool Dir" href="../index.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -105,13 +105,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/index.html">Simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/index.html">Apache Solr</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Spool Dir</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="SpoolDirBinaryFileSourceConnector.html">Binary File Source Connector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="SpoolDirCsvSourceConnector.html">CSV Source Connector</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Extended Log File Format Source Connector</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="examples/SpoolDirELFSourceConnector.example.html">Standard</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Binary File Source Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="SpoolDirCsvSourceConnector.html">CSV Source Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpoolDirELFSourceConnector.html">Extended Log File Format Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirJsonSourceConnector.html">Json Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirLineDelimitedSourceConnector.html">Line Delimited Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirSchemaLessJsonSourceConnector.html">Schema Less Json Source Connector</a></li>
@@ -179,13 +178,13 @@
         
           <li><a href="../index.html">Spool Dir</a> &raquo;</li>
         
-      <li>Extended Log File Format Source Connector</li>
+      <li>Binary File Source Connector</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-spooldir/sources/SpoolDirELFSourceConnector.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-spooldir/sources/SpoolDirBinaryFileSourceConnector.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -198,17 +197,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="extended-log-file-format-source-connector">
-<h1>Extended Log File Format Source Connector<a class="headerlink" href="#extended-log-file-format-source-connector" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.spooldir.elf.SpoolDirELFSourceConnector
+  <div class="section" id="binary-file-source-connector">
+<h1>Binary File Source Connector<a class="headerlink" href="#binary-file-source-connector" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.spooldir.SpoolDirBinaryFileSourceConnector
 </pre></div>
 </div>
-<p>This connector is used to stream <cite>Extended Log File Format &lt;https://www.w3.org/TR/WD-logfile.html&gt;</cite> files from a directory while converting the data to a strongly typed schema.</p>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Examples:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="examples/SpoolDirELFSourceConnector.example.html">Standard</a></li>
-</ul>
+<p>This connector is used to read an entire file as a byte array write the data to Kafka.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Large files will be read as a single byte array. This means that the process could run out of memory or try to send a message to Kafka that is greater than the max message size. If this happens an exception will be thrown.</p>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">The recommended converter to use is the ByteArrayConverter. Example: <cite>value.converter=org.apache.kafka.connect.storage.ByteArrayConverter</cite></p>
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
@@ -378,10 +379,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="examples/SpoolDirELFSourceConnector.example.html" class="btn btn-neutral float-right" title="Standard" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="SpoolDirCsvSourceConnector.html" class="btn btn-neutral float-right" title="CSV Source Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="examples/SpoolDirCsvSourceConnector.tsv.html" class="btn btn-neutral" title="TSV input file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="Spool Dir" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
