@@ -1,8 +1,8 @@
-======================
-Insert timestamp field
-======================
+=================
+Spooldir metadata
+=================
 
-The following example will insert a field `timestamp` into the value of the record.
+The following example takes the output from the Spooldir connector copies headers for the metadata to fields in the value.
 
 
 
@@ -10,9 +10,9 @@ The following example will insert a field `timestamp` into the value of the reco
     :caption: Configuration
 
     {
-      "transforms" : "timestampNowField",
-      "transforms.timestampNowField.type" : "com.github.jcustenborder.kafka.connect.transform.common.TimestampNowField$Value",
-      "transforms.timestampNowField.fields" : "timestamp"
+      "transforms" : "headerToField",
+      "transforms.headerToField.type" : "com.github.jcustenborder.kafka.connect.transform.common.HeaderToField$Value",
+      "transforms.headerToField.header.mappings" : "file.path:STRING:file_path,file.name:STRING:file_name,file.last.modified:INT64(Timestamp):file_last_modified"
     }
 
 .. code-block:: json
@@ -70,14 +70,36 @@ The following example will insert a field `timestamp` into the value of the reco
       "timestamp" : 123412351,
       "timestampType" : "NO_TIMESTAMP_TYPE",
       "offset" : 12345,
-      "headers" : [ ]
+      "headers" : [ {
+        "name" : "file.path",
+        "schema" : {
+          "type" : "STRING",
+          "isOptional" : false
+        },
+        "storage" : "/tmp/input/test1.csv"
+      }, {
+        "name" : "file.name",
+        "schema" : {
+          "type" : "STRING",
+          "isOptional" : false
+        },
+        "storage" : "test1.csv"
+      }, {
+        "name" : "file.last.modified",
+        "schema" : {
+          "name" : "org.apache.kafka.connect.data.Timestamp",
+          "type" : "INT64",
+          "isOptional" : false
+        },
+        "storage" : 1610656447123
+      } ]
     }
 
 Change(s) in the output are emphasized if delta(s) are detected.
 
 .. code-block:: json
     :caption: Output
-    :emphasize-lines: 15, 16, 17, 18, 19, 20, 36, 37, 38, 39, 40, 41, 59, 60, 61, 62, 63, 64, 65, 66, 67
+    :emphasize-lines: 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97
 
     {
       "topic" : "testing",
@@ -94,11 +116,19 @@ Change(s) in the output are emphasized if delta(s) are detected.
             "type" : "STRING",
             "isOptional" : true
           },
-          "timestamp" : {
+          "file_path" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "file_name" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "file_last_modified" : {
             "name" : "org.apache.kafka.connect.data.Timestamp",
             "type" : "INT64",
             "version" : 1,
-            "isOptional" : false
+            "isOptional" : true
           }
         }
       },
@@ -115,11 +145,19 @@ Change(s) in the output are emphasized if delta(s) are detected.
               "type" : "STRING",
               "isOptional" : true
             },
-            "timestamp" : {
+            "file_path" : {
+              "type" : "STRING",
+              "isOptional" : true
+            },
+            "file_name" : {
+              "type" : "STRING",
+              "isOptional" : true
+            },
+            "file_last_modified" : {
               "name" : "org.apache.kafka.connect.data.Timestamp",
               "type" : "INT64",
               "version" : 1,
-              "isOptional" : false
+              "isOptional" : true
             }
           }
         },
@@ -138,19 +176,55 @@ Change(s) in the output are emphasized if delta(s) are detected.
           },
           "storage" : "user"
         }, {
-          "name" : "timestamp",
+          "name" : "file_path",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "storage" : "/tmp/input/test1.csv"
+        }, {
+          "name" : "file_name",
+          "schema" : {
+            "type" : "STRING",
+            "isOptional" : true
+          },
+          "storage" : "test1.csv"
+        }, {
+          "name" : "file_last_modified",
           "schema" : {
             "name" : "org.apache.kafka.connect.data.Timestamp",
             "type" : "INT64",
             "version" : 1,
-            "isOptional" : false
+            "isOptional" : true
           },
-          "storage" : 1610666213915
+          "storage" : 1610656447123
         } ]
       },
       "timestamp" : 123412351,
       "timestampType" : "NO_TIMESTAMP_TYPE",
       "offset" : 12345,
-      "headers" : [ ]
+      "headers" : [ {
+        "name" : "file.path",
+        "schema" : {
+          "type" : "STRING",
+          "isOptional" : false
+        },
+        "storage" : "/tmp/input/test1.csv"
+      }, {
+        "name" : "file.name",
+        "schema" : {
+          "type" : "STRING",
+          "isOptional" : false
+        },
+        "storage" : "test1.csv"
+      }, {
+        "name" : "file.last.modified",
+        "schema" : {
+          "name" : "org.apache.kafka.connect.data.Timestamp",
+          "type" : "INT64",
+          "isOptional" : false
+        },
+        "storage" : 1610656447123
+      } ]
     }
 

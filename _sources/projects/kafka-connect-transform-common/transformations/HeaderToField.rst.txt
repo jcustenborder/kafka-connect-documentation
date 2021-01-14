@@ -14,6 +14,7 @@ HeaderToField
     com.github.jcustenborder.kafka.connect.transform.common.HeaderToField$Value
 
 
+This transformation is used to copy the value of a header to a field in the key or value of the record.
 
 
 
@@ -36,7 +37,124 @@ General
 header.mappings
 """""""""""""""
 
-The mapping of the header to the field in the message.
+The mapping of the header to the field in the message. More than one mapping can be specified separated by a comma. The format is `<header name>:<header type>[:field name]`. Supported header types are:
+
+* BOOLEAN
+* BYTES
+* BYTES(Decimal[scale=0])
+* BYTES(Decimal[scale=10])
+* BYTES(Decimal[scale=11])
+* BYTES(Decimal[scale=12])
+* BYTES(Decimal[scale=13])
+* BYTES(Decimal[scale=14])
+* BYTES(Decimal[scale=15])
+* BYTES(Decimal[scale=16])
+* BYTES(Decimal[scale=17])
+* BYTES(Decimal[scale=18])
+* BYTES(Decimal[scale=19])
+* BYTES(Decimal[scale=1])
+* BYTES(Decimal[scale=20])
+* BYTES(Decimal[scale=21])
+* BYTES(Decimal[scale=22])
+* BYTES(Decimal[scale=23])
+* BYTES(Decimal[scale=24])
+* BYTES(Decimal[scale=25])
+* BYTES(Decimal[scale=26])
+* BYTES(Decimal[scale=27])
+* BYTES(Decimal[scale=28])
+* BYTES(Decimal[scale=29])
+* BYTES(Decimal[scale=2])
+* BYTES(Decimal[scale=30])
+* BYTES(Decimal[scale=31])
+* BYTES(Decimal[scale=32])
+* BYTES(Decimal[scale=33])
+* BYTES(Decimal[scale=34])
+* BYTES(Decimal[scale=35])
+* BYTES(Decimal[scale=36])
+* BYTES(Decimal[scale=37])
+* BYTES(Decimal[scale=38])
+* BYTES(Decimal[scale=39])
+* BYTES(Decimal[scale=3])
+* BYTES(Decimal[scale=40])
+* BYTES(Decimal[scale=41])
+* BYTES(Decimal[scale=42])
+* BYTES(Decimal[scale=43])
+* BYTES(Decimal[scale=44])
+* BYTES(Decimal[scale=45])
+* BYTES(Decimal[scale=46])
+* BYTES(Decimal[scale=47])
+* BYTES(Decimal[scale=48])
+* BYTES(Decimal[scale=49])
+* BYTES(Decimal[scale=4])
+* BYTES(Decimal[scale=5])
+* BYTES(Decimal[scale=6])
+* BYTES(Decimal[scale=7])
+* BYTES(Decimal[scale=8])
+* BYTES(Decimal[scale=9])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=0])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=10])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=11])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=12])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=13])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=14])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=15])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=16])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=17])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=18])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=19])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=1])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=20])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=21])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=22])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=23])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=24])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=25])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=26])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=27])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=28])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=29])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=2])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=30])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=31])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=32])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=33])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=34])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=35])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=36])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=37])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=38])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=39])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=3])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=40])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=41])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=42])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=43])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=44])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=45])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=46])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=47])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=48])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=49])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=4])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=5])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=6])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=7])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=8])
+* BYTES(org.apache.kafka.connect.data.Decimal[scale=9])
+* FLOAT32
+* FLOAT64
+* INT16
+* INT32
+* INT32(Date)
+* INT32(Time)
+* INT32(org.apache.kafka.connect.data.Date)
+* INT32(org.apache.kafka.connect.data.Time)
+* INT64
+* INT64(Timestamp)
+* INT64(org.apache.kafka.connect.data.Timestamp)
+* INT8
+* STRING
+
 
 **Importance:** HIGH
 

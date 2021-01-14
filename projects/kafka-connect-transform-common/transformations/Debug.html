@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>HeaderToField &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Debug &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Common Transformations" href="../index.html"/>
-        <link rel="next" title="Header to field" href="examples/HeaderToField.headertofield.html"/>
-        <link rel="prev" title="Example" href="examples/ExtractTimestamp.simple.html"/> 
+        <link rel="next" title="ExtractNestedField" href="ExtractNestedField.html"/>
+        <link rel="prev" title="UPPER_UNDERSCORE to LOWER_CAMEL" href="examples/ChangeTopicCase.UPPER_UNDERSCOREToLOWER_CAMEL.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -110,15 +110,13 @@
 <li class="toctree-l3"><a class="reference internal" href="BytesToString.html">BytesToString</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ChangeCase.html">ChangeCase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ChangeTopicCase.html">ChangeTopicCase</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Debug.html">Debug</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ExtractNestedField.html">ExtractNestedField</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ExtractTimestamp.html">ExtractTimestamp</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">HeaderToField</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="examples/HeaderToField.headertofield.html">Header to field</a></li>
-<li class="toctree-l4"><a class="reference internal" href="examples/HeaderToField.spooldir.html">Spooldir metadata</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Debug</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="ExtractNestedField.html">ExtractNestedField</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtractTimestamp.html">ExtractTimestamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeaderToField.html">HeaderToField</a></li>
 <li class="toctree-l3"><a class="reference internal" href="NormalizeSchema.html">NormalizeSchema</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PatternFilter.html">PatternFilter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PatternRename.html">PatternRename</a></li>
@@ -192,13 +190,13 @@
         
           <li><a href="../index.html">Common Transformations</a> &raquo;</li>
         
-      <li>HeaderToField</li>
+      <li>Debug</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-transform-common/transformations/HeaderToField.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-transform-common/transformations/Debug.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -211,156 +209,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="headertofield">
-<h1>HeaderToField<a class="headerlink" href="#headertofield" title="Permalink to this headline">¶</a></h1>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Manipulates the key of the message.</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.HeaderToField$Key
+  <div class="section" id="debug">
+<h1>Debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.Debug
 </pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Manipulates the value of the message.</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
-<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.HeaderToField$Value
-</pre></div>
-</div>
-</div>
-<p>This transformation is used to copy the value of a header to a field in the key or value of the record.</p>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Examples:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="examples/HeaderToField.headertofield.html">Header to field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/HeaderToField.spooldir.html">Spooldir metadata</a></li>
-</ul>
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="general">
-<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="header-mappings">
-<h4>header.mappings<a class="headerlink" href="#header-mappings" title="Permalink to this headline">¶</a></h4>
-<p>The mapping of the header to the field in the message. More than one mapping can be specified separated by a comma. The format is <cite>&lt;header name&gt;:&lt;header type&gt;[:field name]</cite>. Supported header types are:</p>
-<ul class="simple">
-<li>BOOLEAN</li>
-<li>BYTES</li>
-<li>BYTES(Decimal[scale=0])</li>
-<li>BYTES(Decimal[scale=10])</li>
-<li>BYTES(Decimal[scale=11])</li>
-<li>BYTES(Decimal[scale=12])</li>
-<li>BYTES(Decimal[scale=13])</li>
-<li>BYTES(Decimal[scale=14])</li>
-<li>BYTES(Decimal[scale=15])</li>
-<li>BYTES(Decimal[scale=16])</li>
-<li>BYTES(Decimal[scale=17])</li>
-<li>BYTES(Decimal[scale=18])</li>
-<li>BYTES(Decimal[scale=19])</li>
-<li>BYTES(Decimal[scale=1])</li>
-<li>BYTES(Decimal[scale=20])</li>
-<li>BYTES(Decimal[scale=21])</li>
-<li>BYTES(Decimal[scale=22])</li>
-<li>BYTES(Decimal[scale=23])</li>
-<li>BYTES(Decimal[scale=24])</li>
-<li>BYTES(Decimal[scale=25])</li>
-<li>BYTES(Decimal[scale=26])</li>
-<li>BYTES(Decimal[scale=27])</li>
-<li>BYTES(Decimal[scale=28])</li>
-<li>BYTES(Decimal[scale=29])</li>
-<li>BYTES(Decimal[scale=2])</li>
-<li>BYTES(Decimal[scale=30])</li>
-<li>BYTES(Decimal[scale=31])</li>
-<li>BYTES(Decimal[scale=32])</li>
-<li>BYTES(Decimal[scale=33])</li>
-<li>BYTES(Decimal[scale=34])</li>
-<li>BYTES(Decimal[scale=35])</li>
-<li>BYTES(Decimal[scale=36])</li>
-<li>BYTES(Decimal[scale=37])</li>
-<li>BYTES(Decimal[scale=38])</li>
-<li>BYTES(Decimal[scale=39])</li>
-<li>BYTES(Decimal[scale=3])</li>
-<li>BYTES(Decimal[scale=40])</li>
-<li>BYTES(Decimal[scale=41])</li>
-<li>BYTES(Decimal[scale=42])</li>
-<li>BYTES(Decimal[scale=43])</li>
-<li>BYTES(Decimal[scale=44])</li>
-<li>BYTES(Decimal[scale=45])</li>
-<li>BYTES(Decimal[scale=46])</li>
-<li>BYTES(Decimal[scale=47])</li>
-<li>BYTES(Decimal[scale=48])</li>
-<li>BYTES(Decimal[scale=49])</li>
-<li>BYTES(Decimal[scale=4])</li>
-<li>BYTES(Decimal[scale=5])</li>
-<li>BYTES(Decimal[scale=6])</li>
-<li>BYTES(Decimal[scale=7])</li>
-<li>BYTES(Decimal[scale=8])</li>
-<li>BYTES(Decimal[scale=9])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=0])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=10])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=11])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=12])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=13])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=14])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=15])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=16])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=17])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=18])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=19])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=1])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=20])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=21])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=22])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=23])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=24])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=25])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=26])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=27])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=28])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=29])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=2])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=30])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=31])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=32])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=33])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=34])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=35])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=36])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=37])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=38])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=39])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=3])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=40])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=41])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=42])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=43])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=44])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=45])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=46])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=47])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=48])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=49])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=4])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=5])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=6])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=7])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=8])</li>
-<li>BYTES(org.apache.kafka.connect.data.Decimal[scale=9])</li>
-<li>FLOAT32</li>
-<li>FLOAT64</li>
-<li>INT16</li>
-<li>INT32</li>
-<li>INT32(Date)</li>
-<li>INT32(Time)</li>
-<li>INT32(org.apache.kafka.connect.data.Date)</li>
-<li>INT32(org.apache.kafka.connect.data.Time)</li>
-<li>INT64</li>
-<li>INT64(Timestamp)</li>
-<li>INT64(org.apache.kafka.connect.data.Timestamp)</li>
-<li>INT8</li>
-<li>STRING</li>
-</ul>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> LIST</p>
-</div>
-</div>
 </div>
 </div>
 
@@ -374,10 +229,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="examples/HeaderToField.headertofield.html" class="btn btn-neutral float-right" title="Header to field" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ExtractNestedField.html" class="btn btn-neutral float-right" title="ExtractNestedField" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="examples/ExtractTimestamp.simple.html" class="btn btn-neutral" title="Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="examples/ChangeTopicCase.UPPER_UNDERSCOREToLOWER_CAMEL.html" class="btn btn-neutral" title="UPPER_UNDERSCORE to LOWER_CAMEL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

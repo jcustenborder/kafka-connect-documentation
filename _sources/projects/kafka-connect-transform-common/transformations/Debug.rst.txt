@@ -1,0 +1,18 @@
+=====
+Debug
+=====
+
+.. code-block:: text
+
+    com.github.jcustenborder.kafka.connect.transform.common.Debug
+
+
+
+
+
+
+-------------
+Configuration
+-------------
+
+

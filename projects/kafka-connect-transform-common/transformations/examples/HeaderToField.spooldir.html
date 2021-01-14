@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Header to field &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Spooldir metadata &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../../index.html"/>
         <link rel="up" title="HeaderToField" href="../HeaderToField.html"/>
-        <link rel="next" title="Spooldir metadata" href="HeaderToField.spooldir.html"/>
-        <link rel="prev" title="HeaderToField" href="../HeaderToField.html"/> 
+        <link rel="next" title="NormalizeSchema" href="../NormalizeSchema.html"/>
+        <link rel="prev" title="Header to field" href="HeaderToField.headertofield.html"/> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
@@ -114,8 +114,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../ExtractNestedField.html">ExtractNestedField</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ExtractTimestamp.html">ExtractTimestamp</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../HeaderToField.html">HeaderToField</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Header to field</a></li>
-<li class="toctree-l4"><a class="reference internal" href="HeaderToField.spooldir.html">Spooldir metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HeaderToField.headertofield.html">Header to field</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Spooldir metadata</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../HeaderToField.html#configuration">Configuration</a></li>
 </ul>
 </li>
@@ -194,13 +194,13 @@
         
           <li><a href="../HeaderToField.html">HeaderToField</a> &raquo;</li>
         
-      <li>Header to field</li>
+      <li>Spooldir metadata</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../../_sources/projects/kafka-connect-transform-common/transformations/examples/HeaderToField.headertofield.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/projects/kafka-connect-transform-common/transformations/examples/HeaderToField.spooldir.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -213,15 +213,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="header-to-field">
-<h1>Header to field<a class="headerlink" href="#header-to-field" title="Permalink to this headline">¶</a></h1>
-<p>The following example takes the value from the <cite>applicationId</cite> header and appends it as a new field to the value of the message.</p>
+  <div class="section" id="spooldir-metadata">
+<h1>Spooldir metadata<a class="headerlink" href="#spooldir-metadata" title="Permalink to this headline">¶</a></h1>
+<p>The following example takes the output from the Spooldir connector copies headers for the metadata to fields in the value.</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;transforms&quot;</span> <span class="p">:</span> <span class="s2">&quot;headerToField&quot;</span><span class="p">,</span>
   <span class="nt">&quot;transforms.headerToField.type&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.transform.common.HeaderToField$Value&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;transforms.headerToField.header.mappings&quot;</span> <span class="p">:</span> <span class="s2">&quot;applicationId:STRING&quot;</span>
+  <span class="nt">&quot;transforms.headerToField.header.mappings&quot;</span> <span class="p">:</span> <span class="s2">&quot;file.path:STRING:file_path,file.name:STRING:file_name,file.last.modified:INT64(Timestamp):file_last_modified&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -280,12 +280,27 @@
   <span class="nt">&quot;timestampType&quot;</span> <span class="p">:</span> <span class="s2">&quot;NO_TIMESTAMP_TYPE&quot;</span><span class="p">,</span>
   <span class="nt">&quot;offset&quot;</span> <span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
   <span class="nt">&quot;headers&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;applicationId&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;file.path&quot;</span><span class="p">,</span>
     <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
       <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
     <span class="p">},</span>
-    <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;testing&quot;</span>
+    <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp/input/test1.csv&quot;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;file.name&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;test1.csv&quot;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;file.last.modified&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.connect.data.Timestamp&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;INT64&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="mi">1610656447123</span>
   <span class="p">}</span> <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
@@ -309,8 +324,18 @@
         <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
         <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
 <span class="hll">      <span class="p">},</span>
-</span><span class="hll">      <span class="nt">&quot;applicationId&quot;</span> <span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">      <span class="nt">&quot;file_path&quot;</span> <span class="p">:</span> <span class="p">{</span>
 </span><span class="hll">        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
+</span><span class="hll">      <span class="p">},</span>
+</span><span class="hll">      <span class="nt">&quot;file_name&quot;</span> <span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
+</span><span class="hll">      <span class="p">},</span>
+</span><span class="hll">      <span class="nt">&quot;file_last_modified&quot;</span> <span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.connect.data.Timestamp&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;INT64&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
 </span><span class="hll">        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
 </span>      <span class="p">}</span>
     <span class="p">}</span>
@@ -328,8 +353,18 @@
           <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
           <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
 <span class="hll">        <span class="p">},</span>
-</span><span class="hll">        <span class="nt">&quot;applicationId&quot;</span> <span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nt">&quot;file_path&quot;</span> <span class="p">:</span> <span class="p">{</span>
 </span><span class="hll">          <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
+</span><span class="hll">          <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
+</span><span class="hll">        <span class="p">},</span>
+</span><span class="hll">        <span class="nt">&quot;file_name&quot;</span> <span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">          <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
+</span><span class="hll">          <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
+</span><span class="hll">        <span class="p">},</span>
+</span><span class="hll">        <span class="nt">&quot;file_last_modified&quot;</span> <span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">          <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.connect.data.Timestamp&quot;</span><span class="p">,</span>
+</span><span class="hll">          <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;INT64&quot;</span><span class="p">,</span>
+</span><span class="hll">          <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
 </span><span class="hll">          <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
 </span>        <span class="p">}</span>
       <span class="p">}</span>
@@ -349,24 +384,55 @@
       <span class="p">},</span>
       <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;user&quot;</span>
 <span class="hll">    <span class="p">},</span> <span class="p">{</span>
-</span><span class="hll">      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;applicationId&quot;</span><span class="p">,</span>
+</span><span class="hll">      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;file_path&quot;</span><span class="p">,</span>
 </span><span class="hll">      <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
 </span><span class="hll">        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
 </span><span class="hll">        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
 </span><span class="hll">      <span class="p">},</span>
-</span><span class="hll">      <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;testing&quot;</span>
+</span><span class="hll">      <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp/input/test1.csv&quot;</span>
+</span><span class="hll">    <span class="p">},</span> <span class="p">{</span>
+</span><span class="hll">      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;file_name&quot;</span><span class="p">,</span>
+</span><span class="hll">      <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
+</span><span class="hll">      <span class="p">},</span>
+</span><span class="hll">      <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;test1.csv&quot;</span>
+</span><span class="hll">    <span class="p">},</span> <span class="p">{</span>
+</span><span class="hll">      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;file_last_modified&quot;</span><span class="p">,</span>
+</span><span class="hll">      <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.connect.data.Timestamp&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;INT64&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class="hll">        <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">true</span>
+</span><span class="hll">      <span class="p">},</span>
+</span><span class="hll">      <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="mi">1610656447123</span>
 </span>    <span class="p">}</span> <span class="p">]</span>
   <span class="p">},</span>
   <span class="nt">&quot;timestamp&quot;</span> <span class="p">:</span> <span class="mi">123412351</span><span class="p">,</span>
   <span class="nt">&quot;timestampType&quot;</span> <span class="p">:</span> <span class="s2">&quot;NO_TIMESTAMP_TYPE&quot;</span><span class="p">,</span>
   <span class="nt">&quot;offset&quot;</span> <span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
   <span class="nt">&quot;headers&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;applicationId&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;file.path&quot;</span><span class="p">,</span>
     <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
       <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
     <span class="p">},</span>
-    <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;testing&quot;</span>
+    <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp/input/test1.csv&quot;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;file.name&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;STRING&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;test1.csv&quot;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;file.last.modified&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;schema&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;org.apache.kafka.connect.data.Timestamp&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;INT64&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;isOptional&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;storage&quot;</span> <span class="p">:</span> <span class="mi">1610656447123</span>
   <span class="p">}</span> <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
@@ -384,10 +450,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="HeaderToField.spooldir.html" class="btn btn-neutral float-right" title="Spooldir metadata" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../NormalizeSchema.html" class="btn btn-neutral float-right" title="NormalizeSchema" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../HeaderToField.html" class="btn btn-neutral" title="HeaderToField" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="HeaderToField.headertofield.html" class="btn btn-neutral" title="Header to field" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
