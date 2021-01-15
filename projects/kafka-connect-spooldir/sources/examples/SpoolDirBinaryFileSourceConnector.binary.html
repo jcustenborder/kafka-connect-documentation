@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TSV input file &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Binary File &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../../index.html"/>
-        <link rel="up" title="CSV Source Connector" href="../SpoolDirCsvSourceConnector.html"/>
-        <link rel="next" title="Extended Log File Format Source Connector" href="../SpoolDirELFSourceConnector.html"/>
-        <link rel="prev" title="CSV with Headers as fields" href="SpoolDirCsvSourceConnector.schemaheaders.html"/> 
+        <link rel="up" title="Binary File Source Connector" href="../SpoolDirBinaryFileSourceConnector.html"/>
+        <link rel="next" title="Transform XML Files" href="SpoolDirBinaryFileSourceConnector.fromXML.html"/>
+        <link rel="prev" title="Binary File Source Connector" href="../SpoolDirBinaryFileSourceConnector.html"/> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
@@ -105,14 +105,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../kafka-connect-simulator/index.html">Simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../kafka-connect-solr/index.html">Apache Solr</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Spool Dir</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../SpoolDirBinaryFileSourceConnector.html">Binary File Source Connector</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../SpoolDirCsvSourceConnector.html">CSV Source Connector</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="SpoolDirCsvSourceConnector.schema.html">CSV with schema</a></li>
-<li class="toctree-l4"><a class="reference internal" href="SpoolDirCsvSourceConnector.schemaheaders.html">CSV with Headers as fields</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">TSV input file</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../SpoolDirCsvSourceConnector.html#configuration">Configuration</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../SpoolDirBinaryFileSourceConnector.html">Binary File Source Connector</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Binary File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpoolDirBinaryFileSourceConnector.fromXML.html">Transform XML Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SpoolDirBinaryFileSourceConnector.html#configuration">Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../SpoolDirCsvSourceConnector.html">CSV Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SpoolDirELFSourceConnector.html">Extended Log File Format Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SpoolDirJsonSourceConnector.html">Json Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SpoolDirLineDelimitedSourceConnector.html">Line Delimited Source Connector</a></li>
@@ -181,15 +180,15 @@
         
           <li><a href="../../index.html">Spool Dir</a> &raquo;</li>
         
-          <li><a href="../SpoolDirCsvSourceConnector.html">CSV Source Connector</a> &raquo;</li>
+          <li><a href="../SpoolDirBinaryFileSourceConnector.html">Binary File Source Connector</a> &raquo;</li>
         
-      <li>TSV input file</li>
+      <li>Binary File</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../../_sources/projects/kafka-connect-spooldir/sources/examples/SpoolDirCsvSourceConnector.tsv.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/projects/kafka-connect-spooldir/sources/examples/SpoolDirBinaryFileSourceConnector.binary.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -202,19 +201,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tsv-input-file">
-<h1>TSV input file<a class="headerlink" href="#tsv-input-file" title="Permalink to this headline">¶</a></h1>
-<p>This example will read a tab separated file. This method is very similar to reading a standard CSV file.</p>
+  <div class="section" id="binary-file">
+<h1>Binary File<a class="headerlink" href="#binary-file" title="Permalink to this headline">¶</a></h1>
+<p>This file will read the entire file and write it to Kafka as a binary file.</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.spooldir.SpoolDirCsvSourceConnector&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;connector.class&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.spooldir.SpoolDirBinaryFileSourceConnector&quot;</span><span class="p">,</span>
   <span class="nt">&quot;finished.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
   <span class="nt">&quot;input.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
   <span class="nt">&quot;error.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;input.file.pattern&quot;</span> <span class="p">:</span> <span class="s2">&quot;^users\\d+\\.tsv&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;topic&quot;</span> <span class="p">:</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;csv.separator.char&quot;</span> <span class="p">:</span> <span class="s2">&quot;11&quot;</span>
+  <span class="nt">&quot;input.file.pattern&quot;</span> <span class="p">:</span> <span class="s2">&quot;^users\\d+\\.bin$&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;topic&quot;</span> <span class="p">:</span> <span class="s2">&quot;users&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -231,10 +229,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../SpoolDirELFSourceConnector.html" class="btn btn-neutral float-right" title="Extended Log File Format Source Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="SpoolDirBinaryFileSourceConnector.fromXML.html" class="btn btn-neutral float-right" title="Transform XML Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="SpoolDirCsvSourceConnector.schemaheaders.html" class="btn btn-neutral" title="CSV with Headers as fields" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../SpoolDirBinaryFileSourceConnector.html" class="btn btn-neutral" title="Binary File Source Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

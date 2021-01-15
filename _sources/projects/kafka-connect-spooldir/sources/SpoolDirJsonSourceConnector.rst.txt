@@ -9,6 +9,10 @@ Json Source Connector
 This connector is used to `stream <https://en.wikipedia.org/wiki/JSON_Streaming>` JSON files from a directory while converting the data based on the schema supplied in the configuration.
 
 
+.. IMPORTANT::
+    There are some caveats to running this connector with `schema.generation.enabled = true`. If schema generation is enabled the connector will start by reading one of the files that match `input.file.pattern` in the path specified by `input.path`. If there are no files when the connector starts or is restarted the connector will fail to start. If there are different fields in other files they will not be detected. The recommended path is to specify a schema that the files will be parsed with. This will ensure that data written by this connector to Kafka will be consistent across files that have inconsistent columns. For example if some files have an optional column that is not always included, create a schema that includes the column marked as optional.
+
+
 .. TIP::
     To get a starting point for a schema you can use the following command to generate an all String schema. This will give you the basic structure of a schema. From there you can changes the types to match what you expect.
 .. code-block:: bash
@@ -17,6 +21,10 @@ This connector is used to `stream <https://en.wikipedia.org/wiki/JSON_Streaming>
    export CLASSPATH="$(find target/kafka-connect-target/usr/share/kafka-connect/kafka-connect-spooldir -type f -name '*.jar' | tr '\n' ':')"
    kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGenerator -t json -f src/test/resources/com/github/jcustenborder/kafka/connect/spooldir/json/FieldsMatch.data -c config/JsonExample.properties -i id
 
+
+
+.. NOTE::
+    If you want to import JSON node by node in the file and do not care about schemas, do not use this connector with Schema Generation enabled. Take a look at the Schema Less Json Source Connector.
 
 
 
@@ -420,41 +428,6 @@ The timezone that all of the dates will be parsed with.
 **Type:** STRING
 
 **Default Value:** UTC
-
-
-
-^^^^^^^^
-Metadata
-^^^^^^^^
-
-
-""""""""""""""
-metadata.field
-""""""""""""""
-
-The name of the field in the value where the metadata will be stored.
-
-**Importance:** LOW
-
-**Type:** STRING
-
-**Default Value:** metadata
-
-
-
-"""""""""""""""""
-metadata.location
-"""""""""""""""""
-
-Location that metadata about the input file will be stored. `FIELD` - Metadata about the file will be stored in a field in the value of the record. `HEADERS` - Metadata about the input file will be stored as headers on the record. `NONE` - no metadata about the input file will be stored.
-
-**Importance:** LOW
-
-**Type:** STRING
-
-**Default Value:** HEADERS
-
-**Validator:** Matches: ``NONE``, ``HEADERS``, ``FIELD``
 
 
 

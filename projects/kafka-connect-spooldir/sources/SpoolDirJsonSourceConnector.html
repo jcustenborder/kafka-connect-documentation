@@ -204,6 +204,10 @@
 </pre></div>
 </div>
 <p>This connector is used to <cite>stream &lt;https://en.wikipedia.org/wiki/JSON_Streaming&gt;</cite> JSON files from a directory while converting the data based on the schema supplied in the configuration.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">There are some caveats to running this connector with <cite>schema.generation.enabled = true</cite>. If schema generation is enabled the connector will start by reading one of the files that match <cite>input.file.pattern</cite> in the path specified by <cite>input.path</cite>. If there are no files when the connector starts or is restarted the connector will fail to start. If there are different fields in other files they will not be detected. The recommended path is to specify a schema that the files will be parsed with. This will ensure that data written by this connector to Kafka will be consistent across files that have inconsistent columns. For example if some files have an optional column that is not always included, create a schema that includes the column marked as optional.</p>
+</div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">To get a starting point for a schema you can use the following command to generate an all String schema. This will give you the basic structure of a schema. From there you can changes the types to match what you expect.</p>
@@ -212,6 +216,10 @@
 <span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>find target/kafka-connect-target/usr/share/kafka-connect/kafka-connect-spooldir -type f -name <span class="s1">&#39;*.jar&#39;</span> <span class="p">|</span> tr <span class="s1">&#39;\n&#39;</span> <span class="s1">&#39;:&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
 kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGenerator -t json -f src/test/resources/com/github/jcustenborder/kafka/connect/spooldir/json/FieldsMatch.data -c config/JsonExample.properties -i id
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you want to import JSON node by node in the file and do not care about schemas, do not use this connector with Schema Generation enabled. Take a look at the Schema Less Json Source Connector.</p>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Examples:</span></p>
@@ -418,24 +426,6 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 <p><strong>Importance:</strong> LOW</p>
 <p><strong>Type:</strong> STRING</p>
 <p><strong>Default Value:</strong> UTC</p>
-</div>
-</div>
-<div class="section" id="metadata">
-<h3>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="metadata-field">
-<h4>metadata.field<a class="headerlink" href="#metadata-field" title="Permalink to this headline">¶</a></h4>
-<p>The name of the field in the value where the metadata will be stored.</p>
-<p><strong>Importance:</strong> LOW</p>
-<p><strong>Type:</strong> STRING</p>
-<p><strong>Default Value:</strong> metadata</p>
-</div>
-<div class="section" id="metadata-location">
-<h4>metadata.location<a class="headerlink" href="#metadata-location" title="Permalink to this headline">¶</a></h4>
-<p>Location that metadata about the input file will be stored. <cite>FIELD</cite> - Metadata about the file will be stored in a field in the value of the record. <cite>HEADERS</cite> - Metadata about the input file will be stored as headers on the record. <cite>NONE</cite> - no metadata about the input file will be stored.</p>
-<p><strong>Importance:</strong> LOW</p>
-<p><strong>Type:</strong> STRING</p>
-<p><strong>Default Value:</strong> HEADERS</p>
-<p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">NONE</span></code>, <code class="docutils literal"><span class="pre">HEADERS</span></code>, <code class="docutils literal"><span class="pre">FIELD</span></code></p>
 </div>
 </div>
 </div>

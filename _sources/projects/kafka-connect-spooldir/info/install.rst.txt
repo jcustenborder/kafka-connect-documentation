@@ -8,7 +8,7 @@ Install
     :target: https://github.com/jcustenborder/kafka-connect-spooldir/releases
 
 .. image:: https://img.shields.io/maven-central/v/com.github.jcustenborder.kafka.connect/kafka-connect-spooldir.svg
-    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-spooldir%7C2.0.56%7Cjar
+    :target: https://search.maven.org/#artifactdetails%7Ccom.github.jcustenborder.kafka.connect%7Ckafka-connect-spooldir%7C2.0.57%7Cjar
 
 ^^^^^^^^^^^^^^^^
 RPM Installation
@@ -41,7 +41,7 @@ Maven Installation
     <dependency>
         <groupId>com.github.jcustenborder.kafka.connect</groupId>
         <artifactId>kafka-connect-spooldir</artifactId>
-        <version>2.0.56</version>
+        <version>2.0.57</version>
     </dependency>
 
 

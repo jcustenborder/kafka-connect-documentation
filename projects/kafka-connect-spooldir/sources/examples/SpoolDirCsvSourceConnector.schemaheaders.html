@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TSV input file &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>CSV with Headers as fields &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../../index.html"/>
         <link rel="up" title="CSV Source Connector" href="../SpoolDirCsvSourceConnector.html"/>
-        <link rel="next" title="Extended Log File Format Source Connector" href="../SpoolDirELFSourceConnector.html"/>
-        <link rel="prev" title="CSV with Headers as fields" href="SpoolDirCsvSourceConnector.schemaheaders.html"/> 
+        <link rel="next" title="TSV input file" href="SpoolDirCsvSourceConnector.tsv.html"/>
+        <link rel="prev" title="CSV with schema" href="SpoolDirCsvSourceConnector.schema.html"/> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
@@ -108,8 +108,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../SpoolDirBinaryFileSourceConnector.html">Binary File Source Connector</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../SpoolDirCsvSourceConnector.html">CSV Source Connector</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="SpoolDirCsvSourceConnector.schema.html">CSV with schema</a></li>
-<li class="toctree-l4"><a class="reference internal" href="SpoolDirCsvSourceConnector.schemaheaders.html">CSV with Headers as fields</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">TSV input file</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">CSV with Headers as fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpoolDirCsvSourceConnector.tsv.html">TSV input file</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../SpoolDirCsvSourceConnector.html#configuration">Configuration</a></li>
 </ul>
 </li>
@@ -183,13 +183,13 @@
         
           <li><a href="../SpoolDirCsvSourceConnector.html">CSV Source Connector</a> &raquo;</li>
         
-      <li>TSV input file</li>
+      <li>CSV with Headers as fields</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../../_sources/projects/kafka-connect-spooldir/sources/examples/SpoolDirCsvSourceConnector.tsv.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/projects/kafka-connect-spooldir/sources/examples/SpoolDirCsvSourceConnector.schemaheaders.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -202,9 +202,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tsv-input-file">
-<h1>TSV input file<a class="headerlink" href="#tsv-input-file" title="Permalink to this headline">¶</a></h1>
-<p>This example will read a tab separated file. This method is very similar to reading a standard CSV file.</p>
+  <div class="section" id="csv-with-headers-as-fields">
+<h1>CSV with Headers as fields<a class="headerlink" href="#csv-with-headers-as-fields" title="Permalink to this headline">¶</a></h1>
+<p>This example will use a transformation to copy data from the header(s) of the message to field(s) in the message.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The data for the following example is formatted as such.</p>
+</div>
+<p>id,first_name,last_name,email,gender,ip_address,last_login,account_balance,country,favorite_color
+1,Jack,Garcia,jgarcia0&#64;shop-pro.jp,Male,196.56.44.185,2015-09-30T15:29:03Z,347.77,IT,#4a2313</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Configuration</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -212,9 +218,13 @@
   <span class="nt">&quot;finished.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
   <span class="nt">&quot;input.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
   <span class="nt">&quot;error.path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;input.file.pattern&quot;</span> <span class="p">:</span> <span class="s2">&quot;^users\\d+\\.tsv&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;input.file.pattern&quot;</span> <span class="p">:</span> <span class="s2">&quot;^users\\d+\\.csv&quot;</span><span class="p">,</span>
   <span class="nt">&quot;topic&quot;</span> <span class="p">:</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;csv.separator.char&quot;</span> <span class="p">:</span> <span class="s2">&quot;11&quot;</span>
+  <span class="nt">&quot;key.schema&quot;</span> <span class="p">:</span> <span class="s2">&quot;{\n  \&quot;name\&quot; : \&quot;com.example.users.UserKey\&quot;,\n  \&quot;type\&quot; : \&quot;STRUCT\&quot;,\n  \&quot;isOptional\&quot; : false,\n  \&quot;fieldSchemas\&quot; : {\n    \&quot;id\&quot; : {\n      \&quot;type\&quot; : \&quot;INT64\&quot;,\n      \&quot;isOptional\&quot; : false\n    }\n  }\n}\n&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;value.schema&quot;</span> <span class="p">:</span> <span class="s2">&quot;{\n  \&quot;name\&quot; : \&quot;com.example.users.User\&quot;,\n  \&quot;type\&quot; : \&quot;STRUCT\&quot;,\n  \&quot;isOptional\&quot; : false,\n  \&quot;fieldSchemas\&quot; : {\n    \&quot;id\&quot; : {\n      \&quot;type\&quot; : \&quot;INT64\&quot;,\n      \&quot;isOptional\&quot; : false\n    },\n    \&quot;first_name\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;last_name\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;email\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;gender\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;ip_address\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;last_login\&quot; : {\n      \&quot;name\&quot; : \&quot;org.apache.kafka.connect.data.Timestamp\&quot;,\n      \&quot;type\&quot; : \&quot;INT64\&quot;,\n      \&quot;version\&quot; : 1,\n      \&quot;isOptional\&quot; : false\n    },\n    \&quot;account_balance\&quot; : {\n      \&quot;name\&quot; : \&quot;org.apache.kafka.connect.data.Decimal\&quot;,\n      \&quot;type\&quot; : \&quot;BYTES\&quot;,\n      \&quot;version\&quot; : 1,\n      \&quot;parameters\&quot; : {\n        \&quot;scale\&quot; : \&quot;2\&quot;\n      },\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;country\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    },\n    \&quot;favorite_color\&quot; : {\n      \&quot;type\&quot; : \&quot;STRING\&quot;,\n      \&quot;isOptional\&quot; : true\n    }\n  }\n}\n&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;transforms&quot;</span> <span class="p">:</span> <span class="s2">&quot;headerToField&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;transforms.headerToField.type&quot;</span> <span class="p">:</span> <span class="s2">&quot;com.github.jcustenborder.kafka.connect.transform.common.HeaderToField$Value&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;transforms.headerToField.header.mappings&quot;</span> <span class="p">:</span> <span class="s2">&quot;file.path:STRING:file_path,file.name:STRING:file_name,file.last.modified:INT64(Timestamp):file_last_modified&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -231,10 +241,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../SpoolDirELFSourceConnector.html" class="btn btn-neutral float-right" title="Extended Log File Format Source Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="SpoolDirCsvSourceConnector.tsv.html" class="btn btn-neutral float-right" title="TSV input file" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="SpoolDirCsvSourceConnector.schemaheaders.html" class="btn btn-neutral" title="CSV with Headers as fields" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="SpoolDirCsvSourceConnector.schema.html" class="btn btn-neutral" title="CSV with schema" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

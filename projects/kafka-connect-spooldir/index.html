@@ -204,6 +204,18 @@
 <p class="first admonition-title">Warning</p>
 <p class="last">Running these connectors with multiple tasks requires a shared volume across all of the Kafka Connect workers. Kafka Connect does not have a mechanism for synchronization of tasks. Because of this each task will select which file it will use the following algorithm <cite>hash(&lt;filename&gt;) % totalTasks == taskNumber</cite>. If you are not using a shared volume this could cause issues where files are not processed. Using more than one task could also affect the order that the data is written to Kafka.</p>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Each of the connectors in this plugin emit the following headers for each record written to kafka.</p>
+</div>
+<ul class="simple">
+<li><cite>file.path</cite> - The absolute path to the file ingested.</li>
+<li><cite>file.name</cite> - The name part of the file ingested.</li>
+<li><cite>file.name.without.extension</cite> - The file name without the extension part of the file.</li>
+<li><cite>file.last.modified</cite> - The last modified date of the file.</li>
+<li><cite>file.length</cite> - The size of the file in bytes.</li>
+<li><cite>file.offset</cite> - The offset for this piece of data within the file.</li>
+</ul>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">

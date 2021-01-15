@@ -11,6 +11,18 @@ The CSVRecordProcessor supports reading CSV or TSV files. It can convert a CSV o
     Running these connectors with multiple tasks requires a shared volume across all of the Kafka Connect workers. Kafka Connect does not have a mechanism for synchronization of tasks. Because of this each task will select which file it will use the following algorithm `hash(<filename>) % totalTasks == taskNumber`. If you are not using a shared volume this could cause issues where files are not processed. Using more than one task could also affect the order that the data is written to Kafka.
 
 
+.. NOTE::
+    Each of the connectors in this plugin emit the following headers for each record written to kafka. 
+
+* `file.path` - The absolute path to the file ingested.
+* `file.name` - The name part of the file ingested.
+* `file.name.without.extension` - The file name without the extension part of the file.
+* `file.last.modified` - The last modified date of the file.
+* `file.length` - The size of the file in bytes.
+* `file.offset` - The offset for this piece of data within the file.
+
+
+
 
 .. toctree::
     :hidden:

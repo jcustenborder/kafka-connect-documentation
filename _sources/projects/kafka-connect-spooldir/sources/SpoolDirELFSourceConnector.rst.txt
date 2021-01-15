@@ -287,40 +287,5 @@ Determines how the connector will set the timestamp for the [ConnectRecord](http
 
 
 
-^^^^^^^^
-Metadata
-^^^^^^^^
-
-
-""""""""""""""
-metadata.field
-""""""""""""""
-
-The name of the field in the value where the metadata will be stored.
-
-**Importance:** LOW
-
-**Type:** STRING
-
-**Default Value:** metadata
-
-
-
-"""""""""""""""""
-metadata.location
-"""""""""""""""""
-
-Location that metadata about the input file will be stored. `FIELD` - Metadata about the file will be stored in a field in the value of the record. `HEADERS` - Metadata about the input file will be stored as headers on the record. `NONE` - no metadata about the input file will be stored.
-
-**Importance:** LOW
-
-**Type:** STRING
-
-**Default Value:** HEADERS
-
-**Validator:** Matches: ``NONE``, ``HEADERS``, ``FIELD``
-
-
-
 
 

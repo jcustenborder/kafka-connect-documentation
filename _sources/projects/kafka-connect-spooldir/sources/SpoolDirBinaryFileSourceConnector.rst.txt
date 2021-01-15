@@ -18,6 +18,12 @@ This connector is used to read an entire file as a byte array write the data to 
 
 
 
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/SpoolDirBinaryFileSourceConnector.*
 
 -------------
 Configuration
@@ -286,41 +292,6 @@ Determines how the connector will set the timestamp for the [ConnectRecord](http
 **Default Value:** PROCESS_TIME
 
 **Validator:** Matches: ``FIELD``, ``FILE_TIME``, ``PROCESS_TIME``
-
-
-
-^^^^^^^^
-Metadata
-^^^^^^^^
-
-
-""""""""""""""
-metadata.field
-""""""""""""""
-
-The name of the field in the value where the metadata will be stored.
-
-**Importance:** LOW
-
-**Type:** STRING
-
-**Default Value:** metadata
-
-
-
-"""""""""""""""""
-metadata.location
-"""""""""""""""""
-
-Location that metadata about the input file will be stored. `FIELD` - Metadata about the file will be stored in a field in the value of the record. `HEADERS` - Metadata about the input file will be stored as headers on the record. `NONE` - no metadata about the input file will be stored.
-
-**Importance:** LOW
-
-**Type:** STRING
-
-**Default Value:** HEADERS
-
-**Validator:** Matches: ``NONE``, ``HEADERS``, ``FIELD``
 
 
 

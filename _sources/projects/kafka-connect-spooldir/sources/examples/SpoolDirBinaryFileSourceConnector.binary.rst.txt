@@ -1,0 +1,21 @@
+===========
+Binary File
+===========
+
+This file will read the entire file and write it to Kafka as a binary file.
+
+
+
+.. code-block:: json
+    :caption: Configuration
+
+    {
+      "connector.class" : "com.github.jcustenborder.kafka.connect.spooldir.SpoolDirBinaryFileSourceConnector",
+      "finished.path" : "/tmp",
+      "input.path" : "/tmp",
+      "error.path" : "/tmp",
+      "input.file.pattern" : "^users\\d+\\.bin$",
+      "topic" : "users"
+    }
+
+
