@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Binary File Source Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Avro Source Connector &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Spool Dir" href="../index.html"/>
-        <link rel="next" title="Binary File" href="examples/SpoolDirBinaryFileSourceConnector.binary.html"/>
-        <link rel="prev" title="Avro Source Connector" href="SpoolDirAvroSourceConnector.html"/> 
+        <link rel="next" title="Binary File Source Connector" href="SpoolDirBinaryFileSourceConnector.html"/>
+        <link rel="prev" title="Spool Dir" href="../index.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -105,13 +105,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/index.html">Simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/index.html">Apache Solr</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Spool Dir</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="SpoolDirAvroSourceConnector.html">Avro Source Connector</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Binary File Source Connector</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="examples/SpoolDirBinaryFileSourceConnector.binary.html">Binary File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="examples/SpoolDirBinaryFileSourceConnector.fromXML.html">Transform XML Files</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Avro Source Connector</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="SpoolDirBinaryFileSourceConnector.html">Binary File Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirCsvSourceConnector.html">CSV Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirELFSourceConnector.html">Extended Log File Format Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SpoolDirJsonSourceConnector.html">Json Source Connector</a></li>
@@ -181,13 +179,13 @@
         
           <li><a href="../index.html">Spool Dir</a> &raquo;</li>
         
-      <li>Binary File Source Connector</li>
+      <li>Avro Source Connector</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-spooldir/sources/SpoolDirBinaryFileSourceConnector.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-spooldir/sources/SpoolDirAvroSourceConnector.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -200,26 +198,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="binary-file-source-connector">
-<h1>Binary File Source Connector<a class="headerlink" href="#binary-file-source-connector" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.spooldir.SpoolDirBinaryFileSourceConnector
+  <div class="section" id="avro-source-connector">
+<h1>Avro Source Connector<a class="headerlink" href="#avro-source-connector" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.spooldir.SpoolDirAvroSourceConnector
 </pre></div>
 </div>
-<p>This connector is used to read an entire file as a byte array write the data to Kafka.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Large files will be read as a single byte array. This means that the process could run out of memory or try to send a message to Kafka that is greater than the max message size. If this happens an exception will be thrown.</p>
-</div>
+<p>This connector is used to read avro data files from the file system and write their contents to Kafka. The schema of the file is used to read the data and produce it to Kafka</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">The recommended converter to use is the ByteArrayConverter. Example: <cite>value.converter=org.apache.kafka.connect.storage.ByteArrayConverter</cite></p>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Examples:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="examples/SpoolDirBinaryFileSourceConnector.binary.html">Binary File</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/SpoolDirBinaryFileSourceConnector.fromXML.html">Transform XML Files</a></li>
-</ul>
+<p class="last">This connector has a dependency on the Confluent Schema Registry specifically kafka-connect-avro-converter. This dependency is not shipped along with the connector to ensure that there are not potential version mismatch issues. The easiest way to ensure this component is available is to use one of the Confluent packages or containers for deployment.</p>
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
@@ -371,10 +358,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="examples/SpoolDirBinaryFileSourceConnector.binary.html" class="btn btn-neutral float-right" title="Binary File" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="SpoolDirBinaryFileSourceConnector.html" class="btn btn-neutral float-right" title="Binary File Source Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="SpoolDirAvroSourceConnector.html" class="btn btn-neutral" title="Avro Source Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="Spool Dir" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

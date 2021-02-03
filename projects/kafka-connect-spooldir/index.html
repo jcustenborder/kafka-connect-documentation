@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
         <link rel="up" title="Projects" href="../../projects.html"/>
-        <link rel="next" title="Binary File Source Connector" href="sources/SpoolDirBinaryFileSourceConnector.html"/>
+        <link rel="next" title="Avro Source Connector" href="sources/SpoolDirAvroSourceConnector.html"/>
         <link rel="prev" title="Standard" href="../kafka-connect-solr/sinks/examples/HttpSolrSinkConnector.example.html"/> 
 
   
@@ -105,6 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-simulator/index.html">Simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-solr/index.html">Apache Solr</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Spool Dir</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sources/SpoolDirAvroSourceConnector.html">Avro Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sources/SpoolDirBinaryFileSourceConnector.html">Binary File Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sources/SpoolDirCsvSourceConnector.html">CSV Source Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sources/SpoolDirELFSourceConnector.html">Extended Log File Format Source Connector</a></li>
@@ -198,8 +199,7 @@
             
   <div class="section" id="spool-dir">
 <h1>Spool Dir<a class="headerlink" href="#spool-dir" title="Permalink to this headline">¶</a></h1>
-<p>This Kafka Connect connector provides the capability to watch a directory for files and read the data as new files are written to the input directory. Each of the records in the input file will be converted based on the user supplied schema.</p>
-<p>The CSVRecordProcessor supports reading CSV or TSV files. It can convert a CSV on the fly to the strongly typed Kafka Connect data types. It currently has support for all of the schema types and logical types that are supported in Kafka Connect. If you couple this with the Avro converter and Schema Registry by Confluent, you will be able to process CSV, Json, or TSV files to strongly typed Avro data in real time.</p>
+<p>This Kafka Connect connector provides the capability to watch a directory for files and read the data as new files are written to the input directory. Each of the records in the input file will be converted based on the user supplied schema. The connectors in this project handle all different kinds of use cases like ingesting json, csv, tsv, avro, or binary files.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Running these connectors with multiple tasks requires a shared volume across all of the Kafka Connect workers. Kafka Connect does not have a mechanism for synchronization of tasks. Because of this each task will select which file it will use the following algorithm <cite>hash(&lt;filename&gt;) % totalTasks == taskNumber</cite>. If you are not using a shared volume this could cause issues where files are not processed. Using more than one task could also affect the order that the data is written to Kafka.</p>
@@ -259,7 +259,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sources/SpoolDirBinaryFileSourceConnector.html" class="btn btn-neutral float-right" title="Binary File Source Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sources/SpoolDirAvroSourceConnector.html" class="btn btn-neutral float-right" title="Avro Source Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../kafka-connect-solr/sinks/examples/HttpSolrSinkConnector.example.html" class="btn btn-neutral" title="Standard" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
