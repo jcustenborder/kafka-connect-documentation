@@ -41,6 +41,34 @@ Url to connect to solr with.
 
 
 
+"""""""""""""""""""""""
+solr.connect.timeout.ms
+"""""""""""""""""""""""
+
+Set the connect timeout to the solr in ms.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 15000
+
+
+
+""""""""""""""""""""""
+solr.socket.timeout.ms
+""""""""""""""""""""""
+
+Set the solr read timeout on all sockets in ms.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 120000
+
+
+
 ^^^^^^^^^^^^^^
 Authentication
 ^^^^^^^^^^^^^^
