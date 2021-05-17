@@ -36,7 +36,7 @@ The regex to test the message with.
 
 **Type:** STRING
 
-**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.PatternValidator@4b477d05
+**Validator:** com.github.jcustenborder.kafka.connect.utils.config.validators.PatternValidator@25fa5c0c
 
 
 
