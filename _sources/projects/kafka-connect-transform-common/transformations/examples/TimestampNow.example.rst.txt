@@ -33,7 +33,7 @@ Change(s) in the output are emphasized if delta(s) are detected.
       "kafkaPartition" : 1,
       "key" : "",
       "value" : "",
-      "timestamp" : 1621280979458,
+      "timestamp" : 1621281800706,
       "timestampType" : "NO_TIMESTAMP_TYPE",
       "offset" : 1234123,
       "headers" : [ ]
