@@ -1,0 +1,171 @@
+=======================
+AdjustPrecisionAndScale
+=======================
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.AdjustPrecisionAndScale$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.AdjustPrecisionAndScale$Value
+
+
+This transformation is used to ensure that all decimal fields in a struct fall withinthe desired range.  Can set a max precision and max scale, as well as require a positive scale.
+
+
+.. NOTE::
+    The Confluent AvroConverter uses a default precision of 64 which can be too large for some database systems.
+
+
+
+
+-------------
+Configuration
+-------------
+^^^^^^^
+General
+^^^^^^^
+
+
+""""""""""""""
+precision.mode
+""""""""""""""
+
+Mode to use for precision modification:
+'none' (default): Perform no modification
+'undefined': Use provided precision when precision is undefined
+'max': Use provided precision as max precision
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** none
+
+**Validator:** [none, undefined, max]
+
+
+
+"""""""""""""""
+precision.value
+"""""""""""""""
+
+Precision to use for precision modification (default is 38).
+
+**Importance:** HIGH
+
+**Type:** INT
+
+**Default Value:** 38
+
+**Validator:** [1,...,127]
+
+
+
+""""""""""
+scale.mode
+""""""""""
+
+Mode to use for scale modification:
+'none' (default): Perform no modification
+'undefined': Use provided scale when scale (and precision) are undefined
+'max': Use provided scale as max scale, or when scale (and precision) are undefined
+
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** none
+
+**Validator:** [none, undefined, max]
+
+
+
+"""""""""""""""""""
+scale.negative.mode
+"""""""""""""""""""
+
+Mode for handling negative scale:
+'none' (default): Perform no modification
+'zero': Set negative scale to zero
+'value':  When scale is negative, set scale to provided value
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** none
+
+**Validator:** [none, zero, value]
+
+
+
+"""""""""""
+scale.value
+"""""""""""
+
+Scale to use for scale modification (default is 127).
+
+**Importance:** HIGH
+
+**Type:** INT
+
+**Default Value:** 127
+
+**Validator:** [0,...,127]
+
+
+
+"""""""""""""""
+scale.zero.mode
+"""""""""""""""
+
+Mode for handling zero scale:
+'none' (default): Perform no modification
+'value': When scale is zero, set scale to provided value
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** none
+
+**Validator:** [none, value]
+
+
+
+"""""""""""""""""""""""""
+precision.undefined.value
+"""""""""""""""""""""""""
+
+JDBC Source Connector schemas report undefined precision as 0;use this to specify another value to detect as 'undefined' precision.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 0
+
+
+
+"""""""""""""""""""""
+scale.undefined.value
+"""""""""""""""""""""
+
+JDBC Source Connectors report undefined scale as 127;use this to specify another value to detect as 'undefined' scale.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 127
+
+
+
+
+
