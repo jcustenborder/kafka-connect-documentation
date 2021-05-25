@@ -1,0 +1,152 @@
+===================
+VaultConfigProvider
+===================
+
+.. code-block:: text
+
+    com.github.jcustenborder.kafka.config.vault.VaultConfigProvider
+
+
+This config provider is used to retrieve configuration settings from a Hashicorp vault instance. Config providers are generic and can be used in any application that utilized the Kafka AbstractConfig class. 
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/VaultConfigProvider.*
+
+-------------
+Configuration
+-------------
+^^^^^^^
+General
+^^^^^^^
+
+
+"""""""""""""
+vault.address
+"""""""""""""
+
+Sets the address (URL) of the Vault server instance to which API calls should be sent. If no address is explicitly set, the object will look to the `VAULT_ADDR` If you do not supply it explicitly AND no environment variable value is found, then initialization may fail.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+""""""""""""""
+vault.login.by
+""""""""""""""
+
+The login method to use. `Token` - Authentication via the `token
+<https://www.vaultproject.io/docs/auth/token>`_. endpoint.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** Token
+
+
+
+""""""""""""""""""""""""
+vault.ssl.verify.enabled
+""""""""""""""""""""""""
+
+Flag to determine if the configProvider should verify the SSL Certificate of the Vault server. Outside of development this should never be enabled.
+
+**Importance:** HIGH
+
+**Type:** BOOLEAN
+
+**Default Value:** true
+
+
+
+"""""""""""
+vault.token
+"""""""""""
+
+Sets the token used to access Vault. If no token is explicitly set then the `VAULT_TOKEN` environment variable will be used. 
+
+**Importance:** HIGH
+
+**Type:** PASSWORD
+
+**Default Value:** [hidden]
+
+
+
+"""""""""""""""""
+vault.max.retries
+"""""""""""""""""
+
+The number of times that API operations will be retried when a failure occurs.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 5
+
+
+
+"""""""""""""""
+vault.namespace
+"""""""""""""""
+
+Sets a global namespace to the Vault server instance, if desired.
+
+**Importance:** LOW
+
+**Type:** STRING
+
+
+
+""""""""""""
+vault.prefix
+""""""""""""
+
+Sets a prefix that will be added to all paths. For example you can use `staging` or `production` and all of the calls to vault will be prefixed with that path. This allows the same configuration settings to be used across multiple environments.
+
+**Importance:** LOW
+
+**Type:** STRING
+
+
+
+"""""""""""""""""""""""
+vault.retry.interval.ms
+"""""""""""""""""""""""
+
+The number of milliseconds that the driver will wait in between retries.
+
+**Importance:** LOW
+
+**Type:** INT
+
+**Default Value:** 2000
+
+
+
+"""""""""""""""""""""""""""
+vault.secret.minimum.ttl.ms
+"""""""""""""""""""""""""""
+
+The minimum amount of time that a secret should be used. If a secret does not have a TTL associated with it, this setting allows you to override how often the config provider will check for updated secrets.
+
+**Importance:** LOW
+
+**Type:** LONG
+
+**Default Value:** 1000
+
+**Validator:** [1000,...]
+
+
+
+

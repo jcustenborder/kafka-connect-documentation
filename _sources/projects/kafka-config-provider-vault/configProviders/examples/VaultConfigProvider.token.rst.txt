@@ -1,0 +1,53 @@
+=====
+Token
+=====
+
+The following example shows authenticating to Vault via a Token.
+
+
+.. TIP::
+    Some of the settings of this config provider can be configured via environment variables. Take a look at the documentation to see which settings could be replaced by environment variables.
+
+
+
+--------------------
+Worker Configuration
+--------------------
+
+Add the following configuration to your Connect worker config file to enable this ConfigProvider to
+be used by connectors.
+
+
+.. code-block:: properties
+    :caption: Worker Configuration
+
+    #
+    #Tue May 25 17:36:30 UTC 2021
+    config.providers.vault.param.vault.token=sdifgnabdifgasbffvasdfasdfadf
+    config.providers.vault.class=com.github.jcustenborder.kafka.config.vault.VaultConfigProvider
+    config.providers.vault.param.vault.address=https\://vault.example.com
+    config.providers=vault
+    config.providers.vault.param.vault.login.by=Token
+
+
+
+
+
+
+
+-----------------------
+Connector Configuration
+-----------------------
+
+Add the following configurations to your connector configuration when you would like to retrieve
+a value from the config provider
+
+.. code-block:: properties
+    :caption: Connector Configuration
+
+    {
+      "username" : "${vault:secret/test/some/connector:username}",
+      "password" : "${vault:secret/test/some/connector:password}"
+    }
+
+
