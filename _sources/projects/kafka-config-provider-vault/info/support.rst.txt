@@ -8,7 +8,7 @@ Support
 .. image:: https://img.shields.io/github/issues-closed/jcustenborder/kafka-config-provider-vault.svg
     :target: https://github.com/jcustenborder/kafka-config-provider-vault/issues
 
-Issues for this project are currently managed on `github <https://github.com/jcustenborder/kafka-connect-vault/issues>`_. Please
+Issues for this project are currently managed on `github <https://github.com/jcustenborder/kafka-config-provider-vault/issues>`_. Please
 go there to report any issues you encounter.
 
 .. _create_an_issue:

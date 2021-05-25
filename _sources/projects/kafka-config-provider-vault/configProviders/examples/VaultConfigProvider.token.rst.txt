@@ -22,7 +22,7 @@ be used by connectors.
     :caption: Worker Configuration
 
     #
-    #Tue May 25 17:36:30 UTC 2021
+    #Tue May 25 17:58:12 UTC 2021
     config.providers.vault.param.vault.token=sdifgnabdifgasbffvasdfasdfadf
     config.providers.vault.class=com.github.jcustenborder.kafka.config.vault.VaultConfigProvider
     config.providers.vault.param.vault.address=https\://vault.example.com

@@ -1,6 +1,6 @@
-===========================================
-Com.github.jcustenborder.kafka.config.vault
-===========================================
+===============================
+Hashicorp Vault Config Provider
+===============================
 
 This plugin provides integration with Hashicorp Vault.
 
