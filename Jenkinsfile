@@ -22,7 +22,9 @@ def connectors = [
         'kafka-connect-transform-cobol':'jcustenborder/kafka-connect-transform-cobol/master',
         'kafka-connect-transform-fix':'jcustenborder/kafka-connect-transform-fix/master',
         'kafka-connect-transform-maxmind':'jcustenborder/kafka-connect-transform-maxmind/master',
-        'kafka-connect-transform-xml':'jcustenborder/kafka-connect-transform-xml/master'
+        'kafka-connect-transform-xml':'jcustenborder/kafka-connect-transform-xml/master',
+        
+        'kafka-config-provider-vault':'jcustenborder/kafka-config-provider-vault/master'
 ]
 
 properties([
