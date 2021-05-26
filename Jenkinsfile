@@ -24,7 +24,8 @@ def connectors = [
         'kafka-connect-transform-maxmind':'jcustenborder/kafka-connect-transform-maxmind/master',
         'kafka-connect-transform-xml':'jcustenborder/kafka-connect-transform-xml/master',
         
-        'kafka-config-provider-vault':'jcustenborder/kafka-config-provider-vault/master'
+        'kafka-config-provider-vault':'jcustenborder/kafka-config-provider-vault/master',
+        'kafka-config-provider-aws':'jcustenborder/kafka-config-provider-aws/master'
 ]
 
 properties([
