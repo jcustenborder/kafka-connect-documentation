@@ -25,7 +25,8 @@ def connectors = [
         'kafka-connect-transform-xml':'jcustenborder/kafka-connect-transform-xml/master',
         
         'kafka-config-provider-vault':'jcustenborder/kafka-config-provider-vault/master',
-        'kafka-config-provider-aws':'jcustenborder/kafka-config-provider-aws/master'
+        'kafka-config-provider-aws':'jcustenborder/kafka-config-provider-aws/master',
+        'kafka-config-provider-gcloud':'jcustenborder/kafka-config-provider-gcloud/master'
 ]
 
 properties([
