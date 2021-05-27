@@ -26,6 +26,7 @@ def connectors = [
         
         'kafka-config-provider-vault':'jcustenborder/kafka-config-provider-vault/master',
         'kafka-config-provider-aws':'jcustenborder/kafka-config-provider-aws/master',
+        'kafka-config-provider-azure':'jcustenborder/kafka-config-provider-azure/master',
         'kafka-config-provider-gcloud':'jcustenborder/kafka-config-provider-gcloud/master'
 ]
 
