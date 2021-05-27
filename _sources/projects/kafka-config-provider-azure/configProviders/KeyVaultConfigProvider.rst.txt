@@ -1,0 +1,254 @@
+======================
+KeyVaultConfigProvider
+======================
+
+.. code-block:: text
+
+    com.github.jcustenborder.kafka.config.azure.KeyVaultConfigProvider
+
+
+This config provider is used to retrieve secrets from the Microsoft Azure Key Vault service.
+
+
+.. TIP::
+    Config providers can be used with anything that supports the AbstractConfig base class that is shipped with Apache Kafka.
+
+
+------------
+Secret Value
+------------
+
+The value for the secret must be formatted as a JSON object. This allows multiple keys of data to be stored in a single secret. The name of the secret in Microsoft Azure Key Vault will correspond to the path that is requested by the config provider.
+
+.. code-block:: json
+    :caption: Example Secret Value
+
+    {
+      "username" : "db101",
+      "password" : "superSecretPassword"
+    }
+
+
+
+----------------
+Secret Retrieval
+----------------
+
+The ConfigProvider will use the name of the secret to build the request to the Key Vault service. This behavior can be overridden by setting `config.providers.keyVault.param.prefix=staging-` and requested the secret with `${keyVault:test-secret}`, the ConfigProvider will build a request for `staging-test-secret`. Some behaviors can be overridden by query string parameters. More than one query string parameter can be used. For example `${keyVault:test-secret?ttl=30000&version=1}` would return the secret named `test-secret` version `1` with a TTL of 30 seconds. After the TTL has expired the ConfigProvider will request an updated credential. If you're using this with Kafka Connect, your tasks will be reconfigured if one of the values have changed.
+
++-----------+------------------------------------------------+--------------------------------------------------------------------+------------------------------------------+
+| Parameter | Description                                    | Default                                                            | Example                                  |
++===========+================================================+====================================================================+==========================================+
+| ttl       | Used to override the TTL for the secret.       | Value specified by `config.providers.keyVault.param.secret.ttl.ms` | `${keyVault:test-secret?ttl=60000}`      |
++-----------+------------------------------------------------+--------------------------------------------------------------------+------------------------------------------+
+| version   | Used to override the version of the secret.    | latest                                                             | `${keyVault:test-secret?version=1}`      |
++-----------+------------------------------------------------+--------------------------------------------------------------------+------------------------------------------+
+
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/KeyVaultConfigProvider.*
+
+-------------
+Configuration
+-------------
+^^^^^^^
+General
+^^^^^^^
+
+
+"""""""""
+vault.url
+"""""""""
+
+The vault url to connect to. For example `https://example.vault.azure.net/`
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+"""""""""
+client.id
+"""""""""
+
+The client ID of the application.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+"""""""""""""""
+credential.type
+"""""""""""""""
+
+The type of credentials to use. `ClientCertificate` - Uses the ClientCertificateCredential., `ClientSecret` - Uses the ClientSecretCredential., `DefaultAzure` - Uses the DefaultAzureCredential., `UsernamePassword` - Uses the UsernamePasswordCredential.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** DefaultAzure
+
+**Validator:** Matches: ``DefaultAzure``, ``ClientSecret``, ``ClientCertificate``, ``UsernamePassword``
+
+
+
+"""""""""
+tenant.id
+"""""""""
+
+The tenant ID of the application.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+"""""""""""""
+secret.prefix
+"""""""""""""
+
+Sets a prefix that will be added to all paths. For example you can use `staging` or `production` and all of the calls to Secrets Manager will be prefixed with that path. This allows the same configuration settings to be used across multiple environments.
+
+**Importance:** LOW
+
+**Type:** STRING
+
+
+
+"""""""""""""
+secret.ttl.ms
+"""""""""""""
+
+The minimum amount of time that a secret should be used. After this TTL has expired Secrets Manager will be queried again in case there is an updated configuration.
+
+**Importance:** LOW
+
+**Type:** LONG
+
+**Default Value:** 300000
+
+**Validator:** [1000,...]
+
+
+
+^^^^^^^^^^^^^^^^^^
+Client Certificate
+^^^^^^^^^^^^^^^^^^
+
+
+"""""""""""""""""""""""
+client.certificate.path
+"""""""""""""""""""""""
+
+Location on the local filesystem for the client certificate that will be used to authenticate to Azure.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+"""""""""""""""""""""""""""""""
+client.certificate.pfx.password
+"""""""""""""""""""""""""""""""
+
+The password protecting the PFX file.
+
+**Importance:** HIGH
+
+**Type:** PASSWORD
+
+**Default Value:** [hidden]
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""
+client.certificate.send.certificate.chain.enabled
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+Flag to indicate if certificate chain should be sent as part of authentication request.
+
+**Importance:** HIGH
+
+**Type:** BOOLEAN
+
+
+
+"""""""""""""""""""""""
+client.certificate.type
+"""""""""""""""""""""""
+
+The type of encoding used on the file specified in `client.certificate.path`. `PEM` - Certificate is formatted using PEM encoding., `PFX` - Certificate is formatted using PFX encoding. `client.certificate.pfx.password` is required.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+**Default Value:** PEM
+
+**Validator:** Matches: ``PEM``, ``PFX``
+
+
+
+^^^^^^^^^^^^^
+Client Secret
+^^^^^^^^^^^^^
+
+
+"""""""""""""
+client.secret
+"""""""""""""
+
+The client secret for the authentication.
+
+**Importance:** HIGH
+
+**Type:** PASSWORD
+
+**Default Value:** [hidden]
+
+
+
+^^^^^^^^^^^^^^^^^^^^^
+Username and Password
+^^^^^^^^^^^^^^^^^^^^^
+
+
+""""""""
+password
+""""""""
+
+The password to authenticate with.
+
+**Importance:** HIGH
+
+**Type:** PASSWORD
+
+**Default Value:** [hidden]
+
+
+
+""""""""
+username
+""""""""
+
+The username to authenticate with.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+

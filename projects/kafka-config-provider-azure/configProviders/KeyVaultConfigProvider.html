@@ -1,0 +1,453 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>KeyVaultConfigProvider &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Microsoft Azure Key Vault Config Provider" href="../index.html"/>
+        <link rel="next" title="Client Certificate - PEM" href="examples/KeyVaultConfigProvider.ClientCertificatePEM.html"/>
+        <link rel="prev" title="Microsoft Azure Key Vault Config Provider" href="../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Kafka Connect Connectors
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../projects.html">Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-config-provider-aws/index.html">AWS Secrets Manager Config Provider</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Microsoft Azure Key Vault Config Provider</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">KeyVaultConfigProvider</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#secret-value">Secret Value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#secret-retrieval">Secret Retrieval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-config-provider-gcloud/index.html">Google Cloud Secrets Manager Config Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-config-provider-vault/index.html">Hashicorp Vault Config Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-aerospike/index.html">Aerospike</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-email/index.html">Email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-flume-avro/index.html">Flume Avro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-json-schema/index.html">Json Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-memcached/index.html">Memcached</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-opentsdb/index.html">Com.github.jcustenborder.kafka.connect.opentsdb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-redis/index.html">Redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-simulator/index.html">Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-solr/index.html">Apache Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/index.html">Spool Dir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-cobol/index.html">Cobol Copybook Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-common/index.html">Common Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/index.html">Maxmind Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-xml/index.html">Xml Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-twitter/index.html">Twitter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../configdef.type.html">ConfigDef.Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../schema.type.html">Schema Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Kafka Connect Connectors</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../projects.html">Projects</a> &raquo;</li>
+        
+          <li><a href="../index.html">Microsoft Azure Key Vault Config Provider</a> &raquo;</li>
+        
+      <li>KeyVaultConfigProvider</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/projects/kafka-config-provider-azure/configProviders/KeyVaultConfigProvider.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="keyvaultconfigprovider">
+<h1>KeyVaultConfigProvider<a class="headerlink" href="#keyvaultconfigprovider" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.config.azure.KeyVaultConfigProvider
+</pre></div>
+</div>
+<p>This config provider is used to retrieve secrets from the Microsoft Azure Key Vault service.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Config providers can be used with anything that supports the AbstractConfig base class that is shipped with Apache Kafka.</p>
+</div>
+<div class="section" id="secret-value">
+<h2>Secret Value<a class="headerlink" href="#secret-value" title="Permalink to this headline">¶</a></h2>
+<p>The value for the secret must be formatted as a JSON object. This allows multiple keys of data to be stored in a single secret. The name of the secret in Microsoft Azure Key Vault will correspond to the path that is requested by the config provider.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Example Secret Value</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;username&quot;</span> <span class="p">:</span> <span class="s2">&quot;db101&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;password&quot;</span> <span class="p">:</span> <span class="s2">&quot;superSecretPassword&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="secret-retrieval">
+<h2>Secret Retrieval<a class="headerlink" href="#secret-retrieval" title="Permalink to this headline">¶</a></h2>
+<p>The ConfigProvider will use the name of the secret to build the request to the Key Vault service. This behavior can be overridden by setting <cite>config.providers.keyVault.param.prefix=staging-</cite> and requested the secret with <cite>${keyVault:test-secret}</cite>, the ConfigProvider will build a request for <cite>staging-test-secret</cite>. Some behaviors can be overridden by query string parameters. More than one query string parameter can be used. For example <cite>${keyVault:test-secret?ttl=30000&amp;version=1}</cite> would return the secret named <cite>test-secret</cite> version <cite>1</cite> with a TTL of 30 seconds. After the TTL has expired the ConfigProvider will request an updated credential. If you’re using this with Kafka Connect, your tasks will be reconfigured if one of the values have changed.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="28%" />
+<col width="40%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+<th class="head">Default</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ttl</td>
+<td>Used to override the TTL for the secret.</td>
+<td>Value specified by <cite>config.providers.keyVault.param.secret.ttl.ms</cite></td>
+<td><cite>${keyVault:test-secret?ttl=60000}</cite></td>
+</tr>
+<tr class="row-odd"><td>version</td>
+<td>Used to override the version of the secret.</td>
+<td>latest</td>
+<td><cite>${keyVault:test-secret?version=1}</cite></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/KeyVaultConfigProvider.ClientCertificatePEM.html">Client Certificate - PEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/KeyVaultConfigProvider.ClientCertificatePFX.html">Client Certificate - PFX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/KeyVaultConfigProvider.ClientSecret.html">Client Secret</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/KeyVaultConfigProvider.DefaultAzure.html">Default</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/KeyVaultConfigProvider.UsernamePassword.html">Username and Password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/KeyVaultConfigProvider.staging.html">Staging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/KeyVaultConfigProvider.ttlOverride.html">TTL Override</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general">
+<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="vault-url">
+<h4>vault.url<a class="headerlink" href="#vault-url" title="Permalink to this headline">¶</a></h4>
+<p>The vault url to connect to. For example <cite>https://example.vault.azure.net/</cite></p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> STRING</p>
+</div>
+<div class="section" id="client-id">
+<h4>client.id<a class="headerlink" href="#client-id" title="Permalink to this headline">¶</a></h4>
+<p>The client ID of the application.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> STRING</p>
+</div>
+<div class="section" id="credential-type">
+<h4>credential.type<a class="headerlink" href="#credential-type" title="Permalink to this headline">¶</a></h4>
+<p>The type of credentials to use. <cite>ClientCertificate</cite> - Uses the ClientCertificateCredential., <cite>ClientSecret</cite> - Uses the ClientSecretCredential., <cite>DefaultAzure</cite> - Uses the DefaultAzureCredential., <cite>UsernamePassword</cite> - Uses the UsernamePasswordCredential.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> STRING</p>
+<p><strong>Default Value:</strong> DefaultAzure</p>
+<p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">DefaultAzure</span></code>, <code class="docutils literal"><span class="pre">ClientSecret</span></code>, <code class="docutils literal"><span class="pre">ClientCertificate</span></code>, <code class="docutils literal"><span class="pre">UsernamePassword</span></code></p>
+</div>
+<div class="section" id="tenant-id">
+<h4>tenant.id<a class="headerlink" href="#tenant-id" title="Permalink to this headline">¶</a></h4>
+<p>The tenant ID of the application.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> STRING</p>
+</div>
+<div class="section" id="secret-prefix">
+<h4>secret.prefix<a class="headerlink" href="#secret-prefix" title="Permalink to this headline">¶</a></h4>
+<p>Sets a prefix that will be added to all paths. For example you can use <cite>staging</cite> or <cite>production</cite> and all of the calls to Secrets Manager will be prefixed with that path. This allows the same configuration settings to be used across multiple environments.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> STRING</p>
+</div>
+<div class="section" id="secret-ttl-ms">
+<h4>secret.ttl.ms<a class="headerlink" href="#secret-ttl-ms" title="Permalink to this headline">¶</a></h4>
+<p>The minimum amount of time that a secret should be used. After this TTL has expired Secrets Manager will be queried again in case there is an updated configuration.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> LONG</p>
+<p><strong>Default Value:</strong> 300000</p>
+<p><strong>Validator:</strong> [1000,…]</p>
+</div>
+</div>
+<div class="section" id="client-certificate">
+<h3>Client Certificate<a class="headerlink" href="#client-certificate" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="client-certificate-path">
+<h4>client.certificate.path<a class="headerlink" href="#client-certificate-path" title="Permalink to this headline">¶</a></h4>
+<p>Location on the local filesystem for the client certificate that will be used to authenticate to Azure.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> STRING</p>
+</div>
+<div class="section" id="client-certificate-pfx-password">
+<h4>client.certificate.pfx.password<a class="headerlink" href="#client-certificate-pfx-password" title="Permalink to this headline">¶</a></h4>
+<p>The password protecting the PFX file.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> PASSWORD</p>
+<p><strong>Default Value:</strong> [hidden]</p>
+</div>
+<div class="section" id="client-certificate-send-certificate-chain-enabled">
+<h4>client.certificate.send.certificate.chain.enabled<a class="headerlink" href="#client-certificate-send-certificate-chain-enabled" title="Permalink to this headline">¶</a></h4>
+<p>Flag to indicate if certificate chain should be sent as part of authentication request.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> BOOLEAN</p>
+</div>
+<div class="section" id="client-certificate-type">
+<h4>client.certificate.type<a class="headerlink" href="#client-certificate-type" title="Permalink to this headline">¶</a></h4>
+<p>The type of encoding used on the file specified in <cite>client.certificate.path</cite>. <cite>PEM</cite> - Certificate is formatted using PEM encoding., <cite>PFX</cite> - Certificate is formatted using PFX encoding. <cite>client.certificate.pfx.password</cite> is required.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> STRING</p>
+<p><strong>Default Value:</strong> PEM</p>
+<p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">PEM</span></code>, <code class="docutils literal"><span class="pre">PFX</span></code></p>
+</div>
+</div>
+<div class="section" id="client-secret">
+<h3>Client Secret<a class="headerlink" href="#client-secret" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>client.secret<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>The client secret for the authentication.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> PASSWORD</p>
+<p><strong>Default Value:</strong> [hidden]</p>
+</div>
+</div>
+<div class="section" id="username-and-password">
+<h3>Username and Password<a class="headerlink" href="#username-and-password" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="password">
+<h4>password<a class="headerlink" href="#password" title="Permalink to this headline">¶</a></h4>
+<p>The password to authenticate with.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> PASSWORD</p>
+<p><strong>Default Value:</strong> [hidden]</p>
+</div>
+<div class="section" id="username">
+<h4>username<a class="headerlink" href="#username" title="Permalink to this headline">¶</a></h4>
+<p>The username to authenticate with.</p>
+<p><strong>Importance:</strong> HIGH</p>
+<p><strong>Type:</strong> STRING</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="examples/KeyVaultConfigProvider.ClientCertificatePEM.html" class="btn btn-neutral float-right" title="Client Certificate - PEM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Microsoft Azure Key Vault Config Provider" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Jeremy Custenborder.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-10128000-10', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>
