@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Twitter &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>SymbolEntity &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
-        <link rel="up" title="Twitter" href="../index.html"/>
-        <link rel="next" title="Schemas" href="../schemas.html"/>
-        <link rel="prev" title="Twitter" href="../index.html"/> 
+        <link rel="up" title="Schemas" href="../schemas.html"/>
+        <link rel="next" title="URLEntity" href="struct.com.github.jcustenborder.kafka.connect.twitter.URLEntity.html"/>
+        <link rel="prev" title="StatusKey" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusKey.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -115,11 +115,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-maxmind/index.html">Maxmind Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-xml/index.html">Xml Transformations</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Twitter</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Twitter</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sources/TwitterSourceConnector.html">Twitter</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../schemas.html">Schemas</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="int64.org.apache.kafka.connect.data.Timestamp.html">Timestamp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.html">ExtendedMediaEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.Variant.html">Variant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.GeoLocation.html">GeoLocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.HashtagEntity.html">HashtagEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.html">MediaEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.Size.html">Size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.Place.html">Place</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.Status.html">Status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNotice.html">StatusDeletionNotice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNoticeKey.html">StatusDeletionNoticeKey</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusKey.html">StatusKey</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SymbolEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.URLEntity.html">URLEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.User.html">User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct.com.github.jcustenborder.kafka.connect.twitter.UserMentionEntity.html">UserMentionEntity</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../schemas.html">Schemas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../index.html#installation">Installation</a></li>
 </ul>
 </li>
@@ -178,13 +193,15 @@
         
           <li><a href="../index.html">Twitter</a> &raquo;</li>
         
-      <li>Twitter</li>
+          <li><a href="../schemas.html">Schemas</a> &raquo;</li>
+        
+      <li>SymbolEntity</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-twitter/sources/TwitterSourceConnector.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-twitter/schemas/struct.com.github.jcustenborder.kafka.connect.twitter.SymbolEntity.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -197,88 +214,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="twitter">
-<h1>Twitter<a class="headerlink" href="#twitter" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnector
-</pre></div>
-</div>
-<p>This Twitter Source connector is used to pull data from Twitter in realtime.</p>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="general">
-<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="filter-keywords">
-<h4>filter.keywords<a class="headerlink" href="#filter-keywords" title="Permalink to this headline">¶</a></h4>
-<p>Twitter keywords to filter for.</p>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> LIST</p>
-</div>
-<div class="section" id="kafka-status-topic">
-<h4>kafka.status.topic<a class="headerlink" href="#kafka-status-topic" title="Permalink to this headline">¶</a></h4>
-<p>Kafka topic to write the statuses to.</p>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> STRING</p>
-</div>
-<div class="section" id="process-deletes">
-<h4>process.deletes<a class="headerlink" href="#process-deletes" title="Permalink to this headline">¶</a></h4>
-<p>Should this connector process deletes.</p>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> BOOLEAN</p>
-</div>
-<div class="section" id="twitter-oauth-accesstoken">
-<h4>twitter.oauth.accessToken<a class="headerlink" href="#twitter-oauth-accesstoken" title="Permalink to this headline">¶</a></h4>
-<p>OAuth access token</p>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> PASSWORD</p>
-</div>
-<div class="section" id="twitter-oauth-accesstokensecret">
-<h4>twitter.oauth.accessTokenSecret<a class="headerlink" href="#twitter-oauth-accesstokensecret" title="Permalink to this headline">¶</a></h4>
-<p>OAuth access token secret</p>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> PASSWORD</p>
-</div>
-<div class="section" id="twitter-oauth-consumerkey">
-<h4>twitter.oauth.consumerKey<a class="headerlink" href="#twitter-oauth-consumerkey" title="Permalink to this headline">¶</a></h4>
-<p>OAuth consumer key</p>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> PASSWORD</p>
-</div>
-<div class="section" id="twitter-oauth-consumersecret">
-<h4>twitter.oauth.consumerSecret<a class="headerlink" href="#twitter-oauth-consumersecret" title="Permalink to this headline">¶</a></h4>
-<p>OAuth consumer secret</p>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> PASSWORD</p>
-</div>
-<div class="section" id="filter-userids">
-<h4>filter.userIds<a class="headerlink" href="#filter-userids" title="Permalink to this headline">¶</a></h4>
-<p>Twitter user IDs to follow.</p>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> LIST</p>
-<p><strong>Validator:</strong> <a class="reference external" href="mailto:com&#46;github&#46;jcustenborder&#46;kafka&#46;connect&#46;twitter&#46;TwitterSourceConnectorConfig$UserIdValidator&#37;&#52;&#48;750f713e">com<span>&#46;</span>github<span>&#46;</span>jcustenborder<span>&#46;</span>kafka<span>&#46;</span>connect<span>&#46;</span>twitter<span>&#46;</span>TwitterSourceConnectorConfig$UserIdValidator<span>&#64;</span>750f713e</a></p>
-</div>
-<div class="section" id="queue-batch-size">
-<h4>queue.batch.size<a class="headerlink" href="#queue-batch-size" title="Permalink to this headline">¶</a></h4>
-<p>The number of records to return in a single batch.</p>
-<p><strong>Importance:</strong> LOW</p>
-<p><strong>Type:</strong> INT</p>
-<p><strong>Default Value:</strong> 100</p>
-<p><strong>Validator:</strong> [1,…]</p>
-</div>
-<div class="section" id="queue-empty-ms">
-<h4>queue.empty.ms<a class="headerlink" href="#queue-empty-ms" title="Permalink to this headline">¶</a></h4>
-<p>The amount of time to wait if there are no records in the queue.</p>
-<p><strong>Importance:</strong> LOW</p>
-<p><strong>Type:</strong> INT</p>
-<p><strong>Default Value:</strong> 100</p>
-<p><strong>Validator:</strong> [10,…]</p>
-</div>
-<div class="section" id="twitter-debug">
-<h4>twitter.debug<a class="headerlink" href="#twitter-debug" title="Permalink to this headline">¶</a></h4>
-<p>Flag to enable debug logging for the twitter api.</p>
-<p><strong>Importance:</strong> LOW</p>
-<p><strong>Type:</strong> BOOLEAN</p>
-</div>
-</div>
+  <div class="section" id="symbolentity">
+<span id="schema-com-github-jcustenborder-kafka-connect-twitter-symbolentity"></span><h1>SymbolEntity<a class="headerlink" href="#symbolentity" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="23%" />
+<col width="10%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Start</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>false</td>
+<td>Returns the index of the start character of the symbol.</td>
+</tr>
+<tr class="row-odd"><td>End</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-int32"><span class="std std-ref">INT32</span></a></td>
+<td>false</td>
+<td>Returns the index of the end character of the symbol.</td>
+</tr>
+<tr class="row-even"><td>Text</td>
+<td><a class="reference internal" href="../../../schema.type.html#schema-string"><span class="std std-ref">STRING</span></a></td>
+<td>false</td>
+<td>Returns the text of the entity</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -292,10 +263,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../schemas.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.twitter.URLEntity.html" class="btn btn-neutral float-right" title="URLEntity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Twitter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="struct.com.github.jcustenborder.kafka.connect.twitter.StatusKey.html" class="btn btn-neutral" title="StatusKey" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

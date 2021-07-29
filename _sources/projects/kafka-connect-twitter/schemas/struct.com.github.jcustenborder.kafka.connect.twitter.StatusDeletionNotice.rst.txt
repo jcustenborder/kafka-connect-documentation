@@ -1,0 +1,22 @@
+.. _schema-com-github-jcustenborder-kafka-connect-twitter-statusdeletionnotice:
+
+
+====================
+StatusDeletionNotice
+====================
+
+
+Message that is received when a status is deleted from Twitter.
+
+
+------
+Fields
+------
+
++----------+---------------------+----------+-------------+
+| Name     | Type                | Required | Description |
++==========+=====================+==========+=============+
+| StatusId | :ref:`schema-int64` | true     |             |
++----------+---------------------+----------+-------------+
+| UserId   | :ref:`schema-int64` | true     |             |
++----------+---------------------+----------+-------------+

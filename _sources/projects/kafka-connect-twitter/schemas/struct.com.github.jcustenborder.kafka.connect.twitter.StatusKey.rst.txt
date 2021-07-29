@@ -1,0 +1,20 @@
+.. _schema-com-github-jcustenborder-kafka-connect-twitter-statuskey:
+
+
+=========
+StatusKey
+=========
+
+
+Key for a twitter status.
+
+
+------
+Fields
+------
+
++------+---------------------+----------+-------------+
+| Name | Type                | Required | Description |
++======+=====================+==========+=============+
+| Id   | :ref:`schema-int64` | false    |             |
++------+---------------------+----------+-------------+

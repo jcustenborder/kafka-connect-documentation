@@ -1,0 +1,23 @@
+.. _schema-com-github-jcustenborder-kafka-connect-twitter-symbolentity:
+
+
+============
+SymbolEntity
+============
+
+
+
+
+------
+Fields
+------
+
++-------+----------------------+----------+---------------------------------------------------------+
+| Name  | Type                 | Required | Description                                             |
++=======+======================+==========+=========================================================+
+| Start | :ref:`schema-int32`  | false    | Returns the index of the start character of the symbol. |
++-------+----------------------+----------+---------------------------------------------------------+
+| End   | :ref:`schema-int32`  | false    | Returns the index of the end character of the symbol.   |
++-------+----------------------+----------+---------------------------------------------------------+
+| Text  | :ref:`schema-string` | false    | Returns the text of the entity                          |
++-------+----------------------+----------+---------------------------------------------------------+

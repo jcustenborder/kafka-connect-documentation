@@ -1,0 +1,29 @@
+.. _schema-com-github-jcustenborder-kafka-connect-twitter-usermentionentity:
+
+
+=================
+UserMentionEntity
+=================
+
+
+
+
+------
+Fields
+------
+
++------------+----------------------+----------+---------------------------------------------------------------+
+| Name       | Type                 | Required | Description                                                   |
++============+======================+==========+===============================================================+
+| Name       | :ref:`schema-string` | false    | Returns the name mentioned in the status.                     |
++------------+----------------------+----------+---------------------------------------------------------------+
+| Id         | :ref:`schema-int64`  | false    | Returns the user id mentioned in the status.                  |
++------------+----------------------+----------+---------------------------------------------------------------+
+| Text       | :ref:`schema-string` | false    | Returns the screen name mentioned in the status.              |
++------------+----------------------+----------+---------------------------------------------------------------+
+| ScreenName | :ref:`schema-string` | false    | Returns the screen name mentioned in the status.              |
++------------+----------------------+----------+---------------------------------------------------------------+
+| Start      | :ref:`schema-int32`  | false    | Returns the index of the start character of the user mention. |
++------------+----------------------+----------+---------------------------------------------------------------+
+| End        | :ref:`schema-int32`  | false    | Returns the index of the end character of the user mention.   |
++------------+----------------------+----------+---------------------------------------------------------------+

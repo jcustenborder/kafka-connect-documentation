@@ -6,19 +6,23 @@ Twitter
 
     com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnector
 
+
 This Twitter Source connector is used to pull data from Twitter in realtime.
 
 
 
 
--------
+-------------
+Configuration
+-------------
+^^^^^^^
 General
--------
+^^^^^^^
 
 
-^^^^^^^^^^^^^^^
+"""""""""""""""
 filter.keywords
-^^^^^^^^^^^^^^^
+"""""""""""""""
 
 Twitter keywords to filter for.
 
@@ -28,9 +32,9 @@ Twitter keywords to filter for.
 
 
 
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 kafka.status.topic
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
 Kafka topic to write the statuses to.
 
@@ -40,9 +44,9 @@ Kafka topic to write the statuses to.
 
 
 
-^^^^^^^^^^^^^^^
+"""""""""""""""
 process.deletes
-^^^^^^^^^^^^^^^
+"""""""""""""""
 
 Should this connector process deletes.
 
@@ -52,9 +56,9 @@ Should this connector process deletes.
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 twitter.oauth.accessToken
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 
 OAuth access token
 
@@ -64,9 +68,9 @@ OAuth access token
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""
 twitter.oauth.accessTokenSecret
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""
 
 OAuth access token secret
 
@@ -76,9 +80,9 @@ OAuth access token secret
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 twitter.oauth.consumerKey
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 
 OAuth consumer key
 
@@ -88,9 +92,9 @@ OAuth consumer key
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""
 twitter.oauth.consumerSecret
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""
 
 OAuth consumer secret
 
@@ -100,9 +104,9 @@ OAuth consumer secret
 
 
 
-^^^^^^^^^^^^^^
+""""""""""""""
 filter.userIds
-^^^^^^^^^^^^^^
+""""""""""""""
 
 Twitter user IDs to follow.
 
@@ -110,13 +114,13 @@ Twitter user IDs to follow.
 
 **Type:** LIST
 
-**Validator:** com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnectorConfig$UserIdValidator@5f79d076
+**Validator:** com.github.jcustenborder.kafka.connect.twitter.TwitterSourceConnectorConfig$UserIdValidator@750f713e
 
 
 
-^^^^^^^^^^^^^^^^
+""""""""""""""""
 queue.batch.size
-^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 The number of records to return in a single batch.
 
@@ -130,9 +134,9 @@ The number of records to return in a single batch.
 
 
 
-^^^^^^^^^^^^^^
+""""""""""""""
 queue.empty.ms
-^^^^^^^^^^^^^^
+""""""""""""""
 
 The amount of time to wait if there are no records in the queue.
 
@@ -146,16 +150,15 @@ The amount of time to wait if there are no records in the queue.
 
 
 
-^^^^^^^^^^^^^
+"""""""""""""
 twitter.debug
-^^^^^^^^^^^^^
+"""""""""""""
 
 Flag to enable debug logging for the twitter api.
 
 **Importance:** LOW
 
 **Type:** BOOLEAN
-
 
 
 

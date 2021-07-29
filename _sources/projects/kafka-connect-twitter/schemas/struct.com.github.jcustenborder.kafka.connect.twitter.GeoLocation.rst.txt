@@ -1,0 +1,22 @@
+.. _schema-com-github-jcustenborder-kafka-connect-twitter-geolocation:
+
+
+===========
+GeoLocation
+===========
+
+
+Returns The location that this tweet refers to if available.
+
+
+------
+Fields
+------
+
++-----------+-----------------------+----------+-------------------------------------------+
+| Name      | Type                  | Required | Description                               |
++===========+=======================+==========+===========================================+
+| Latitude  | :ref:`schema-float64` | true     | returns the latitude of the geo location  |
++-----------+-----------------------+----------+-------------------------------------------+
+| Longitude | :ref:`schema-float64` | true     | returns the longitude of the geo location |
++-----------+-----------------------+----------+-------------------------------------------+

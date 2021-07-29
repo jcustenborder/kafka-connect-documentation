@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Twitter &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>Schemas &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="Projects" href="../../projects.html"/>
-        <link rel="next" title="Twitter" href="sources/TwitterSourceConnector.html"/>
-        <link rel="prev" title="Books" href="../kafka-connect-transform-xml/transformations/examples/FromXml.books.html"/> 
+        <link rel="up" title="Twitter" href="index.html"/>
+        <link rel="next" title="Timestamp" href="schemas/int64.org.apache.kafka.connect.data.Timestamp.html"/>
+        <link rel="prev" title="Twitter" href="sources/TwitterSourceConnector.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -114,14 +114,28 @@
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-fix/index.html">FIX Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-maxmind/index.html">Maxmind Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kafka-connect-transform-xml/index.html">Xml Transformations</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Twitter</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Twitter</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="sources/TwitterSourceConnector.html">Twitter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="schemas.html">Schemas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#confluent-hub">Confluent Hub</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#manual-installation">Manual Installation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Schemas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="schemas/int64.org.apache.kafka.connect.data.Timestamp.html">Timestamp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.html">ExtendedMediaEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.ExtendedMediaEntity.Variant.html">Variant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.GeoLocation.html">GeoLocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.HashtagEntity.html">HashtagEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.html">MediaEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.MediaEntity.Size.html">Size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.Place.html">Place</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.Status.html">Status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNotice.html">StatusDeletionNotice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusDeletionNoticeKey.html">StatusDeletionNoticeKey</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.StatusKey.html">StatusKey</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.SymbolEntity.html">SymbolEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.URLEntity.html">URLEntity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.User.html">User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schemas/struct.com.github.jcustenborder.kafka.connect.twitter.UserMentionEntity.html">UserMentionEntity</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#installation">Installation</a></li>
 </ul>
 </li>
 </ul>
@@ -177,13 +191,15 @@
         
           <li><a href="../../projects.html">Projects</a> &raquo;</li>
         
-      <li>Twitter</li>
+          <li><a href="index.html">Twitter</a> &raquo;</li>
+        
+      <li>Schemas</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/projects/kafka-connect-twitter/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/projects/kafka-connect-twitter/schemas.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -196,41 +212,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="twitter">
-<h1>Twitter<a class="headerlink" href="#twitter" title="Permalink to this headline">¶</a></h1>
-<p>The Twitter plugin is used to pull data from Twitter and write it to Kafka.</p>
+  <div class="section" id="schemas">
+<h1>Schemas<a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>The preferred method of installation is to utilize the <a class="reference external" href="https://docs.confluent.io/current/connect/managing/confluent-hub/client.html">Confluent Hub Client</a>.</p>
-<div class="section" id="confluent-hub">
-<h3>Confluent Hub<a class="headerlink" href="#confluent-hub" title="Permalink to this headline">¶</a></h3>
-<p>The plugin is hosted on the <a class="reference external" href="https://www.confluent.io/hub/jcustenborder/kafka-connect-twitter">Confluent Hub</a>. Installation through the
-<a class="reference external" href="https://docs.confluent.io/current/connect/managing/confluent-hub/client.html">Confluent Hub Client</a> is simple. Use the following command line.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>confluent-hub install jcustenborder/kafka-connect-twitter:latest
-</pre></div>
-</div>
-</div>
-<div class="section" id="manual-installation">
-<h3>Manual Installation<a class="headerlink" href="#manual-installation" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li>Compile the source code with <cite>mvn clean package</cite></li>
-<li>Create a subdirectory called <cite>kafka-connect-twitter</cite> under the <cite>plugin.path</cite> on your connect worker.</li>
-<li>Extract the contents of the zip file from <cite>target/components/packages/</cite> to the directory you created in the previous step.</li>
-<li>Restart the connect worker.</li>
-</ol>
-</div>
 </div>
 </div>
 
@@ -244,10 +228,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sources/TwitterSourceConnector.html" class="btn btn-neutral float-right" title="Twitter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="schemas/int64.org.apache.kafka.connect.data.Timestamp.html" class="btn btn-neutral float-right" title="Timestamp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../kafka-connect-transform-xml/transformations/examples/FromXml.books.html" class="btn btn-neutral" title="Books" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sources/TwitterSourceConnector.html" class="btn btn-neutral" title="Twitter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

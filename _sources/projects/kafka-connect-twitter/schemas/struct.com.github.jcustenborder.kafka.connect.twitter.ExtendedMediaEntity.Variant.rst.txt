@@ -1,0 +1,23 @@
+.. _schema-com-github-jcustenborder-kafka-connect-twitter-extendedmediaentity-variant:
+
+
+=======
+Variant
+=======
+
+
+
+
+------
+Fields
+------
+
++-------------+----------------------+----------+-------------+
+| Name        | Type                 | Required | Description |
++=============+======================+==========+=============+
+| Url         | :ref:`schema-string` | false    |             |
++-------------+----------------------+----------+-------------+
+| Bitrate     | :ref:`schema-int32`  | false    |             |
++-------------+----------------------+----------+-------------+
+| ContentType | :ref:`schema-string` | false    |             |
++-------------+----------------------+----------+-------------+

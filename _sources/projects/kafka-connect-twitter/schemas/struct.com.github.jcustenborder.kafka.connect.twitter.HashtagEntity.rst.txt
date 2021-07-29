@@ -1,0 +1,23 @@
+.. _schema-com-github-jcustenborder-kafka-connect-twitter-hashtagentity:
+
+
+=============
+HashtagEntity
+=============
+
+
+
+
+------
+Fields
+------
+
++-------+----------------------+----------+----------------------------------------------------------+
+| Name  | Type                 | Required | Description                                              |
++=======+======================+==========+==========================================================+
+| Text  | :ref:`schema-string` | false    | Returns the text of the hashtag without #.               |
++-------+----------------------+----------+----------------------------------------------------------+
+| Start | :ref:`schema-int32`  | false    | Returns the index of the start character of the hashtag. |
++-------+----------------------+----------+----------------------------------------------------------+
+| End   | :ref:`schema-int32`  | false    | Returns the index of the end character of the hashtag.   |
++-------+----------------------+----------+----------------------------------------------------------+

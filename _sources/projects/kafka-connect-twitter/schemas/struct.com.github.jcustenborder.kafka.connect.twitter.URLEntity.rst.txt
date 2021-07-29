@@ -1,0 +1,29 @@
+.. _schema-com-github-jcustenborder-kafka-connect-twitter-urlentity:
+
+
+=========
+URLEntity
+=========
+
+
+
+
+------
+Fields
+------
+
++-------------+----------------------+----------+-----------------------------------------------------------------------------+
+| Name        | Type                 | Required | Description                                                                 |
++=============+======================+==========+=============================================================================+
+| URL         | :ref:`schema-string` | false    | Returns the URL mentioned in the tweet.                                     |
++-------------+----------------------+----------+-----------------------------------------------------------------------------+
+| Text        | :ref:`schema-string` | false    | Returns the URL mentioned in the tweet.                                     |
++-------------+----------------------+----------+-----------------------------------------------------------------------------+
+| ExpandedURL | :ref:`schema-string` | false    | Returns the expanded URL if mentioned URL is shorten.                       |
++-------------+----------------------+----------+-----------------------------------------------------------------------------+
+| Start       | :ref:`schema-int32`  | false    | Returns the index of the start character of the URL mentioned in the tweet. |
++-------------+----------------------+----------+-----------------------------------------------------------------------------+
+| End         | :ref:`schema-int32`  | false    | Returns the index of the end character of the URL mentioned in the tweet.   |
++-------------+----------------------+----------+-----------------------------------------------------------------------------+
+| DisplayURL  | :ref:`schema-string` | false    | Returns the display URL if mentioned URL is shorten.                        |
++-------------+----------------------+----------+-----------------------------------------------------------------------------+
