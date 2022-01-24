@@ -52,6 +52,11 @@ This plugin provides integration with the AWS Secrets Manager service.
 
     schemas
 
+------------
+Requirements
+------------
+
+This config provider requires access to AWS Secret Manager. Make sure the user has permission to `GetSecretValue` on AWS IAM.
 
 ------------
 Installation
