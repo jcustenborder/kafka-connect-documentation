@@ -285,6 +285,12 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 <p><strong>Default Value:</strong> ByName</p>
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">ByName</span></code></p>
 </div>
+<div class="section" id="cleanup-policy-maintain-relative-path">
+<h4>cleanup.policy.maintain.relative.path<a class="headerlink" href="#cleanup-policy-maintain-relative-path" title="Permalink to this headline">¶</a></h4>
+<p>If <cite>input.path.walk.recursively</cite> is enabled in combination with this flag being <cite>true</cite>, the walked sub-directories which contained files will be retained as-is under the <cite>input.path</cite>. The actual files within the sub-directories will moved (with a copy of the sub-dir structure) or deleted as per the <cite>cleanup.policy</cite> defined, but the parent sub-directory structure will remain.</p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> BOOLEAN</p>
+</div>
 <div class="section" id="file-buffer-size-bytes">
 <h4>file.buffer.size.bytes<a class="headerlink" href="#file-buffer-size-bytes" title="Permalink to this headline">¶</a></h4>
 <p>The size of buffer for the BufferedInputStream that will be used to interact with the file system.</p>
@@ -308,6 +314,12 @@ kafka-run-class com.github.jcustenborder.kafka.connect.spooldir.AbstractSchemaGe
 <p><strong>Type:</strong> LIST</p>
 <p><strong>Default Value:</strong> [NameAsc]</p>
 <p><strong>Validator:</strong> Matches: <code class="docutils literal"><span class="pre">NameAsc</span></code>, <code class="docutils literal"><span class="pre">NameDesc</span></code>, <code class="docutils literal"><span class="pre">LengthAsc</span></code>, <code class="docutils literal"><span class="pre">LengthDesc</span></code>, <code class="docutils literal"><span class="pre">LastModifiedAsc</span></code>, <code class="docutils literal"><span class="pre">LastModifiedDesc</span></code></p>
+</div>
+<div class="section" id="input-path-walk-recursively">
+<h4>input.path.walk.recursively<a class="headerlink" href="#input-path-walk-recursively" title="Permalink to this headline">¶</a></h4>
+<p>If enabled, any sub-directories dropped under <cite>input.path</cite> will be recursively walked looking for files matching the configured <cite>input.file.pattern</cite>. After processing is complete the discovered sub directory structure (as well as files within them) will handled according to the configured <cite>cleanup.policy</cite> (i.e. moved or deleted etc). For each discovered file, the walked sub-directory path will be set as a header named <cite>file.relative.path</cite></p>
+<p><strong>Importance:</strong> LOW</p>
+<p><strong>Type:</strong> BOOLEAN</p>
 </div>
 <div class="section" id="processing-file-extension">
 <h4>processing.file.extension<a class="headerlink" href="#processing-file-extension" title="Permalink to this headline">¶</a></h4>

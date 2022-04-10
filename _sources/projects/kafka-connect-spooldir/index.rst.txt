@@ -57,6 +57,14 @@ This Kafka Connect connector provides the capability to watch a directory for fi
 .. toctree::
     :hidden:
     :maxdepth: 1
+    :glob:
+
+    configProviders/*
+
+
+.. toctree::
+    :hidden:
+    :maxdepth: 1
 
     schemas
 
