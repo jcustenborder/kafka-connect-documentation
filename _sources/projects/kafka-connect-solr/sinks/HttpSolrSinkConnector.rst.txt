@@ -6,6 +6,7 @@ Standard Solr
 
     com.github.jcustenborder.kafka.connect.solr.HttpSolrSinkConnector
 
+
 This connector is used to connect to write directly to a Solr core.
 
 
@@ -158,7 +159,6 @@ Configures Solr UpdaterRequest for a commit within the requested number of milli
 **Type:** INT
 
 **Default Value:** -1
-
 
 
 

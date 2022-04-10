@@ -6,6 +6,7 @@ Cloud Solr
 
     com.github.jcustenborder.kafka.connect.solr.CloudSolrSinkConnector
 
+
 This connector is used to connect to `SolrCloud <https://cwiki.apache.org/confluence/display/solr/SolrCloud>`_ using the Zookeeper based configuration.
 
 
@@ -184,7 +185,6 @@ Configures Solr UpdaterRequest for a commit within the requested number of milli
 **Type:** INT
 
 **Default Value:** -1
-
 
 
 
