@@ -6,6 +6,7 @@ Redis Sink Connector
 
     com.github.jcustenborder.kafka.connect.redis.RedisSinkConnector
 
+
 The Redis Sink Connector is used to write data from Kafka to a Redis cache.
 
 
@@ -294,7 +295,6 @@ The SSL provider to use.
 **Default Value:** JDK
 
 **Validator:** Matches: ``OPENSSL``, ``JDK``
-
 
 
 
