@@ -1,0 +1,89 @@
+============
+ExtractXPath
+============
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.ExtractXPath$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.ExtractXPath$Value
+
+
+
+
+
+
+-------------
+Configuration
+-------------
+^^^^^^^
+General
+^^^^^^^
+
+
+"""""
+xpath
+"""""
+
+The XPath to apply to extract an element from the Document
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+"""""""""""
+input.field
+"""""""""""
+
+The input field containing the XML Document.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+""""""""""""
+output.field
+""""""""""""
+
+The output field where the XML element matching the XPath will be placed.
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+""""""""""""
+ns.namespace
+""""""""""""
+
+A comma separated list of Namespaces corresponding to the prefixes
+
+**Importance:** LOW
+
+**Type:** STRING
+
+
+
+"""""""""
+ns.prefix
+"""""""""
+
+A comma separated list of Namespace prefixes
+
+**Importance:** LOW
+
+**Type:** STRING
+
+
+
+

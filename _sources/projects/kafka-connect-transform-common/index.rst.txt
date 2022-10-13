@@ -42,6 +42,14 @@ This project contains common transformations for every day use cases with Kafka 
 .. toctree::
     :hidden:
     :maxdepth: 1
+    :glob:
+
+    configProviders/*
+
+
+.. toctree::
+    :hidden:
+    :maxdepth: 1
 
     schemas
 

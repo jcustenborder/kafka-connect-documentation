@@ -1,0 +1,24 @@
+==============
+LowerCaseTopic
+==============
+
+.. code-block:: text
+
+    com.github.jcustenborder.kafka.connect.transform.common.LowerCaseTopic
+
+
+This transformation is used to change a topic name to be all lower case.
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Examples:
+    :glob:
+
+    examples/LowerCaseTopic.*
+
+-------------
+Configuration
+-------------
+

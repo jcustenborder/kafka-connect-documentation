@@ -1,0 +1,93 @@
+================
+PatternMapString
+================
+
+.. code-block:: text
+    :caption: Manipulates the key of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.PatternMapString$Key
+
+
+.. code-block:: text
+    :caption: Manipulates the value of the message.
+
+    com.github.jcustenborder.kafka.connect.transform.common.PatternMapString$Value
+
+
+
+
+
+
+-------------
+Configuration
+-------------
+^^^^^^^
+General
+^^^^^^^
+
+
+"""""""""""""""
+dest.field.name
+"""""""""""""""
+
+The name of the output field, set to the same as 'src.field.name' to replace a field value
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+""""""""""""""
+src.field.name
+""""""""""""""
+
+The name of the input field
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+"""""""""""""
+value.pattern
+"""""""""""""
+
+RegEx pattern which will be replaced
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+"""""""""""""""""
+value.replacement
+"""""""""""""""""
+
+RegEx to generate output for each match
+
+**Importance:** HIGH
+
+**Type:** STRING
+
+
+
+"""""""""""""""""""
+value.pattern.flags
+"""""""""""""""""""
+
+
+
+**Importance:** LOW
+
+**Type:** LIST
+
+**Default Value:** [CASE_INSENSITIVE]
+
+**Validator:** [UNICODE_CHARACTER_CLASS, CANON_EQ, UNICODE_CASE, DOTALL, LITERAL, MULTILINE, COMMENTS, CASE_INSENSITIVE, UNIX_LINES]
+
+
+
+

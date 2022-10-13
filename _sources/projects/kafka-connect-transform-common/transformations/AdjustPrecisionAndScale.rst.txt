@@ -168,4 +168,3 @@ JDBC Source Connectors report undefined scale as 127;use this to specify another
 
 
 
-

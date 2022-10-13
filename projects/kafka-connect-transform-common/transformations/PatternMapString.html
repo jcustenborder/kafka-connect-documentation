@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>AdjustPrecisionAndScale &mdash; Kafka Connect Connectors 1.0 documentation</title>
+  <title>PatternMapString &mdash; Kafka Connect Connectors 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Kafka Connect Connectors 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Common Transformations" href="../index.html"/>
-        <link rel="next" title="BytesToString" href="BytesToString.html"/>
-        <link rel="prev" title="Common Transformations" href="../index.html"/> 
+        <link rel="next" title="PatternRename" href="PatternRename.html"/>
+        <link rel="prev" title="PatternFilter" href="PatternFilter.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -111,10 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-spooldir/index.html">Spool Dir</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../kafka-connect-transform-cobol/index.html">Cobol Copybook Transformations</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Common Transformations</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">AdjustPrecisionAndScale</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="AdjustPrecisionAndScale.html">AdjustPrecisionAndScale</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BytesToString.html">BytesToString</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ChangeCase.html">ChangeCase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ChangeTopicCase.html">ChangeTopicCase</a></li>
@@ -126,7 +123,10 @@
 <li class="toctree-l3"><a class="reference internal" href="LowerCaseTopic.html">LowerCaseTopic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="NormalizeSchema.html">NormalizeSchema</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PatternFilter.html">PatternFilter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PatternMapString.html">PatternMapString</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PatternMapString</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="PatternRename.html">PatternRename</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SchemaNameToTopic.html">SchemaNameToTopic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SetMaximumPrecision.html">SetMaximumPrecision</a></li>
@@ -198,13 +198,13 @@
         
           <li><a href="../index.html">Common Transformations</a> &raquo;</li>
         
-      <li>AdjustPrecisionAndScale</li>
+      <li>PatternMapString</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/projects/kafka-connect-transform-common/transformations/AdjustPrecisionAndScale.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/projects/kafka-connect-transform-common/transformations/PatternMapString.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -217,101 +217,54 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="adjustprecisionandscale">
-<h1>AdjustPrecisionAndScale<a class="headerlink" href="#adjustprecisionandscale" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="patternmapstring">
+<h1>PatternMapString<a class="headerlink" href="#patternmapstring" title="Permalink to this headline">¶</a></h1>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Manipulates the key of the message.</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.AdjustPrecisionAndScale$Key
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.PatternMapString$Key
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Manipulates the value of the message.</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
-<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.AdjustPrecisionAndScale$Value
+<div class="highlight-text"><div class="highlight"><pre><span></span>com.github.jcustenborder.kafka.connect.transform.common.PatternMapString$Value
 </pre></div>
 </div>
-</div>
-<p>This transformation is used to ensure that all decimal fields in a struct fall withinthe desired range.  Can set a max precision and max scale, as well as require a positive scale.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The Confluent AvroConverter uses a default precision of 64 which can be too large for some database systems.</p>
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="general">
 <h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="precision-mode">
-<h4>precision.mode<a class="headerlink" href="#precision-mode" title="Permalink to this headline">¶</a></h4>
-<p>Mode to use for precision modification:
-‘none’ (default): Perform no modification
-‘undefined’: Use provided precision when precision is undefined
-‘max’: Use provided precision as max precision</p>
+<div class="section" id="dest-field-name">
+<h4>dest.field.name<a class="headerlink" href="#dest-field-name" title="Permalink to this headline">¶</a></h4>
+<p>The name of the output field, set to the same as ‘src.field.name’ to replace a field value</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
-<p><strong>Default Value:</strong> none</p>
-<p><strong>Validator:</strong> [none, undefined, max]</p>
 </div>
-<div class="section" id="precision-value">
-<h4>precision.value<a class="headerlink" href="#precision-value" title="Permalink to this headline">¶</a></h4>
-<p>Precision to use for precision modification (default is 38).</p>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> INT</p>
-<p><strong>Default Value:</strong> 38</p>
-<p><strong>Validator:</strong> [1,…,127]</p>
-</div>
-<div class="section" id="scale-mode">
-<h4>scale.mode<a class="headerlink" href="#scale-mode" title="Permalink to this headline">¶</a></h4>
-<p>Mode to use for scale modification:
-‘none’ (default): Perform no modification
-‘undefined’: Use provided scale when scale (and precision) are undefined
-‘max’: Use provided scale as max scale, or when scale (and precision) are undefined</p>
+<div class="section" id="src-field-name">
+<h4>src.field.name<a class="headerlink" href="#src-field-name" title="Permalink to this headline">¶</a></h4>
+<p>The name of the input field</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
-<p><strong>Default Value:</strong> none</p>
-<p><strong>Validator:</strong> [none, undefined, max]</p>
 </div>
-<div class="section" id="scale-negative-mode">
-<h4>scale.negative.mode<a class="headerlink" href="#scale-negative-mode" title="Permalink to this headline">¶</a></h4>
-<p>Mode for handling negative scale:
-‘none’ (default): Perform no modification
-‘zero’: Set negative scale to zero
-‘value’:  When scale is negative, set scale to provided value</p>
+<div class="section" id="value-pattern">
+<h4>value.pattern<a class="headerlink" href="#value-pattern" title="Permalink to this headline">¶</a></h4>
+<p>RegEx pattern which will be replaced</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
-<p><strong>Default Value:</strong> none</p>
-<p><strong>Validator:</strong> [none, zero, value]</p>
 </div>
-<div class="section" id="scale-value">
-<h4>scale.value<a class="headerlink" href="#scale-value" title="Permalink to this headline">¶</a></h4>
-<p>Scale to use for scale modification (default is 127).</p>
-<p><strong>Importance:</strong> HIGH</p>
-<p><strong>Type:</strong> INT</p>
-<p><strong>Default Value:</strong> 127</p>
-<p><strong>Validator:</strong> [0,…,127]</p>
-</div>
-<div class="section" id="scale-zero-mode">
-<h4>scale.zero.mode<a class="headerlink" href="#scale-zero-mode" title="Permalink to this headline">¶</a></h4>
-<p>Mode for handling zero scale:
-‘none’ (default): Perform no modification
-‘value’: When scale is zero, set scale to provided value</p>
+<div class="section" id="value-replacement">
+<h4>value.replacement<a class="headerlink" href="#value-replacement" title="Permalink to this headline">¶</a></h4>
+<p>RegEx to generate output for each match</p>
 <p><strong>Importance:</strong> HIGH</p>
 <p><strong>Type:</strong> STRING</p>
-<p><strong>Default Value:</strong> none</p>
-<p><strong>Validator:</strong> [none, value]</p>
 </div>
-<div class="section" id="precision-undefined-value">
-<h4>precision.undefined.value<a class="headerlink" href="#precision-undefined-value" title="Permalink to this headline">¶</a></h4>
-<p>JDBC Source Connector schemas report undefined precision as 0;use this to specify another value to detect as ‘undefined’ precision.</p>
+<div class="section" id="value-pattern-flags">
+<h4>value.pattern.flags<a class="headerlink" href="#value-pattern-flags" title="Permalink to this headline">¶</a></h4>
 <p><strong>Importance:</strong> LOW</p>
-<p><strong>Type:</strong> INT</p>
-<p><strong>Default Value:</strong> 0</p>
-</div>
-<div class="section" id="scale-undefined-value">
-<h4>scale.undefined.value<a class="headerlink" href="#scale-undefined-value" title="Permalink to this headline">¶</a></h4>
-<p>JDBC Source Connectors report undefined scale as 127;use this to specify another value to detect as ‘undefined’ scale.</p>
-<p><strong>Importance:</strong> LOW</p>
-<p><strong>Type:</strong> INT</p>
-<p><strong>Default Value:</strong> 127</p>
+<p><strong>Type:</strong> LIST</p>
+<p><strong>Default Value:</strong> [CASE_INSENSITIVE]</p>
+<p><strong>Validator:</strong> [UNICODE_CHARACTER_CLASS, CANON_EQ, UNICODE_CASE, DOTALL, LITERAL, MULTILINE, COMMENTS, CASE_INSENSITIVE, UNIX_LINES]</p>
 </div>
 </div>
 </div>
@@ -327,10 +280,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="BytesToString.html" class="btn btn-neutral float-right" title="BytesToString" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="PatternRename.html" class="btn btn-neutral float-right" title="PatternRename" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Common Transformations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="PatternFilter.html" class="btn btn-neutral" title="PatternFilter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

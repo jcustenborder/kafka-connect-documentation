@@ -2,7 +2,7 @@
 Example
 =======
 
-This example replaces the timestamp on a record with the current timestamp.
+This example will change the topic name to be all lower case.
 
 
 
@@ -12,7 +12,7 @@ This example replaces the timestamp on a record with the current timestamp.
     
 
     {
-      "topic" : "test",
+      "topic" : "TestTopic",
       "kafkaPartition" : 1,
       "key" : "",
       "value" : "",
@@ -26,14 +26,14 @@ Change(s) in the output are emphasized if delta(s) are detected.
 
 .. code-block:: json
     :caption: Output
-    :emphasize-lines: 6
+    :emphasize-lines: 2
 
     {
-      "topic" : "test",
+      "topic" : "testtopic",
       "kafkaPartition" : 1,
       "key" : "",
       "value" : "",
-      "timestamp" : 1665683591817,
+      "timestamp" : 12341312,
       "timestampType" : "NO_TIMESTAMP_TYPE",
       "offset" : 1234123,
       "headers" : [ ]

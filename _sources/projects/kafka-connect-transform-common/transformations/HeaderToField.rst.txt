@@ -163,4 +163,3 @@ The mapping of the header to the field in the message. More than one mapping can
 
 
 
-

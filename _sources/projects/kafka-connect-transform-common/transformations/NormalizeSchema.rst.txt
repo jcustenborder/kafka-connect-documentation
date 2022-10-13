@@ -23,4 +23,3 @@ This transformation is used to convert older schema versions to the latest schem
 Configuration
 -------------
 
-
